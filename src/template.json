@@ -1,5 +1,5 @@
 {
-    "text": "Hello {name}, {message} das, {choice}",
+    "text": "Hello {name}, {message} das, {choice} {list} {name}",
     "placeholders": {
         "name": {
             "type": "text"
@@ -10,6 +10,14 @@
             "options":[
                 {"key": "1", "value": "one"},
                 {"key": "2", "value": "two"}
+            ]
+        },
+        "list": {
+            "type": "checkbox",
+            "options":[
+                {"key": "First"},
+                {"key": "Second", "value": "2nd"},
+                {"key": "Third"}                
             ]
         }
     }

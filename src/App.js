@@ -32,9 +32,43 @@ class RadioInput extends React.Component {
     return this.props.options.map((o, i) => (
       <div>
         <input type="radio" id={`${this.props.name}${i}`} name={this.props.name} value={o.value} onChange={this.handleChange} />
-        <label for={`${this.props.name}${i}`}>{o.key}</label>
+        <label htmlFor={`${this.props.name}${i}`}>{o.key}</label>
       </div>
     ));
+  }
+}
+
+class CheckboxInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {};
+  }
+
+  format(options, state) {
+    let values = options.map(o => state[o.key]).filter(v => v);
+    switch (values.length) {
+      case 0: return '';
+      case 1: return values[0];
+      default:
+        const last = values.pop();
+        return values.join(', ') + ' and ' + last;
+    }
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.checked ? e.target.value : '' },
+      () => this.props.onChange(this.props.name, this.format(this.props.options, this.state))
+    );
+  }
+
+  render() {
+    return this.props.options.map(o => (
+      <div>
+        <input type="checkbox" name={o.key} value={o.value || o.key} onChange={this.handleChange} />
+        {o.key}
+      </div>
+    ))
   }
 }
 
@@ -51,6 +85,8 @@ class InputCollection extends React.Component {
   render() {
     return Object.entries(template.placeholders).map(([key, value]) => {
       switch (value.type) {
+        case "checkbox":
+          return (<CheckboxInput name={key} options={value.options} onChange={this.handleChange} />)
         case "radio":
           return (<RadioInput name={key} options={value.options} onChange={this.handleChange} />)
         case "text":
