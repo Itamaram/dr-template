@@ -1,8 +1,9 @@
 {
-    "text": "Hello {name}, {pick} {message} das, {choice} {list} {name}",
+    "text": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list}",
     "placeholders": {
         "name": {
-            "type": "text"
+            "type": "text",
+            "display": "Name"
         },
         "message": {},
         "choice":{
@@ -22,6 +23,7 @@
         },
         "pick":{
             "type": "dropdown",
+            "display": "Fruit",
             "options":[
                 {"key": "Apple", "value": "apple"},
                 {"key": "Orange"},

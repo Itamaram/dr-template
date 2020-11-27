@@ -14,7 +14,12 @@ class TextInput extends React.Component {
   }
   render() {
     return (
-      <input type="text" onChange={this.handleChange}></input>
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor={`input-text-${this.props.name}`}>{this.props.config.display || this.props.name}</label>
+          <input type="text" className="form-control" onChange={this.handleChange} />
+        </div>
+      </div>
     );
   }
 }
@@ -29,12 +34,22 @@ class RadioInput extends React.Component {
     this.props.onChange(this.props.name, e.target.value);
   }
   render() {
-    return this.props.options.map((o, i) => (
-      <div>
-        <input type="radio" id={`${this.props.name}${i}`} name={this.props.name} value={o.value} onChange={this.handleChange} />
-        <label htmlFor={`${this.props.name}${i}`}>{o.key}</label>
+    const {options, display} = this.props.config;
+    return (
+      <div className="form-group">
+        <label>{display || this.props.name}</label>
+        {
+          options.map((o, i) => {
+            const id = `input-radio-${this.props.name}-${i}`;
+            return (
+              <div className="form-check">
+                <input className="form-check-input" type="radio" id={id} name={this.props.name} value={o.value} onChange={this.handleChange} />
+                <label className="form-check-label" htmlFor={id}>{o.key}</label>
+              </div>
+            )
+          })}
       </div>
-    ));
+    )
   }
 }
 
@@ -50,13 +65,20 @@ class DropdownInput extends React.Component {
   }
 
   render() {
+    const { options, display } = this.props.config;
     return (
-      <select onChange={this.handleChange}>
-        <option></option>
-        {
-          this.props.options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
-        }
-      </select>
+      <div className="form-row">
+        <div className="form-group">
+          <label>{display || this.props.name}</label>
+          <select onChange={this.handleChange} className="form-control">
+            <option></option>
+            {
+              options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
+            }
+          </select>
+
+        </div>
+      </div>
     )
   }
 }
@@ -81,17 +103,25 @@ class CheckboxInput extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.checked ? e.target.value : '' },
-      () => this.props.onChange(this.props.name, this.format(this.props.options, this.state))
+      () => this.props.onChange(this.props.name, this.format(this.props.config.options, this.state))
     );
   }
 
   render() {
-    return this.props.options.map(o => (
-      <div>
-        <input type="checkbox" name={o.key} value={o.value || o.key} onChange={this.handleChange} />
-        {o.key}
+    const {display, options} = this.props.config;
+    return (
+      <div className="form-group">
+      <label>{display || this.props.name}</label>
+        {
+          options.map(o => (
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox" name={o.key} value={o.value || o.key} onChange={this.handleChange} />
+              <label className="form-check-label">{o.key}</label>
+            </div>
+          ))
+        }
       </div>
-    ))
+    )
   }
 }
 
@@ -109,14 +139,14 @@ class InputCollection extends React.Component {
     return Object.entries(template.placeholders).map(([key, value]) => {
       switch (value.type) {
         case "checkbox":
-          return (<CheckboxInput name={key} options={value.options} onChange={this.handleChange} />)
+          return (<CheckboxInput name={key} config={value} onChange={this.handleChange} />)
         case "radio":
-          return (<RadioInput name={key} options={value.options} onChange={this.handleChange} />)
+          return (<RadioInput name={key} config={value} onChange={this.handleChange} />)
         case "dropdown":
-          return (<DropdownInput name={key} options={value.options} onChange={this.handleChange} />)
+          return (<DropdownInput name={key} config={value} onChange={this.handleChange} />)
         case "text":
         default:
-          return (<TextInput name={key} onChange={this.handleChange} />)
+          return (<TextInput name={key} config={value} onChange={this.handleChange} />)
       }
     });
   }
@@ -135,13 +165,13 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div class="row py-3">
-        <div class="col-3">
-          <div class="sticky-top">
+      <div className="row py-3">
+        <div className="col-3">
+          <div className="sticky-top">
             <InputCollection onChange={this.handleChange} />
           </div>
         </div>
-        <div class="col">
+        <div className="col">
           <TextResult placeholders={this.state} />
         </div>
       </div>
@@ -155,13 +185,13 @@ function TextResult(props) {
   }
 
   return (
-    <div>{interpolate(template.text, props.placeholders)}</div>
+    <textarea readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(template.text, props.placeholders)} />
   )
 }
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <Container />
     </div>
   );
