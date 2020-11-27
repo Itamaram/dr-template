@@ -135,9 +135,15 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div>
-        <InputCollection onChange={this.handleChange} />
-        <TextResult placeholders={this.state} />
+      <div class="row py-3">
+        <div class="col-3">
+          <div class="sticky-top">
+            <InputCollection onChange={this.handleChange} />
+          </div>
+        </div>
+        <div class="col">
+          <TextResult placeholders={this.state} />
+        </div>
       </div>
     )
   }
@@ -155,22 +161,8 @@ function TextResult(props) {
 
 function App() {
   return (
-    <div className="App">
+    <div class="container">
       <Container />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
