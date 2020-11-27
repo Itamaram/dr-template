@@ -1,0 +1,7 @@
+{
+    "text": "Hello {name}, {message}",
+    "placeholders": {
+        "name": {},
+        "message": {}
+    }
+}
