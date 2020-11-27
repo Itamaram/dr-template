@@ -1,7 +1,16 @@
 {
-    "text": "Hello {name}, {message}",
+    "text": "Hello {name}, {message} das, {choice}",
     "placeholders": {
-        "name": {},
-        "message": {}
+        "name": {
+            "type": "text"
+        },
+        "message": {},
+        "choice":{
+            "type": "radio",
+            "options":[
+                {"key": "1", "value": "one"},
+                {"key": "2", "value": "two"}
+            ]
+        }
     }
 }

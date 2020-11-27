@@ -19,6 +19,25 @@ class TextInput extends React.Component {
   }
 }
 
+class RadioInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.props.onChange(this.props.name, e.target.value);
+  }
+  render() {
+    return this.props.options.map((o, i) => (
+      <div>
+        <input type="radio" id={`${this.props.name}${i}`} name={this.props.name} value={o.value} onChange={this.handleChange} />
+        <label for={`${this.props.name}${i}`}>{o.key}</label>
+      </div>
+    ));
+  }
+}
+
 class InputCollection extends React.Component {
   constructor(props) {
     super(props);
@@ -30,9 +49,15 @@ class InputCollection extends React.Component {
   }
 
   render() {
-    return Object.entries(template.placeholders).map(([key, value]) =>
-      <TextInput name={key} onChange={this.handleChange} />
-    );
+    return Object.entries(template.placeholders).map(([key, value]) => {
+      switch (value.type) {
+        case "radio":
+          return (<RadioInput name={key} options={value.options} onChange={this.handleChange} />)
+        case "text":
+        default:
+          return (<TextInput name={key} onChange={this.handleChange} />)
+      }
+    });
   }
 }
 
@@ -44,7 +69,7 @@ class Container extends React.Component {
   }
 
   handleChange(key, value) {
-    this.setState({[key]: value});
+    this.setState({ [key]: value });
   }
 
   render() {
@@ -63,7 +88,7 @@ function TextResult(props) {
   }
 
   return (
-  <div>{interpolate(template.text, props.placeholders)}</div>
+    <div>{interpolate(template.text, props.placeholders)}</div>
   )
 }
 
