@@ -1,5 +1,5 @@
 {
-    "text": "Hello {name}, {message} das, {choice} {list} {name}",
+    "text": "Hello {name}, {pick} {message} das, {choice} {list} {name}",
     "placeholders": {
         "name": {
             "type": "text"
@@ -19,6 +19,15 @@
                 {"key": "Second", "value": "2nd"},
                 {"key": "Third"}                
             ]
+        },
+        "pick":{
+            "type": "dropdown",
+            "options":[
+                {"key": "Apple", "value": "apple"},
+                {"key": "Orange"},
+                {"key": "Banana"}
+            ]
         }
+        
     }
 }

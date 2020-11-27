@@ -38,6 +38,29 @@ class RadioInput extends React.Component {
   }
 }
 
+class DropdownInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {};
+  }
+
+  handleChange(e) {
+    this.props.onChange(this.props.name, e.target.value);
+  }
+
+  render() {
+    return (
+      <select onChange={this.handleChange}>
+        <option></option>
+        {
+          this.props.options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
+        }
+      </select>
+    )
+  }
+}
+
 class CheckboxInput extends React.Component {
   constructor(props) {
     super(props);
@@ -89,6 +112,8 @@ class InputCollection extends React.Component {
           return (<CheckboxInput name={key} options={value.options} onChange={this.handleChange} />)
         case "radio":
           return (<RadioInput name={key} options={value.options} onChange={this.handleChange} />)
+        case "dropdown":
+          return (<DropdownInput name={key} options={value.options} onChange={this.handleChange} />)
         case "text":
         default:
           return (<TextInput name={key} onChange={this.handleChange} />)
