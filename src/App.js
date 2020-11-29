@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import * as template from './template.json';
 import React from 'react'
+import { FormCheck, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
 class TextInput extends React.Component {
   constructor(props) {
@@ -14,12 +15,10 @@ class TextInput extends React.Component {
   }
   render() {
     return (
-      <div className="form-row">
-        <div className="form-group">
-          <label htmlFor={`input-text-${this.props.name}`}>{this.props.config.display || this.props.name}</label>
-          <input type="text" className="form-control" onChange={this.handleChange} />
-        </div>
-      </div>
+      <FormGroup>
+        <FormLabel>{this.props.config.display || this.props.name}</FormLabel>
+        <FormControl type="text" onChange={this.handleChange}></FormControl>
+      </FormGroup>
     );
   }
 }
@@ -34,21 +33,24 @@ class RadioInput extends React.Component {
     this.props.onChange(this.props.name, e.target.value);
   }
   render() {
-    const {options, display} = this.props.config;
+    const { options, display } = this.props.config;
     return (
-      <div className="form-group">
-        <label>{display || this.props.name}</label>
+      <FormGroup>
+        <FormLabel>{display || this.props.name}</FormLabel>
         {
           options.map((o, i) => {
             const id = `input-radio-${this.props.name}-${i}`;
             return (
-              <div className="form-check">
-                <input className="form-check-input" type="radio" id={id} name={this.props.name} value={o.value} onChange={this.handleChange} />
-                <label className="form-check-label" htmlFor={id}>{o.key}</label>
-              </div>
+              <FormCheck type="radio"
+                id={id}
+                name={this.props.name}
+                onChange={this.handleChange}
+                value={o.value}
+                label={o.key}
+              />
             )
           })}
-      </div>
+      </FormGroup>
     )
   }
 }
@@ -67,18 +69,15 @@ class DropdownInput extends React.Component {
   render() {
     const { options, display } = this.props.config;
     return (
-      <div className="form-row">
-        <div className="form-group">
-          <label>{display || this.props.name}</label>
-          <select onChange={this.handleChange} className="form-control">
-            <option></option>
-            {
-              options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
-            }
-          </select>
-
-        </div>
-      </div>
+      <FormGroup>
+        <FormLabel>{display || this.props.name}</FormLabel>
+        <FormControl as="select" onChange={this.handleChange}>
+          <option></option>
+          {
+            options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
+          }
+        </FormControl>
+      </FormGroup>
     )
   }
 }
@@ -108,19 +107,22 @@ class CheckboxInput extends React.Component {
   }
 
   render() {
-    const {display, options} = this.props.config;
+    const { display, options } = this.props.config;
     return (
-      <div className="form-group">
-      <label>{display || this.props.name}</label>
+      <FormGroup>
+        <FormLabel>{display || this.props.name}</FormLabel>
         {
           options.map(o => (
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" name={o.key} value={o.value || o.key} onChange={this.handleChange} />
-              <label className="form-check-label">{o.key}</label>
-            </div>
+            <FormCheck
+              type="checkbox"
+              name={o.key}
+              value={o.value || o.key}
+              onChange={this.handleChange}
+              label={o.key}
+            />
           ))
         }
-      </div>
+      </FormGroup>
     )
   }
 }
