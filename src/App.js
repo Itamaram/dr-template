@@ -11,6 +11,7 @@ const template = require('./template.json')
 
 const InputCollection = (props) => {
   return Object.entries(props.template.placeholders)
+    .filter(([_, definition]) => !definition.condition || props.values[definition.condition.field] === definition.condition.equals)
     .map(([key, value]) => {
       const current = props.values[key];
       const handler = (v) => props.onChange(key, v);

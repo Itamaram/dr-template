@@ -1,5 +1,5 @@
 {
-    "text": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list}",
+    "text": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
     "placeholders": {
         "name": {
             "type": "text",
@@ -24,7 +24,7 @@
             "display": "And then...",
             "condition": {
                 "field": "choice",
-                "equals": "one"
+                "equals": "1"
             }
         },
         "list": {
