@@ -11,16 +11,18 @@ const template = require('./template.json')
 
 const InputCollection = (props) => {
   return Object.entries(template.placeholders).map(([key, value]) => {
+    const handler = (v) => props.onChange(key, v);
+    const config = {name: key, ...value};
     switch (value.type) {
       case "checkbox":
-        return (<CheckboxInput name={key} config={value} onChange={props.onChange} />)
+        return (<CheckboxInput config={config} onChange={handler} />)
       case "radio":
-        return (<RadioInput name={key} config={value} onChange={props.onChange} />)
+        return (<RadioInput config={config} onChange={handler} />)
       case "dropdown":
-        return (<DropdownInput name={key} config={value} onChange={props.onChange} />)
+        return (<DropdownInput config={config} onChange={handler} />)
       case "text":
       default:
-        return (<TextInput name={key} config={value} onChange={props.onChange} />)
+        return (<TextInput config={config} onChange={handler} />)
     }
   });
 }

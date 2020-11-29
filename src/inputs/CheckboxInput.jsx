@@ -21,15 +21,15 @@ export default class CheckboxInput extends React.Component {
   
     handleChange(e) {
       this.setState({ [e.target.name]: e.target.checked ? e.target.value : '' },
-        () => this.props.onChange(this.props.name, this.format(this.props.config.options, this.state))
+        () => this.props.onChange(this.format(this.props.config.options, this.state))
       );
     }
   
     render() {
-      const { display, options } = this.props.config;
+      const { display, options, name } = this.props.config;
       return (
         <FormGroup>
-          <FormLabel>{display || this.props.name}</FormLabel>
+          <FormLabel>{display || name}</FormLabel>
           {
             options.map(o => (
               <FormCheck
