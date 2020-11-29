@@ -57,7 +57,7 @@ class Container extends React.Component {
 
 function TextResult(props) {
   function interpolate(text, placeholders) {
-    return text.replace(/{(.*?)}/g, (_, p1) => placeholders[p1] || "");
+    return text.replace(/{(.*?)}/g, (_, p1) => placeholders[p1] || "").replace(/  +/g, ' ').trim();
   }
 
   function compute(definitions, variables) {
