@@ -1,7 +1,9 @@
 import './App.css';
-import * as template from './template.json';
+//import * as template from './template.json';
 import React, { useState } from 'react'
 import { FormCheck, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+
+const template = require('./template.json')
 
 const TextInput = (props) => {
   return (
@@ -96,7 +98,7 @@ class CheckboxInput extends React.Component {
   }
 }
 
-const InputCollection = (props) =>{
+const InputCollection = (props) => {
   return Object.entries(template.placeholders).map(([key, value]) => {
     switch (value.type) {
       case "checkbox":
@@ -115,12 +117,7 @@ const InputCollection = (props) =>{
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = Object.keys(template).reduce((p, key) => Object.assign(p, { [key]: '' }), {});
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(key, value) {
-    this.setState({ [key]: value });
+    this.state = Object.keys(props.template).reduce((p, key) => Object.assign(p, { [key]: '' }), { template: props.template.text });
   }
 
   render() {
@@ -128,11 +125,13 @@ class Container extends React.Component {
       <div className="row py-3">
         <div className="col-3">
           <div className="sticky-top">
-            <InputCollection onChange={this.handleChange} />
+            <InputCollection onChange={(key, value) => this.setState({ [key]: value })} />
           </div>
         </div>
         <div className="col">
-          <TextResult placeholders={this.state} />
+          <TextResult placeholders={this.state} template={this.state.template} />
+          <hr />
+          <FormControl as="textarea" value={this.state.template} onChange={e => this.setState({ template: e.target.value })} />
         </div>
       </div>
     )
@@ -145,14 +144,14 @@ function TextResult(props) {
   }
 
   return (
-    <textarea readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(template.text, props.placeholders)} />
+    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(props.template, props.placeholders)} />
   )
 }
 
 function App() {
   return (
     <div className="container">
-      <Container />
+      <Container template={template} />
     </div>
   );
 }
