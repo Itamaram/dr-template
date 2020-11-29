@@ -6,7 +6,7 @@ export default function TextInput(props) {
     return (
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
-            <FormControl type="text" onChange={e => props.onChange(e.target.value)}></FormControl>
+            <FormControl value={props.value} type="text" onChange={e => props.onChange(e.target.value)} />
         </FormGroup>
     );
 }

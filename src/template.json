@@ -6,30 +6,57 @@
             "display": "Name"
         },
         "message": {},
-        "choice":{
+        "choice": {
             "type": "radio",
-            "options":[
-                {"key": "1", "value": "one"},
-                {"key": "2", "value": "two"}
+            "options": [
+                {
+                    "key": "1",
+                    "value": "one"
+                },
+                {
+                    "key": "2",
+                    "value": "two"
+                }
             ]
+        },
+        "conditional": {
+            "type": "text",
+            "display": "And then...",
+            "condition": {
+                "field": "choice",
+                "equals": "one"
+            }
         },
         "list": {
             "type": "checkbox",
-            "options":[
-                {"key": "First"},
-                {"key": "Second", "value": "2nd"},
-                {"key": "Third"}                
+            "options": [
+                {
+                    "key": "First"
+                },
+                {
+                    "key": "Second",
+                    "value": "2nd"
+                },
+                {
+                    "key": "Third"
+                }
             ]
         },
-        "pick":{
+        "pick": {
             "type": "dropdown",
             "display": "Fruit",
-            "options":[
-                {"key": "Apple", "value": "apple"},
-                {"key": "Orange"},
-                {"key": "Banana"}
+            "options": [
+                {
+                    "key": "Apple",
+                    "value": "apple"
+                },
+                {
+                    "key": "Orange"
+                },
+                {
+                    "key": "Banana"
+                }
             ]
         }
-        
     }
 }
