@@ -1,102 +1,13 @@
 import './App.css';
-//import * as template from './template.json';
-import React, { useState } from 'react'
-import { FormCheck, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+import React from 'react'
+import { FormControl } from 'react-bootstrap';
+
+import TextInput from './inputs/TextInput'
+import RadioInput from './inputs/RadioInput'
+import DropdownInput from './inputs/DropdownInput'
+import CheckboxInput from './inputs/CheckboxInput'
 
 const template = require('./template.json')
-
-const TextInput = (props) => {
-  return (
-    <FormGroup>
-      <FormLabel>{props.config.display || props.name}</FormLabel>
-      <FormControl type="text" onChange={e => props.onChange(props.name, e.target.value)}></FormControl>
-    </FormGroup>
-  );
-}
-
-const RadioInput = (props) => {
-  const [value, setValue] = useState();
-  const { options, display } = props.config;
-  return (
-    <FormGroup>
-      <FormLabel>{display || props.name}</FormLabel>
-      {
-        options.map((o, i) => {
-          const id = `input-radio-${props.name}-${i}`;
-          return (
-            <FormCheck type="radio"
-              id={id}
-              checked={value === o.value}
-              name={props.name}
-              onChange={() => { setValue(o.value); props.onChange(props.name, o.value) }}
-              value={o.value}
-              label={o.key}
-            />
-          )
-        })}
-    </FormGroup>
-  )
-}
-
-const DropdownInput = (props) => {
-  const { options, display } = props.config;
-  return (
-    <FormGroup>
-      <FormLabel>{display || props.name}</FormLabel>
-      <FormControl as="select" onChange={(e) => props.onChange(props.name, e.target.value)}>
-        <option></option>
-        {
-          options.map(o => (<option value={o.value || o.key}>{o.key}</option>))
-        }
-      </FormControl>
-    </FormGroup>
-  )
-}
-
-class CheckboxInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {};
-  }
-
-  format(options, state) {
-    let values = options.map(o => state[o.key]).filter(v => v);
-    switch (values.length) {
-      case 0: return '';
-      case 1: return values[0];
-      default:
-        const last = values.pop();
-        return values.join(', ') + ' and ' + last;
-    }
-  }
-
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.checked ? e.target.value : '' },
-      () => this.props.onChange(this.props.name, this.format(this.props.config.options, this.state))
-    );
-  }
-
-  render() {
-    const { display, options } = this.props.config;
-    return (
-      <FormGroup>
-        <FormLabel>{display || this.props.name}</FormLabel>
-        {
-          options.map(o => (
-            <FormCheck
-              type="checkbox"
-              name={o.key}
-              value={o.value || o.key}
-              onChange={this.handleChange}
-              label={o.key}
-            />
-          ))
-        }
-      </FormGroup>
-    )
-  }
-}
 
 const InputCollection = (props) => {
   return Object.entries(template.placeholders).map(([key, value]) => {
