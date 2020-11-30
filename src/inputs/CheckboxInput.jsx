@@ -3,12 +3,12 @@ import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
 export default function CheckboxInput(props) {
     const update = (box) => {
-        if(box.checked)
+        if (box.checked)
             return [...props.value, box.value];
         return props.value.filter(v => v !== box.value);
     }
     const { display, options, name } = props.config;
-    
+
     return (
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
@@ -21,6 +21,7 @@ export default function CheckboxInput(props) {
                         value={o.key}
                         onChange={e => props.onChange(update(e.target))}
                         label={o.key}
+                        key={o.key}
                     />
                 ))
             }

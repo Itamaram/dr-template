@@ -12,10 +12,11 @@ export default function RadioInput(props) {
                         <FormCheck type="radio"
                             id={`input-radio-${name}-${i}`}
                             name={name}
-                            onChange={() => {props.onChange(o.key) }}
+                            onChange={() => { props.onChange(o.key) }}
                             value={o.key}
                             label={o.key}
                             checked={props.value === o.key}
+                            key={o.key}
                         />
                     )
                 })}

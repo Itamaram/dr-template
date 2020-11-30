@@ -20,14 +20,14 @@ const InputCollection = (props) => {
       const config = { name: key, ...value };
       switch (value.type) {
         case "checkbox":
-          return <CheckboxInput config={config} value={current} onChange={handler} />;
+          return <CheckboxInput config={config} value={current} onChange={handler} key={key} />;
         case "radio":
-          return <RadioInput config={config} value={current} onChange={handler} />;
+          return <RadioInput config={config} value={current} onChange={handler} key={key} />;
         case "dropdown":
-          return <DropdownInput config={config} value={current} onChange={handler} />;
+          return <DropdownInput config={config} value={current} onChange={handler} key={key} />;
         case "text":
         default:
-          return <TextInput config={config} value={current} onChange={handler} />;
+          return <TextInput config={config} value={current} onChange={handler} key={key} />;
       }
     });
 }

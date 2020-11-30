@@ -6,9 +6,9 @@ export default function DropdownInput(props) {
     return (
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
-            <FormControl as="select" onChange={(e) => props.onChange(e.target.value)}>
+            <FormControl as="select" defaultValue={props.value} onChange={(e) => props.onChange(e.target.value)}>
                 {[{ key: '' }, ...options].map(o =>
-                    <option value={o.key} selected={props.value === o.key}>{o.key}</option>
+                    <option value={o.key} key={o.key}>{o.key}</option>
                 )}
             </FormControl>
         </FormGroup>
