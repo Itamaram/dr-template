@@ -2,16 +2,18 @@ import './App.css';
 import React from 'react'
 import { FormControl } from 'react-bootstrap';
 
-import TextInput from './inputs/TextInput'
-import RadioInput from './inputs/RadioInput'
-import DropdownInput from './inputs/DropdownInput'
-import CheckboxInput from './inputs/CheckboxInput'
+import TextInput from './inputs/TextInput';
+import RadioInput from './inputs/RadioInput';
+import DropdownInput from './inputs/DropdownInput';
+import CheckboxInput from './inputs/CheckboxInput';
+
+import assess from './conditions';
 
 const template = require('./template.json')
 
 const InputCollection = (props) => {
   return Object.entries(props.template.placeholders)
-    .filter(([_, definition]) => !definition.condition || props.values[definition.condition.field] === definition.condition.equals)
+    .filter(([_, definition]) => assess(definition.condition, props.values))
     .map(([key, value]) => {
       const current = props.values[key];
       const handler = (v) => props.onChange(key, v);
@@ -62,7 +64,7 @@ function TextResult(props) {
 
   function compute(definitions, variables) {
     return Object.entries(definitions)
-      .filter(([_, definition]) => !definition.condition || variables[definition.condition.field] === definition.condition.equals)
+      .filter(([_, definition]) => assess(definition.condition, variables))
       .map(([name, definition]) => {
         const value = variables[name];
         switch (definition.type) {
