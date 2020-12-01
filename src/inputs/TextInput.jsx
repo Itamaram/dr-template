@@ -10,3 +10,9 @@ export default function TextInput(props) {
         </FormGroup>
     );
 }
+
+export const handler = {
+    type: 'text',
+    seed: '',
+    format: (definition, value) => value
+}

@@ -8,8 +8,9 @@ import DropdownInput from './inputs/DropdownInput';
 import CheckboxInput from './inputs/CheckboxInput';
 
 import assess from './conditions';
+import handlers from './handlers';
 
-const template = require('./template.json')
+const template = require('./template.json');
 
 const InputCollection = (props) => {
   return Object.entries(props.template.placeholders)
@@ -36,7 +37,7 @@ class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = Object.entries(props.template.placeholders)
-      .reduce((p, [key, value]) => Object.assign(p, { [key]: value.type === 'checkbox' ? [] : '' }), { pattern: props.template.text });
+      .reduce((p, [key, value]) => Object.assign(p, { [key]: handlers[value.type].seed }), { pattern: props.template.text });
   }
 
   render() {
@@ -65,30 +66,8 @@ function TextResult(props) {
   function compute(definitions, variables) {
     return Object.entries(definitions)
       .filter(([_, definition]) => assess(definition.condition, variables))
-      .map(([name, definition]) => {
-        const value = variables[name];
-        switch (definition.type) {
-          case "checkbox":
-            const format = () => {
-              let values = definition.options.filter(o => value.includes(o.key)).map(o => o.value || o.key);
-              switch (values.length) {
-                case 0: return '';
-                case 1: return values[0];
-                default:
-                  const last = values.pop();
-                  return values.join(', ') + ' and ' + last;
-              }
-            }
-            return [name, format(value)];
-          case "radio":
-          case "dropdown":
-            const e = definition.options.filter(o => o.key === value)[0];
-            return [name, e?.value || e?.key];
-          case "text":
-          default:
-            return [name, value];
-        }
-      }).reduce((accum, [key, value]) => Object.assign(accum, { [key]: value }), {});
+      .map(([name, definition]) => [name, handlers[definition.type].format(definition, variables[name])])
+      .reduce((accum, [key, value]) => Object.assign(accum, { [key]: value }), {});
   }
 
   return (

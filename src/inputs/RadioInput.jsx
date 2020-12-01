@@ -23,3 +23,12 @@ export default function RadioInput(props) {
         </FormGroup>
     )
 }
+
+export const handler = {
+    type: 'radio',
+    seed: '',
+    format: function (definition, value) {
+        const e = definition.options.filter(o => o.key === value)[0];
+        return e?.value || e?.key;
+    }
+}

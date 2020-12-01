@@ -14,3 +14,12 @@ export default function DropdownInput(props) {
         </FormGroup>
     )
 }
+
+export const handler = {
+    type: 'dropdown',
+    seed: '',
+    format: function (definition, value) {
+        const e = definition.options.filter(o => o.key === value)[0];
+        return e?.value || e?.key;
+    }
+}

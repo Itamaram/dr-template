@@ -28,3 +28,18 @@ export default function CheckboxInput(props) {
         </FormGroup>
     )
 }
+
+export const handler = {
+    type: 'checkbox',
+    seed: [],
+    format: function(definition, value){
+        let values = definition.options.filter(o => value.includes(o.key)).map(o => o.value || o.key);
+        switch (values.length) {
+          case 0: return '';
+          case 1: return values[0];
+          default:
+            const last = values.pop();
+            return values.join(', ') + ' and ' + last;
+        }
+    }
+}
