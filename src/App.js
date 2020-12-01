@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { FormControl } from 'react-bootstrap';
+import { FormControl, Form } from 'react-bootstrap';
 
 import assess from './conditions';
 import handlers from './handlers';
@@ -8,8 +8,8 @@ import handlers from './handlers';
 const template = require('./template.json');
 
 const InputCollection = (props) => {
-  return Object.entries(props.template.placeholders)
-    .filter(([_, definition]) => assess(definition.condition, props.values))
+  return Object.entries(props.template.variables)
+    .filter(([_, variable]) => assess(variable.condition, props.values))
     .map(([key, value]) => {
       const current = props.values[key];
       const handler = (v) => props.onChange(key, v);
@@ -21,42 +21,52 @@ const InputCollection = (props) => {
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = Object.entries(props.template.placeholders)
-      .reduce((p, [key, value]) => Object.assign(p, { [key]: handlers[value.type].seed }), { pattern: props.template.text });
+    this.state = Object.entries(props.template.variables)
+      .reduce((p, [key, value]) => Object.assign(p, { [key]: handlers[value.type].seed }), { pattern: props.template.pattern });
   }
 
   render() {
     return (
-      <div className="row py-3">
-        <div className="col-3">
-          <div className="sticky-top">
-            <InputCollection template={this.props.template} values={this.state} onChange={(key, value) => this.setState({ [key]: value })} />
+      <>
+        <div className="row">
+          <Form className="col-12 pt-3">
+            <Form.Row>
+              <Form.Label className="col-2">Template:</Form.Label>
+              <FormControl as="select" className="col-10"></FormControl>
+            </Form.Row>
+          </Form>
+        </div>
+        <div className="row py-3">
+          <div className="col-3">
+            <div className="sticky-top">
+              <InputCollection template={this.props.template} values={this.state} onChange={(key, value) => this.setState({ [key]: value })} />
+            </div>
+          </div>
+          <div className="col">
+            <TextResult pattern={this.state.pattern} variables={this.props.template.variables} values={this.state} />
+            <hr />
+            <FormControl as="textarea" value={this.state.pattern} onChange={e => this.setState({ pattern: e.target.value })} />
           </div>
         </div>
-        <div className="col">
-          <TextResult pattern={this.state.pattern} definitions={this.props.template.placeholders} variables={this.state} />
-          <hr />
-          <FormControl as="textarea" value={this.state.pattern} onChange={e => this.setState({ pattern: e.target.value })} />
-        </div>
-      </div>
+      </>
     )
   }
 }
 
 function TextResult(props) {
-  function interpolate(text, placeholders) {
-    return text.replace(/{(.*?)}/g, (_, p1) => placeholders[p1] || "").replace(/  +/g, ' ').trim();
+  function interpolate(pattern, variables) {
+    return pattern.replace(/{(.*?)}/g, (_, p1) => variables[p1] || "").replace(/  +/g, ' ').trim();
   }
 
-  function compute(definitions, variables) {
-    return Object.entries(definitions)
-      .filter(([_, definition]) => assess(definition.condition, variables))
-      .map(([name, definition]) => [name, handlers[definition.type].format(definition, variables[name])])
+  function compute(variables, values) {
+    return Object.entries(variables)
+      .filter(([_, variable]) => assess(variable.condition, values))
+      .map(([name, variable]) => [name, handlers[variable.type].format(variable, values[name])])
       .reduce((accum, [key, value]) => Object.assign(accum, { [key]: value }), {});
   }
 
   return (
-    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(props.pattern, compute(props.definitions, props.variables))} />
+    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(props.pattern, compute(props.variables, props.values))} />
   )
 }
 

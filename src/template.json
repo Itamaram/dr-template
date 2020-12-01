@@ -1,6 +1,6 @@
 {
-    "text": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
-    "placeholders": {
+    "pattern": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
+    "variables": {
         "name": {
             "type": "text",
             "display": "Name"

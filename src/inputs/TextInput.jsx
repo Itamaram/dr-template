@@ -14,7 +14,7 @@ function TextInput(props) {
 export const handler = {
     type: 'text',
     seed: '',
-    format: (definition, value) => value,
+    format: (_, value) => value,
     input: function (config, current, handler, key) {
         return <TextInput config={config} value={current} onChange={handler} key={key} />;
     }

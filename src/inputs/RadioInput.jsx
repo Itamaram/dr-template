@@ -26,8 +26,8 @@ function RadioInput(props) {
 export const handler = {
     type: 'radio',
     seed: '',
-    format: function (definition, value) {
-        const e = definition.options.filter(o => o.key === value)[0];
+    format: function (variable, value) {
+        const e = variable.options.filter(o => o.key === value)[0];
         return e?.value || e?.key;
     },
     input: function (config, current, handler, key) {
