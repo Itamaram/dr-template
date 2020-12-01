@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
-export default function RadioInput(props) {
+function RadioInput(props) {
     const { options, display, name } = props.config;
     return (
         <FormGroup>
@@ -30,5 +30,8 @@ export const handler = {
     format: function (definition, value) {
         const e = definition.options.filter(o => o.key === value)[0];
         return e?.value || e?.key;
+    },
+    input: function (config, current, handler, key) {
+        return <RadioInput config={config} value={current} onChange={handler} key={key} />;
     }
 }

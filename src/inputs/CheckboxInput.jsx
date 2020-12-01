@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
-export default function CheckboxInput(props) {
+function CheckboxInput(props) {
     const update = (box) => {
         if (box.checked)
             return [...props.value, box.value];
@@ -32,14 +32,17 @@ export default function CheckboxInput(props) {
 export const handler = {
     type: 'checkbox',
     seed: [],
-    format: function(definition, value){
+    format: function (definition, value) {
         let values = definition.options.filter(o => value.includes(o.key)).map(o => o.value || o.key);
         switch (values.length) {
-          case 0: return '';
-          case 1: return values[0];
-          default:
-            const last = values.pop();
-            return values.join(', ') + ' and ' + last;
+            case 0: return '';
+            case 1: return values[0];
+            default:
+                const last = values.pop();
+                return values.join(', ') + ' and ' + last;
         }
+    },
+    input: function (config, current, handler, key) {
+        return <CheckboxInput config={config} value={current} onChange={handler} key={key} />;
     }
 }

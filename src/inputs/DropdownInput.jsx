@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
-export default function DropdownInput(props) {
+function DropdownInput(props) {
     const { options, display, name } = props.config;
     return (
         <FormGroup>
@@ -21,5 +21,8 @@ export const handler = {
     format: function (definition, value) {
         const e = definition.options.filter(o => o.key === value)[0];
         return e?.value || e?.key;
+    },
+    input: function (config, current, handler, key) {
+        return <DropdownInput config={config} value={current} onChange={handler} key={key} />;
     }
 }

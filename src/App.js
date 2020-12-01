@@ -2,11 +2,6 @@ import './App.css';
 import React from 'react'
 import { FormControl } from 'react-bootstrap';
 
-import TextInput from './inputs/TextInput';
-import RadioInput from './inputs/RadioInput';
-import DropdownInput from './inputs/DropdownInput';
-import CheckboxInput from './inputs/CheckboxInput';
-
 import assess from './conditions';
 import handlers from './handlers';
 
@@ -19,17 +14,7 @@ const InputCollection = (props) => {
       const current = props.values[key];
       const handler = (v) => props.onChange(key, v);
       const config = { name: key, ...value };
-      switch (value.type) {
-        case "checkbox":
-          return <CheckboxInput config={config} value={current} onChange={handler} key={key} />;
-        case "radio":
-          return <RadioInput config={config} value={current} onChange={handler} key={key} />;
-        case "dropdown":
-          return <DropdownInput config={config} value={current} onChange={handler} key={key} />;
-        case "text":
-        default:
-          return <TextInput config={config} value={current} onChange={handler} key={key} />;
-      }
+      return handlers[value.type].input(config, current, handler, key);
     });
 }
 
