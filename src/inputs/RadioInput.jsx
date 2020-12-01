@@ -7,10 +7,9 @@ function RadioInput(props) {
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
             {
-                options.map((o, i) => {
+                options.map(o => {
                     return (
                         <FormCheck type="radio"
-                            id={`input-radio-${name}-${i}`}
                             name={name}
                             onChange={() => { props.onChange(o.key) }}
                             value={o.key}
