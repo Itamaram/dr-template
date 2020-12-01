@@ -32,3 +32,4 @@ jobs:
         enabled-static-website: 'true'
         folder: 'build'
         connection-string: ${{ secrets.AZURE_BLOB_CONNECTION_STRING }}
+        remove-existing-files: 'true'
