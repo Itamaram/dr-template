@@ -7,17 +7,17 @@ function CheckboxInput(props) {
             return [...props.value, box.value];
         return props.value.filter(v => v !== box.value);
     }
-    const { display, options, name } = props.config;
+    const { display, options, placeholder } = props.config;
 
     return (
         <FormGroup>
-            <FormLabel>{display || name}</FormLabel>
+            <FormLabel>{display || placeholder}</FormLabel>
             {
                 options.map(o => (
                     <FormCheck
                         type="checkbox"
                         checked={props.value.includes(o.key)}
-                        name={name}
+                        name={placeholder}
                         value={o.key}
                         onChange={e => props.onChange(update(e.target))}
                         label={o.key}

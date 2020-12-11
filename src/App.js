@@ -5,7 +5,13 @@ import { FormControl, Form } from 'react-bootstrap';
 import assess from './conditions';
 import handlers from './handlers';
 
-const template = require('./template.json');
+const templates = require('./templates.json');
+
+const VariablesInput = ({ variables, values, onChange }) => {
+  return variables
+    .filter(v => assess(v.condition, values))
+    .map(v => handlers[v.type].input(v, values[v.placeholder], x => onChange(v.placeholder, x), v.placeholder))
+}
 
 const InputCollection = (props) => {
   return Object.entries(props.template.variables)
@@ -21,8 +27,8 @@ const InputCollection = (props) => {
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = Object.entries(props.template.variables)
-      .reduce((p, [key, value]) => Object.assign(p, { [key]: handlers[value.type].seed }), { pattern: props.template.pattern });
+    this.state = props.template.variables
+      .reduce((p, v) => Object.assign(p, { [v.placeholder]: handlers[v.type].seed }), { pattern: props.template.pattern });
   }
 
   render() {
@@ -39,7 +45,7 @@ class Container extends React.Component {
         <div className="row py-3">
           <div className="col-3">
             <div className="sticky-top">
-              <InputCollection template={this.props.template} values={this.state} onChange={(key, value) => this.setState({ [key]: value })} />
+              <VariablesInput variables={this.props.template.variables} values={this.state} onChange={(key, value) => this.setState({ [key]: value })} />
             </div>
           </div>
           <div className="col">
@@ -59,9 +65,9 @@ function TextResult(props) {
   }
 
   function compute(variables, values) {
-    return Object.entries(variables)
-      .filter(([_, variable]) => assess(variable.condition, values))
-      .map(([name, variable]) => [name, handlers[variable.type].format(variable, values[name])])
+    return variables
+      .filter(variable => assess(variable.condition, values))
+      .map(variable => [variable.placeholder, handlers[variable.type].format(variable, values[variable.placeholder])])
       .reduce((accum, [key, value]) => Object.assign(accum, { [key]: value }), {});
   }
 
@@ -73,7 +79,7 @@ function TextResult(props) {
 function App() {
   return (
     <div className="container">
-      <Container template={template} />
+      <Container template={templates[0]} />
     </div>
   );
 }

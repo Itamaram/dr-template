@@ -1,0 +1,69 @@
+[
+    {
+        "name": "Patient is about to die",
+        "pattern": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
+        "variables": [
+            {
+                "placeholder": "name",
+                "type": "text",
+                "display": "Name"
+            },
+            {
+                "placeholder": "choice",
+                "type": "radio",
+                "options": [
+                    {
+                        "key": "1",
+                        "value": "one"
+                    },
+                    {
+                        "key": "2",
+                        "value": "two"
+                    }
+                ]
+            },
+            {
+                "placeholder": "conditional",
+                "type": "text",
+                "display": "And then...",
+                "condition": {
+                    "field": "choice",
+                    "equals": "1"
+                }
+            },
+            {
+                "placeholder": "list",
+                "type": "checkbox",
+                "options": [
+                    {
+                        "key": "First"
+                    },
+                    {
+                        "key": "Second",
+                        "value": "2nd"
+                    },
+                    {
+                        "key": "Third"
+                    }
+                ]
+            },
+            {
+                "placeholder": "pick",
+                "type": "dropdown",
+                "display": "Fruit",
+                "options": [
+                    {
+                        "key": "Apple",
+                        "value": "apple"
+                    },
+                    {
+                        "key": "Orange"
+                    },
+                    {
+                        "key": "Banana"
+                    }
+                ]
+            }
+        ]
+    }
+]
