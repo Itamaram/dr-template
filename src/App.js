@@ -10,7 +10,7 @@ const templates = require('./templates.json');
 const VariablesInput = ({ variables, values, onChange }) => {
   return variables
     .filter(v => assess(v.definition.condition, values))
-    .map(({definition, handler}) => handler.input(definition, values[definition.placeholder], x => onChange(definition.placeholder, x), definition.placeholder))
+    .map(({ definition, handler }) => handler.input(definition, values[definition.placeholder], x => onChange(definition.placeholder, x), definition.placeholder))
 }
 
 class Container extends React.Component {
@@ -27,7 +27,7 @@ class Container extends React.Component {
     // seed values
     const values = variables
       .filter(v => v.definition.placeholder)
-      .reduce((p, v) => ({ [v.definition.placeholder]: v.handler.seed, ...p }), {});
+      .reduce((p, v) => Object.assign(p, { [v.definition.placeholder]: v.handler.seed }), {});
 
     return { variables, pattern, values };
   }
@@ -66,16 +66,11 @@ function TextResult(props) {
   }
 
   function compute(variables, values) {
-    let result = {};
-
-    for (const { definition, handler } of variables) {
-      if (!assess(definition.condition, values))
-        continue;
-
-      result[definition.placeholder] = handler.format(definition, values[definition.placeholder]);
-    }
-
-    return result;
+    return variables
+      .filter(({ definition }) => assess(definition.condition, values))
+      .reduce((result, { definition, handler }) => Object.assign(result,
+        { [definition.placeholder]: handler.format(definition, values[definition.placeholder]) }
+      ), {});
   }
 
   return (
