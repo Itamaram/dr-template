@@ -64,7 +64,7 @@ class Container extends React.Component {
 }
 
 function TextResult(props) {
-  function getText(pattern, variables, values) {
+  function getText({pattern, variables, values}) {
     return process(
       pattern,
       variables.filter(({ definition }) => assess(definition.condition, values)),
@@ -73,7 +73,7 @@ function TextResult(props) {
   }
 
   return (
-    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={getText(props.pattern, props.variables, props.values)} />
+    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={getText(props)} />
   )
 }
 
