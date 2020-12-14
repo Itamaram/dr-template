@@ -26,11 +26,13 @@ function RadioInput(props) {
 export const handler = {
     type: 'radio',
     seed: '',
-    format: function (variable, value) {
-        const e = variable.options.filter(o => o.key === value)[0];
-        return e?.value || e?.key;
-    },
     input: function (definition, current, handler, key) {
         return <RadioInput definition={definition} value={current} onChange={handler} key={key} />;
+    },
+    getValues: function (variable, value, mod) {
+        const e = variable.options.filter(o => o.key === value)[0];
+        // todo mod check here for conditional display
+        const result = e?.value || e?.key;
+        return result ? [result] : [];
     }
 }

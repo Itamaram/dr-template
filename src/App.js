@@ -5,6 +5,8 @@ import { FormControl, Form } from 'react-bootstrap';
 import assess from './conditions';
 import handlers from './handlers';
 
+import process from './pattern-processor'
+
 const templates = require('./templates.json');
 
 const VariablesInput = ({ variables, values, onChange }) => {
@@ -61,20 +63,16 @@ class Container extends React.Component {
 }
 
 function TextResult(props) {
-  function interpolate(pattern, variables) {
-    return pattern.replace(/{(.*?)}/g, (_, p1) => variables[p1] || "").replace(/  +/g, ' ').trim();
-  }
-
-  function compute(variables, values) {
-    return variables
-      .filter(({ definition }) => assess(definition.condition, values))
-      .reduce((result, { definition, handler }) => Object.assign(result,
-        { [definition.placeholder]: handler.format(definition, values[definition.placeholder]) }
-      ), {});
+  function getText(pattern, variables, values) {
+    return process(
+      pattern,
+      variables.filter(({ definition }) => assess(definition.condition, values)),
+      values
+    );
   }
 
   return (
-    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={interpolate(props.pattern, compute(props.variables, props.values))} />
+    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={getText(props.pattern, props.variables, props.values)} />
   )
 }
 

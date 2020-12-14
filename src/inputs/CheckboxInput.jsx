@@ -32,18 +32,12 @@ function CheckboxInput(props) {
 export const handler = {
     type: 'checkbox',
     seed: [],
-    format: function (variable, value) {
-        let values = variable.options.filter(o => value.includes(o.key)).map(o => o.value || o.key);
-        switch (values.length) {
-            case 0: return '';
-            case 1: return values[0];
-            default:
-                const last = values.pop();
-                return values.join(', ') + ' and ' + last;
-        }
-    },
     input: function (definition, current, handler, key) {
         return <CheckboxInput definition={definition} value={current} onChange={handler} key={key} />;
     },
-    evaluate: function (variable, values, mod) { }
+    getValues: function (variable, value, mod) {
+        return variable.options
+            .filter(o => value.includes(o.key))
+            .map(o => o.value || o.key);
+    }
 }
