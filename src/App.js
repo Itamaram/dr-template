@@ -6,14 +6,9 @@ import assess from './conditions';
 import handlers from './handlers';
 
 import process from './pattern-processor'
+import ControlsPane from './controls-pane';
 
 const templates = require('./templates.json');
-
-const VariablesInput = ({ variables, values, onChange }) => {
-  return variables
-    .filter(v => assess(v.definition.condition, values))
-    .map(({ definition, handler }) => handler.input(definition, values[definition.placeholder], x => onChange(definition.placeholder, x), definition.placeholder))
-}
 
 class Container extends React.Component {
   constructor(props) {
@@ -54,7 +49,7 @@ class Container extends React.Component {
         <div className="row py-3">
           <div className="col-3">
             <div className="sticky-top">
-              <VariablesInput variables={this.state.variables} values={this.state.values} onChange={(key, value) => this.setState({ values: Object.assign(this.state.values, { [key]: value }) })} />
+              <ControlsPane variables={this.state.variables} values={this.state.values} onChange={(key, value) => this.setState({ values: Object.assign(this.state.values, { [key]: value }) })} />
             </div>
           </div>
           <div className="col">
