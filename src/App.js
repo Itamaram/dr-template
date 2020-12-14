@@ -24,7 +24,7 @@ class Container extends React.Component {
     // seed values
     const values = variables
       .filter(v => v.definition.placeholder)
-      .reduce((p, v) => Object.assign(p, { [v.definition.placeholder]: v.handler.seed }), {});
+      .reduce((p, v) => Object.assign(p, { [v.definition.placeholder]: v.definition.default || v.handler.seed }), {});
 
     return { variables, pattern, values };
   }

@@ -17,7 +17,8 @@
             {
                 "placeholder": "name",
                 "type": "text",
-                "display": "Name"
+                "display": "Name",
+                "default": "Bob"
             },
             {
                 "placeholder": "choice",
@@ -60,7 +61,8 @@
                     {
                         "key": "Third"
                     }
-                ]
+                ],
+                "default": ["First", "Third"]
             },
             {
                 "placeholder": "pick",
