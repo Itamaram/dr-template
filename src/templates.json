@@ -34,6 +34,10 @@
                 ]
             },
             {
+                "type": "title",
+                "text": "This is a title"
+            },
+            {
                 "placeholder": "conditional",
                 "type": "text",
                 "display": "And then...",
