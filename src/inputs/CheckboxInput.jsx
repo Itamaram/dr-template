@@ -7,7 +7,7 @@ function CheckboxInput(props) {
             return [...props.value, box.value];
         return props.value.filter(v => v !== box.value);
     }
-    const { display, options, placeholder } = props.config;
+    const { display, options, placeholder } = props.definition;
 
     return (
         <FormGroup>
@@ -42,7 +42,8 @@ export const handler = {
                 return values.join(', ') + ' and ' + last;
         }
     },
-    input: function (config, current, handler, key) {
-        return <CheckboxInput config={config} value={current} onChange={handler} key={key} />;
-    }
+    input: function (definition, current, handler, key) {
+        return <CheckboxInput definition={definition} value={current} onChange={handler} key={key} />;
+    },
+    evaluate: function (variable, values, mod) { }
 }

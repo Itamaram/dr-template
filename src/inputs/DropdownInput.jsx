@@ -2,7 +2,7 @@ import React from 'react'
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
 function DropdownInput(props) {
-    const { options, display, name } = props.config;
+    const { options, display, name } = props.definition;
     return (
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
@@ -22,7 +22,7 @@ export const handler = {
         const e = variable.options.filter(o => o.key === value)[0];
         return e?.value || e?.key;
     },
-    input: function (config, current, handler, key) {
-        return <DropdownInput config={config} value={current} onChange={handler} key={key} />;
+    input: function (definition, current, handler, key) {
+        return <DropdownInput definition={definition} value={current} onChange={handler} key={key} />;
     }
 }

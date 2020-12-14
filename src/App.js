@@ -9,26 +9,27 @@ const templates = require('./templates.json');
 
 const VariablesInput = ({ variables, values, onChange }) => {
   return variables
-    .filter(v => assess(v.condition, values))
-    .map(v => handlers[v.type].input(v, values[v.placeholder], x => onChange(v.placeholder, x), v.placeholder))
-}
-
-const InputCollection = (props) => {
-  return Object.entries(props.template.variables)
-    .filter(([_, variable]) => assess(variable.condition, props.values))
-    .map(([key, value]) => {
-      const current = props.values[key];
-      const handler = (v) => props.onChange(key, v);
-      const config = { name: key, ...value };
-      return handlers[value.type].input(config, current, handler, key);
-    });
+    .filter(v => assess(v.definition.condition, values))
+    .map(({definition, handler}) => handler.input(definition, values[definition.placeholder], x => onChange(definition.placeholder, x), definition.placeholder))
 }
 
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.template.variables
-      .reduce((p, v) => Object.assign(p, { [v.placeholder]: handlers[v.type].seed }), { pattern: props.template.pattern });
+    this.state = this.processTemplate(props.template)
+  }
+
+  processTemplate(template) {
+    // hydrate variables with handlers
+    const variables = template.variables.map(v => ({ definition: v, handler: handlers[v.type] }));
+    // set pattern
+    const pattern = template.pattern;
+    // seed values
+    const values = variables
+      .filter(v => v.definition.placeholder)
+      .reduce((p, v) => ({ [v.definition.placeholder]: v.handler.seed, ...p }), {});
+
+    return { variables, pattern, values };
   }
 
   render() {
@@ -45,11 +46,11 @@ class Container extends React.Component {
         <div className="row py-3">
           <div className="col-3">
             <div className="sticky-top">
-              <VariablesInput variables={this.props.template.variables} values={this.state} onChange={(key, value) => this.setState({ [key]: value })} />
+              <VariablesInput variables={this.state.variables} values={this.state.values} onChange={(key, value) => this.setState({ values: Object.assign(this.state.values, { [key]: value }) })} />
             </div>
           </div>
           <div className="col">
-            <TextResult pattern={this.state.pattern} variables={this.props.template.variables} values={this.state} />
+            <TextResult pattern={this.state.pattern} variables={this.state.variables} values={this.state.values} />
             <hr />
             <FormControl as="textarea" value={this.state.pattern} onChange={e => this.setState({ pattern: e.target.value })} />
           </div>
@@ -65,10 +66,16 @@ function TextResult(props) {
   }
 
   function compute(variables, values) {
-    return variables
-      .filter(variable => assess(variable.condition, values))
-      .map(variable => [variable.placeholder, handlers[variable.type].format(variable, values[variable.placeholder])])
-      .reduce((accum, [key, value]) => Object.assign(accum, { [key]: value }), {});
+    let result = {};
+
+    for (const { definition, handler } of variables) {
+      if (!assess(definition.condition, values))
+        continue;
+
+      result[definition.placeholder] = handler.format(definition, values[definition.placeholder]);
+    }
+
+    return result;
   }
 
   return (

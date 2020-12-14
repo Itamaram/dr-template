@@ -2,7 +2,7 @@ import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
 function RadioInput(props) {
-    const { options, display, name } = props.config;
+    const { options, display, name } = props.definition;
     return (
         <FormGroup>
             <FormLabel>{display || name}</FormLabel>
@@ -30,7 +30,7 @@ export const handler = {
         const e = variable.options.filter(o => o.key === value)[0];
         return e?.value || e?.key;
     },
-    input: function (config, current, handler, key) {
-        return <RadioInput config={config} value={current} onChange={handler} key={key} />;
+    input: function (definition, current, handler, key) {
+        return <RadioInput definition={definition} value={current} onChange={handler} key={key} />;
     }
 }
