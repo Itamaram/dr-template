@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
-function CheckboxInput(props) {
+function CheckboxControl(props) {
     const update = (box) => {
         if (box.checked)
             return [...props.value, box.value];
@@ -32,8 +32,8 @@ function CheckboxInput(props) {
 export const handler = {
     type: 'checkbox',
     seed: [],
-    input: function (definition, current, handler, key) {
-        return <CheckboxInput definition={definition} value={current} onChange={handler} key={key} />;
+    render: function (definition, current, onChange) {
+        return <CheckboxControl definition={definition} value={current} onChange={onChange} key={definition.placeholder} />;
     },
     getValues: function (variable, value, mod) {
         return variable.options

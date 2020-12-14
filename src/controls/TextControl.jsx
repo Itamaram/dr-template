@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
-function TextInput(props) {
+function TextControl(props) {
     const { display, placeholder } = props.definition;
     return (
         <FormGroup>
@@ -14,8 +14,8 @@ function TextInput(props) {
 export const handler = {
     type: 'text',
     seed: '',
-    input: function (definition, current, handler, key) {
-        return <TextInput definition={definition} value={current} onChange={handler} key={key} />;
+    render: function (definition, current, onChange) {
+        return <TextControl definition={definition} value={current} onChange={onChange} key={definition.placeholder} />;
     },
     getValues: function (variable, value, mod) {
         return value ? [value] : [];
