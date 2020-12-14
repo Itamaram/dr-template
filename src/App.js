@@ -18,7 +18,7 @@ const VariablesInput = ({ variables, values, onChange }) => {
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.processTemplate(props.template)
+    this.state = { tindex: 0, ...this.processTemplate(templates[0]) };
   }
 
   processTemplate(template) {
@@ -41,7 +41,13 @@ class Container extends React.Component {
           <Form className="col-12 pt-3">
             <Form.Row>
               <Form.Label className="col-2">Template:</Form.Label>
-              <FormControl as="select" className="col-10"></FormControl>
+              <FormControl as="select" className="col-10" defaultValue={this.state.tindex}
+              onChange={e => this.setState({
+                tindex: e.target.value,
+                ...this.processTemplate(templates[e.target.value])
+              })}>
+                {templates.map((t, i) => <option value={i} key={i}>{t.name}</option>)}
+              </FormControl>
             </Form.Row>
           </Form>
         </div>
@@ -79,7 +85,7 @@ function TextResult(props) {
 function App() {
   return (
     <div className="container">
-      <Container template={templates[0]} />
+      <Container />
     </div>
   );
 }

@@ -1,5 +1,16 @@
 [
     {
+        "name": "Patient is okay",
+        "pattern": "Alright {name}, you're going to make it",
+        "variables": [
+            {
+                "placeholder": "name",
+                "type": "text",
+                "display": "Name"
+            }
+        ]
+    },
+    {
         "name": "Patient is about to die",
         "pattern": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
         "variables": [

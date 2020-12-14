@@ -17,7 +17,7 @@ export const handler = {
     input: function (definition, current, handler, key) {
         return <TextInput definition={definition} value={current} onChange={handler} key={key} />;
     },
-    getValues: function(variable, value, mod){
-        return value? [value] : [];
+    getValues: function (variable, value, mod) {
+        return value ? [value] : [];
     }
 }
