@@ -2,10 +2,10 @@ import React from 'react'
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
 function TextInput(props) {
-    const { display, name } = props.definition;
+    const { display, placeholder } = props.definition;
     return (
         <FormGroup>
-            <FormLabel>{display || name}</FormLabel>
+            <FormLabel>{display || placeholder}</FormLabel>
             <FormControl value={props.value} type="text" onChange={e => props.onChange(e.target.value)} />
         </FormGroup>
     );

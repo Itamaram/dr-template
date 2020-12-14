@@ -2,15 +2,15 @@ import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
 function RadioInput(props) {
-    const { options, display, name } = props.definition;
+    const { options, display, placeholder } = props.definition;
     return (
         <FormGroup>
-            <FormLabel>{display || name}</FormLabel>
+            <FormLabel>{display || placeholder}</FormLabel>
             {
                 options.map(o => {
                     return (
                         <FormCheck type="radio"
-                            name={name}
+                            name={placeholder}
                             onChange={() => { props.onChange(o.key) }}
                             value={o.key}
                             label={o.key}
@@ -31,7 +31,9 @@ export const handler = {
     },
     getValues: function (variable, value, mod) {
         const e = variable.options.filter(o => o.key === value)[0];
-        // todo mod check here for conditional display
+        if (mod && e?.key !== mod)
+            return [];
+
         const result = e?.value || e?.key;
         return result ? [result] : [];
     }
