@@ -2,7 +2,7 @@ import React from 'react'
 import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 
 function RadioControl(props) {
-    const { options, display, placeholder } = props.definition;
+    const { options, display, placeholder, inline } = props.definition;
     return (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
@@ -12,6 +12,7 @@ function RadioControl(props) {
                         <FormCheck type="radio"
                             name={placeholder}
                             onChange={() => { props.onChange(o.key) }}
+                            inline={inline}
                             value={o.key}
                             label={o.key}
                             checked={props.value === o.key}

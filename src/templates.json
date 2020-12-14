@@ -11,6 +11,55 @@
         ]
     },
     {
+        "name": "Bar Test",
+        "pattern": "{color|black,bool|false,answer|no}|{color|white, bool|true, answer|yes}",
+        "variables": [
+            {
+                "placeholder": "color",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "black",
+                        "value": "Black"
+                    },
+                    {
+                        "key": "white",
+                        "value": "White"
+                    }
+                ]
+            },
+            {
+                "placeholder": "bool",
+                "type": "radio",
+                "options": [
+                    {
+                        "key": "false",
+                        "value": "False"
+                    },
+                    {
+                        "key": "true",
+                        "value": "True"
+                    }
+                ]
+            },
+            {
+                "placeholder": "answer",
+                "type": "radio",
+                "options": [
+                    {
+                        "key": "no",
+                        "value": "No"
+                    },
+                    {
+                        "key": "yes",
+                        "value": "Yes"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "Patient is about to die",
         "pattern": "Dear patient {name}, you are about to die, take some {choice} and some {pick} and see me on the {list} {conditional}",
         "variables": [
@@ -62,7 +111,10 @@
                         "key": "Third"
                     }
                 ],
-                "default": ["First", "Third"]
+                "default": [
+                    "First",
+                    "Third"
+                ]
             },
             {
                 "placeholder": "pick",
