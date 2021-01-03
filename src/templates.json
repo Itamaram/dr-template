@@ -1,13 +1,970 @@
 [
     {
-        "name": "Patient is okay",
-        "pattern": "Alright {name}, you're going to make it",
+        "name": "Wound management",
+        "pattern": "Issues\r\n\r\n1)Wound care\r\n- Reports had wound for {duration}\r\n- Reports wound originally from {cause}\r\n- {presentation}{review_period}",
         "variables": [
             {
-                "placeholder": "name",
+                "placeholder": "duration",
                 "type": "text",
-                "display": "Name"
-            }
+                "display": "How long has had the wound"
+            },
+            {
+                "placeholder": "cause",
+                "type": "text",
+                "display": "Cause of wound"
+            },
+            {
+                "placeholder": "presentation",
+                "type": "radio",
+                "display": "Had treatment before?",
+                "inline": "true",               
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "Gets regular wound dressings and reviewes every "
+                    },
+                    {
+                        "key": "No",
+                        "value": "First time presenting for this wound"
+                    }
+                    ]                
+            },
+            {
+                "placeholder": "review_period",
+                "type": "text",
+                "display": "How often gets reivewed?",
+                "condition": {
+                    "field": "presentation",
+                    "equals": "Yes"
+                    } 
+            }            
+        ]
+    },
+    {
+        "name": "URTI",
+        "pattern": "Issues\r\n\r\n1){concern}\r\n- Reports for the last {number} {days/weeks} has had symptoms which include; {Rhinorrhea|Yes,Nasal congestion|Yes,Sinus pain side,Sore throat|Yes,Cough|Yes,Fever|Yes,Night sweats|Yes,Rigors|Yes,Headache|Yes,SOB|Yes,Chest pain|Yes}\r\n- Main reason for coming in today is {concern}\r\n- Reports symptoms have been {symptoms}\r\n- Denies {rhinorrhea|No,Nasal congestion|No,Sinus pain|No,Sore throat|No,Cough|No,Fever|No,Night sweats|No,Rigors|No,Headache|No,SOB|No,Chest pain|No}{sinusitis-specific-red-flags}\r\n- Reports {contact} contact who has also been sick with similar symptoms\r\n- {conservative} conservative management {conservative_follow}\r\n- {requesting}{requesting_what}\r\n- COVID testing {COVID}\r\n\r\nOn Physical Examination\r\nTemperature – {temp} {temp_exact}\r\nEars - (R) {Rear|NAD}{Rear-exam} (L) {Lear|NAD}{Lear-exam}\r\nThroat - {Throat|NAD}{Throat-erythema}{Throat-swelling}{Throat-swelling-side}{Throat-pus}{Throat-pus-side}{Sinuses}{Sinuses-location}{Sinuses-location-side}\r\nCervical lymphadenopathy - {cervical-lymph}\r\nChest - {chest}\r\n\r\nImpression\r\n{impression}{impression-other}\r\n\r\nPlan{plan-sinusitis}{plan}{sinusitis-specific-red-flags}{COVID-plan}",
+        "variables": [
+            {
+                "placeholder": "concern",
+                "type": "text",
+                "display": "Main presenting complaint"
+            },
+            {
+                "placeholder": "number",
+                "type": "text",
+                "display": "Duration of time unwell"                
+            },
+            {
+                "placeholder": "days/weeks",
+                "type": "radio",
+                "inline": "true",
+                "condition": {
+                    "field": "number",
+                    "not-equals": "1"
+                },                
+                "options": [
+                    {
+                        "key": "Days",
+                        "value": "days"
+                    },
+                    {
+                        "key": "Weeks",
+                        "value": "weeks"
+                    }
+                ]                
+            },
+            {
+                "placeholder": "days/weeks",
+                "type": "radio",
+                "inline": "true",
+                "condition": {
+                    "field": "number",
+                    "equals": "1"
+                },                
+                "options": [
+                    {
+                        "key": "Day",
+                        "value": "day"
+                    },
+                    {
+                        "key": "Week",
+                        "value": "week"
+                    }
+                ]                
+            },
+            {
+                "type": "title",
+                "text": "Symptoms"
+            },
+            {
+                "placeholder": "Rhinorrhea",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "rhinorrhoea"
+                    },
+                    {
+                        "key": "No",
+                        "value": "rhinorrhoea"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Nasal congestion",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "nasal congestion"
+                    },
+                    {
+                        "key": "No",
+                        "value": "nasal congestion"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            }, 
+            {
+                "placeholder": "Sinus pain",
+                "type": "radio",
+                "inline": "true",
+                "condition":
+                {
+                    "field": "Nasal congestion",
+                    "equals": "Yes"
+                },
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "sinus pain"
+                    },
+                    {
+                        "key": "No",
+                        "value": "sinus pain"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            }, 
+            {
+                "placeholder": "Sinus pain side",
+                "type": "radio",
+                "inline": "true",
+                "condition":
+                {
+                    "field": "Sinus pain",
+                    "equals": "Yes"
+                },
+                "options": [
+                    {
+                        "key": "Right",
+                        "value": "right sided sinus pain"
+                    },
+                    {
+                        "key": "Left",
+                        "value": "left sided sinus pain"
+                    },
+                    {
+                        "key": "Bilateral",
+                        "value": "bilateral sinus pain"
+                    }
+                ],
+                "default": "No"
+            },                              
+            {
+                "placeholder": "Sore throat",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "sore throat"
+                    },
+                    {
+                        "key": "No",
+                        "value": "sore throat"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },   
+            {
+                "placeholder": "Cough",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "cough"
+                    },
+                    {
+                        "key": "No",
+                        "value": "cough"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }            
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Fever",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "fever"
+                    },
+                    {
+                        "key": "No",
+                        "value": "fever"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }            
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Night sweats",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "night sweats"
+                    },
+                    {
+                        "key": "No",
+                        "value": "night sweats"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Rigors",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "rigors"
+                    },
+                    {
+                        "key": "No",
+                        "value": "rigors"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Headache",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "headache"
+                    },
+                    {
+                        "key": "No",
+                        "value": "headache"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },             
+            {
+                "placeholder": "SOB",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "shortness of breath"
+                    },
+                    {
+                        "key": "No",
+                        "value": "shortness of breath"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            }, 
+            {
+                "placeholder": "Chest pain",
+                "type": "radio",
+                "inline": "true",
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "chest pain"
+                    },
+                    {
+                        "key": "No",
+                        "value": "chest pain"
+                    },
+                    {
+                        "key": "N/A",
+                        "value": "na"
+                    }
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "symptoms",
+                "type": "radio",
+                "display": "symptoms been",                
+                "options": [
+                    {
+                        "key": "Getting better",
+                        "value": "getting better"
+                    },
+                    {
+                        "key": "staying the same",
+                        "value": "staying the same"
+                    },
+                    {
+                        "key": "Getting worse",
+                        "value": "getting worse"
+                    }
+                ]
+            },
+            {
+                "placeholder": "contact",
+                "type": "radio",
+                "display": "Close contact",
+                "inline":"true",                
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "close"
+                    },
+                    {
+                        "key": "No",
+                        "value": "no close"
+                    }
+                ]
+            },
+            {
+                "placeholder": "conservative",
+                "type": "radio",
+                "display": "Using conservative management",
+                "inline":"true",                
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "Been using"
+                    },
+                    {
+                        "key": "No",
+                        "value": "Has not been using"
+                    }
+                ]
+            },
+            {
+                "placeholder": "conservative_follow",
+                "type": "radio",
+                "display": "Improvement?",
+                "inline":"true",
+                "condition": {
+                    "field": "conservative",
+                    "equals": "Yes"
+                },                                
+                "options": [
+                    {
+                        "key": "No",
+                        "value": "with no improvement"
+                    },
+                    {
+                        "key": "Some",
+                        "value": "with some improvement"
+                    },
+                    {
+                        "key": "Good",
+                        "value": "with good improvement"
+                    }                    
+                ]               
+            },
+            {
+                "placeholder": "requesting",
+                "type": "radio",
+                "display": "Requesting anything?",                               
+                "options": [
+                    {
+                        "key": "No",
+                        "value": "Not requesting medical certificate or antibiotics"
+                    },
+                    {
+                        "key": "Yes",
+                        "value": "Requesting "
+                    }                  
+                ],
+                "default": "No"               
+            },            
+            {
+                "placeholder": "requesting_what",
+                "display": "Requesting",
+                "type": "checkbox",
+                "condition": {
+                    "field": "requesting",
+                    "equals": "Yes"
+                },                 
+                "options": [
+                    {
+                        "key": "Antibiotics",
+                        "value": "antibiotics"
+                    },
+                    {
+                        "key": "Medical certificate",
+                        "value": "medical certificate"
+                    }
+                ]
+            },
+            {
+                "placeholder": "COVID",
+                "type": "radio",
+                "display": "COVID testing",                               
+                "options": [
+                    {
+                        "key": "Negative",
+                        "value": "done and negative"
+                    },
+                    {
+                        "key": "Pending",
+                        "value": "done and pending"
+                    },
+                    {
+                        "key": "In clinic",
+                        "value": "done today in clinic by me"
+                    },
+                    {
+                        "key": "Not required",
+                        "value": "assessed and not required"
+                    }                                                                  
+                ]              
+            },
+            {
+                "type": "title",
+                "text": "Examination"
+            },            
+            {
+                "placeholder": "temp",
+                "type": "radio",
+                "display": "Temperature?",                               
+                "options": [
+                    {
+                        "key": "febrile",
+                        "value": "febrile"
+                    },
+                    {
+                        "key": "afebrile",
+                        "value": "afebrile"
+                    }
+                ]
+            },
+            {
+                "placeholder": "temp_exact",
+                "type": "text",
+                "display": "In celcius",
+                "condition":{
+                    "field": "temp",
+                    "equals": "febrile"
+                }
+            },
+            {
+                "type": "title",
+                "text": "Examination"
+            },            
+            {
+                "placeholder": "Rear",
+                "type": "radio",
+                "display": "Right ear",                               
+                "options": [
+                    {
+                        "key": "NAD",
+                        "value": "NAD"
+                    },
+                    {
+                        "key": "Not NAD",
+                        "value": "not NAD"
+                    }
+                ],
+                "default": "NAD"
+            },            
+            {
+                "placeholder": "Rear-exam",
+                "display": "Right ear finding",
+                "type": "checkbox",
+                "condition":{
+                    "field": "Rear",
+                    "equals": "Not NAD"
+                },               
+                "options": [
+                    {
+                        "key": "Wax impaction",
+                        "value": "wax impaction"
+                    },
+                    {
+                        "key": "Erythema to tympanic membrane",
+                        "value": "erythema to tympanic membrane"  
+                    },
+                    {
+                        "key": "Tympanic membrane bulging",
+                        "value": "tympanic membrane bulging"  
+                    },
+                    {
+                        "key": "Tympanic perforation present",
+                        "value": "tympanic perforation present"  
+                    },
+                    {
+                        "key": "Discharge present",
+                        "value": "discharge present"  
+                    }
+                ]
+            },            
+            {
+                "placeholder": "Lear",
+                "type": "radio",
+                "display": "Left ear",                               
+                "options": [
+                    {
+                        "key": "NAD",
+                        "value": "NAD"
+                    },
+                    {
+                        "key": "Not NAD",
+                        "value": "not NAD"
+                    }
+                ],
+                "default": "NAD"
+            },            
+            {
+                "placeholder": "Lear-exam",
+                "display": "Left ear finding",
+                "type": "checkbox",
+                "condition":{
+                    "field": "Lear",
+                    "equals": "Not NAD"
+                },               
+                "options": [
+                    {
+                        "key": "Wax impaction",
+                        "value": "wax impaction"
+                    },
+                    {
+                        "key": "Erythema to tympanic membrane",
+                        "value": "erythema to tympanic membrane"  
+                    },
+                    {
+                        "key": "Tympanic membrane bulging",
+                        "value": "tympanic membrane bulging"  
+                    },
+                    {
+                        "key": "Tympanic perforation present",
+                        "value": "tympanic perforation present"  
+                    },
+                    {
+                        "key": "Discharge present",
+                        "value": "discharge present"  
+                    }
+                ]
+            },            
+            {
+                "placeholder": "Throat",
+                "type": "radio",
+                "display": "Throat",                               
+                "options": [
+                    {
+                        "key": "NAD",
+                        "value": "NAD"
+                    },
+                    {
+                        "key": "Not NAD",
+                        "value": "not NAD"
+                    }
+                ],
+                "default": "NAD"
+            },   
+            {
+                "placeholder": "Throat-erythema",
+                "type": "radio",
+                "display": "Erythema",
+                "inline": "true",
+                "condition":{
+                    "field": "Throat",
+                    "equals": "Not NAD"
+                },                 
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": "erythema present"
+                    },
+                    {
+                        "key": "No",
+                        "value": "erythema not present"
+                    }         
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Throat-swelling",
+                "type": "radio",
+                "display": "Tonsillar swelling",
+                "inline": "true",
+                "condition":{
+                    "field": "Throat",
+                    "equals": "Not NAD"
+                },                  
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": ", tonsillar enlargement present "
+                    },
+                    {
+                        "key": "No",
+                        "value": ", tonsillar enlargement not present"
+                    }           
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Throat-swelling-side",
+                "type": "radio",
+                "display": "swelling side",
+                "inline": "true",
+                "condition":{
+                    "field": "Throat-swelling",
+                    "equals": "Yes"
+                }, 
+                "options": [
+                    {
+                        "key": "Left",
+                        "value": " on left"
+                    },
+                    {
+                        "key": "Right",
+                        "value": " on right"
+                    },
+                    {
+                        "key": "Bilateral",
+                        "value": " bilaterally"
+                    }            
+                ],
+                "default": "Bilateral"
+            },
+            {
+                "placeholder": "Throat-pus",
+                "type": "radio",
+                "display": "Pus present",
+                "inline": "true",
+                "condition":{
+                    "field": "Throat",
+                    "equals": "Not NAD"
+                },                  
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": " and pus present"
+                    },
+                    {
+                        "key": "No",
+                        "value": " and pus not present"
+                    }          
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Throat-pus-side",
+                "type": "radio",
+                "display": "Pus on",
+                "inline": "true",
+                "condition":{
+                    "field": "Throat-pus",
+                    "equals": "Yes"
+                }, 
+                "options": [
+                    {
+                        "key": "Left",
+                        "value": " on the left"
+                    },
+                    {
+                        "key": "Right",
+                        "value": " on the right"
+                    },
+                    {
+                        "key": "Bilateral",
+                        "value": " bilaterally"
+                    }            
+                ],
+                "default": "Bilateral"
+            },            
+            {
+                "placeholder": "Sinuses",
+                "type": "radio",
+                "display": "Sinuses", 
+                "condition":{
+                    "field":"Sinus pain",
+                    "equals":"Yes"
+                },                              
+                "options": [
+                    {
+                        "key": "NAD",
+                        "value": "\r\nSinuses - NAD"
+                    },
+                    {
+                        "key": "Pain",
+                        "value": "\r\nSinuses - Pain present on palpation to"
+                    }
+                ],
+                "default": "NAD"
+            },
+            {
+                "placeholder": "Sinuses-location",
+                "type": "radio",
+                "display": "Which sinus",
+                "inline": "true",
+                "condition":{
+                    "field": "Sinuses",
+                    "equals": "Pain"
+                },                  
+                "options": [
+                    {
+                        "key": "Frontal",
+                        "value": " frontal sinus"
+                    },
+                    {
+                        "key": "Maxillary",
+                        "value": " maxillary sinus"
+                    },
+                    {
+                        "key": "Both",
+                        "value": " fontal and maxillary sinus"
+                    }             
+                ],
+                "default": "No"
+            },
+            {
+                "placeholder": "Sinuses-location-side",
+                "type": "radio",
+                "display": "Sinus painful on",
+                "inline": "true",
+                "condition":{
+                    "field": "Sinuses",
+                    "equals": "Pain"
+                }, 
+                "options": [
+                    {
+                        "key": "Left",
+                        "value": " on left"
+                    },
+                    {
+                        "key": "Right",
+                        "value": " on right"
+                    },
+                    {
+                        "key": "Bilateral",
+                        "value": " bilaterally"
+                    }            
+                ]
+            },
+            {
+                "placeholder": "cervical-lymph",
+                "type": "radio",
+                "display": "Cervical lymphadenopathy",
+                "options": [
+                    {
+                        "key": "Not palpatable",
+                        "value": "not palpatable"
+                    },
+                    {
+                        "key": "Right",
+                        "value": "on the right side"
+                    },
+                    {
+                        "key": "Left",
+                        "value": "on the left side"
+                    },
+                    {
+                        "key": "Bilateral",
+                        "value": "can be palpatable bilaterally"
+                    }
+                ]
+            },
+            {
+                "placeholder": "chest",
+                "type": "checkbox",
+                "display": "Chest examination",
+                "options": [
+                    {
+                        "key": "Clear"
+                    },
+                    {
+                        "key": "wheeze",
+                        "value": "wheeze"
+                    },
+                    {
+                        "key": "crackles"
+                    }
+                ],
+                "default": [
+                    "Clear"
+                ]
+            },            
+            {
+                "type": "title",
+                "text": "Impression and Plan"
+            },
+            {
+                "placeholder": "impression",
+                "type": "dropdown",
+                "display": "Impression",
+                "options": [
+                    {
+                        "key": "URTI",
+                        "value": "URTI"
+                    },
+                    {
+                        "key": "Uncomplicated sinusitis"
+                    },
+                    {
+                        "key": "Other",
+                        "value":"- "
+                    }
+                ]
+            },
+            {
+                "placeholder": "impression-other",
+                "type": "text",
+                "display": "Impression",
+                "condition":{
+                    "field": "impression",
+                    "equals":"Other"
+                }
+
+            },
+            {
+                "placeholder": "plan-sinusitis",
+                "type": "checkbox",
+                "display": "Plan sinusitis specific",
+                "condition":{
+                    "field": "impression",
+                    "equals": "Uncomplicated sinusitis"
+                },
+                "options": [
+                    {
+                        "key": "Nasal saline washes",
+                        "value": "\r\n- At least twice a day nasal saline washes"
+                    },
+                    {
+                        "key": "Nasonex",
+                        "value": "\r\n- Use nasonex to both nostrils twice a day for 4 weeks and then reduce to once a day"
+                    },                                        
+                    {
+                        "key": "Antibiotics",
+                        "value": "\r\n- Amoxicillin 500mg TDS for five days as per eTG"
+                    }
+                ],
+                "default": [
+                    "Nasal saline washes",
+                    "Nasonex"
+                ]
+            },
+            {
+                "placeholder": "plan",
+                "type": "checkbox",
+                "display": "Plan",
+                "options": [
+                    {
+                        "key": "Hydration",
+                        "value": "\r\n- Hydration"
+                    },
+                    {
+                        "key": "Rest",
+                        "value": "\r\n- Rest"
+                    },
+                    {
+                        "key": "Simple analgesia",
+                        "value": "\r\n- Simple analgesia as required"
+                    },
+                    {
+                        "key": "Aspirin",
+                        "value": "\r\n- Gargle dissolvable aspirin"
+                    },
+                    {
+                        "key": "Honey, lemon, ginger",
+                        "value": "\r\n- Drink hot water with honey, lemon and ginger"
+                    },                                       
+                    {
+                        "key": "Red flags",
+                        "value": "\r\n- Return or present to ED if symptoms worsening/not resolving/developing any red flags which include chest pain, shortness of breath, ongoing fever"
+                    }
+                ],
+                "default": [
+                    "Hydration",
+                    "Rest",
+                    "Simple analgesia",
+                    "Aspirin",
+                    "Honey, lemon, ginger",
+                    "Red flags"
+                ]
+            },
+            {
+                "placeholder": "COVID-plan",
+                "type": "text",
+                "display": "COVID plan",
+                "condition":
+                {
+                    "field": "COVID",
+                    "equals": "In clinic"
+                },
+                "default": "\r\n- COVID swab taken: for online results\r\n- Self quarantine until results return"
+            },
+            {
+                "placeholder": "sinusitis-specific-red-flags",
+                "type": "text",
+                "display": "Specific red flags",
+                "condition":{
+                    "field": "impression",
+                    "equals": "Uncomplicated sinusitis"
+                },
+                "default": ", nasal bleeding, perceived malodorous smell, signs of meningitis (neck stiffness, photophobia), altered neurology, frontal swelling, any orbital involvement"
+            }                                                
         ]
     },
     {
