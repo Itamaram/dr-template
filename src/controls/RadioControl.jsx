@@ -19,7 +19,8 @@ function RadioControl(props) {
                             key={o.key}
                         />
                     )
-                })}
+                })
+            }
         </FormGroup>
     )
 }
