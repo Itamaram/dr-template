@@ -1,25 +1,41 @@
 import React from 'react'
-import { FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
+import { FormCheck, FormGroup, FormLabel, Row, Col } from 'react-bootstrap';
 
 function RadioControl(props) {
-    const { options, display, placeholder, inline } = props.definition;
+    const { options, display, placeholder, inline, fixed } = props.definition;
+
+    const option = o => (
+        <FormCheck type="radio"
+            name={placeholder}
+            onChange={() => { props.onChange(o.key) }}
+            inline={inline}
+            value={o.key}
+            label={o.key}
+            checked={props.values.includes(o.key)}
+            key={o.key}
+        />
+    )
+
+    if (fixed) {
+        return (
+            <Row>
+                <FormLabel>{display || placeholder}</FormLabel>
+                {
+                    options.map(o => (
+                        <Col sm={2}>
+                            {option(o)}
+                        </Col>
+                    ))
+                }
+            </Row>
+        )
+    }
+
     return (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
             {
-                options.map(o => {
-                    return (
-                        <FormCheck type="radio"
-                            name={placeholder}
-                            onChange={() => { props.onChange(o.key) }}
-                            inline={inline}
-                            value={o.key}
-                            label={o.key}
-                            checked={props.value === o.key}
-                            key={o.key}
-                        />
-                    )
-                })
+                options.map(option)
             }
         </FormGroup>
     )
@@ -27,16 +43,12 @@ function RadioControl(props) {
 
 export const handler = {
     type: 'radio',
-    seed: '',
     render: function (definition, current, onChange) {
-        return <RadioControl definition={definition} value={current} onChange={onChange} key={definition.placeholder} />;
+        return <RadioControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
     },
-    getValues: function (variable, value, mod) {
-        const e = variable.options.filter(o => o.key === value)[0];
-        if (mod && e?.key !== mod)
-            return [];
-
-        const result = e?.value || e?.key;
-        return result ? [result] : [];
+    getValues: function (variable, values, mod) {
+        return variable.options
+            .filter(o => values.includes(o.key) && (!mod || o.key === mod))
+            .map(o => o.value || o.key);
     }
 }

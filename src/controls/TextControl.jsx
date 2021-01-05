@@ -6,18 +6,17 @@ function TextControl(props) {
     return (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
-            <FormControl value={props.value} type="text" onChange={e => props.onChange(e.target.value)} />
+            <FormControl value={props.values[0]} type="text" onChange={e => props.onChange([e.target.value])} />
         </FormGroup>
     );
 }
 
 export const handler = {
     type: 'text',
-    seed: '',
     render: function (definition, current, onChange) {
-        return <TextControl definition={definition} value={current} onChange={onChange} key={definition.placeholder} />;
+        return <TextControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
     },
-    getValues: function (variable, value, mod) {
-        return value ? [value] : [];
+    getValues: function (variable, values, mod) {
+        return values;
     }
 }

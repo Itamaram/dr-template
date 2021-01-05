@@ -1,12 +1,83 @@
 [
     {
-        "name": "Patient is okay",
-        "pattern": "Alright {name}, you're going to make it",
+        "name": "Radio Table Test",
+        "pattern": "Radio Table Test",
         "variables": [
             {
-                "placeholder": "name",
-                "type": "text",
-                "display": "Name"
+                "placeholder": "1",
+                "type": "radio",
+                "display": "1",
+                "fixed": true,
+                "inline": true,
+                "options":[
+                    {
+                        "key": "trouble",
+                        "value": "1"
+                    }
+                ]
+            },
+            {
+                "placeholder": "2",
+                "type": "radio",
+                "display": "2",
+                "fixed": true,
+                "inline": true,
+                "options":[
+                    {
+                        "key": "assault",
+                        "value": "1"
+                    },
+                    {
+                        "key": "vote",
+                        "value": "2"
+                    }
+                ]
+            },
+            {
+                "placeholder": "3",
+                "type": "radio",
+                "display": "3",
+                "fixed": true,
+                "inline": true,
+                "options":[
+                    {
+                        "key": "weak",
+                        "value": "1"
+                    },
+                    {
+                        "key": "recession",
+                        "value": "2"
+                    },
+                    {
+                        "key": "reliance",
+                        "value": "3"
+                    }
+                ]
+            },
+            {
+                "placeholder": "4",
+                "type": "radio",
+                "display": "4",
+                "fixed": true,
+                "inline": true,
+                "options":[
+                    {
+                        "key": "ribbon",
+                        "value": "1"
+                    },
+                    {
+                        "key": "disorder",
+                        "value": "2"
+                    },
+                    {
+                        "key": "trivial",
+                        "value": "3"
+                    },
+                    {
+                        "key": "pay",
+                        "value": "4"
+                    }
+                ]
             }
         ]
     },
@@ -94,7 +165,8 @@
                 "condition": {
                     "field": "choice",
                     "equals": "1"
-                }
+                },
+                "default": "some value"
             },
             {
                 "placeholder": "list",

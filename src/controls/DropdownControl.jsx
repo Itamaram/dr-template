@@ -6,7 +6,7 @@ function DropdownControl(props) {
     return (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
-            <FormControl as="select" defaultValue={props.value} onChange={e => props.onChange(e.target.value)}>
+            <FormControl as="select" defaultValue={props.values[0]} onChange={e => props.onChange([e.target.value])}>
                 {[{ key: '' }, ...options].map(o =>
                     <option value={o.key} key={o.key}>{o.key}</option>
                 )}
@@ -17,14 +17,12 @@ function DropdownControl(props) {
 
 export const handler = {
     type: 'dropdown',
-    seed: '',
     render: function (definition, current, onChange) {
-        return <DropdownControl definition={definition} value={current} onChange={onChange} key={definition.placeholder} />;
+        return <DropdownControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
     },
-    getValues: function (variable, value, mod) {
-        const e = variable.options.filter(o => o.key === value)[0];
-        // todo mod check here for conditional display
-        const result = e?.value || e?.key;
-        return result ? [result] : [];
+    getValues: function (variable, values, mod) {
+        return variable.options
+        .filter(o => values.includes(o.key))
+        .map(o => o.value || o.key);
     }
 }
