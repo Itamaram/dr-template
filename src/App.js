@@ -81,7 +81,7 @@ class Container extends React.Component {
           </Form>
         </div>
         <div className="row py-3">
-          <div className="col-3">
+          <div className="col">
             <div className="sticky-top">
               <ControlsPane variables={this.state.variables} values={this.state.values} onChange={this.onChange} />
             </div>
