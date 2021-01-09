@@ -6,7 +6,7 @@ function TextControl(props) {
     return (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
-            <FormControl value={props.values[0]} type="text" onChange={e => props.onChange([e.target.value])} />
+            <FormControl value={props.values[0] || ''} type="text" onChange={e => props.onChange([e.target.value])} />
         </FormGroup>
     );
 }
