@@ -17,7 +17,9 @@ function RadioControl(props) {
 
     return (
         <Row>
-            <FormLabel>{display || placeholder}</FormLabel>
+            <Col>
+                <FormLabel>{display || placeholder}</FormLabel>
+            </Col>
             {
                 options.map(o => (
                     <Col key={o.key}>
@@ -25,9 +27,9 @@ function RadioControl(props) {
                     </Col>
                 ))
             }
-            {fixed 
-            ? [...Array(fixed - options.length).keys()].map(i => (<Col key={`fixed-${i}`}></Col>)) 
-            : <></>}
+            {fixed
+                ? [...Array(fixed - options.length).keys()].map(i => (<Col key={`fixed-${i}`}></Col>))
+                : <></>}
         </Row>
     )
 }
