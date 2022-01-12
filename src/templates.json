@@ -1,17 +1,32 @@
 [
     {
-        "name": "Wound management",
-        "pattern": "Issues\r\n\r\n1)Wound care\r\n- Reports had wound for {duration}\r\n- Reports wound originally from {cause}\r\n- {presentation}{review_period}",
+        "name": "COVID positive pathway review - phone",
+        "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask}\r\n{review_reason}",
         "variables": [
             {
-                "placeholder": "duration",
-                "type": "text",
-                "display": "How long has had the wound"
+                "placeholder": "review_ask",
+                "type": "radio",
+                "display": "Who asked to review patient?",
+                "inline": "false",
+                "options": [
+                    {
+                        "key": "Nurse",
+                        "value": "Got asked to review patient by nursing staff:"
+                    },
+                    {
+                        "key": "Medical staff",
+                        "value": "Got handed over to review patient by medical staff for:"
+                    },
+                    {
+                        "key": "Self",
+                        "value": "Reviewed patient for:"
+                    }                                        
+                ]
             },
             {
-                "placeholder": "cause",
+                "placeholder": "review_reason",
                 "type": "text",
-                "display": "Cause of wound"
+                "display": "Reason for review"
             },
             {
                 "placeholder": "presentation",
