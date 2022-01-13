@@ -1,27 +1,27 @@
 [
     {
         "name": "COVID positive pathway review - phone",
-        "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask}\r\n{review_reason}",
+        "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask} for:\r\n-{review_reason}\r\n\r\nPmhx\r\n{Pmhx}\r\n\r\nMeds\r\n{Meds}\r\n\r\nCOVID-19 related history\r\n\r\nDate of onset of symptoms – {date_symptoms}\r\nDate of positive RAT – {date_rat}{date_rat_no}\r\nDate of positive PCR – {date_pcr}{date_pcr_pending}{date_pcr_no}\r\n\r\nVaccination status - {vaccine_status}\r\nLast vaccine administed - {vaccine_date}\r\n\r\nCurrent COVID-19 symptoms\r\n{symptoms}\r\n\r\nObs\r\nSpO2 {spo2}%\r\nHR   {HR}\r\nTemp {temp}C\r\n\r\nImpression{impression}\r\n\r\nPlan",
         "variables": [
             {
                 "placeholder": "review_ask",
                 "type": "radio",
                 "display": "Who asked to review patient?",
-                "inline": "false",
                 "options": [
                     {
                         "key": "Nurse",
-                        "value": "Got asked to review patient by nursing staff:"
+                        "value": "Got asked to review patient by nursing staff"
                     },
                     {
                         "key": "Medical staff",
-                        "value": "Got handed over to review patient by medical staff for:"
+                        "value": "Got handed over to review patient by medical staff"
                     },
                     {
                         "key": "Self",
-                        "value": "Reviewed patient for:"
+                        "value": "Reviewed patient"
                     }                                        
-                ]
+                ],
+                "default": "Nurse"
             },
             {
                 "placeholder": "review_reason",
@@ -29,47 +29,134 @@
                 "display": "Reason for review"
             },
             {
-                "placeholder": "presentation",
+                "placeholder": "Pmhx",
+                "type": "text",
+                "display": "Past Medical history"
+            },
+            {
+                "placeholder": "Meds",
+                "type": "text",
+                "display": "Medications"
+            }, 
+            {
+                "placeholder": "date_symptoms",
+                "type": "text",
+                "display": "When have the symptoms started?"
+            },                         
+            {
+                "placeholder": "date_rat_no",
                 "type": "radio",
-                "display": "Had treatment before?",
+                "display": "Was a RAT done?",
                 "inline": "true",               
                 "options": [
                     {
                         "key": "Yes",
-                        "value": "Gets regular wound dressings and reviewes every "
+                        "value": " "
                     },
                     {
                         "key": "No",
-                        "value": "First time presenting for this wound"
+                        "value": "Not performed"
                     }
                     ]                
             },
             {
-                "placeholder": "presentation_test",
+                "placeholder": "date_rat",
+                "type": "text",
+                "display": "When was a RAT complete?",
+                "condition":{"field":"date_rat_no","equals":"Yes"}
+            },                         
+            {
+                "placeholder": "date_pcr_no",
                 "type": "radio",
-                "display": "Had treatment before?",
+                "display": "Was a PCR done?",
                 "inline": "true",               
                 "options": [
                     {
                         "key": "Yes",
-                        "value": "Gets regular wound dressings and reviewes every "
+                        "value": " "
                     },
                     {
                         "key": "No",
-                        "value": "First time presenting for this wound"
+                        "value": "Not performed"
                     }
                     ]                
-            },            
+            },                         
             {
-                "placeholder": "review_period",
-                "type": "text",
-                "display": "How often gets reviewed?",
-                "condition":   { 
-                    "and": [
-                        {"field":"presentation_test","equals": "Yes"},{"field":"presentation", "equals":"Yes"}
-                        ]
+                "placeholder": "date_pcr_pending",
+                "type": "radio",
+                "display": "Are the results of the PCR back yet?",
+                "inline": "true",               
+                "options": [
+                    {
+                        "key": "Yes",
+                        "value": " "
+                    },
+                    {
+                        "key": "No",
+                        "value": "Pending"
                     }
-            }                
+                    ],
+                "condition":{"field":"date_pcr_no","equals":"Yes"}                
+            },
+            {
+                "placeholder": "date_pcr",
+                "type": "text",
+                "display": "When was a PCR complete?",
+                "condition":{"field":"date_pcr_pending","equals":"Yes"}
+            },    
+            {
+                "placeholder": "vaccine_status",
+                "type": "radio",
+                "display": "How many vaccaines have they had",
+                "inline": "true",               
+                "options": [
+                    {
+                        "key": "0",
+                        "value": "Unvaccinated"
+                    },
+                    {
+                        "key": "1",
+                        "value": "Single vaccinated"
+                    },
+                    {
+                        "key": "2",
+                        "value": "Double vaccinated"
+                    },
+                    {
+                        "key": "3",
+                        "value": "Triple vaccinated"
+                    },
+                    {
+                        "key": "4",
+                        "value": "Quadriple vaccinated"
+                    }
+                    ]                
+            },
+            {
+                "placeholder": "vaccine_date",
+                "type": "text",
+                "display": "When was the date of the last vaccine?"
+            },
+            {
+                "placeholder": "spo2",
+                "type": "text",
+                "display": "Waht is the oxygen saturation?"
+            },
+            {
+                "placeholder": "HR",
+                "type": "text",
+                "display": "What is the heart rate?"
+            },
+            {
+                "placeholder": "temp",
+                "type": "text",
+                "display": "What is the temperature?"
+            },
+            {
+                "placeholder": "impression",
+                "type": "text",
+                "display": "What is the impression?"
+            }                     
         ]
     },
     {
