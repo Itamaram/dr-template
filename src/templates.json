@@ -1,7 +1,7 @@
 [
     {
         "name": "COVID positive pathway review - phone",
-        "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask} for:\r\n-{review_reason}\r\n\r\nPmhx\r\n{Pmhx}\r\n\r\nMeds\r\n{Meds}\r\n\r\nCOVID-19 related history\r\n\r\nDate of onset of symptoms – {date_symptoms}\r\nDate of positive RAT – {date_rat}{date_rat_no}\r\nDate of positive PCR – {date_pcr}{date_pcr_pending}{date_pcr_no}\r\n\r\nVaccination status - {vaccine_status}\r\nLast vaccine administed - {vaccine_date}\r\n\r\nCurrent COVID-19 symptoms\r\n{symptoms}\r\n\r\nObs\r\nSpO2 {spo2}%\r\nHR   {HR}\r\nTemp {temp}C\r\n\r\nImpression{impression}\r\n\r\nPlan",
+        "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask} for:\r\n-{review_reason}\r\n\r\nPmhx\r\n{Pmhx}\r\n\r\nMeds\r\n{Meds}\r\n\r\nCOVID-19 related history\r\n\r\nDate of onset of symptoms – {date_symptoms}\r\nDate of positive RAT – {date_rat}{date_rat_no}\r\nDate of positive PCR – {date_pcr}{date_pcr_pending}{date_pcr_no}\r\n\r\nVaccination status - {vaccine_status}\r\nLast vaccine administed - {vaccine_date}\r\n\r\nCurrent COVID-19 symptoms\r\n{symptoms}\r\n\r\nObs\r\nSpO2 {spo2}%\r\nHR   {HR}\r\nTemp {temp}C\r\n\r\nImpression\r\n{impression}\r\n\r\nPlan",
         "variables": [
             {
                 "placeholder": "review_ask",
