@@ -1,5 +1,126 @@
 [
     {
+        "name": "Sotrovimab consent",
+        "pattern": "Dr Iftah Amith Sotrovimab medical lead\r\n\r\nSymptoms start date - {symptom}\r\nTest performed - {test} {test_date}\r\nVaccination status - {vax}\r\n\r\nPast medical history\r\n{pmhx}\r\n\r\nMedications\r\n{meds}\r\n\r\nAllergies\r\n{allergies}",
+        "variables": [
+            {
+                "placeholder": "symptom",
+                "type": "text",
+                "display": "When did the symptoms start?"
+            },
+            {
+                "placeholder": "test_date",
+                "type": "text",
+                "display": "When was a test performed?"
+            },
+            {
+                "placeholder": "test",
+                "type": "radio",
+                "display": "What test was done?",
+                "inline": "true",               
+                "options": [
+                    {
+                        "key": "PCR",
+                        "value": "PCR"
+                    },
+                    {
+                        "key": "RAT",
+                        "value": "RAT"
+                    }
+                    ]                
+            },
+            {
+                "placeholder": "vax",
+                "type": "radio",
+                "display": "How many vaccines have they had?",              
+                "options": [
+                    {
+                        "key": "0",
+                        "value": "Unvaccinated"
+                    },
+                    {
+                        "key": "1",
+                        "value": "Single COVID vaccine"
+                    },
+                    {
+                        "key": "2",
+                        "value": "Double COVID vaccine"
+                    },
+                    {
+                        "key": "3",
+                        "value": "Triple COVID vaccine"
+                    },
+                    {
+                        "key": "4",
+                        "value": "Quadriple COVID vaccine"
+                    }
+                    ]                
+            },
+            {
+                "placeholder": "pmhx",
+                "type": "text",
+                "display": "What is the patients past medical history?"
+            },
+            {
+                "placeholder": "meds",
+                "type": "text",
+                "display": "What medications is the patient on?"
+            },
+            {
+                "placeholder": "allergies",
+                "type": "text",
+                "display": "What are the patient's allergies?"
+            }                    
+        ]
+    },{
+        "name": "Sotrovimab email",
+        "pattern": "Hi there,\r\n\r\nPlease see the Sotrovimab request form for {details} \r\n\r\n kind regards,\r\n\r\nIftah",
+        "variables": [
+            {
+                "placeholder": "details",
+                "type":"text",
+                "Display": "WWhat are the patients details?"
+            }
+        ]
+    },
+    {
+        "name": "Sotrovimab phone call",
+        "pattern": "Dr Iftah Amith Sotrovimab medical lead\r\n\r\nCalled patient at {time} to assess if eligible and interested in sotrovimab\r\n- {outcome}",
+        "variables": [
+            {
+                "placeholder": "time",
+                "type":"text",
+                "Display": "What time did you make the call?"
+            },
+            {
+                "placeholder":"outcome",
+                "type":"radio",
+                "Display": "what was the outcome of the call?",
+                "options":[
+                    {
+                        "key": "No answer",
+                        "value": "Patient did not answer the phone when called"
+                    },                    {
+                        "key": "message",
+                        "value": "Patient did not answer the phone when called\r\nVoicemail left informing that if time permits, we will call again"
+                    },
+                    {
+                        "key": "not eligible",
+                        "value": "Patient assessed and deemed not eligible for Sotrovimab"
+                    },
+                    {
+                        "key": "Declined",
+                        "value": "Discussed Sotrovimab with patient who decided to decline Sotrovimab infusion"
+                    },
+                    {
+                        "key": "maybe",
+                        "value": "Discussed sotrovimab with patient.\r\n- Patient would like more time to think about Sotrovimab\r\n- Patient given number of Sotrovimab coordinator to call if interested 0421 584 322\r\n- Patient informed that can only be given within the first five days of infection"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "COVID positive pathway review - phone",
         "pattern": "Dr Iftah Amith COVID positive pathways consultant\r\n\r\nPhone consult\r\n\r\n{review_ask} for:\r\n-{review_reason}\r\n\r\nPmhx\r\n{Pmhx}\r\n\r\nMeds\r\n{Meds}\r\n\r\nCOVID-19 related history\r\n\r\nDate of onset of symptoms – {date_symptoms}\r\nDate of positive RAT – {date_rat}{date_rat_no}\r\nDate of positive PCR – {date_pcr}{date_pcr_pending}{date_pcr_no}\r\n\r\nVaccination status - {vaccine_status}\r\nLast vaccine administed - {vaccine_date}\r\n\r\nCurrent COVID-19 symptoms\r\n{symptoms}\r\n\r\nObs\r\nSpO2 {spo2}%\r\nHR   {HR}\r\nTemp {temp}\r\n\r\nImpression\r\n{impression}\r\n\r\nPlan",
         "variables": [
