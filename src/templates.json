@@ -70,23 +70,42 @@
                 "placeholder": "allergies",
                 "type": "text",
                 "display": "What are the patient's allergies?"
-            }                    
+            }                 
         ]
-    },{
+    },
+    {
         "name": "Sotrovimab email",
         "pattern": "Hi there,\r\n\r\nPlease see the Sotrovimab request form for {details} \r\n\r\n kind regards,\r\n\r\nIftah",
         "variables": [
             {
+                "type":"title",
+                "text":"Sotrovimab request access form"
+            },
+            {
                 "placeholder": "details",
                 "type":"text",
-                "Display": "WWhat are the patients details?"
+                "Display": "What are the patients details?"
             }
         ]
     },
     {
         "name": "Sotrovimab phone call",
-        "pattern": "Dr Iftah Amith Sotrovimab medical lead\r\n\r\nCalled patient at {time} to assess if eligible and interested in sotrovimab\r\n- {outcome}",
+        "pattern": "{name}\r\n\r\nCalled patient at {time} to assess if eligible and interested in sotrovimab\r\n- {outcome}",
         "variables": [
+            {
+                "placeholder":"name",
+                "type":"dropdown",
+                "Display": "Who made the call?",
+                "default": "Dr Iftah Amith Sotrovimab medical lead",
+                "options":[
+                    {
+                        "key": "Dr Iftah Amith Sotrovimab medical lead"
+                    },
+                    {
+                        "key": "Priscilla Jawahar Sotrovimab nurse coordinator"
+                    }
+                ]
+            },
             {
                 "placeholder": "time",
                 "type":"text",
@@ -94,7 +113,7 @@
             },
             {
                 "placeholder":"outcome",
-                "type":"radio",
+                "type":"dropdown",
                 "Display": "what was the outcome of the call?",
                 "options":[
                     {
