@@ -2,8 +2,8 @@ import React from 'react'
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 
 function TextControl(props) {
-    const { display, placeholder } = props.definition;
-    return (
+    const { display, placeholder, hide } = props.definition;
+    return hide || (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
             <FormControl value={props.values[0] || ''} type="text" onChange={e => props.onChange([e.target.value])} />

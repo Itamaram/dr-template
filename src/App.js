@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react'
 import { FormControl, Form } from 'react-bootstrap';
+import parse from 'html-react-parser';
 
 import assess from './conditions';
 import handlers from './handlers';
@@ -32,7 +33,7 @@ class Container extends React.Component {
   }
 
   arrayEquals(arr1, arr2) {
-    if (arr1.length !== arr2.length)
+    if (arr1?.length !== arr2?.length)
       return false;
 
     for (let i = 0; i < arr1.length; i++)
@@ -87,6 +88,20 @@ class Container extends React.Component {
             </div>
           </div>
           <div className="col">
+            <button onClick={() => {
+              const copy = (str) => {
+                const listener = (e) => {
+                  e.clipboardData.setData("text/html", str);
+                  e.clipboardData.setData("text/plain", str);
+                  e.preventDefault();
+                }
+                document.addEventListener("copy", listener);
+                document.execCommand("copy");
+                document.removeEventListener("copy", listener);
+              }
+              copy(document.getElementById('template').innerHTML);
+              alert("text copied successfully");
+            }}>Copy to Clipboard</button>   
             <TextResult pattern={this.state.pattern} variables={this.state.variables} values={this.state.values} />
             <hr />
             <FormControl as="textarea" value={this.state.pattern} onChange={e => this.setState({ pattern: e.target.value })} />
@@ -107,7 +122,7 @@ function TextResult(props) {
   }
 
   return (
-    <FormControl as="textarea" readOnly={true} style={{ width: "100%", height: "100%" }} value={getText(props)} />
+    <div id = "template" style={{ width: "100%", height: "100%", border: "solid", padding: "5px"}}>{parse(getText(props))}</div>
   )
 }
 
@@ -120,3 +135,4 @@ function App() {
 }
 
 export default App;
+

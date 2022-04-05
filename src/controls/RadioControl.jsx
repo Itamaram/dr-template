@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormCheck, FormLabel, Row, Col } from 'react-bootstrap';
+import { FormCheck, FormLabel, Row, Col, FormGroup } from 'react-bootstrap';
 
 function RadioControl(props) {
     const { options, display, placeholder, inline, fixed } = props.definition;
@@ -16,21 +16,32 @@ function RadioControl(props) {
     )
 
     return (
-        <Row>
-            <Col>
-                <FormLabel>{display || placeholder}</FormLabel>
-            </Col>
+        <FormGroup>
             {
-                options.map(o => (
-                    <Col key={o.key}>
-                        {option(o)}
-                    </Col>
-                ))
+                inline
+                    ? (
+                        <Row>
+                            <Col>
+                                <FormLabel>{display || placeholder}</FormLabel>
+                            </Col>
+                            {
+                                options.map(o => <Col key={o.key}>{option(o)}</Col>)
+                            }
+                            {fixed
+                                ? [...Array(fixed - options.length).keys()].map(i => (<Col key={`fixed-${i}`}></Col>))
+                                : <></>}
+                        </Row>
+                    )
+                    : (
+                        <>
+                            <FormLabel>{display || placeholder}</FormLabel>
+                            {
+                                options.map(o => option(o))
+                            }
+                        </>
+                    )
             }
-            {fixed
-                ? [...Array(fixed - options.length).keys()].map(i => (<Col key={`fixed-${i}`}></Col>))
-                : <></>}
-        </Row>
+        </FormGroup>
     )
 }
 
