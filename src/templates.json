@@ -4632,7 +4632,7 @@
                         },
                         {
                             "field":"meds_support",
-                            "equals":"Yes"
+                            "equals":"No"
                         },
                         {
                             "field":"meds_difficulty",
