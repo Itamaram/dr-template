@@ -3260,7 +3260,7 @@
     },
     {
         "name": "COVID HITH Medical Review",
-        "pattern": "{doctor}<br><br><b>{template}{drug}</b><br><br>Impression{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Time of call:</b> {time}<br><b>3 Point ID Check Performed:</b> {id_check}<br><b>Date of onset of illness:</b> {symptom}<br><b>Date Positive Swab Collected:</b> {test} {test_date}<br><b>Vaccination status:</b> {vax}<br><b>If we are unable to contact you whilst under the HITH program and concerned about your welfare, who would you like us to contact?</b> {nok}<br><b>Past medical history:</b> {pmhx}<br><b>Current Medications:</b> {meds}<br><b>Allergies:</b> {allergies}<br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br><b>Reinforced compliance and understanding of DHHS requirements to socially isolate?</b> {dhhs}<br><b>Issues escalated to HITH Consultant / Reg:</b> {issues}<br><b>Have been advised to contact HITH if any concerns arise or contact 000:</b> {000}",
+        "pattern": "{doctor}<br><br><b>{template}{drug}</b><br><br>Impression{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Time of call:</b> {time}<br><b>3 Point ID Check Performed:</b> {id_check}<br><b>Was video telehealth used? If not,why was it NOT used?</b> {telehealth}{telehealth_no}<br><b>Date of onset of illness:</b> {symptom}<br><b>Date Positive Swab Collected:</b> {test} {test_date}<br><b>Vaccination status:</b> {vax}<br><b>If we are unable to contact you whilst under the HITH program and concerned about your welfare, who would you like us to contact?</b> {nok}<br><b>Past medical history:</b> {pmhx}<br><b>Current Medications:</b> {meds}<br><b>Allergies:</b> {allergies}<br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br><b>Reinforced compliance and understanding of DHHS requirements to socially isolate?</b> {dhhs}<br><b>Issues escalated to HITH Consultant / Reg:</b> {issues}<br><b>Have been advised to contact HITH if any concerns arise or contact 000:</b> {000}",
         "variables": [
             {
                 "type":"text",
@@ -3364,6 +3364,30 @@
                 ],
                 "default":"Yes",
                 "inline": true
+            },
+            {
+                "placeholder":"telehealth",
+                "type":"radio",
+                "display":"Was telehealth used?",
+                "inline":true,
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No",
+                        "value":"No. "
+                    }
+                ]
+            },
+            {
+                "placeholder":"telehealth_no",
+                "type":"text",
+                "display":"Why was telehealth not used?",
+                "condition":{
+                    "field":"telehealth",
+                    "equals":"No"
+                }
             },
             {
                 "placeholder":"symptom",
