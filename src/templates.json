@@ -1,7 +1,7 @@
 [
     {
-        "name": "COVID Early Treatment Medical review",
-        "pattern":"{paxlovid_contraindication}<b>COVID Early Treatment Medical review<br><br>{doctor}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br>{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}</b>{meds_sleep_text}<b>{meds_sleep}</b>{meds_inject_text}<b>{meds_inject}</b>{meds_vitamin_text}<b>{meds_vitamin}</b>{meds_herbal_text}<b>{meds_herbal}</b>{meds_chinese_text}<b>{meds_chinese}</b>{meds_skin_text}<b>{meds_skin}</b>{meds_orifice_text}<b>{meds_orifice}</b>{meds_resp_text}<b>{meds_resp}</b>{meds_treatment_text}<b>{meds_treatment}</b>{meds_trial_text}<b>{meds_trial}</b>{meds_stop_text}<b>{meds_stop}</b>",
+        "name": "CPP Medical review",
+        "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review<br><br>{doctor}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br>{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><b>Impression</b>{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}</b>{meds_sleep_text}<b>{meds_sleep}</b>{meds_inject_text}<b>{meds_inject}</b>{meds_vitamin_text}<b>{meds_vitamin}</b>{meds_herbal_text}<b>{meds_herbal}</b>{meds_chinese_text}<b>{meds_chinese}</b>{meds_skin_text}<b>{meds_skin}</b>{meds_orifice_text}<b>{meds_orifice}</b>{meds_resp_text}<b>{meds_resp}</b>{meds_treatment_text}<b>{meds_treatment}</b>{meds_trial_text}<b>{meds_trial}</b>{meds_stop_text}<b>{meds_stop}</b>",
         "variables": [
             {
                 "type":"dropdown",
@@ -1633,6 +1633,110 @@
                     "field":"ET_medication",
                     "equals":"Molnupiravir"
                 }
+            },                                     
+            {
+                "type":"title",
+                "text":"impression and plan",
+                "style":"bold"
+            },
+            {
+                "type":"title",
+                "text":"What is your impression?",
+                "style":"bold"
+            },
+            {
+                "type":"radio",
+                "placeholder":"covid_severity",
+                "inline":true,
+                "display":"severity:",
+                "options":[
+                    {
+                        "key":"mild",
+                        "value":"Mild COVID symptoms"
+                    },
+                    {
+                        "key":"moderate",
+                        "value":"Moderate COVID symptoms"
+                    },
+                    {
+                        "key":"severe",
+                        "value":"Severe COVID symptoms"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"trajectory",
+                "inline":true,
+                "display":"trajectory:",
+                "options":[
+                    {
+                        "key":"improving",
+                        "value": "Patient symptoms are improving"
+                    },
+                    {
+                        "key":"same",
+                        "value":"Patient symptoms are staying the same"
+                    },
+                    {
+                        "key":"worse",
+                        "value":"Patient symptoms are getting wrose"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"immunosuppressed",
+                "inline":true,
+                "display":"immunosupression:",
+                "options":[
+                    {
+                        "key":"yes",
+                        "value": "Patient is immunosuppressed"
+                    },
+                    {
+                        "key":"no"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"early",
+                "inline":true,
+                "display":"Received early treatment?",
+                "options":[
+                    {
+                        "key":"yes"
+                    },
+                    {
+                        "key":"no",
+                        "value":"Patient did not receive early treatment therapy"
+                    }
+                ]
+            }, 
+            {
+                "type":"radio",
+                "placeholder":"early_med",
+                "inline":true,
+                "display":"which therapy?",
+                "condition":{
+                    "field":"early",
+                    "equals":"yes"
+                },
+                "options":[
+                    {
+                        "key":"Remdesiver",
+                        "value": "Patient received <b>REmdesiver</b>"
+                    },
+                    {
+                        "key":"Paxlovid",
+                        "value": "Patient received <b>Paxlovid</b>"
+                    },
+                    {
+                        "key":"Molnupiravir",
+                        "value": "Patient received <b>Molnupiravir</b>"
+                    }
+                ]
             },
             {
                 "placeholder":"plan_general",
@@ -5679,15 +5783,15 @@
                     },
                     {
                         "key": "not eligible",
-                        "value": "Patient assessed and deemed not eligible for Sotrovimab"
+                        "value": "Patient assessed and deemed not deemed high risk for COVID Early treatment. <br>Patient recommended to discuss with regular GP about other options."
                     },
                     {
                         "key": "Declined",
-                        "value": "Discussed Sotrovimab with patient who decided to decline Sotrovimab infusion"
+                        "value": "Discussed COVID Early treatment with patient who decided to decline treatment for now.<br>- Patient aware that can only be given this treatment within the first five days of symptoms. <br>- Patient given number of COVID early treatment coordinator to call if interested 0421 584 322"
                     },
                     {
                         "key": "maybe",
-                        "value": "Discussed sotrovimab with patient.<br>- Patient would like more time to think about Sotrovimab<br>- Patient given number of Sotrovimab coordinator to call if interested 0421 584 322<br>- Patient informed that can only be given within the first five days of infection"
+                        "value": "Discussed COVID Early treatment with patient.<br>- Patient would like more time to think about COVID Early treatment<br>- Patient given number of COVID early treatment coordinator to call if interested 0421 584 322<br>- Patient informed that can only be given within the first five days of infection"
                     }
                 ]
             }
