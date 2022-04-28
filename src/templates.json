@@ -1,7 +1,7 @@
 [
     {
         "name": "CPP Medical review",
-        "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review<br><br>{doctor}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br>{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><b>Impression</b>{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}</b>{meds_sleep_text}<b>{meds_sleep}</b>{meds_inject_text}<b>{meds_inject}</b>{meds_vitamin_text}<b>{meds_vitamin}</b>{meds_herbal_text}<b>{meds_herbal}</b>{meds_chinese_text}<b>{meds_chinese}</b>{meds_skin_text}<b>{meds_skin}</b>{meds_orifice_text}<b>{meds_orifice}</b>{meds_resp_text}<b>{meds_resp}</b>{meds_treatment_text}<b>{meds_treatment}</b>{meds_trial_text}<b>{meds_trial}</b>{meds_stop_text}<b>{meds_stop}</b>",
+        "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review<br><br>{doctor}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_pharmacist}{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_pharmacist}{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><br><b>Impression</b>{covid_severity,immunosuppressed,early|no,early_med,trajectory,down_list}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed_yesno|No}{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}{meds_over_the_counter_yesno|No}</b>{meds_sleep_text}<b>{meds_sleep}{meds_sleep_yesno|No}</b>{meds_inject_text}<b>{meds_inject}{meds_inject_yesno|No}</b>{meds_vitamin_text}<b>{meds_vitamin}{meds_vitamin_yesno|No}</b>{meds_herbal_text}<b>{meds_herbal}{meds_herbal_yesno|No}</b>{meds_chinese_text}<b>{meds_chinese}{meds_chinese_yesno|No}</b>{meds_skin_text}<b>{meds_skin}{meds_skin_yesno|No}</b>{meds_orifice_text}<b>{meds_orifice}{meds_orifice_yesno|No}</b>{meds_resp_text}<b>{meds_resp}{meds_resp_yesno|No}</b>{meds_treatment_text}<b>{meds_treatment}{meds_treatment_yesno|No}</b>{meds_trial_text}<b>{meds_trial}{meds_trial_yesno|No}</b>{meds_stop_text}<b>{meds_stop}{meds_stop_yesno|No}</b>",
         "variables": [
             {
                 "type":"dropdown",
@@ -16,7 +16,12 @@
                         "key":"Molnupiravir"
                     },
                     {
-                        "key":"Paxlovid"
+                        "key":"Paxlovid - medication review performed by doctor",
+                        "value":"Paxlovid_doctor"
+                    },
+                    {
+                        "key":"Paxlovid - medication review performed by pharmacist",
+                        "value":"Paxlovid_pharmacist"
                     }
                 ]
             },
@@ -127,8 +132,26 @@
                 "type": "text",
                 "display": "Medications",
                 "condition":{
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "not-equals":"Paxlovid - medication review performed by pharmacist"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "not-equals":"Paxlovid - medication review performed by doctor"
+                        }
+                    ]
+                }
+            },
+            {
+                "placeholder": "meds_pharmacist",
+                "type":"text",
+                "hide":true,
+                "default":"Full medication history to be performed by COVID Early Treatment pharmacist. ",
+                "condition":{
                     "field":"ET_medication",
-                    "not-equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by pharmacist"
                 }
             },
             {
@@ -137,7 +160,17 @@
                 "display": "Allergies",
                 "condition":{
                     "field":"ET_medication",
-                    "not-equals":"Paxlovid"
+                    "not-equals":"Paxlovid - medication review performed by doctor"
+                }
+            },
+            {
+                "placeholder": "allergies_pharmacist",
+                "type":"text",
+                "hide":true,
+                "default":"Full medication history to be performed by COVID Early Treatment pharmacist. ",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by pharmacist"
                 }
             },
             {
@@ -1628,7 +1661,7 @@
                 "placeholder":"molnupiravir_consent",
                 "type":"text",
                 "hide":true,
-                "default":"<br><b>The patient has consented to receiving molnupiravir, and understands that they can change their mind and withdraw consent at any time. The following has been discussed:</b>",
+                "default":"<br><br><b>The patient has consented to receiving molnupiravir, and understands that they can change their mind and withdraw consent at any time. The following has been discussed:</b>",
                 "condition":{
                     "field":"ET_medication",
                     "equals":"Molnupiravir"
@@ -1692,10 +1725,11 @@
                 "options":[
                     {
                         "key":"yes",
-                        "value": "Patient is immunosuppressed"
+                        "value": "Patient is immunocompromised"
                     },
                     {
-                        "key":"no"
+                        "key":"no",
+                        "value": "Patient is not immmunocompromised"
                     }
                 ]
             },
@@ -1842,19 +1876,35 @@
             {
                 "placeholder":"medication_review_text",
                 "type":"text",
-                "default":"<br><br><b>************** PAXLOVID MEDICATION REVIEW **************</b><br><br>",
+                "default":"<br><br><b>************** PAXLOVID PRESCRIPTION REVIEW **************</b><br><br>",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
                 "type":"title",
                 "text":"Absolute contra-indications: Quick contra-indication check",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1863,8 +1913,16 @@
                 "default":"Does the patient have CKD with eGFR <30? Or on renal replacement therapy? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1872,8 +1930,16 @@
                 "type":"radio",
                 "display":"Does the patient have CKD with eGFR <30? Or on renal replacement therapy?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -1907,8 +1973,16 @@
                 "default":"<br>Does the patient have severe liver disease (Child Pugh C)? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1916,8 +1990,16 @@
                 "type":"radio",
                 "display":"Does the patient have severe liver disease (Child Pugh C)?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -1934,8 +2016,16 @@
                 "default":"<br>Does the patient have severe hypersensitivity to lactose, nirmatrelvir or ritonavir? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1943,8 +2033,16 @@
                 "type":"radio",
                 "display":"Does the patient have severe hypersensitivity to lactose, nirmatrelvir or ritonavir?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -1959,8 +2057,16 @@
                 "type":"title",
                 "text":"(Omit if not applicable) Pregnancy, child-bearing potential, breastfeeding",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1969,8 +2075,16 @@
                 "default":"<br>Is the patient pregnant, potentially pregnant or actively trying to conceive? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -1978,8 +2092,16 @@
                 "type":"radio",
                 "display":"Is the patient pregnant, potentially pregnant or actively trying to conceive?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -1996,8 +2118,16 @@
                 "default":"<br>Is the patient currently breastfeeding? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -2005,8 +2135,16 @@
                 "type":"radio",
                 "display":"Is the patient currently breastfeeding?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -2033,8 +2171,16 @@
                 "default":"<br>Is the patient female and of child-bearing potential? ",
                 "hide":true,
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 }
             },
             {
@@ -2042,8 +2188,16 @@
                 "type":"radio",
                 "display":"Is the patient female and of child-bearing potential?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "or":[
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by doctor"
+                        },
+                        {
+                            "field":"ET_medication",
+                            "equals":"Paxlovid - medication review performed by pharmacist"
+                        }
+                    ]
                 },
                 "options":[
                     {
@@ -2069,7 +2223,7 @@
                 "text":"Considerations: These are not contraindications, but may take much longer than time allows for",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2079,7 +2233,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2088,7 +2242,7 @@
                 "display":"Are you unable to or unlikely able to obtain adequate medication history?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2106,7 +2260,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2115,7 +2269,7 @@
                 "display":"Do you have access to support staff? i.e. AMS pharmacist",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2131,7 +2285,7 @@
                 "text":"MEDICATION Specific Questions",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2141,7 +2295,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2150,7 +2304,7 @@
                 "display":"Are you the best person to ask about your medications? Or does someone help you with your medications?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2168,7 +2322,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2187,7 +2341,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2196,7 +2350,7 @@
                 "display":"Alternatively, I can call your pharmacy to get a list with your permission. Which pharmacy/pharmacies do you go to?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2206,7 +2360,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2215,7 +2369,7 @@
                 "display":"Do you have any difficulty swallowing tablets? Do you need them crushed or administer through a feeding tube?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2233,7 +2387,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2242,7 +2396,7 @@
                 "display":"Do you use a dose-administration aid (for example a Webster Pack made up at pharmacy)? If so, do you or a household member pack it or does a pharmacy pack it for you?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2260,7 +2414,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2269,7 +2423,7 @@
                 "display":"Do you take any recreational or social drugs? Any illicit drugs? Any that may just be on occasion or you take regularly?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 },
                 "options":[
                     {
@@ -2287,7 +2441,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2296,7 +2450,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2305,7 +2459,7 @@
                 "display":"Do you have any allergies or bad reactions to medications or foods that you know of? Specifically are you allergic to lactose?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2313,7 +2467,7 @@
                 "text":"MEDICATION Specific Questions - Include generic name, dose + frequency",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2323,7 +2477,7 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2332,7 +2486,7 @@
                 "display":"What medications are you taking which have been prescribed to you?",
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
             },
             {
@@ -2342,16 +2496,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_not_prescribed_yesno",
+                "type":"radio",
+                "display":"Do you take any other medications that are not prescribed to you?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_not_prescribed",
                 "type":"text",
-                "display":"Do you take any other medications that are not prescribed to you?",
+                "display":"Please specify",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_not_prescribed_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2361,16 +2532,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_over_the_counter_yesno",
+                "type":"radio",
+                "display":"Do you take any medications not requiring a prescription, including ones you can get over-the-counter, at a supermarket or service station?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_over_the_counter",
                 "type":"text",
-                "display":"Do you take any medications not requiring a prescription, including ones you can get over-the-counter, at a supermarket or service station?",
+                "display":"Please specify",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_over_the_counter_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2380,16 +2568,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_sleep_yesno",
+                "type":"radio",
+                "display":"Aside from what you’ve already told me, do you take anything for pain or to help you sleep?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_sleep",
                 "type":"text",
-                "display":"Aside from what you’ve already told me, do you take anything for pain or to help you sleep?",
+                "display":"Please specify",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_sleep_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2399,16 +2604,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_inject_yesno",
+                "type":"radio",
+                "display":"Are you on any medications that are injected, infused or have been implanted? This is either administered by your or another person, e.g. a doctor or nurse.",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_inject",
                 "type":"text",
                 "display":"Are you on any medications that are injected, infused or have been implanted? This is either administered by your or another person, e.g. a doctor or nurse.",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_inject_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2418,16 +2640,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_vitamin_yesno",
+                "type":"radio",
+                "display":"Do you take any vitamin or mineral supplements?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_vitamin",
                 "type":"text",
                 "display":"Do you take any vitamin or mineral supplements?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_vitamin_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2437,16 +2676,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_herbal_yesno",
+                "type":"radio",
+                "display":"Do you take any herbal, natural, naturopathic complimentary medicines/supplements/products?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_herbal",
                 "type":"text",
                 "display":"Do you take any herbal, natural, naturopathic complimentary medicines/supplements/products?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_herbal_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2456,16 +2712,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_chinese_yesno",
+                "type":"radio",
+                "display":"Do you take any traditional Chinese medicines?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_chinese",
                 "type":"text",
                 "display":"Do you take any traditional Chinese medicines?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_chinese_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2475,16 +2748,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_skin_yesno",
+                "type":"radio",
+                "display":"Do you use any medicated patches, ointments or creams?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_skin",
                 "type":"text",
                 "display":"Do you use any medicated patches, ointments or creams?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_skin_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2494,16 +2784,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_orifice_yesno",
+                "type":"radio",
+                "display":"Do you use any eye/ear drops, suppositories, enemas or pessaries?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_orifice",
                 "type":"text",
                 "display":"Do you use any eye/ear drops, suppositories, enemas or pessaries?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_orifice_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2513,16 +2820,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_resp_yesno",
+                "type":"radio",
+                "display":"Do you use any sprays, inhalers, puffers or nebulised meds?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_resp",
                 "type":"text",
                 "display":"Do you use any sprays, inhalers, puffers or nebulised meds?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_resp_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2532,16 +2856,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_treatment_yesno",
+                "type":"radio",
+                "display":"Are you currently or planned to receive any treatments in a hospital or clinic? For example, chemotherapy, transfusions, IVF.",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_treatment",
                 "type":"text",
                 "display":"Are you currently or planned to receive any treatments in a hospital or clinic? For example, chemotherapy, transfusions, IVF.",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_treatment_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2551,16 +2892,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_trial_yesno",
+                "type":"radio",
+                "display":"Are you taking part of a clinical trial which involves taking or receiving some medication or treatment?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_trial",
                 "type":"text",
                 "display":"Are you taking part of a clinical trial which involves taking or receiving some medication or treatment?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_trial_yesno",
+                    "equals":"Yes"
                 }
             },
             {
@@ -2570,16 +2928,33 @@
                 "hide":true,
                 "condition":{
                     "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "equals":"Paxlovid - medication review performed by doctor"
                 }
+            },
+            {
+                "placeholder":"meds_stop_yesno",
+                "type":"radio",
+                "display":"In the last 4 weeks, have you recently stopped taking any medications?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Paxlovid - medication review performed by doctor"
+                },
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
             },
             {
                 "placeholder":"meds_stop",
                 "type":"text",
                 "display":"In the last 4 weeks, have you recently stopped taking any medications?",
                 "condition":{
-                    "field":"ET_medication",
-                    "equals":"Paxlovid"
+                    "field":"meds_stop_yesno",
+                    "equals":"Yes"
                 }
             }            
         ]
@@ -5807,7 +6182,7 @@
                     },
                     {
                         "key": "not eligible",
-                        "value": "Patient assessed and deemed not deemed high risk for COVID Early treatment. <br>Patient recommended to discuss with regular GP about other options."
+                        "value": "Patient assessed and deemed not high risk for COVID Early treatment. <br>Patient recommended to discuss with regular GP about other options."
                     },
                     {
                         "key": "Declined",
