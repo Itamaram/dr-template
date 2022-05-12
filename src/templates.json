@@ -1804,7 +1804,7 @@
                         "key":"Budesonide prescribed 400mcg 2 puffs BD for 14 days"
                     },
                     {
-                        "key":"HITH COVID ANUM number provided 0481 478 069"
+                        "key":"Call patient for review tomorrow"
                     },
                     {
                         "key":"Provided advice on keeping well hydrated and eating small regular small meals"
@@ -1813,7 +1813,7 @@
                         "key":"Obs QID. Advised if SpO2 <92% or HR >120 to call 000"
                     },
                     {
-                        "key":"Discussed and aware of flags. If worsening symptoms or concerns to call HITH ANUM/000/ED/CPP on 03 5975 4494"
+                        "key":"Discussed and aware of flags. If worsening symptoms or concerns to call 000/ED/CPP on 03 5975 4494"
                     }
                 ]
             },
@@ -1966,7 +1966,7 @@
             },
             {
                 "type":"title",
-                "text":"Ask patient if they have had a renal function test in the last 3 months, and if so where this was done (follow up results). Ask if patient has ever been told they have kidney problems. Assess risk of possible renal dysfunction (e.g. age, comorbidities, medications, systemic symptoms from COVID). If the info on CKD is not adequate or there is clinical reason to believe patient may have impaired renal function, consider offering sotrovimab or doing renal function test. If patient has had renal function test within 3 months or there is no clinical reason to believe the patient may have impaired renal function, then the patient can be considered for paxlovid. If eGFR is 30-60 within last 3 months and this is the patients baseline, base paxlovid dosing on this. If there is reason that this may have changed, consider offering sotrovimab or doing renal function test.",
+                "text":"Ask patient if they have had a renal function test in the last 3 months, and if so where this was done (follow up results). Ask if patient has ever been told they have kidney problems. Assess risk of possible renal dysfunction (e.g. age, comorbidities, medications, systemic symptoms from COVID). If the info on CKD is not adequate or there is clinical reason to believe patient may have impaired renal function, consider offering molnupiravir or doing renal function test. If patient has had renal function test within 3 months or there is no clinical reason to believe the patient may have impaired renal function, then the patient can be considered for paxlovid. If eGFR is 30-60 within last 3 months and this is the patients baseline, base paxlovid dosing on this. If there is reason that this may have changed, consider offering sotrovimab or doing renal function test.",
                 "style":"normal",
                 "condition":{
                     "field":"CKD",
