@@ -1,13 +1,37 @@
 [
     {
         "name": "CPP Medical review",
-        "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review<br><br>{doctor_other}{doctor}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_pharmacist}{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_pharmacist}{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><br><b>Impression</b>{covid_severity,immunosuppressed,early|no,early_med,trajectory,down_list}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed_yesno|No}{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}{meds_over_the_counter_yesno|No}</b>{meds_sleep_text}<b>{meds_sleep}{meds_sleep_yesno|No}</b>{meds_inject_text}<b>{meds_inject}{meds_inject_yesno|No}</b>{meds_vitamin_text}<b>{meds_vitamin}{meds_vitamin_yesno|No}</b>{meds_herbal_text}<b>{meds_herbal}{meds_herbal_yesno|No}</b>{meds_chinese_text}<b>{meds_chinese}{meds_chinese_yesno|No}</b>{meds_skin_text}<b>{meds_skin}{meds_skin_yesno|No}</b>{meds_orifice_text}<b>{meds_orifice}{meds_orifice_yesno|No}</b>{meds_resp_text}<b>{meds_resp}{meds_resp_yesno|No}</b>{meds_treatment_text}<b>{meds_treatment}{meds_treatment_yesno|No}</b>{meds_trial_text}<b>{meds_trial}{meds_trial_yesno|No}</b>{meds_stop_text}<b>{meds_stop}{meds_stop_yesno|No}</b>",
+        "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review{paeds_review}<br><br>{doctor_other}{doctor}{paeds_history}{paeds_history_person}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_pharmacist}{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_pharmacist}{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}{syncope_title}{syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}{cns_title}{orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}{cvs_title}{cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}{resp_title}{RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}{GIT_title}{GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}{renal_title}{RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><br><b>Impression</b>{covid_severity,immunosuppressed,early|no,early_med,trajectory,down_list}{molnupiravir_paxlovid}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed_yesno|No}{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}{meds_over_the_counter_yesno|No}</b>{meds_sleep_text}<b>{meds_sleep}{meds_sleep_yesno|No}</b>{meds_inject_text}<b>{meds_inject}{meds_inject_yesno|No}</b>{meds_vitamin_text}<b>{meds_vitamin}{meds_vitamin_yesno|No}</b>{meds_herbal_text}<b>{meds_herbal}{meds_herbal_yesno|No}</b>{meds_chinese_text}<b>{meds_chinese}{meds_chinese_yesno|No}</b>{meds_skin_text}<b>{meds_skin}{meds_skin_yesno|No}</b>{meds_orifice_text}<b>{meds_orifice}{meds_orifice_yesno|No}</b>{meds_resp_text}<b>{meds_resp}{meds_resp_yesno|No}</b>{meds_treatment_text}<b>{meds_treatment}{meds_treatment_yesno|No}</b>{meds_trial_text}<b>{meds_trial}{meds_trial_yesno|No}</b>{meds_stop_text}<b>{meds_stop}{meds_stop_yesno|No}</b>",
         "variables": [
+            {
+                "placeholder": "child",
+                "type": "dropdown",
+                "display": "Patient is a...",
+                "default":"Adult",
+                "options": [
+                    {
+                    "key": "Baby"
+                    },
+                    {
+                    "key": "Child"    
+                    },
+                    {
+                    "key":"Teenager"
+                    },
+                    {
+                    "key": "Adult"    
+                    } 
+                ]
+            },
             {
                 "type":"dropdown",
                 "display": "Early COVID Medication prescribed?",
                 "placeholder":"ET_medication",
                 "default":"No prescription required",
+                "condition":{
+                    "field":"child",
+                    "equals":"Adult"
+                },
                 "options":[
                     {
                         "key":"No prescription required"
@@ -73,6 +97,9 @@
                     },
                     {
                         "key": "Dr Rohith Valsalan Gen Med Consultant"
+                    },
+                    {
+                        "key": "Dr Vincent Siaw Gen Med Consultant"
                     }
                 ]
             },
@@ -84,6 +111,89 @@
                 "condition":{
                     "field":"doctor",
                     "equals":"Other"
+                }
+            },
+            {
+                "placeholder":"paeds_review",
+                "hide":true,
+                "type":"text",
+                "default":" - Paeds review",
+                "condition":{
+                    "or":[
+                        {
+                            "field":"child",
+                            "equals":"Baby"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Child"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Teenager"
+                        }
+                    ]
+                }
+            },
+            {
+                "placeholder":"paeds_history",
+                "hide":true,
+                "type":"text",
+                "default":"<br><br> - History provided by ",
+                "condition":{
+                    "or":[
+                        {
+                            "field":"child",
+                            "equals":"Baby"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Child"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Teenager"
+                        }
+                    ]
+                }
+            },
+            {
+                "placeholder":"paeds_history_person",
+                "display":"Who provided history?",
+                "type":"checkbox",
+                "options":[
+                    {
+                        "key":"Mother",
+                        "value":"mother"
+                    },
+                    {
+                        "key":"Father",
+                        "value":"father"
+                    },
+                    {
+                        "key":"Grandparent",
+                        "value":"grandparent"
+                    },
+                    {
+                        "key":"Patient",
+                        "value":"child"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field":"child",
+                            "equals":"Baby"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Child"
+                        },
+                        {
+                            "field":"child",
+                            "equals":"Teenager"
+                        }
+                    ]
                 }
             },
             {
@@ -335,7 +445,31 @@
             {
                 "type":"title",
                 "text":"Any episodes of syncope / feeling light-headed / postural dizziness?",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+            },
+            {
+                "placeholder":"syncope_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"syncope_concerns",
@@ -343,6 +477,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -350,7 +497,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient."
+                        "value":" Nil concerns reported."
                     }
                 ]                
             },            
@@ -474,7 +621,39 @@
             {
                 "type":"title",
                 "text":"CNS Assessment:",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
+            },
+            {
+                "placeholder":"cns_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>CNS Assessment:</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"cns_concerns",
@@ -482,6 +661,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -489,7 +681,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient."
+                        "value":" Nil concerns reported."
                     }
                 ]                
             },            
@@ -498,6 +690,7 @@
                 "type":"radio",
                 "display":"Pt orientated?",
                 "inline":true,
+                "default":"yes",
                 "condition":
                 {
                     "field":"cns_concerns",
@@ -663,7 +856,39 @@
             {
                 "type":"title",
                 "text":"CVS Assessment:",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
+            },
+            {
+                "placeholder":"cvs_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>CVS Assessment:</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"cvs_concerns",
@@ -671,6 +896,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -678,7 +916,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient."
+                        "value":" Nil concerns reported."
                     }
                 ]                
             },  
@@ -831,7 +1069,39 @@
             {
                 "type":"title",
                 "text":"RESP Assessment:",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
+            },
+            {
+                "placeholder":"resp_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>RESP Assessment:</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"RESP_concerns",
@@ -839,6 +1109,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -846,7 +1129,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient."
+                        "value":" Nil concerns reported."
                     }
                 ]                
             },  
@@ -1127,7 +1410,39 @@
             {
                 "type":"title",
                 "text":"GIT Assessment:",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
+            },
+            {
+                "placeholder":"GIT_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>GIT Assessment:</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"GIT_concerns",
@@ -1135,6 +1450,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -1142,7 +1470,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient. Reports eating and drinking well."
+                        "value":" Nil concerns reported. Reports eating and drinking well."
                     }
                 ]                
             },  
@@ -1382,7 +1710,39 @@
             {
                 "type":"title",
                 "text":"RENAL Assessment:",
-                "style":"bold"
+                "style":"bold",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
+            },
+            {
+                "placeholder":"renal_title",
+                "type":"text",
+                "hide":true,
+                "default":"<br><b>RENAL Assessment:</b> ",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                }
             },
             {
                 "placeholder":"RENAL_concerns",
@@ -1390,6 +1750,19 @@
                 "display":"Any concerns?",
                 "inline":true,
                 "default":"no",
+                "condition":
+                {
+                    "or":[
+                {
+                    "field":"child",
+                    "equals":"Teenager"
+                },
+                {
+                    "field":"child",
+                    "equals":"Adult"
+                }
+                    ]
+                },
                 "options":[
                     {
                         "key":"yes",
@@ -1397,7 +1770,7 @@
                     },
                     {
                         "key":"no",
-                        "value":" Nil concerns reported by patient. Reports good oral fluid intake with good urine output."
+                        "value":" Nil concerns reported. Reports good oral fluid intake with good urine output."
                     }
                 ]                
             },
@@ -1683,11 +2056,6 @@
                     "field":"ET_medication",
                     "equals":"Molnupiravir"
                 }
-            },                                     
-            {
-                "type":"title",
-                "text":"impression and plan",
-                "style":"bold"
             },
             {
                 "type":"title",
@@ -1746,7 +2114,7 @@
                     },
                     {
                         "key":"no",
-                        "value": "Patient is not immmunocompromised"
+                        "value": "Patient is not immunocompromised"
                     }
                 ]
             },
@@ -1777,7 +2145,7 @@
                 "options":[
                     {
                         "key":"Remdesiver",
-                        "value": "Patient received <b>REmdesiver</b>"
+                        "value": "Patient received <b>Remdesiver</b>"
                     },
                     {
                         "key":"Paxlovid",
@@ -1786,6 +2154,25 @@
                     {
                         "key":"Molnupiravir",
                         "value": "Patient received <b>Molnupiravir</b>"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"molnupiravir_paxlovid",
+                "display":"Was a discussion of paxlovid over molnupiravir performed?",
+                "condition":{
+                    "field":"ET_medication",
+                    "equals":"Molnupiravir"
+                },
+                "options":[
+                    {
+                        "key":"Yes",
+                        "value":"<br>- A discussion of Molnupiravir vs Paxlovid was performed. <br>- Following discussing risk vs benefit patient chose to be prescribed molnupiravir."
+                    },
+                    {
+                        "key":"No",
+                        "value":" "
                     }
                 ]
             },
@@ -1816,7 +2203,7 @@
                         "key":"Obs QID. Advised if SpO2 <92% or HR >120 to call 000"
                     },
                     {
-                        "key":"Discussed and aware of flags. If worsening symptoms or concerns to call 000/ED/CPP on 03 5975 4494"
+                        "key":"Discussed and aware of flags. If worsening symptoms or concerns to call 000/ED/CPP on 03 5957 4494"
                     }
                 ]
             },
@@ -2978,7 +3365,7 @@
     },
     {
         "name":"COVID Early treatment consent",
-        "pattern":"<b>{doctor}<br><br>Early COVID treatment consent for - {ET_medication}</b>{referral_text}{referral}{referral_person_text}{referral_person}{eligibility_text}{test_text}<b>{test_type}{date_test}</b>{symptoms_text}<b>{date_symptoms}</b>{oxygen}{eligibility}<b>{eligibility_explained}</b><br>{paxlovid_pharmacy,paxlovid_egfr,paxlovid_egfr_results,paxlovid_egfr_reason,paxlovid_egfr_reason_explained,down_list}{informed_text}{paxlovid_consent_1,paxlovid_consent_2,paxlovid_consent_3,paxlovid_consent_4,paxlovid_consent_5,down_list}{paxlovid_consent,molnupiravir_consent}{consent_time,consent_date,consent_person,consent_email,down_list}{checklist_text}{checklist_general_1,checklist_general_2,checklist_paxlovid_1,checklist_paxlovid_2,checklist_paxlovid_3,checklist_paxlovid_4,down_list}",
+        "pattern":"<b>{doctor_other}{doctor}<br><br>Early COVID treatment consent for - {ET_medication}</b>{referral_text}{referral}{referral_person_text}{referral_person}{eligibility_text}{test_text}<b>{test_type}{date_test}</b>{symptoms_text}<b>{date_symptoms}</b>{oxygen}{eligibility}<b>{eligibility_explained}</b><br>{paxlovid_pharmacy,paxlovid_egfr,paxlovid_egfr_results,paxlovid_egfr_reason,paxlovid_egfr_reason_explained,down_list}{informed_text}{paxlovid_consent_1,paxlovid_consent_2,paxlovid_consent_3,paxlovid_consent_4,paxlovid_consent_5,down_list}{paxlovid_consent,molnupiravir_consent}{consent_time,consent_date,consent_person,consent_email,down_list}{checklist_text}{checklist_general_1,checklist_general_2,checklist_paxlovid_1,checklist_paxlovid_2,checklist_paxlovid_3,checklist_paxlovid_4,down_list}",
         "variables":[
         {
                 "type":"text",
@@ -2992,6 +3379,10 @@
                 "display": "Who contacted the patient?",
                 "default": "Dr Iftah Amith COVID HITH consultant",
                 "options":[
+                {
+                    "key":"Other",
+                    "value":" "
+                },    
                 {
                     "key": "Dr Iftah Amith COVID HITH consultant"
                 },
@@ -3015,8 +3406,24 @@
                 },
                 {
                     "key": "Dr Ken Teo COVID HITH consultant"
+                },
+                {
+                    "key": "Dr Rohith Valsalan Gen Med Consultant"
+                },
+                {
+                    "key": "Dr Vincent Siaw Gen Med Consultant"
                 }
             ]
+        },
+        {
+            "placeholder":"doctor_other",
+            "type":"text",
+            "display":"Your name and title",
+            "default":" COVID HITH Consultant",
+            "condition":{
+                "field":"doctor",
+                "equals":"Other"
+            }
         },
         {
                 "type":"dropdown",
@@ -3652,7 +4059,7 @@
     },
     {
         "name": "COVID HITH Medical Review",
-        "pattern": "{doctor}<br><br><b>{template}{drug}</b><br><br>Impression{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Time of call:</b> {time}<br><b>3 Point ID Check Performed:</b> {id_check}<br><b>Was video telehealth used? If not,why was it NOT used?</b> {telehealth}{telehealth_no}<br><b>Date of onset of illness:</b> {symptom}<br><b>Date Positive Swab Collected:</b> {test} {test_date}<br><b>Vaccination status:</b> {vax}<br><b>If we are unable to contact you whilst under the HITH program and concerned about your welfare, who would you like us to contact?</b> {nok}<br><b>Past medical history:</b> {pmhx}<br><b>Current Medications:</b> {meds}<br><b>Allergies:</b> {allergies}<br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br><b>Reinforced compliance and understanding of DHHS requirements to socially isolate?</b> {dhhs}<br><b>Issues escalated to HITH Consultant / Reg:</b> {issues}<br><b>Have been advised to contact HITH if any concerns arise or contact 000:</b> {000}",
+        "pattern": "{doctor_other}{doctor}<br><br><b>{template}{drug}</b><br><br>Impression{covid_severity,immunosuppressed|yes,early|no,early_med,trajectory,down_list}<br><br><b>Time of call:</b> {time}<br><b>3 Point ID Check Performed:</b> {id_check}<br><b>Was video telehealth used? If not,why was it NOT used?</b> {telehealth}{telehealth_no}<br><b>Date of onset of illness:</b> {symptom}<br><b>Date Positive Swab Collected:</b> {test} {test_date}<br><b>Vaccination status:</b> {vax}<br><b>If we are unable to contact you whilst under the HITH program and concerned about your welfare, who would you like us to contact?</b> {nok}<br><b>Past medical history:</b> {pmhx}<br><b>Current Medications:</b> {meds}<br><b>Allergies:</b> {allergies}<br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}<br><b>Any episodes of syncope / feeling light-headed / postural dizziness?</b> {syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}<br><b>CNS Assessment:</b> {orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}<br><b>CVS Assessment:</b> {cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}<br><b>RESP Assessment:</b> {RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}<br><b>GIT Assessment:</b> {GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}<br><b>RENAL Assessment:</b> {RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}<br><b>Reinforced compliance and understanding of DHHS requirements to socially isolate?</b> {dhhs}<br><b>Issues escalated to HITH Consultant / Reg:</b> {issues}<br><b>Have been advised to contact HITH if any concerns arise or contact 000:</b> {000}",
         "variables": [
             {
                 "type":"text",
@@ -3672,6 +4079,10 @@
                 "display": "Who contacted the patient?",
                 "default": "Dr Iftah Amith COVID HITH consultant",
                 "options":[
+                    {
+                        "key":"Other",
+                        "value":" "
+                    },
                     {
                         "key": "Dr Iftah Amith COVID HITH consultant"
                     },
@@ -3695,8 +4106,24 @@
                     },
                     {
                         "key": "Dr Ken Teo COVID HITH consultant"
+                    },
+                    {
+                        "key": "Dr Rohith Valsalan Gen Med Consultant"
+                    },
+                    {
+                        "key": "Dr Vincent Siaw Gen Med Consultant"
                     }
                 ]
+            },
+            {
+                "placeholder":"doctor_other",
+                "type":"text",
+                "display":"Your name and title",
+                "default":" COVID HITH Consultant",
+                "condition":{
+                    "field":"doctor",
+                    "equals":"Other"
+                }
             },
             {
                 "placeholder":"template",
