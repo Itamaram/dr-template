@@ -4164,6 +4164,7 @@
                 "type":"radio",
                 "placeholder":"reaction",
                 "display":"Localised reactions",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
@@ -4177,6 +4178,7 @@
                 "type":"radio",
                 "placeholder":"allergy",
                 "display":"Allergic reactions including anaphylaxis",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
@@ -4190,6 +4192,7 @@
                 "type":"radio",
                 "placeholder":"side",
                 "display":"Side effects - Headache/Fatige/Cough",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
@@ -4203,6 +4206,7 @@
                 "type":"radio",
                 "placeholder":"cardio",
                 "display":"Cardiovascular adverse events",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
@@ -4216,6 +4220,7 @@
                 "type":"radio",
                 "placeholder":"thrombo",
                 "display":"Thromboembolic adverse events",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
@@ -4229,6 +4234,7 @@
                 "type":"radio",
                 "placeholder":"consent",
                 "display":"Written consent completed",
+                "inline":true,
                 "options":[
                     {
                         "key":"Yes"
