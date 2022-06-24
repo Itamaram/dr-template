@@ -4157,8 +4157,8 @@
             },
             {
                 "type":"title",
-                "display":"List of adverse events",
-                "style":"normal"
+                "text":"List of adverse events",
+                "style":"bold"
             },
             {
                 "type":"radio",
@@ -4229,6 +4229,11 @@
                         "key":"No"
                     }
                 ]
+            },
+            {
+                "type":"title",
+                "text":"Other",
+                "style":"bold"
             },
             {
                 "type":"radio",
