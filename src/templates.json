@@ -4059,7 +4059,7 @@
     },
     {
         "name": "Evusheld consent",
-        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the pateint weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk}</b><br><br>The following adverse events/risks discussed with patient:<br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatige/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed - <consent><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
+        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the pateint weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk}</b><br><br><b>The following adverse events/risks discussed with patient:</b><br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatige/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed - <b>{consent}</b><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
         "variables":[
             {
                 "type":"radio",
@@ -4076,7 +4076,7 @@
             },
             {
                 "type":"radio",
-                "placeholder":"Infection",
+                "placeholder":"infection",
                 "display":"Has the patient had COVID-19 in the last 30 days?",
                 "options":[
                     {
@@ -4106,10 +4106,52 @@
                 "display":"Patient's risk factors for severe COVID are:",
                 "options":[
                     {
-                        "key":"Yes"
+                        "key":"Heart/lung transplant recipients"
                     },
                     {
-                        "key":"No"
+                        "key":"STEM Cell Transplant or CAR T-cell therapy recipients within 12 months OR STEM Cell recipients with GVHD OR still requiring significant ongoing immunosuppression for other reasons"
+                    },
+                    {
+                        "key":"Kidney, pancreas/islet cell or liver transplant recipients within 12 months OR requiring therapy for acute rejection OR still requiring significant ongoing suppression for other reasons"
+                    },
+                    {
+                        "key":"Individuals unable to be immunised with COVID-19 vaccines due to genuine, severe allergy if ≥ 65 years old (≥ 50 years old if Aboriginal) and not recently infected with COVID-19 within 3 months"
+                    },
+                    {
+                        "key":"Individuals who have haematological malignancies and are receiving active therapy"
+                    },
+                    {
+                        "key":"Individuals with HIV who have a CD4 cell count < 50 cells/mm3"
+                    },
+                    {
+                        "key":"anti-CD20 antibodies (rituximab, obinutuzumab, ocrelizumab, ofatumumab)"
+                    },
+                    {
+                        "key":"BTK inhibitors (ibrutinib, acalabrutinib, zanubrutinib)"
+                    },
+                    {
+                        "key":"BLC2 inhibitor (venetoclax)"
+                    },
+                    {
+                        "key":"anti-CD38 (daratumumab)"
+                    },
+                    {
+                        "key":"anti-BCMA bi-specific antibody"
+                    },
+                    {
+                        "key":"sphingosine 1- phosphate receptor modulators (fingolimod, siponimod)"
+                    },
+                    {
+                        "key":"anti-CD52 antibodies (alemtuzumab)"
+                    },
+                    {
+                        "key":"anti-complement antibodies (eculizumab)"
+                    },
+                    {
+                        "key":"anti-thymocyte globulin"
+                    },
+                    {
+                        "key":"high dose (> 1 g/m2) cyclophosphamide"
                     }
                 ]
             },
