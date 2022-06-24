@@ -4059,7 +4059,7 @@
     },
     {
         "name": "Evusheld consent",
-        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the pateint weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk}</b><br><br><b>The following adverse events/risks discussed with patient:</b><br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatige/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed - <b>{consent}</b><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
+        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the patient weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk}</b><br><br><b>The following adverse events/risks discussed with patient:</b><br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatige/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed - <b>{consent}</b><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
         "variables":[
             {
                 "type":"radio",
@@ -4090,7 +4090,7 @@
             {
                 "type":"radio",
                 "placeholder":"weight",
-                "display":"Does the pateint weigh more than 40kg?",
+                "display":"Does the patient weigh more than 40kg?",
                 "options":[
                     {
                         "key":"Yes"
