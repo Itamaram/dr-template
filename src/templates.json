@@ -4059,12 +4059,73 @@
     },
     {
         "name": "Evusheld consent",
-        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Allergies: {allergies}<br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the patient weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk}</b><br><br><b>The following adverse events/risks discussed with patient:</b><br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatigue/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed - <b>{consent}</b><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
+        "pattern":"Patient came in for administration of Evusheld injection<br><br><b>Initial assessment:</b><br>Is the patient on any anticoagulation medications? <b>{coag_meds}</b><br>Allergies: <b>{allergies}</b><br>Does the patient have any coagulopathies? i.e. thrombocytopaenia or haemophilia. <b>{coag_conditions}</b><br>Does the patient have any past or current history of CVD? <b>{CVD}</b><br>Is the patient currently pregnant, breastfeeding or actively trying to conceive? <b>{preg}</b><br>Has the patient had a COVID-19 vaccine in the last 2 weeks? <b>{vaccine}</b><br>Has the patient had COVID-19 in the last 30 days? <b>{infection}</b><br>Does the patient weigh more than 40kg? <b>{weight}</b><br><br>Patient's risk factors for severe COVID are: <b>{risk,down_list}</b><br><br><b>The following adverse events/risks discussed with patient:</b><br>Localised reactions - <b>{reaction}</b><br>Allergic reactions including anaphylaxis - <b>{allergy}</b><br>Side effects - Headache/Fatigue/Cough - <b>{side}</b><br>Cardiovascular adverse events - <b>{cardio}</b><br>Thromboembolic adverse events - <b>{thrombo}</b><br><br>Written consent completed and patient informed to read handout about Evusheld - <b>{consent}</b><br><br>Site of administration discussed with patient and decided on - <b>{site}</b><br><br>Plan<br>- Patient to be monitored for 15 minutes after injection<br>- Patient's GP and specialist to be informed of Evusheld injection",
         "variables":[
+            {
+                "type":"text",
+                "hide":true,
+                "placeholder":"down_list",
+                "default":"down_list"
+            },  
+            {
+                "type":"radio",
+                "placeholder":"coag_meds",
+                "display":"Is the patient on any anticoagulation medications?",
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
+            },
             {
                 "type":"text",
                 "placeholder":"allergies",
                 "display":"Allergies"
+            },
+            {
+                "type":"radio",
+                "placeholder":"coag_conditions",
+                "display":"Does the patient have any coagulopathies? i.e. thrombocytopaenia or haemophilia",
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"CVD",
+                "display":"Does the patient have any past or current history of CVD?",
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    }
+                ]
+            },
+            {
+                "type":"radio",
+                "placeholder":"preg",
+                "display":"Is the patient currently pregnant, breastfeeding or actively trying to conceive?",
+                "options":[
+                    {
+                        "key":"Yes"
+                    },
+                    {
+                        "key":"No"
+                    },
+                    {
+                        "key":"N/A"
+                    }
+                ]
             },
             {
                 "type":"radio",
@@ -4243,7 +4304,7 @@
             {
                 "type":"radio",
                 "placeholder":"consent",
-                "display":"Written consent completed",
+                "display":"Written consent completed and patient informed to read handout about Evusheld",
                 "inline":true,
                 "options":[
                     {
