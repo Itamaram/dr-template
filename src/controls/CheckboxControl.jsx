@@ -55,6 +55,7 @@ export const handler = {
     getValues: function (variable, values, mod) {
         return variable.options
             .filter(o => values.includes(o.key))
+            .filter(o => !mod || mod.split(';').map(s => s.trim()).includes(o.key))
             .map(o => o.value || o.key);
     }
 }

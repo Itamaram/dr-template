@@ -1,4 +1,4015 @@
-[
+[    
+    {
+        "name": "HITH nursing - home visit",
+        "pattern": "<p>HOME VISIT - HITH<br><br>DIAGNOSIS - {cellulitis_location_other}{cellulitis_location}{diagnosis}{other_diagnosis}<br><br>REASON FOR VISIT - {reason}{other_reason}<br><br>{covid_present}<br><br>Obs<br>HR - {hr}<br>Blood pressure - {bp}<br>Respiratory rate - {rr}<br>Oxygen saturation - {spo2}{oxygen}{oxygen_yes}<br>Temperature - {temp}{fever}{fever_rigors,fullstop}{weight_text}{weight}{weight_dry_text}{weight_dry}{weight_change}<br><br>CLINICAL IMPRESSION - {impression}<br><br>CNS{cns_concerns|No}{oriented|Yes}{alert}{not_alert}{oriented_grammer_and}{oriented_grammer_coma}{oriented_some}{oriented_time|Yes,oriented_person|Yes,oriented_place|Yes,fullstop}{disoriented_grammer}{disoriented}{oriented_time|No,oriented_person|No,oriented_place|No,fullstop}{strength}{strength_text}{headache_reports}{headache|Yes,dizziness|Yes,blurred_vision|Yes,fullstops}{headache_denies}{headache|No,dizziness|No,blurred_vision|No,fullstop}{pain}{pain_text,fullstop}<br><br>CVS{fluid_restriction_heart}{fluid_restriction_amount_heart}{fluid_restriction_compliance_heart}{input_text_heart}{input_heart}{output_text_heart}{output_heart}{lasix_response_heart}{cvs_concerns|No}{cvs_concerns_cellulitis|No}{chest_reports}{chest_pain|Yes,palpitations|Yes,fullstop}{chest_denies}{chest_pain|No,palpitations|No,fullstop}{peripheries_text}{peripheries_temp}{peripheries_perfused}{cap_refill}{oedema}{oedema_bilateral}{oedema_type}{oedema_location}{oedema_progress}{oedema_text,fullstop}{oedema_comment_left}{oedema_comment_right}<br><br>RESP{resp_concerns|No}{speaking,wob}{resp_reports}{sob|Yes,type_cough}{colour_cough,fullstop}{resp_denies}{sob|No,cough|No,fullstop}{auscultation}{wheeze_text}{wheeze_location,fullstop}{creps_text}{creps_location,fullstop}{reduced_text}{reduced_location,fullstop}{other_text_pre}{other_name}{other_text_post}{other_location,fullstop}<br><br>GIT{git_concerns|No}{oral_intake}{fluid_intake,diet_intake}{git_reports}{nausea|Yes,melaena|Yes}{vomiting_text}{vomiting_explained,fullstop}{contipation_text}{bowels_open,fullstop}{diarrhoea_text}{diarrhoea_number}{diarrhoea_consistency,fullstop}{git_denies}{nausea|No,vomiting|No,constipation|No,diarrhoea|No,melaena|No,fullstop}{faecal_incontinence}{abdo}{abdo_soft,abdo_pain|No,abdo_distended,fullstop}{abdo_pain_text}{abdo_pain_location,fullstop}<br><br>RENAL{fluid_restriction_renal}{fluid_restriction_amount_renal}{fluid_restriction_complience_renal}{input_text_renal}{input_renal}{output_text_renal}{output_renal}{Lasix_renal}{lasix_response_renal}{idc|Yes}{idc_concerns}{idc_issues,fullstop}{spc|Yes}{spc_concerns}{spc_issues,fullstop}{renal_concerns|No}{renal_concerns_catheter|No}{renal_reports}{dysuria|Yes,urgency|Yes,haematuria|Yes,urine_odour|Yes,fullstop}{renal_denies}{dysuria|No,urgency|No,haematuria|No,urine_odour|No,fullstop}{continence_urine,voiding}{catheter_voiding}<br><br>ENDO/METABOLIC{diabetes|No}{bsl_concerns}{bsl_pre}{bsl_text}<br><br>INTEGUMENTARY {rash_text}{rash_location|All of body,rash_location_middle,rash_location_left,rash_location_right}{rash_new,rash_itch,rash_pain,rash_blistering|Yes,rash_weeping|Yes,fullstop}{rash_progress}{itch_text}{itch_location|All of body,itch_location_middle,itch_location_left,itch_location_right}{itch_new,itch_progress}{dry_text}{dry_location|All of body,dry_location_middle,dry_location_left,dry_location_right,fullstop}{burn_text}{burn_location|All of body,burn_location_middle,burn_location_left,burn_location_right,fullstop}{burn_type_text}{burn_type}{burn_classification}{burn_time}{blister_text}{blister_location|All of body,blister_location_middle,blister_location_left,blister_location_right}{blister_intact}{blister_content,fullstop}{blistering_new,blistering_progress}{haematoma_text}{haematoma_location}{haematoma_new,haematoma_pain,haematoma_improving}{abscess_text}{abscess_pleural}{abscess_new}{abscess_new_pleural}{abscess_location_new|All of body,abscess_location_left_new,abscess_location_middle_new,abscess_location_right_new}{abscess_location_text}{abscess_location|All of body,abscess_location_left,abscess_location_middle,abscess_location_right}{abscess_progress}{abscess_progress_pleural}{pressure_text_left_ear}{pressure_stage_left_ear,pressure_new_left_ear,pressure_progress_left_ear,fullstop}{pressure_wound_left_ear}{pressure_wound_issues_left_ear,pressure_wound_issues_other_left_ear,fullstop}{pressure_npwt_type_left_ear}{pressure_npwt_left_ear}{pressure_npwt_issues_left_ear,pressure_npwt_issues_other_left_ear,fullstop}{pressure_text_right_ear}{pressure_stage_right_ear,pressure_new_right_ear,pressure_progress_right_ear,fullstop}{pressure_wound_right_ear}{pressure_wound_issues_right_ear,pressure_wound_issues_other_right_ear,fullstop}{pressure_npwt_type_right_ear}{pressure_npwt_right_ear}{pressure_npwt_issues_right_ear,pressure_npwt_issues_other_right_ear,fullstop}{wound_wound1}{wound_type_wound1}{wound_type_first_diabetes_wound1}{wound_type_first_wound1}{wound_type_other_wound1}{wound_location_left_wound1,wound_location_middle_wound1,wound_location_right_wound1}{wound_new_wound1,wound_progress_wound1,fullstop}{wound_bed_pre_wound1}{wound_bed_wound1,wound_bed_other_wound1,fullstop}{wound_concerns_wound1}{wound_issues_wound1,wound_issues_diabetes_wound1,wound_issues_other_wound1}{wound_npwt_type_wound1}{wound_npwt_issues_wound1}{wound_npwt_issues_type_wound1,wound_npwt_issues_other_wound1,fullstop}{wound_wound2}{wound_type_wound2}{wound_type_first_diabetes_wound2}{wound_type_first_wound2}{wound_type_other_wound2}{wound_location_left_wound2,wound_location_middle_wound2,wound_location_right_wound2}{wound_new_wound2,wound_progress_wound2,fullstop}{wound_bed_pre_wound2}{wound_bed_wound2,wound_bed_other_wound2,fullstop}{wound_concerns_wound2}{wound_issues_wound2,wound_issues_diabetes_wound2,wound_issues_other_wound2}{wound_npwt_type_wound2}{wound_npwt_issues_wound2}{wound_npwt_issues_type_wound2,wound_npwt_issues_other_wound2,fullstop}{wound_wound3}{wound_type_wound3}{wound_type_first_diabetes_wound3}{wound_type_first_wound3}{wound_type_other_wound3}{wound_location_left_wound3,wound_location_middle_wound3,wound_location_right_wound3}{wound_new_wound3,wound_progress_wound3,fullstop}{wound_bed_pre_wound3}{wound_bed_wound3,wound_bed_other_wound3,fullstop}{wound_concerns_wound3}{wound_issues_wound3,wound_issues_diabetes_wound3,wound_issues_other_wound3}{wound_npwt_type_wound3}{wound_npwt_issues_wound3}{wound_npwt_issues_type_wound3,wound_npwt_issues_other_wound3,fullstop}{wound_wound4}{wound_type_wound4}{wound_type_first_diabetes_wound4}{wound_type_first_wound4}{wound_type_other_wound4}{wound_location_left_wound4,wound_location_middle_wound4,wound_location_right_wound4}{wound_new_wound4,wound_progress_wound4,fullstop}{wound_bed_pre_wound4}{wound_bed_wound4,wound_bed_other_wound4,fullstop}{wound_concerns_wound4}{wound_issues_wound4,wound_issues_diabetes_wound4,wound_issues_other_wound4}{wound_npwt_type_wound4}{wound_npwt_issues_wound4}{wound_npwt_issues_type_wound4,wound_npwt_issues_other_wound4,fullstop}{wound_wound5}{wound_type_wound5}{wound_type_first_diabetes_wound5}{wound_type_first_wound5}{wound_type_other_wound5}{wound_location_left_wound5,wound_location_middle_wound5,wound_location_right_wound5}{wound_new_wound5,wound_progress_wound5,fullstop}{wound_bed_pre_wound5}{wound_bed_wound5,wound_bed_other_wound5,fullstop}{wound_concerns_wound5}{wound_issues_wound5,wound_issues_diabetes_wound5,wound_issues_other_wound5}{wound_npwt_type_wound5}{wound_npwt_issues_wound5}{wound_npwt_issues_type_wound5,wound_npwt_issues_other_wound5,fullstop}{iv_prolog}{iv_type,fullstop}{iv_access_review_picc}{iv_access_concerns_picc,iv_access_concerns_other_picc,fullstop}{iv_access_review_ivc}{iv_access_concerns_ivc,iv_access_concerns_other_ivc,fullstop}{iv_access_review_hickman}{iv_access_concerns_hickman,iv_access_concerns_other_hickman,fullstop}{iv_access_review_port}{iv_access_concerns_port,iv_access_concerns_other_port,fullstop}{cellulitis_text_prolog_left_lower}{erythema_text_left_lower}{erythema_location_left_lower}{erythema_left_lower}{oedema_left_lower}{oedema_location_left_lower}{oedema_type_left_lower}{warmth_left_lower}{cellulitis_pain_left_lower}{cellulitis_pain_location_left_lower,fullstop}{cellulitis_concerns_left_lower}{cellulitis_concerns_options_left_lower,cellulitis_concerns_other_left_lower,fullstop}{cellulitis_text_prolog_right_lower}{erythema_text_right_lower}{erythema_location_right_lower}{erythema_right_lower}{oedema_right_lower}{oedema_location_right_lower}{oedema_type_right_lower}{warmth_right_lower}{cellulitis_pain_right_lower}{cellulitis_pain_location_right_lower,fullstop}{cellulitis_concerns_right_lower}{cellulitis_concerns_options_right_lower,cellulitis_concerns_other_right_lower,fullstop}{cellulitis_text_prolog_left_upper}{erythema_text_left_upper}{erythema_location_left_upper}{erythema_left_upper}{oedema_left_upper}{oedema_location_left_upper}{oedema_type_left_upper}{warmth_left_upper}{cellulitis_pain_left_upper}{cellulitis_pain_location_left_upper,fullstop}{cellulitis_concerns_left_upper}{cellulitis_concerns_options_left_upper,cellulitis_concerns_other_left_upper,fullstop}{cellulitis_text_prolog_right_upper}{erythema_text_right_upper}{erythema_location_right_upper}{erythema_right_upper}{oedema_right_upper}{oedema_location_right_upper}{oedema_type_right_upper}{warmth_right_upper}{cellulitis_pain_right_upper}{cellulitis_pain_location_right_upper,fullstop}{cellulitis_concerns_right_upper}{cellulitis_concerns_options_right_upper,cellulitis_concerns_other_right_upper,fullstop}{cellulitis_text_prolog_face}{erythema_text_face}{erythema_location_face}{erythema_face}{oedema_face}{oedema_location_face}{oedema_type_face}{warmth_face}{cellulitis_pain_face}{cellulitis_pain_location_face,fullstop}{cellulitis_concerns_face}{cellulitis_concerns_options_face,cellulitis_concerns_other_face,fullstop}{cellulitis_text_prolog_periorbital}{erythema_text_periorbital}{erythema_location_periorbital}{erythema_periorbital}{oedema_periorbital}{oedema_location_periorbital}{oedema_type_periorbital}{warmth_periorbital}{cellulitis_pain_periorbital}{cellulitis_pain_location_periorbital,fullstop}{cellulitis_concerns_periorbital}{cellulitis_concerns_options_periorbital,cellulitis_concerns_other_periorbital,fullstop}{cellulitis_text_prolog_orbital}{erythema_text_orbital}{erythema_location_orbital}{erythema_orbital}{oedema_orbital}{oedema_location_orbital}{oedema_type_orbital}{warmth_orbital}{cellulitis_pain_orbital}{cellulitis_pain_location_orbital,fullstop}{cellulitis_concerns_orbital}{cellulitis_concerns_options_orbital,cellulitis_concerns_other_orbital,fullstop}{cellulitis_text_prolog_abdomen}{erythema_text_abdomen}{erythema_location_abdomen}{erythema_abdomen}{oedema_abdomen}{oedema_location_abdomen}{oedema_type_abdomen}{warmth_abdomen}{cellulitis_pain_abdomen}{cellulitis_pain_location_abdomen,fullstop}{cellulitis_concerns_abdomen}{cellulitis_concerns_options_abdomen,cellulitis_concerns_other_abdomen,fullstop}{oedema_text_prolog_other}{cellulitis_location_other}{cellulitis_text_post_other}{oedema_other}{oedema_location_other}{oedema_type_other}{warmth_other}{cellulitis_other_pain}{cellulitis_other_pain_location}{erythema_other_text}{erythema_other}{cellulitis_other_concerns}{cellulitis_other_concerns_options}{cellulitis_other_concerns_other,fullstop}{drain_tube_concerns_left_breast}{drain_tube_situ_left_breast,drain_tube_kink_left_breast,drain_tube_suture_left_breast,fullstop}{drain_tube_dressing_dry_left_breast,drain_tube_dressing_clean_left_breast,drain_tube_dressing_situ_left_breast,fullstop}{drain_tube_output_text_left_breast}{drain_tube_output_left_breast}{drain_tube_output_post_left_breast}{drain_tube_output_colour_left_breast,fullstop}{drain_tube_limits_left_breast| No reportable limits}{drain_tube_limits_lower_text_left_breast}{drain_tube_limits_lower_left_breast,fullstop}{drain_tube_limits_upper_text_left_breast}{drain_tube_limits_upper_left_breast,fullstop}<br><br>MOBILITY/ADLs{mobility_observed}{mobility_aids_pre}{mobility_aids,fullstop}{adl}{adl_help,fullstop}{adl_help_receiving}<br><br>PSYCH/SOCIAL{psych_concerns}{psych_concerns_text}{social_living}{social_living_concerns}{social_living_text}<br><br>ACTION{picc_care}{pressure_healing_text_pre}{wound_healing_text_pre}{wound_healing,healing_npwt}{wound_healing_text}{pressure_npwt_type_left_ear,down_list}{pressure_npwt_change_left_ear}{pressure_npwt_stop_left_ear|Yes}{pressure_change_left_ear}{pressure_pic_left_ear}{pressure_npwt_type_right_ear,down_list}{pressure_npwt_change_right_ear}{pressure_npwt_stop_right_ear|Yes}{pressure_change_right_ear}{pressure_pic_right_ear}{wound_dressing_change_wound1,wound_npwt_stop_wound1|Yes,down_list}{wound_dressing_change_wound2,wound_npwt_stop_wound2|Yes,down_list}{wound_dressing_change_wound3,wound_npwt_stop_wound3|Yes,down_list}{wound_dressing_change_wound4,wound_npwt_stop_wound4|Yes,down_list}{wound_dressing_change_wound5,wound_npwt_stop_wound5|Yes,down_list}{wound_pic|Yes}{rash_action,itch_action_burn_action,blister_action,haematoma_action,down_list}{cellulitis_pic|Yes}{action_items,down_list}{action_items_iv|No}{action_items_iv_no}{action_items_iv_iron_cefazolin,down_list}{action_items_iv_abx_text_cefazolin}{action_items_iv_abx_ivc_cefazolin|Yes}{action_items_iv_abx_picc_cefazolin|Yes}{action_items_iv_abx_hick_cefazolin|Yes}{action_items_iv_abx_port_cefazolin|Yes}{action_items_iv_abx_dose_text_cefazolin}{action_items_iv_abx_dose_cefazolin}{action_items_iv_abx_dose_other_cefazolin}{action_items_iv_abx_administered_cefazolin}{action_items_iv_iron_ceftriaxone,down_list}{action_items_iv_abx_text_ceftriaxone}{action_items_iv_abx_ivc_ceftriaxone|Yes}{action_items_iv_abx_picc_ceftriaxone|Yes}{action_items_iv_abx_hick_ceftriaxone|Yes}{action_items_iv_abx_port_ceftriaxone|Yes}{action_items_iv_abx_dose_text_ceftriaxone}{action_items_iv_abx_dose_ceftriaxone}{action_items_iv_abx_dose_other_ceftriaxone}{action_items_iv_abx_administered_ceftriaxone}{action_items_iv_iron_ertapenem,down_list}{action_items_iv_abx_text_ertapenem}{action_items_iv_abx_ivc_ertapenem|Yes}{action_items_iv_abx_picc_ertapenem|Yes}{action_items_iv_abx_hick_ertapenem|Yes}{action_items_iv_abx_port_ertapenem|Yes}{action_items_iv_abx_dose_text_ertapenem}{action_items_iv_abx_dose_ertapenem}{action_items_iv_abx_dose_other_ertapenem}{action_items_iv_abx_administered_ertapenem}{action_items_iv_iron_flucloxacillin,down_list}{action_items_iv_abx_text_flucloxacillin}{action_items_iv_abx_ivc_flucloxacillin|Yes}{action_items_iv_abx_picc_flucloxacillin|Yes}{action_items_iv_abx_hick_flucloxacillin|Yes}{action_items_iv_abx_port_flucloxacillin|Yes}{action_items_iv_abx_dose_text_flucloxacillin}{action_items_iv_abx_dose_flucloxacillin}{action_items_iv_abx_dose_other_flucloxacillin}{action_items_iv_abx_administered_flucloxacillin}{action_items_iv_iron_gentamicin,down_list}{action_items_iv_abx_text_gentamicin}{action_items_iv_abx_ivc_gentamicin|Yes}{action_items_iv_abx_picc_gentamicin|Yes}{action_items_iv_abx_hick_gentamicin|Yes}{action_items_iv_abx_port_gentamicin|Yes}{action_items_iv_abx_dose_text_gentamicin}{action_items_iv_abx_dose_gentamicin}{action_items_iv_abx_dose_other_gentamicin}{action_items_iv_abx_administered_gentamicin}{action_items_iv_iron_metronidazole,down_list}{action_items_iv_abx_text_metronidazole}{action_items_iv_abx_ivc_metronidazole|Yes}{action_items_iv_abx_picc_metronidazole|Yes}{action_items_iv_abx_hick_metronidazole|Yes}{action_items_iv_abx_port_metronidazole|Yes}{action_items_iv_abx_dose_text_metronidazole}{action_items_iv_abx_dose_metronidazole}{action_items_iv_abx_dose_other_metronidazole}{action_items_iv_abx_administered_metronidazole}{action_items_iv_iron_vancomycin,down_list}{action_items_iv_abx_text_vancomycin}{action_items_iv_abx_ivc_vancomycin|Yes}{action_items_iv_abx_picc_vancomycin|Yes}{action_items_iv_abx_hick_vancomycin|Yes}{action_items_iv_abx_port_vancomycin|Yes}{action_items_iv_abx_dose_text_vancomycin}{action_items_iv_abx_dose_vancomycin}{action_items_iv_abx_dose_other_vancomycin}{action_items_iv_abx_administered_vancomycin}{action_items_iv_iron_tazocin,down_list}{action_items_iv_abx_text_tazocin}{action_items_iv_abx_ivc_tazocin|Yes}{action_items_iv_abx_picc_tazocin|Yes}{action_items_iv_abx_hick_tazocin|Yes}{action_items_iv_abx_port_tazocin|Yes}{action_items_iv_abx_dose_text_tazocin}{action_items_iv_abx_dose_tazocin}{action_items_iv_abx_dose_other_tazocin}{action_items_iv_abx_administered_tazocin}{action_items_iv_iron_frusemide,down_list}{action_items_iv_abx_text_frusemide}{action_items_iv_abx_ivc_frusemide|Yes}{action_items_iv_abx_picc_frusemide|Yes}{action_items_iv_abx_hick_frusemide|Yes}{action_items_iv_abx_port_frusemide|Yes}{action_items_iv_abx_dose_text_frusemide}{action_items_iv_abx_dose_frusemide}{action_items_iv_abx_dose_other_frusemide}{action_items_iv_abx_administered_frusemide}{action_items_iv_iron_normal_saline,down_list}{action_items_iv_abx_text_normal_saline}{action_items_iv_abx_ivc_normal_saline|Yes}{action_items_iv_abx_picc_normal_saline|Yes}{action_items_iv_abx_hick_normal_saline|Yes}{action_items_iv_abx_port_normal_saline|Yes}{action_items_iv_abx_dose_text_normal_saline}{action_items_iv_abx_dose_normal_saline}{action_items_iv_abx_dose_other_normal_saline}{action_items_iv_abx_administered_normal_saline}{action_items_iv_iron_hartmanns_fluids,down_list}{action_items_iv_abx_text_hartmanns_fluids}{action_items_iv_abx_ivc_hartmanns_fluids|Yes}{action_items_iv_abx_picc_hartmanns_fluids|Yes}{action_items_iv_abx_hick_hartmanns_fluids|Yes}{action_items_iv_abx_port_hartmanns_fluids|Yes}{action_items_iv_abx_dose_text_hartmanns_fluids}{action_items_iv_abx_dose_hartmanns_fluids}{action_items_iv_abx_dose_other_hartmanns_fluids}{action_items_iv_abx_administered_hartmanns_fluids}{action_items_iv_iron_magnesium,down_list}{action_items_iv_abx_text_magnesium}{action_items_iv_abx_ivc_magnesium|Yes}{action_items_iv_abx_picc_magnesium|Yes}{action_items_iv_abx_hick_magnesium|Yes}{action_items_iv_abx_port_magnesium|Yes}{action_items_iv_abx_dose_text_magnesium}{action_items_iv_abx_dose_magnesium}{action_items_iv_abx_dose_other_magnesium}{action_items_iv_abx_administered_magnesium}{action_items_iv_iron_potassium,down_list}{action_items_iv_abx_text_potassium}{action_items_iv_abx_ivc_potassium|Yes}{action_items_iv_abx_picc_potassium|Yes}{action_items_iv_abx_hick_potassium|Yes}{action_items_iv_abx_port_potassium|Yes}{action_items_iv_abx_dose_text_potassium}{action_items_iv_abx_dose_potassium}{action_items_iv_abx_dose_other_potassium}{action_items_iv_abx_administered_potassium}{action_items_iv_iron_zoledronic,down_list}{action_items_iv_abx_text_zoledronic}{action_items_iv_abx_ivc_zoledronic|Yes}{action_items_iv_abx_picc_zoledronic|Yes}{action_items_iv_abx_hick_zoledronic|Yes}{action_items_iv_abx_port_zoledronic|Yes}{action_items_iv_abx_dose_text_zoledronic}{action_items_iv_abx_dose_zoledronic}{action_items_iv_abx_dose_other_zoledronic}{action_items_iv_abx_administered_zoledronic}{action_items_iv_iron_iron,down_list}{action_items_iv_abx_text_iron}{action_items_iv_abx_ivc_iron|Yes}{action_items_iv_abx_picc_iron|Yes}{action_items_iv_abx_hick_iron|Yes}{action_items_iv_abx_port_iron|Yes}{action_items_iv_abx_dose_text_iron}{action_items_iv_abx_dose_iron}{action_items_iv_abx_dose_other_iron}{action_items_iv_abx_administered_iron}{action_iterms_iv_abx_name_other,down_list}{action_items_iv_abx_text_other}{action_items_iv_abx_ivc_other|Yes}{action_items_iv_abx_picc_other|Yes}{action_items_iv_abx_hick_other|Yes}{action_items_iv_abx_port_other|Yes}{action_items_iv_abx_dose_text_other}{action_items_iv_abx_dose_other}{action_items_iv_abx_administered_other}{drain_tube_management_text_left_breast}{drain_tube_management_left_breast}{drain_tube_management_flushed_left_breast}{drain_tube_management_flushed_issues_left_breast}<br><br>RESPONSE{response_text_pre}{response_text}{response_text_post}<br><br>PLAN</p>",
+        "variables": [
+            {
+                "type":"text",
+                "placeholder":"fullstop",
+                "default":".",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"down_list",
+                "default":"down_list",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"diagnosis",
+                "display":"Patient's diagnosis",
+                "options":[
+                    {
+                        "key": "cellulitis"
+                    },
+                    {
+                        "key": "heart failure"
+                    },
+                    {
+                        "key": "diabetic foot ulcer"
+                    },
+                    {
+                        "key": "osteoporosis"
+                    },
+                    {
+                        "key": "infective endocarditis"
+                    },
+                    {
+                        "key": "complex wound"
+                    },
+                    {
+                        "key": "other",
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "type":"text",
+                "placeholder":"other_diagnosis",
+                "display":"other diagnosis?",
+                "condition":{
+                    "field": "diagnosis",
+                    "equals": "other"
+                }
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"cellulitis_location",
+                "display":"Where is the patient's cellulitis?",
+                "options":[
+                    {
+                        "key": "left lower limb",
+                        "value": "Left lower limb "
+                    },
+                    {
+                        "key": "right lower limb",
+                        "value": "Right lower limb "
+                    },
+                    {
+                        "key": "left upper limb",
+                        "value": "Left upper limb "
+                    },
+                    {
+                        "key": "right upper limb",
+                        "value": "Right upper limb "
+                    },
+                    {
+                        "key": "face",
+                        "value": "Facial "
+                    },
+                    {
+                        "key": "periorbital",
+                        "value": "Perioribital "
+                    },
+                    {
+                        "key": "orbital",
+                        "value": "Orbital "
+                    },
+                    {
+                        "key": "abdomen",
+                        "value": "Abdomenal "
+                    },
+                    {
+                        "key": "other",
+                        "value": " "
+                    }
+                ],
+                "condition":{
+                    "field": "diagnosis",
+                    "equals": "cellulitis"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"cellulitis_location_other",
+                "display":"What other location?",
+                "condition":{
+                    "field": "cellulitis_location",
+                    "equals": "other"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"impression",
+                "display":"What is your clinical impression?"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"reason",
+                "display":"Reason for visit",
+                "options":[
+                    {
+                        "key": "Drain tube management"
+                    },
+                    {
+                        "key": "Wound care"
+                    },
+                    {
+                        "key": "IV fluids"
+                    },
+                    {
+                        "key": "IV antibiotics"
+                    },
+                    {
+                        "key": "IV frusemide"
+                    },
+                    {
+                        "key": "IV zolendaric acid"
+                    },
+                    {
+                        "key": "IV iron infusion"
+                    },
+                    {
+                        "key": "PICC line management"
+                    },
+                    {
+                        "key": "Bloods"
+                    },
+                    {
+                        "key": "Catheter Care"
+                    },
+                    {
+                        "key": "Trial of void"
+                    },
+                    {
+                        "key": "Heart failure management"
+                    },
+                    {
+                        "key": "Fluid management"
+                    },
+                    {
+                        "key": "Other",
+                        "value": " "
+                    }
+                ]
+            },
+            {
+                "type":"text",
+                "placeholder":"other_reason",
+                "display":"Other reason for visit?",
+                "condition":{
+                    "field": "reason",
+                    "equals": "Other"
+                }
+            },
+            {
+                "type":"title",
+                "text":"COVID screening",
+                "style":"medium"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"covid_present",
+                "display":"Does the patient currently have COVID or lives with someone who has COVID?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "Due to patient's home environment being high risk of exposure to COVID, level 4 PPE worn prior to entrance"
+                    },
+                    {
+                        "key": "No",
+                        "value": "Answered NO to COVID-19 screening questions by patient"
+                    }
+                ],
+                "default":"No"
+            },
+            {
+                "type":"title",
+                "text":"Observations",
+                "style":"medium"
+            },
+            {
+                "type":"text",
+                "placeholder":"hr",
+                "display":"Heart rate"
+            },
+            {
+                "type":"text",
+                "placeholder":"bp",
+                "display":"Blood pressure"
+            },
+            {
+                "type":"text",
+                "placeholder":"rr",
+                "display":"Respiratory rate"
+            },
+            {
+                "type":"text",
+                "placeholder":"spo2",
+                "display":"Oxygen saturation"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oxygen",
+                "display":"Oxygen?",
+                "options":[
+                    {
+                        "key": "Room Air",
+                        "value": " on RA"
+                    },
+                    {
+                        "key": "Oxygen",
+                        "value": " on "
+                    }
+                ],
+                "default":"Room Air",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"oxygen_yes",
+                "display":"How many litters?",
+                "condition":{
+                    "field": "oxygen",
+                    "equals": "Oxygen"
+                },
+                "default":" L"
+            },
+            {
+                "type":"text",
+                "placeholder":"temp",
+                "display":"Temperature"
+            },
+            {
+                "type":"radio",
+                "placeholder":"fever",
+                "display":"Fever or rigors?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Reports recent "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Denies recent fevers or rigors."
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"fever_rigors",
+                "display":"What does the patient reports having recently?",
+                "options":[
+                    {
+                        "key": "Rigors",
+                        "value": "rigors"
+                    },
+                    {
+                        "key": "Fevers",
+                        "value": "fevers"
+                    }
+                ],
+                "condition":{
+                    "field": "fever",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"weight",
+                "display":"Patient current weight",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"weight_text",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        }
+                    ]
+                },
+                "default":"<br>Weight - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"weight_dry_text",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        }
+                    ]
+                },
+                "default":"<br>Patient's dry weight is - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"weight_dry",
+                "display":"Patient's dry weight",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"weight_change",
+                "display":"Weight is:",
+                "options":[
+                    {
+                        "key": "Reducing",
+                        "value": "<br>Patient's weight is coming down."
+                    },
+                    {
+                        "key": "The same",
+                        "value": "<br>Patient's weight is staying the same."
+                    },
+                    {
+                        "key": "Increasing",
+                        "value": "<br>Patient's weight is increasing."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"title",
+                "text":"CNS Assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"cns_concerns",
+                "display":"Any concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Patient is alert and orientated to time place and person.<br>No concern about change of strength in all of patient's limbs.<br>Denies headaches, dizziness or blurred vision.<br>Patient did not complaint of pain at time of visit."
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oriented",
+                "display":"Patient oriented and alert?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Patient is alert and orientated to time person and place"
+                    },
+                    {
+                        "key": "No",
+                        "value": ""
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"Yes",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"alert",
+                "display":"Is the patient alert?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Patient is alert"
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Patient is "
+                    }
+                ],
+                "condition":{
+                    "field": "oriented",
+                    "equals": "No"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"not_alert",
+                "display":"What is the patient if not alert?",
+                "options":[
+                    {
+                        "key": "drowsy",
+                        "value": " drowsy"
+                    },
+                    {
+                        "key": "asleep",
+                        "value": " asleep"
+                    },
+                    {
+                        "key": "non responsive",
+                        "value": " non responsive"
+                    }
+                ],
+                "condition":{
+                    "field": "alert",
+                    "equals": "No"
+                }
+            },
+            {
+                "type":"title",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "oriented",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "asleep"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "non responsive"
+                        }
+                    ]
+                },
+                "text":"orientation",
+                "style":"bold"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oriented_time",
+                "display":"Time?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "time"
+                    },
+                    {
+                        "key": "No",
+                        "value": "time"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "oriented",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "asleep"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "non responsive"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oriented_person",
+                "display":"Person?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "person"
+                    },
+                    {
+                        "key": "No",
+                        "value": "person"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "oriented",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "asleep"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "non responsive"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oriented_place",
+                "display":"Place?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "place"
+                    },
+                    {
+                        "key": "No",
+                        "value": "place"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "oriented",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "asleep"
+                        },
+                        {
+                            "field": "not_alert",
+                            "not-equals": "non responsive"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"oriented_some",
+                "display":"doesn’t matter",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "oriented_time",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "oriented_person",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "oriented_place",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"orientated to ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"disoriented",
+                "display":"doesn’t matter",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "oriented_time",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_person",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_place",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":"disorientated to ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"oriented_grammer_and",
+                "display":"doesn’t matter",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "oriented_time",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "oriented_person",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "oriented_place",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":" and ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"oriented_grammer_coma",
+                "display":"doesn’t matter",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "oriented_time",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_person",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_place",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":", ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"disoriented_grammer",
+                "display":"doesn’t matter",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "oriented_time",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_person",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "oriented_place",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":" and ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"strength",
+                "display":"Does the patient have limb weakness?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Patient has weakness of their "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>No concern about change of strength in all of patient's limbs."
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"strength_text",
+                "display":"Where is the weekness?",
+                "condition":{
+                    "field": "strength",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"headache",
+                "display":"Headaches?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "headaches"
+                    },
+                    {
+                        "key": "No",
+                        "value": "headaches"
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"dizziness",
+                "display":"Dizziness?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "dizziness"
+                    },
+                    {
+                        "key": "No",
+                        "value": "dizziness"
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"blurred_vision",
+                "display":"Blurred vision?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "blurred vision"
+                    },
+                    {
+                        "key": "No",
+                        "value": "blurred vision"
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"headache_reports",
+                "display":"doesn’t matter",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "headache",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "dizziness",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "blurred_vision",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "cns_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Reports ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"headache_denies",
+                "display":"doesn’t matter",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "headache",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "dizziness",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "blurred_vision",
+                                    "equals": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "cns_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Denies ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"pain",
+                "display":"Any pain?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Patient reports pain to "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Patient did not complaint of pain at time of visit."
+                    }
+                ],
+                "condition":{
+                    "field": "cns_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"pain_text",
+                "display":"Where is the pain?",
+                "condition":{
+                    "field": "pain",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"title",
+                "text":"CVS assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"fluid_restriction_heart",
+                "display":"Is the patient on fluid restriction?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>On fluid restriction of "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Not on fluid restriction."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"fluid_restriction_amount_heart",
+                "display":"What is the fluid restriction? (in liters)",
+                "options":[
+                    {
+                        "key": "1L",
+                        "value": "1 L."
+                    },
+                    {
+                        "key": "1.2L",
+                        "value": "1.2 L."
+                    },
+                    {
+                        "key": "1.5L",
+                        "value": "1.5 L."
+                    },
+                    {
+                        "key": "1.8L",
+                        "value": "1.8 L."
+                    },
+                    {
+                        "key": "2L",
+                        "value": "2 L."
+                    }
+                ],
+                "condition":{
+                    "field": "fluid_restriction_heart",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"fluid_restriction_compliance_heart",
+                "display":"Fluid restriction complience",
+                "options":[
+                    {
+                        "key": "Good",
+                        "value": "<br>Good adherence to fluid restriction."
+                    },
+                    {
+                        "key": "Poor",
+                        "value": "<br>Poor adherence to fluid restriction."
+                    }
+                ],
+                "condition":{
+                    "field": "fluid_restriction_heart",
+                    "equals": "Yes"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"input_text_heart",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                },
+                "default":"<br>Oral fluid input in last 24 hours - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"input_heart",
+                "display":"Oral fluid input in last 24 hours?",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"output_text_heart",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                },
+                "default":"<br>Oral fluid output in last 24 hours - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"output_heart",
+                "display":"Oral fluid output in last 24 hours?",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"lasix_heart",
+                "display":"Lasix given in last 24 hours?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"lasix_response_heart",
+                "display":"Good response from Lasix?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Good response from Lasix."
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Poor response from Lasix."
+                    }
+                ],
+                "condition":{
+                    "field": "lasix_heart",
+                    "equals": "Yes"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"cvs_concerns",
+                "display":"Any concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Denies chest pain or palpitations.<br>Peripheries are warm and well perfused.<br>Normal capillary refill.<br>Nil peripheral oedema."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cellulitis_location",
+                            "not-equals": "left lower limb"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Fluid management"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "not-equals": "right lower limb"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"cvs_concerns_cellulitis",
+                "display":"Any concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Denies chest pain or palpitations.<br>Peripheries are well perfused.<br>Normal capillary refill."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "left lower limb"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "right lower limb"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"chest_pain",
+                "display":"Chest pain?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "chest pain"
+                    },
+                    {
+                        "key": "No",
+                        "value": "chest pain"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"palpitations",
+                "display":"Palpitations?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "palpitations"
+                    },
+                    {
+                        "key": "No",
+                        "value": "palpitations"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"chest_reports",
+                "display":"doesn’t matter",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "chest_pain",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "palpitations",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "or":[
+                                {
+                                    "field": "cvs_concerns",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "cvs_concerns_cellulitis",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "default":"<br>Reports ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"chest_denies",
+                "display":"doesn’t matter",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "chest_pain",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "palpitations",
+                                    "equals": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "or":[
+                                {
+                                    "field": "cvs_concerns",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "cvs_concerns_cellulitis",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "default":"<br>Denies ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"peripheries_text",
+                "display":"doesn’t matter",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Peripheries are ",
+                "hide":true
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"peripheries_temp",
+                "display":"Peripheries temperature",
+                "options":[
+                    {
+                        "key": "warm",
+                        "value": "warm and "
+                    },
+                    {
+                        "key": "cold",
+                        "value": "cold and "
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "not-equals": "left lower limb"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "not-equals": "right lower limb"
+                        }
+                    ]
+                },
+                "default":"warm"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"peripheries_perfused",
+                "display":"Peripheries perfusion",
+                "options":[
+                    {
+                        "key": "good",
+                        "value": "well perfused."
+                    },
+                    {
+                        "key": "poor",
+                        "value": "poorly perfused."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"good"
+            },
+            {
+                "type":"radio",
+                "placeholder":"cap_refill",
+                "display":"Capillary refill",
+                "options":[
+                    {
+                        "key": "Normal",
+                        "value": "<br>Normal apillary refill."
+                    },
+                    {
+                        "key": "Delayed",
+                        "value": "<br>Delayed capillary refill."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"Normal",
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"oedema",
+                "display":"Peripheral oedema present?",
+                "options":[
+                    {
+                        "key": "No oedema",
+                        "value": "<br>Nil peripheral oedema present."
+                    },
+                    {
+                        "key": "Mild oedema",
+                        "value": "<br>Mild "
+                    },
+                    {
+                        "key": "Moderate oedema",
+                        "value": "<br>Moderate "
+                    },
+                    {
+                        "key": "Severe oedema",
+                        "value": "<br>Severe "
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "cvs_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "IV frusemide"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "default":"No oedema"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"oedema_bilateral",
+                "display":"Oedema is on",
+                "options":[
+                    {
+                        "key": "Both side",
+                        "value": "bilateral peripheral oedema present "
+                    },
+                    {
+                        "key": "only on left side",
+                        "value": " unilateral peripheral oedema present on the left "
+                    },
+                    {
+                        "key": "Only on right side",
+                        "value": " unilateral peripheral oedema present on the right "
+                    },
+                    {
+                        "key": "More on the left than the right",
+                        "value": " peripheral oedema present more on the left than the right "
+                    },
+                    {
+                        "key": "More on the right than the left",
+                        "value": " peripheral oedema present more on the left than the left "
+                    }
+                ],
+                "default":"Both sides"
+            },
+            {
+                "type":"radio",
+                "placeholder":"oedema_type",
+                "display":"Type of oedema?",
+                "options":[
+                    {
+                        "key": "Pitting",
+                        "value": " which is pitting "
+                    },
+                    {
+                        "key": "Non-pitting",
+                        "value": " which is non-pitting "
+                    }
+                ],
+                "condition":{
+                    "field": "oedema",
+                    "not-equals": "No oedema"
+                },
+                "default":"Pitting",
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"oedema_location",
+                "display":"Up to where does the oedema reach?",
+                "options":[
+                    {
+                        "key": "feet",
+                        "value": " and is just the on the feet. "
+                    },
+                    {
+                        "key": "ankles",
+                        "value": " and is up to the ankles. "
+                    },
+                    {
+                        "key": "mid shins",
+                        "value": " and is up to the mid shins. "
+                    },
+                    {
+                        "key": "below the knees",
+                        "value": " and is up to below the knees. "
+                    },
+                    {
+                        "key": "to the knees",
+                        "value": " and is up to the knees. "
+                    },
+                    {
+                        "key": "Thigh",
+                        "value": " and is up to the thigh. "
+                    },
+                    {
+                        "key": "sacrum",
+                        "value": " and is up to the sacrum."
+                    },
+                    {
+                        "key": "abdomen",
+                        "value": " and is up to the abdomen. "
+                    },
+                    {
+                        "key": "chest",
+                        "value": " and is up to the chest. "
+                    }
+                ],
+                "condition":{
+                    "field": "oedema",
+                    "not-equals": "No oedema"
+                }
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"oedema_progress",
+                "display":"Is the oedema improving?",
+                "options":[
+                    {
+                        "key": "Improving",
+                        "value": "<br>The oedema is improving. "
+                    },
+                    {
+                        "key": "Stayed the same",
+                        "value": "<br>The oedema has stayed the same. "
+                    },
+                    {
+                        "key": "Worse",
+                        "value": "<br>The oedema has been getting worse. "
+                    }
+                ],
+                "condition":{
+                    "field": "oedema",
+                    "not-equals": "No oedema"
+                }
+            },
+            {
+                "type":"title",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "right lower limb"
+                        }
+                    ]
+                },
+                "text":"Further description of right leg cellulitis under 'Integumentary' heading",
+                "style":"normal"
+            },
+            {
+                "type":"title",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "left lower limb"
+                        }
+                    ]
+                },
+                "text":"Further description of left leg cellulitis under 'Integumentary' heading",
+                "style":"normal"
+            },
+            {
+                "type":"text",
+                "placeholder":"oedema_text",
+                "display":"Further comments on the oedema if needed - no need to comment on cellulitis",
+                "condition":{
+                    "field": "oedema",
+                    "not-equals": "No oedema"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"oedema_comment_right",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "right lower limb"
+                        }
+                    ]
+                },
+                "default":"<br>Further description of cellulitic right leg under 'Integumentary' heading",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"oedema_comment_left",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "cvs_concerns_cellulitis",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "cellulitis_location",
+                            "equals": "left lower limb"
+                        }
+                    ]
+                },
+                "default":"<br>Further description of cellulitic left leg under 'Integumentary' heading",
+                "hide":true
+            },
+            {
+                "type":"title",
+                "text":"Respiratory assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"resp_concerns",
+                "display":"any concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Speaking in full sentences.<br>Nil SOB, cough, increased WOB or use of accessory muscle."
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"speaking",
+                "display":"speaking in?",
+                "options":[
+                    {
+                        "key": "Full sentences",
+                        "value": "<br>Patient speaking in full sentences"
+                    },
+                    {
+                        "key": "Short sentences",
+                        "value": "<br>Patient speaking in short sentences"
+                    },
+                    {
+                        "key": "Words",
+                        "value": "<br>Patient speaking in single words"
+                    },
+                    {
+                        "key": "Did not speak",
+                        "value": "<br>Patient did not speak during review"
+                    }
+                ],
+                "condition":{
+                    "field": "resp_concerns",
+                    "equals": "Yes"
+                },
+                "default":"Full sentences"
+            },
+            {
+                "type":"text",
+                "placeholder":"resp_reports",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "cough",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "sob",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "resp_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Report ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"cough",
+                "display":"Cough?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "cough"
+                    },
+                    {
+                        "key": "No",
+                        "value": "cough"
+                    }
+                ],
+                "condition":{
+                    "field": "resp_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"type_cough",
+                "display":"Type of cough?",
+                "options":[
+                    {
+                        "key": "Productive",
+                        "value": "proctive cough with sputum which is "
+                    },
+                    {
+                        "key": "Dry",
+                        "value": "dry cough."
+                    }
+                ],
+                "condition":{
+                    "field": "cough",
+                    "equals": "Yes"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"colour_cough",
+                "display":"What colour is the sputum?",
+                "options":[
+                    {
+                        "key": "clear"
+                    },
+                    {
+                        "key": "yellow"
+                    },
+                    {
+                        "key": "green"
+                    },
+                    {
+                        "key": "brown"
+                    },
+                    {
+                        "key": "blood",
+                        "value": "blood present"
+                    }
+                ],
+                "condition":{
+                    "field": "type_cough",
+                    "equals": "Productive"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"sob",
+                "display":"SOB?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "SOB"
+                    },
+                    {
+                        "key": "No",
+                        "value": "SOB"
+                    }
+                ],
+                "condition":{
+                    "field": "resp_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"wob",
+                "display":"increased work of breathing?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": " has increased work of breathing. "
+                    },
+                    {
+                        "key": "No",
+                        "value": " has no increased work of breathing. "
+                    }
+                ],
+                "condition":{
+                    "field": "resp_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"resp_denies",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "cough",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "sob",
+                                    "equals": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "resp_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Denies ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"ausculation_check",
+                "display":"Auscultation performed?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"auscultation",
+                "display":"Auscultation concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Auscultation of lungs: "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Lung sounds clear to auscultation with bilateral equal air entery."
+                    }
+                ],
+                "condition":{
+                    "field": "ausculation_check",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"ausculation_sound",
+                "display":"What did you hear on auscultation?",
+                "options":[
+                    {
+                        "key": "wheeze"
+                    },
+                    {
+                        "key": "creps"
+                    },
+                    {
+                        "key": "reduced breath sounds"
+                    },
+                    {
+                        "key": "other"
+                    }
+                ],
+                "condition":{
+                    "field": "auscultation",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"wheeze_text",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "wheeze"
+                },
+                "default":"<br>Wheeze was heard at the ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"wheeze_location",
+                "display":"Location of wheeze?",
+                "options":[
+                    {
+                        "key": "bilterally in the all lung fields",
+                        "value": "all lung fields bilaterally"
+                    },
+                    {
+                        "key": "left anterior zone"
+                    },
+                    {
+                        "key": "left upper zone"
+                    },
+                    {
+                        "key": "left middle zone"
+                    },
+                    {
+                        "key": "left lower zone"
+                    },
+                    {
+                        "key": "right anterior zone"
+                    },
+                    {
+                        "key": "right upper zone"
+                    },
+                    {
+                        "key": "right middle zone"
+                    },
+                    {
+                        "key": "right lower zone"
+                    }
+                ],
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "wheeze"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"creps_text",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "creps"
+                },
+                "default":"<br>Creps were heard at the ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"creps_location",
+                "display":"Location of wheeze?",
+                "options":[
+                    {
+                        "key": "bilterally in the all lung fields",
+                        "value": "all lung fields bilaterally"
+                    },
+                    {
+                        "key": "left anterior zone"
+                    },
+                    {
+                        "key": "left upper zone"
+                    },
+                    {
+                        "key": "left middle zone"
+                    },
+                    {
+                        "key": "left lower zone"
+                    },
+                    {
+                        "key": "right anterior zone"
+                    },
+                    {
+                        "key": "right upper zone"
+                    },
+                    {
+                        "key": "right middle zone"
+                    },
+                    {
+                        "key": "right lower zone"
+                    }
+                ],
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "creps"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"reduced_text",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "reduced breath sounds"
+                },
+                "default":"<br>Reduced air entery at the",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"reduced_location",
+                "display":"Location of wheeze?",
+                "options":[
+                    {
+                        "key": "bilterally in the all lung fields",
+                        "value": "all lung fields bilaterally"
+                    },
+                    {
+                        "key": "left anterior zone"
+                    },
+                    {
+                        "key": "left upper zone"
+                    },
+                    {
+                        "key": "left middle zone"
+                    },
+                    {
+                        "key": "left lower zone"
+                    },
+                    {
+                        "key": "right anterior zone"
+                    },
+                    {
+                        "key": "right upper zone"
+                    },
+                    {
+                        "key": "right middle zone"
+                    },
+                    {
+                        "key": "right lower zone"
+                    }
+                ],
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "reduced breath sounds"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"other_name",
+                "display":"What other sound did you hear?",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "other"
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"other_text_pre",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "other"
+                },
+                "default":"<br>",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"other_text_post",
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "other"
+                },
+                "default":" was heard at the ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"other_location",
+                "display":"Location of wheeze?",
+                "options":[
+                    {
+                        "key": "bilterally in the all lung fields",
+                        "value": "all lung fields bilaterally"
+                    },
+                    {
+                        "key": "left anterior zone"
+                    },
+                    {
+                        "key": "left upper zone"
+                    },
+                    {
+                        "key": "left middle zone"
+                    },
+                    {
+                        "key": "left lower zone"
+                    },
+                    {
+                        "key": "right anterior zone"
+                    },
+                    {
+                        "key": "right upper zone"
+                    },
+                    {
+                        "key": "right middle zone"
+                    },
+                    {
+                        "key": "right lower zone"
+                    }
+                ],
+                "condition":{
+                    "field": "ausculation_sound",
+                    "equals": "other"
+                }
+            },
+            {
+                "type":"title",
+                "text":"GIT assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"git_concerns",
+                "display":"Any GIT concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Tolerating oral intake well.<br>Denies nausea, vomiting, constipation, diarrhoea and melaena.<br>Abdo - soft, non-tender and not distended."
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"git_reports",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "nausea",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "melaena",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "vomiting",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "git_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Reports ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"git_denies",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "nausea",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "vomiting",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "constipation",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "diarrhoea",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "melaena",
+                                    "equals": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "git_concerns",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"<br>Denies ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"oral_intake",
+                "display":"Oral intake concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Reports "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Tolerating oral intake well."
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"fluid_intake",
+                "display":"Tolerate fluid",
+                "options":[
+                    {
+                        "key": "Good",
+                        "value": "good fluid intake"
+                    },
+                    {
+                        "key": "Poor",
+                        "value": "poor fluid intake"
+                    }
+                ],
+                "condition":{
+                    "field": "oral_intake",
+                    "equals": "Yes"
+                },
+                "default":"Good",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"diet_intake",
+                "display":"Tolerating diet",
+                "options":[
+                    {
+                        "key": "Good",
+                        "value": "good food intake."
+                    },
+                    {
+                        "key": "Poor",
+                        "value": "poor food intake."
+                    }
+                ],
+                "condition":{
+                    "field": "oral_intake",
+                    "equals": "Yes"
+                },
+                "default":"Good",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"nausea",
+                "display":"Nausea",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "nausea"
+                    },
+                    {
+                        "key": "No",
+                        "value": "nausea"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"vomiting",
+                "display":"Vomiting",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "vomiting"
+                    },
+                    {
+                        "key": "No",
+                        "value": "vomiting"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"vomiting_text",
+                "condition":{
+                    "field": "vomiting",
+                    "equals": "Yes"
+                },
+                "default":"<br>Reports vomiting ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"vomiting_explained",
+                "display":"What are they vomiting?",
+                "options":[
+                    {
+                        "key": "Clear fluids",
+                        "value": "clear fluids"
+                    },
+                    {
+                        "key": "Food",
+                        "value": "foods"
+                    },
+                    {
+                        "key": "True bile (green)",
+                        "value": "bile"
+                    },
+                    {
+                        "key": "Blood",
+                        "value": "blood"
+                    },
+                    {
+                        "key": "Faecal matter",
+                        "value": "faecal matter"
+                    }
+                ],
+                "condition":{
+                    "field": "vomiting",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"constipation",
+                "display":"Constipation",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "constipation"
+                    },
+                    {
+                        "key": "No",
+                        "value": "constipation"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"contipation_text",
+                "condition":{
+                    "field": "constipation",
+                    "equals": "Yes"
+                },
+                "default":"<br>Reports constipation with bowels last opened ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"bowels_open",
+                "display":"When were the bowels last open?",
+                "condition":{
+                    "field": "constipation",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"diarrhoea",
+                "display":"Diarrhoea",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "diarrhoea"
+                    },
+                    {
+                        "key": "No",
+                        "value": "diarrhoea"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"diarrhoea_text",
+                "condition":{
+                    "field": "diarrhoea",
+                    "equals": "Yes"
+                },
+                "default":"<br>Reports bowels opened ",
+                "hide":true
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"diarrhoea_number",
+                "display":"Number of times bowel opened in last 24 hours?",
+                "options":[
+                    {
+                        "key": "Once",
+                        "value": "once in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Twice",
+                        "value": "twice in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Three times",
+                        "value": "three times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Four times",
+                        "value": "four times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Five times",
+                        "value": "five times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Six times",
+                        "value": "six times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Seven times",
+                        "value": "seven times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Eight times",
+                        "value": "eight times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Nine times",
+                        "value": "nine times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Ten times",
+                        "value": "ten times in last 24 hours. The Diarhoea is "
+                    },
+                    {
+                        "key": "Ten or greater times",
+                        "value": "Greater than ten times in last 24 hours. The Diarhoea is "
+                    }
+                ],
+                "condition":{
+                    "field": "diarrhoea",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"diarrhoea_consistency",
+                "display":"What is the characteristics of the diarrhoea?",
+                "options":[
+                    {
+                        "key": "Watery",
+                        "value": "watery"
+                    },
+                    {
+                        "key": "Loose",
+                        "value": "loose"
+                    },
+                    {
+                        "key": "Possibly more frequent",
+                        "value": "possibly more frequent"
+                    },
+                    {
+                        "key": "Bloody",
+                        "value": "bloody"
+                    },
+                    {
+                        "key": "Mucus",
+                        "value": "mucus"
+                    },
+                    {
+                        "key": "Melaena",
+                        "value": "suspected melaena"
+                    }
+                ],
+                "condition":{
+                    "field": "diarrhoea",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"melaena",
+                "display":"Melaena",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "melaena"
+                    },
+                    {
+                        "key": "No",
+                        "value": "melaena"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "git_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "diarrhoea_consistency",
+                            "not-equals": "Melaena"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"faecal_incontinence",
+                "display":"Faecal incontinence?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Patient has faecal incontinence"
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"title",
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "text":"Abdomen exam",
+                "style":"bold"
+            },
+            {
+                "type":"text",
+                "placeholder":"abdo",
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"<br>Abdo - ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"abdo_soft",
+                "display":"Rigid",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "rigid"
+                    },
+                    {
+                        "key": "No",
+                        "value": "soft"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"abdo_pain",
+                "display":"Tenderness",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "tender"
+                    },
+                    {
+                        "key": "No",
+                        "value": "non-tender"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"abdo_pain_text",
+                "condition":{
+                    "field": "abdo_pain",
+                    "equals": "Yes"
+                },
+                "default":"<br>Patient has tenderness on palpation to ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"abdo_pain_location",
+                "display":"Where is the pain?",
+                "options":[
+                    {
+                        "key": "left upper quadrant"
+                    },
+                    {
+                        "key": "right upper quadrant"
+                    },
+                    {
+                        "key": "left lower quadrant"
+                    },
+                    {
+                        "key": "right lower quadrant"
+                    },
+                    {
+                        "key": "umbilicus"
+                    },
+                    {
+                        "key": "left loin"
+                    },
+                    {
+                        "key": "right loin"
+                    },
+                    {
+                        "key": "left groin"
+                    },
+                    {
+                        "key": "right groin"
+                    }
+                ],
+                "condition":{
+                    "field": "abdo_pain",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"abdo_distended",
+                "display":"Distended",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "distended"
+                    },
+                    {
+                        "key": "No",
+                        "value": "not distended"
+                    }
+                ],
+                "condition":{
+                    "field": "git_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"title",
+                "text":"Renal assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"fluid_restriction_renal",
+                "display":"Is the patient on fluid restriction?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>On fluid restriction of "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Not on fluid restriction."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"dropdown",
+                "placeholder":"fluid_restriction_amount_renal",
+                "display":"What is the fluid restriction? (in liters)",
+                "options":[
+                    {
+                        "key": "1L",
+                        "value": "1 L."
+                    },
+                    {
+                        "key": "1.2L",
+                        "value": "1.2 L."
+                    },
+                    {
+                        "key": "1.5L",
+                        "value": "1.5 L."
+                    },
+                    {
+                        "key": "1.8L",
+                        "value": "1.8 L."
+                    },
+                    {
+                        "key": "2L",
+                        "value": "2 L."
+                    }
+                ],
+                "condition":{
+                    "field": "fluid_restriction_renal",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"fluid_restriction_compliance_renal",
+                "display":"Fluid restriction complience",
+                "options":[
+                    {
+                        "key": "Good",
+                        "value": "<br>Good adherence to fluid restriction."
+                    },
+                    {
+                        "key": "Poor",
+                        "value": "<br>Poor adherence to fluid restriction."
+                    }
+                ],
+                "condition":{
+                    "field": "fluid_restriction_renal",
+                    "equals": "Yes"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"input_text_renal",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "default":"<br>Oral fluid input in last 24 hours - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"input_renal",
+                "display":"Oral fluid input in last 24 hours?",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"text",
+                "placeholder":"output_text_renal",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "default":"<br>Oral fluid output in last 24 hours - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"output_renal",
+                "display":"Oral fluid output in last 24 hours?",
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"lasix_renal",
+                "display":"Lasix given in last 24 hours?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "heart failure"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Heart failure management"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Fluid management"
+                        }
+                    ]
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"lasix_response_renal",
+                "display":"Good response from Lasix?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Good response from Lasix."
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Poor response from Lasix."
+                    }
+                ],
+                "condition":{
+                    "field": "lasix_renal",
+                    "equals": "Yes"
+                },
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"idc",
+                "display":"Does the patient have an IDC in situ?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Has IDC in situ."
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"idc_concerns",
+                "display":"Any concerns about the IDC?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Issues with the IDC are "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>No issues with the IDC."
+                    }
+                ],
+                "condition":{
+                    "field": "idc",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"idc_issues",
+                "display":"What are the issues with the IDC?",
+                "options":[
+                    {
+                        "key": "urine is bypassing"
+                    },
+                    {
+                        "key": "the cather is blocked"
+                    },
+                    {
+                        "key": "complains of pain"
+                    }
+                ],
+                "condition":{
+                    "field": "idc_concerns",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"spc",
+                "display":"Does the patient have an SPC in situ?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Has SPC in situ."
+                    },
+                    {
+                        "key": "No"
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"spc_concerns",
+                "display":"Any concerns about the SPC?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Issues with the SPC are "
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>No issues with the SPC."
+                    }
+                ],
+                "condition":{
+                    "field": "spc",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"spc_issues",
+                "display":"What are the issues with the SPC?",
+                "options":[
+                    {
+                        "key": "urine is bypassing"
+                    },
+                    {
+                        "key": "the cather is blocked"
+                    },
+                    {
+                        "key": "complains of pain"
+                    },
+                    {
+                        "key": "erythema to the surrounding skin"
+                    }
+                ],
+                "condition":{
+                    "field": "spc_concerns",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"renal_concerns",
+                "display":"Renal concerns?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Does not suffer from incontinence and voiding well.<br>Denies dysuria,urgency or haematuria."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "idc",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "spc",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"renal_concerns_catheter",
+                "display":"Renal concerns?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Voiding well.<br>Denies haematuria."
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "idc",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "spc",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"renal_reports",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "dysuria",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "urgency",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "haematuria",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "urine_odour",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "or":[
+                                {
+                                    "field": "renal_concerns",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "renal_concerns_catheter",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "default":"<br>Reports ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"renal_denies",
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "dysuria",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "urgency",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "haematuria",
+                                    "equals": "No"
+                                },
+                                {
+                                    "field": "urine_odour",
+                                    "equals": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "or":[
+                                {
+                                    "field": "renal_concerns",
+                                    "equals": "Yes"
+                                },
+                                {
+                                    "field": "renal_concerns_catheter",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "default":"<br>Denies ",
+                "hide":true
+            },
+            {
+                "type":"radio",
+                "placeholder":"dysuria",
+                "display":"Dysuria",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "dysuria"
+                    },
+                    {
+                        "key": "No",
+                        "value": "dysuria"
+                    }
+                ],
+                "condition":{
+                    "field": "renal_concerns",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"urgency",
+                "display":"Urgency",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "urgency"
+                    },
+                    {
+                        "key": "No",
+                        "value": "urgency"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "renal_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "idc",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "spc",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"haematuria",
+                "display":"haematuria",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "haematuria"
+                    },
+                    {
+                        "key": "No",
+                        "value": "haematuria"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "renal_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "renal_concerns_catheter",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"urine_odour",
+                "display":"Urinary odour",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "change in urinary odour"
+                    },
+                    {
+                        "key": "No",
+                        "value": "change in urinary odour"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "renal_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "renal_concerns_catheter",
+                            "equals": "Yes"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"continence_urine",
+                "display":"Incontinence?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>Has urinary incontinence."
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Does not suffer from incontinence."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "renal_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "idc",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "spc",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"catheter_voiding",
+                "display":"Voiding?",
+                "options":[
+                    {
+                        "key": "Poorly",
+                        "value": "<br>Voiding poorly."
+                    },
+                    {
+                        "key": "Normal",
+                        "value": "<br>Voiding for patient."
+                    },
+                    {
+                        "key": "Well",
+                        "value": "<br>Voiding well."
+                    }
+                ],
+                "condition":{
+                    "field": "renal_concerns_catheter",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"voiding",
+                "display":"Voiding?",
+                "options":[
+                    {
+                        "key": "Poorly",
+                        "value": "<br>Voiding poorly."
+                    },
+                    {
+                        "key": "Normal",
+                        "value": "<br>Voiding for patient."
+                    },
+                    {
+                        "key": "Well",
+                        "value": "<br>Voiding well."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "renal_concerns",
+                            "equals": "Yes"
+                        },
+                        {
+                            "field": "idc",
+                            "equals": "No"
+                        },
+                        {
+                            "field": "spc",
+                            "equals": "No"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"title",
+                "text":"Endo assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"diabetes",
+                "display":"Does the patient have diabetes?",
+                "options":[
+                    {
+                        "key": "Yes"
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>Patient does not have Diabetes Mellitus and does not require BSL check."
+                    }
+                ],
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"bsl_concerns",
+                "display":"Concerns about BSL?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "<br>BSL management of ptient is not ideal."
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>No concerns about BSL management."
+                    }
+                ],
+                "condition":{
+                    "field": "diabetes",
+                    "equals": "Yes"
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"text",
+                "placeholder":"bsl_pre",
+                "condition":{
+                    "field": "diabetes",
+                    "equals": "Yes"
+                },
+                "default":"<br>BSL was performed at time of visit which was - ",
+                "hide":true
+            },
+            {
+                "type":"text",
+                "placeholder":"bsl_text",
+                "display":"What was the BSL during visit?",
+                "condition":{
+                    "field": "diabetes",
+                    "equals": "Yes"
+                }
+            },
+            {
+                "type":"title",
+                "text":"Integumeary assessment",
+                "style":"medium"
+            },
+            {
+                "type":"radio",
+                "placeholder":"skin_concerns",
+                "display":"Any skin concerns?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": ""
+                    },
+                    {
+                        "key": "No",
+                        "value": "<br>No concerns about rashes, itch, pressure ulcers or other skin manifestations."
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "diabetic foot ulcer"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "complex wound"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Wound care"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "cellulitis"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"skin_concerns_options",
+                "display":"What are the concerns?",
+                "options":[
+                    {
+                        "key": "Rash (with or without itch)",
+                        "value": "rash"
+                    },
+                    {
+                        "key": "Itch without rash",
+                        "value": "itch"
+                    },
+                    {
+                        "key": "Pressure injury",
+                        "value": "pressure injury"
+                    },
+                    {
+                        "key": "Dry skin",
+                        "value": "dry skin"
+                    },
+                    {
+                        "key": "Burns",
+                        "value": "burns"
+                    },
+                    {
+                        "key": "Abscess",
+                        "value": "abscess"
+                    },
+                    {
+                        "key": "Wound",
+                        "value": "wound"
+                    },
+                    {
+                        "key": "Blistering",
+                        "value": "blistering"
+                    },
+                    {
+                        "key": "Haematoma",
+                        "value": "haematoma"
+                    }
+                ],
+                "condition":{
+                    "and":[
+                        {
+                            "or":[
+                                {
+                                    "field": "skin_concerns",
+                                    "equals": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "complex wound"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "diabetic foot ulcer"
+                        },
+                        {
+                            "field": "reason",
+                            "not-equals": "Wound care"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "not-equals": "cellulitis"
+                        }
+                    ]
+                },
+                "default":""
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"skin_concerns_options_idu",
+                "display":"What are the concerns?",
+                "options":[
+                    {
+                        "key": "Rash (with or without itch)",
+                        "value": "rash"
+                    },
+                    {
+                        "key": "Itch without rash",
+                        "value": "itch"
+                    },
+                    {
+                        "key": "Pressure injury",
+                        "value": "pressure injury"
+                    },
+                    {
+                        "key": "Dry skin",
+                        "value": "dry skin"
+                    },
+                    {
+                        "key": "Burns",
+                        "value": "burns"
+                    },
+                    {
+                        "key": "Abscess",
+                        "value": "abscess"
+                    },
+                    {
+                        "key": "Wound",
+                        "value": "wound"
+                    },
+                    {
+                        "key": "Blistering",
+                        "value": "blistering"
+                    },
+                    {
+                        "key": "Haematoma",
+                        "value": "haematoma"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "diagnosis",
+                            "equals": "complex wound"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "diabetic foot ulcer"
+                        },
+                        {
+                            "field": "reason",
+                            "equals": "Wound care"
+                        },
+                        {
+                            "field": "diagnosis",
+                            "equals": "cellulitis"
+                        }
+                    ]
+                },
+                "default":"Wound"
+            },
+            {
+                "type":"text",
+                "placeholder":"rash_text",
+                "condition":{
+                    "or":[
+                        {
+                            "field": "skin_concerns_options",
+                            "equals": "Rash (with or without itch)"
+                        },
+                        {
+                            "field": "skin_concerns_options_idu",
+                            "equals": "Rash (with or without itch)"
+                        }
+                    ]
+                },
+                "default":"<br>The patient has a rash to ",
+                "hide":true
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"rash_location",
+                "display":"Where is the rash?",
+                "options":[
+                    {
+                        "key": "All of body"
+                    },
+                    {
+                        "key": "Left side"
+                    },
+                    {
+                        "key": "In the middle"
+                    },
+                    {
+                        "key": "Right side"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "skin_concerns_options",
+                            "equals": "Rash (with or without itch)"
+                        },
+                        {
+                            "field": "skin_concerns_options_idu",
+                            "equals": "Rash (with or without itch)"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"rash_location_left",
+                "display":" ",
+                "options":[
+                    {
+                        "key": "left shoulder"
+                    },
+                    {
+                        "key": "left upper arm"
+                    },
+                    {
+                        "key": "left elbow"
+                    },
+                    {
+                        "key": "left forearm"
+                    },
+                    {
+                        "key": "left wrist"
+                    },
+                    {
+                        "key": "left hand"
+                    },
+                    {
+                        "key": "left breast"
+                    },
+                    {
+                        "key": "left groin"
+                    },
+                    {
+                        "key": "left thigh"
+                    },
+                    {
+                        "key": "left knee"
+                    },
+                    {
+                        "key": "left lower leg"
+                    },
+                    {
+                        "key": "left ankle"
+                    },
+                    {
+                        "key": "left foot"
+                    },
+                    {
+                        "key": "left 1st toe"
+                    },
+                    {
+                        "key": "left 2nd toe"
+                    },
+                    {
+                        "key": "left 3rd toe"
+                    },
+                    {
+                        "key": "left 4th toe"
+                    },
+                    {
+                        "key": "left 5th toe"
+                    }
+                ],
+                "condition":{
+                    "field": "rash_location",
+                    "equals": "Left side"
+                }
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"rash_location_middle",
+                "display":" ",
+                "options":[
+                    {
+                        "key": "face"
+                    },
+                    {
+                        "key": "neck"
+                    },
+                    {
+                        "key": "chest"
+                    },
+                    {
+                        "key": "left breast"
+                    },
+                    {
+                        "key": "right breast"
+                    },
+                    {
+                        "key": "abdomen"
+                    },
+                    {
+                        "key": "upper back"
+                    },
+                    {
+                        "key": "lower back"
+                    },
+                    {
+                        "key": "groin"
+                    },
+                    {
+                        "key": "perianal"
+                    }
+                ],
+                "condition":{
+                    "field": "rash_location",
+                    "equals": "In the middle"
+                }
+            },
+            {
+                "type":"checkbox",
+                "placeholder":"rash_location_right",
+                "display":" ",
+                "options":[
+                    {
+                        "key": "right shoulder"
+                    },
+                    {
+                        "key": "right upper arm"
+                    },
+                    {
+                        "key": "right elbow"
+                    },
+                    {
+                        "key": "right forearm"
+                    },
+                    {
+                        "key": "right wrist"
+                    },
+                    {
+                        "key": "right hand"
+                    },
+                    {
+                        "key": "right breast"
+                    },
+                    {
+                        "key": "right groin"
+                    },
+                    {
+                        "key": "right thigh"
+                    },
+                    {
+                        "key": "right knee"
+                    },
+                    {
+                        "key": "right lower leg"
+                    },
+                    {
+                        "key": "right ankle"
+                    },
+                    {
+                        "key": "right foot"
+                    },
+                    {
+                        "key": "right 1st toe"
+                    },
+                    {
+                        "key": "right 2nd toe"
+                    },
+                    {
+                        "key": "right 3rd toe"
+                    },
+                    {
+                        "key": "right 4th toe"
+                    },
+                    {
+                        "key": "right 5th toe"
+                    }
+                ],
+                "condition":{
+                    "field": "rash_location",
+                    "equals": "Right side"
+                }
+            },
+            {
+                "type":"radio",
+                "placeholder":"rash_new",
+                "display":"Is the rash new?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": " which is new"
+                    },
+                    {
+                        "key": "No",
+                        "value": " which is not new"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "skin_concerns_options",
+                            "equals": "Rash (with or without itch)"
+                        },
+                        {
+                            "field": "skin_concerns_options_idu",
+                            "equals": "Rash (with or without itch)"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"rash_itch",
+                "display":"Is the rash itchy?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "itchy"
+                    },
+                    {
+                        "key": "No",
+                        "value": "not itchy"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "skin_concerns_options",
+                            "equals": "Rash (with or without itch)"
+                        },
+                        {
+                            "field": "skin_concerns_options_idu",
+                            "equals": "Rash (with or without itch)"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            },
+            {
+                "type":"radio",
+                "placeholder":"rash_pain",
+                "display":"Is the rash painful?",
+                "options":[
+                    {
+                        "key": "Yes",
+                        "value": "painful"
+                    },
+                    {
+                        "key": "No",
+                        "value": "not painful"
+                    }
+                ],
+                "condition":{
+                    "or":[
+                        {
+                            "field": "skin_concerns_options",
+                            "equals": "Rash (with or without itch)"
+                        },
+                        {
+                            "field": "skin_concerns_options_idu",
+                            "equals": "Rash (with or without itch)"
+                        }
+                    ]
+                },
+                "default":"No",
+                "inline":"True"
+            }
+        ]
+    },
+    
+    
+    
+              
     {
         "name": "CPP Medical review",
         "pattern":"{paxlovid_contraindication}<b>COVID Positive Pathways Medical review{paeds_review}<br><br>{doctor_other}{doctor}{paeds_history}{paeds_history_person}<br><br>COVID specific history</b><br>Symptoms start date - {date_symptoms}<br>Test performed - {test_type} {date_test}<br>Vaccination status - {vax}<br><br><b>Past medical history</b><br>{Pmhx}<br><br><b>Medications</b><br>{meds_pharmacist}{meds_general,meds_prescribed, meds_over_the_counter, meds_sleep, meds_inject, meds_vitamin, meds_herbal, meds_chinese, meds_skin, meds_orifice, meds_resp, meds_treatment, meds_trial}<br><br><b>Allergies</b><br>{allergies_pharmacist}{allergies_general,meds_allergies}<br><br><b>COVID Symptoms</b><br><b>Reported vital signs at time of call:</b> {vital}<br><b>HR:</b> {hr}<br><b>SpO2:</b> {oxygen}<br><b>Temperature:</b> {temp}{reports_fever}{fever|yes,rigors|yes,night_sweats|yes,fullstop}{denies_fever}{fever|no,rigors|no,night_sweats|no,fullstop}<br><b>How are they generally feeling?</b> {feeling}{syncope_title}{syncope_concerns}{syncope_reports}{syncope|yes,lightheadedness|yes,postural_dizziness|yes,fullstop}{syncope_denies}{syncope|no,lightheadedness|no,postural_dizziness|no,fullstop} {syncope_other}{cns_title}{orientated}{cns_concerns}{cns_reports}{headache|yes,weakness|yes,lethargy|yes,myalgia|yes,fullstop}{cns_denies}{headache|no,weakness|no,lethargy|no,myalgia|no,fullstop} {cns_other}{cvs_title}{cvs_concerns}{cvs_reports}{chest_pain|yes,palpitations|yes,calf|yes,oedema|yes,fullstop}{cvs_denies}{chest_pain|no,palpitations|no,calf|no,oedema|no,fullstop} {cvs_other}{resp_title}{RESP_concerns}{RESP_reports}{SOB|yes,SOBOE|yes,wheeze|yes,cough_type,haemoptysis|yes,throat|yes,congestion|yes,rhinorrhoea|yes,fullstop}{RESP_denies}{SOB|no,SOBOE|no,wheeze|no,cough|no,haemoptysis|no,throat|no,congestion|no,rhinorrhoea|no,fullstop} {RESP_other}{GIT_title}{GIT_concerns}{GIT_reports}{nausea|yes,vomiting|yes,diarrhoea|yes,appetite|yes,taste|yes,weight|yes,abdo|yes,fullstop}{GIT_denies}{nausea|no,vomiting|no,diarrhoea|no,appetite|no,taste|no,weight|no,abdo|no,fullstop} {GIT_other}{renal_title}{RENAL_concerns}{RENAL_reports}{fluid,urine_output,urine_colour,dysuria|yes,fullstop}{RENAL_denies}{dysuria|no,fullstop} {RENAL_other}<br><b>Psychosocial / Mobility Assessment:</b> {household}. {support}{molnupiravir_consent}{molnupiravir_consent_1,molnupiravir_consent_2,molnupiravir_consent_3,molnupiravir_consent_4,molnupiravir_consent_5,molnupiravir_consent_6,molnupiravir_consent_7,down_list}<br><br><b>Impression</b>{covid_severity,immunosuppressed,early|no,early_med,trajectory,down_list}{molnupiravir_paxlovid}<br><br><b>Plan</b>{plan_general,down_list}{advice}{child_bearing_advice,breastfeeding_advice,down_list}{medication_review_text}{CKD_text}<b>{CKD}</b>{liver_text}<b>{liver}</b>{hypersensitivity_text}<b>{hypersensitivity}</b>{pregnant_text}<b>{pregnant}</b>{breastfeeding_text}<b>{breastfeeding}</b>{child_bearing_text}<b>{child_bearing}</b>{meds_adequate_text}<b>{meds_adequate}</b>{meds_support_text}<b>{meds_support}</b>{meds_knowledge_text}<b>{meds_knowledge}</b>{meds_helper_text}<b>{meds_helper}</b>{meds_pharmacy_text}<b>{meds_pharmacy}</b>{meds_difficulty_text}<b>{meds_difficulty}</b>{meds_webster_text}<b>{meds_webster}</b>{meds_drugs_text}<b>{meds_drugs}</b>{meds_allergies_text}<b>{meds_allergies}</b>{meds_prescribed_text}<b>{meds_prescribed}</b>{meds_not_prescribed_text}<b>{meds_not_prescribed_yesno|No}{meds_not_prescribed}</b>{meds_over_the_counter_text}<b>{meds_over_the_counter}{meds_over_the_counter_yesno|No}</b>{meds_sleep_text}<b>{meds_sleep}{meds_sleep_yesno|No}</b>{meds_inject_text}<b>{meds_inject}{meds_inject_yesno|No}</b>{meds_vitamin_text}<b>{meds_vitamin}{meds_vitamin_yesno|No}</b>{meds_herbal_text}<b>{meds_herbal}{meds_herbal_yesno|No}</b>{meds_chinese_text}<b>{meds_chinese}{meds_chinese_yesno|No}</b>{meds_skin_text}<b>{meds_skin}{meds_skin_yesno|No}</b>{meds_orifice_text}<b>{meds_orifice}{meds_orifice_yesno|No}</b>{meds_resp_text}<b>{meds_resp}{meds_resp_yesno|No}</b>{meds_treatment_text}<b>{meds_treatment}{meds_treatment_yesno|No}</b>{meds_trial_text}<b>{meds_trial}{meds_trial_yesno|No}</b>{meds_stop_text}<b>{meds_stop}{meds_stop_yesno|No}</b>",
@@ -213,7 +4224,7 @@
                 "placeholder": "test_type",
                 "type": "radio",
                 "display": "What test was done?",
-                "inline": "true",               
+                "inline": "True",               
                 "options": [
                     {
                         "key": "PCR",

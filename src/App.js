@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { FormControl, Form } from 'react-bootstrap';
+import { FormControl, Form , Row , Col} from 'react-bootstrap';
 import parse from 'html-react-parser';
 
 import assess from './conditions';
@@ -65,51 +65,64 @@ class Container extends React.Component {
   }
 
   render() {
+    const { tindex, variables, values, pattern } = this.state;
+  
     return (
-      <>
+      <div className="container-fluid">
         <div className="row">
-          <Form className="col-12 pt-3">
-            <Form.Row>
-              <Form.Label className="col-2">Template:</Form.Label>
-              <FormControl as="select" className="col-10" defaultValue={this.state.tindex}
-                onChange={e => this.setState({
-                  tindex: e.target.value,
-                  ...this.processTemplate(templates[e.target.value])
-                })}>
-                {templates.map((t, i) => <option value={i} key={i}>{t.name}</option>)}
-              </FormControl>
-            </Form.Row>
-          </Form>
+          <div className="col-12 py-4">
+            <Form>
+              <Form.Group as={Row}>
+                <Form.Label column sm={2}>Template:</Form.Label>
+                <Col sm={10}>
+                  <Form.Control as="select" value={tindex} onChange={e => {
+                    const newTindex = e.target.value;
+                    this.setState({
+                      tindex: newTindex,
+                      ...this.processTemplate(templates[newTindex])
+                    });
+                  }}>
+                    {templates.map((template, index) => (
+                      <option key={index} value={index}>{template.name}</option>
+                    ))}
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+            </Form>
+          </div>
         </div>
-        <div className="row py-3">
-          <div className="col">
+        <div className="row">
+          <div className="col-12 col-lg-6 py-4">
             <div className="sticky-top">
-              <ControlsPane variables={this.state.variables} values={this.state.values} onChange={this.onChange} />
+              <ControlsPane variables={variables} values={values} onChange={this.onChange} />
             </div>
           </div>
-          <div className="col">
-            <button onClick={() => {
-              const copy = (str) => {
-                const listener = (e) => {
-                  e.clipboardData.setData("text/html", str);
-                  e.clipboardData.setData("text/plain", str);
-                  e.preventDefault();
+          <div className="col-12 col-lg-6 py-4">
+            <div className="card border-0 p-3">
+              <button className="btn btn-primary mb-3" onClick={() => {
+                const copy = (str) => {
+                  const listener = (e) => {
+                    e.clipboardData.setData("text/html", str);
+                    e.clipboardData.setData("text/plain", str);
+                    e.preventDefault();
+                  }
+                  document.addEventListener("copy", listener);
+                  document.execCommand("copy");
+                  document.removeEventListener("copy", listener);
                 }
-                document.addEventListener("copy", listener);
-                document.execCommand("copy");
-                document.removeEventListener("copy", listener);
-              }
-              copy(document.getElementById('template').innerHTML);
-              alert("text copied successfully");
-            }}>Copy to Clipboard</button>   
-            <TextResult pattern={this.state.pattern} variables={this.state.variables} values={this.state.values} />
-            <hr />
-            <FormControl as="textarea" value={this.state.pattern} onChange={e => this.setState({ pattern: e.target.value })} />
+                copy(document.getElementById('template').innerHTML);
+                alert("Text copied to clipboard!");
+              }}>Copy to Clipboard</button>
+              <TextResult pattern={pattern} variables={variables} values={values} />
+              <hr />
+              <FormControl as="textarea" rows={10} value={pattern} onChange={e => this.setState({ pattern: e.target.value })} />
+            </div>
           </div>
         </div>
-      </>
-    )
+      </div>
+    );
   }
+  
 }
 
 function TextResult(props) {
@@ -122,13 +135,15 @@ function TextResult(props) {
   }
 
   return (
-    <div id = "template" style={{ width: "100%", height: "100%", border: "solid", padding: "5px"}}>{parse(getText(props))}</div>
+    <div id="template" className="card p-3" style={{ width: "100%" }}>
+      {parse(getText(props))}
+    </div>
   )
 }
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" style={{ maxWidth: "90%" }}>
       <Container />
     </div>
   );
