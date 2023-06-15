@@ -1,7 +1,7 @@
 function andSeparatedList(values){
     switch (values.length) {
         case 0: return '';
-        case 1: if (values[0] === "." | values[0] === "down_list") {
+        case 1: if (values[0] === "." || values[0] === "down_list" || values[0] === "colon") {
             return '';
         } else {
             return values[0];
@@ -19,7 +19,16 @@ function andSeparatedList(values){
                 return `${values.join(', ')} and ${lastdot}.`
                 }                
             } else {
-            return `${values.join(', ')} and ${last}`
+                if (last === "colon") {
+                    const lastdot = values.pop();
+                    if(values.length === 0){
+                        return `${lastdot}: `
+                    } else {
+                    return `${values.join(', ')} and ${lastdot}: `
+                    }                
+                } else {
+                return `${values.join(', ')} and ${last}`
+                }
             }
         }
     }

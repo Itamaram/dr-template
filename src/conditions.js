@@ -11,7 +11,7 @@ export default function assess(condition, values) {
             : !values[condition.field].length
     if (condition['not-equals'])
         return !!condition['not-equals'].length
-            ? values[condition.field].includes(condition['not-equals'])
+            ? !values[condition.field].includes(condition['not-equals'])
             : !!values[condition.field].length;
     return false;
 }
