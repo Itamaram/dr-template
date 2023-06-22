@@ -92,12 +92,12 @@ class Container extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-12 col-lg-6 py-4">
+          <div className="col py-4">
             <div className="sticky-top">
               <ControlsPane variables={variables} values={values} onChange={this.onChange} />
             </div>
           </div>
-          <div className="col-12 col-lg-6 py-4">
+          <div className="col py-4">
             <div className="sticky-sidebar">
               <div className="card border-0 p-3">
                 <div className="sticky-top">
