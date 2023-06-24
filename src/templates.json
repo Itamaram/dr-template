@@ -26373,16 +26373,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_left_lower",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "left lower limb"
-                            }
-                        ]
+                        "field": "oedema_location_same_left_lower",
+                        "equals": "No"
                     }
                 },
             {
@@ -26510,8 +26502,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_left_lower",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_left_lower",
+                        "equals": "No"
                     }
                 },
             {
@@ -26752,16 +26744,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_right_lower",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "right lower limb"
-                            }
-                        ]
+                        "field": "oedema_location_same_right_lower",
+                        "equals": "No"
                     }
                 },
             {
@@ -26889,8 +26873,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_right_lower",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_right_lower",
+                        "equals": "No"
                     }
                 },
             {
@@ -27137,16 +27121,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_left_upper",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "left upper limb"
-                            }
-                        ]
+                        "field": "oedema_location_same_left_upper",
+                        "equals": "No"
                     }
                 },
             {
@@ -27277,8 +27253,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_left_upper",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_left_upper",
+                        "equals": "No"
                     }
                 },
             {
@@ -27525,16 +27501,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_right_upper",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "right upper limb"
-                            }
-                        ]
+                        "field": "oedema_location_same_right_upper",
+                        "equals": "No"
                     }
                 },
             {
@@ -27665,8 +27633,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_right_upper",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_right_upper",
+                        "equals": "No"
                     }
                 },
             {
@@ -27943,16 +27911,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_face",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "face"
-                            }
-                        ]
+                        "field": "oedema_location_same_face",
+                        "equals": "No"
                     }
                 },
             {
@@ -28098,8 +28058,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_face",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_face",
+                        "equals": "No"
                     }
                 },
             {
@@ -28384,16 +28344,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_periorbital",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "periorbital"
-                            }
-                        ]
+                        "field": "oedema_location_same_periorbital",
+                        "equals": "No"
                     }
                 },
             {
@@ -28539,8 +28491,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_periorbital",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_periorbital",
+                        "equals": "No"
                     }
                 },
             {
@@ -28825,16 +28777,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_orbital",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "orbital"
-                            }
-                        ]
+                        "field": "oedema_location_same_orbital",
+                        "equals": "No"
                     }
                 },
             {
@@ -28980,8 +28924,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_orbital",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_orbital",
+                        "equals": "No"
                     }
                 },
             {
@@ -29242,16 +29186,8 @@
                         }
                     ],
                     "condition":{
-                        "and":[
-                            {
-                                "field": "oedema_abdomen",
-                                "not-equals": "No oedema"
-                            },
-                            {
-                                "field": "cellulitis_location",
-                                "equals": "abdomen"
-                            }
-                        ]
+                        "field": "oedema_location_same_abdomen",
+                        "equals": "No"
                     }
                 },
             {
@@ -29385,8 +29321,8 @@
                         }
                     ],
                     "condition":{
-                        "field": "cellulitis_pain_abdomen",
-                        "equals": "Yes"
+                        "field": "cellulitis_pain_location_same_abdomen",
+                        "equals": "No"
                     }
                 },
             {
@@ -37356,6 +37292,7 @@
                             }
                         ]
                     },
+                    "default":"No",
                     "inline":"True"
                 },
             {
@@ -49513,7 +49450,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49577,7 +49514,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49641,7 +49578,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49705,7 +49642,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49769,7 +49706,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49832,7 +49769,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49868,7 +49805,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49895,7 +49832,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49912,7 +49849,7 @@
                     "placeholder":"plan_next_visit_date",
                     "display":"What date is the next visit?",
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49947,7 +49884,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -49964,7 +49901,7 @@
                     "placeholder":"plan_next_review_med_date",
                     "display":"When is the next HITH medical review scheduled?",
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -50127,7 +50064,7 @@
                         }
                     ],
                     "condition":{
-                        "or":[
+                        "and":[
                             {
                                 "field": "plan_discharge",
                                 "not-equals": "Patient been discharged from HITH"
@@ -52398,6 +52335,7 @@
                 }
         ]
     },
+    
     
     
     
