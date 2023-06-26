@@ -134,6 +134,7 @@
                     "type":"radio",
                     "placeholder":"id_check",
                     "display":"3 Point ID check completed?",
+                    "inline":"True",
                     "options":[
                         {
                             "key": "Yes",
@@ -143,8 +144,7 @@
                             "key": "No"
                         }
                     ],
-                    "default":"Yes",
-                    "inline":"True"
+                    "default":"Yes"
                 },
             {
                     "type":"dropdown",
@@ -4702,6 +4702,26 @@
                             {
                                 "field": "renal_concerns_question",
                                 "equals": "No"
+                            },
+                            {
+                                "or":[
+                                    {
+                                        "field": "visit_number",
+                                        "equals": "Only one visit to be performed"
+                                    },
+                                    {
+                                        "field": "visit_number",
+                                        "equals": "First visit"
+                                    },
+                                    {
+                                        "field": "visit_number_change_renal",
+                                        "equals": "Yes"
+                                    },
+                                    {
+                                        "field": "visit_number_change",
+                                        "equals": "Yes"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -52495,6 +52515,7 @@
                 }
         ]
     },
+    
     
     
     
