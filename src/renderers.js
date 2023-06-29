@@ -8,28 +8,33 @@ function andSeparatedList(values){
         };
         default:
             const last = values.pop();
-            if (last === "down_list") {
-                return `<br>- ${values.join('<br>- ')}`;
-            } else {
-            if (last === ".") {
-                const lastdot = values.pop();
-                if(values.length === 0){
-                    return `${lastdot}.`
+
+            if(values[0] !== "" && values[0] !== undefined) {
+                if (last === "down_list") {
+                    return `<br>- ${values.join('<br>- ')}`;
                 } else {
-                return `${values.join(', ')} and ${lastdot}.`
-                }                
-            } else {
-                if (last === "colon") {
+                if (last === ".") {
                     const lastdot = values.pop();
                     if(values.length === 0){
-                        return `${lastdot}: `
+                        return `${lastdot}.`
                     } else {
-                    return `${values.join(', ')} and ${lastdot}: `
+                    return `${values.join(', ')} and ${lastdot}.`
                     }                
                 } else {
-                return `${values.join(', ')} and ${last}`
+                    if (last === "colon") {
+                        const lastdot = values.pop();
+                        if(values.length === 0){
+                            return `${lastdot}: `
+                        } else {
+                        return `${values.join(', ')} and ${lastdot}: `
+                        }                
+                    } else {
+                    return `${values.join(', ')} and ${last}`
+                    }
                 }
             }
+        } else {
+            return ''
         }
     }
 }
