@@ -3060,7 +3060,7 @@
                         ]
                     },
                     "text":"Further description of right leg cellulitis under 'Integumentary' heading",
-                    "style":"normal"
+                    "style":"underline"
                 },
             {
                     "type":"title",
@@ -3077,7 +3077,7 @@
                         ]
                     },
                     "text":"Further description of left leg cellulitis under 'Integumentary' heading",
-                    "style":"normal"
+                    "style":"underline"
                 },
             {
                     "type":"text",
@@ -5177,7 +5177,7 @@
                             }
                         ]
                     },
-                    "default":"<br>Does not suffer from incontinence and voiding well.<br>Denies dysuria,urgency or haematuria.",
+                    "default":"<br>Does not suffer from incontinence and voiding well.<br>Denies dysuria, urgency or haematuria.",
                     "hide":true
                 },
             {
@@ -52655,41 +52655,9 @@
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_bloods_time",
                     "display":"When are the next bloods due?",
-                    "options":[
-                        {
-                            "key": "later today"
-                        },
-                        {
-                            "key": "tomorrow"
-                        },
-                        {
-                            "key": "two days",
-                            "value": "in two days"
-                        },
-                        {
-                            "key": "three days",
-                            "value": "in three days"
-                        },
-                        {
-                            "key": "four days",
-                            "value": "in four days"
-                        },
-                        {
-                            "key": "five days",
-                            "value": "in five days"
-                        },
-                        {
-                            "key": "six days",
-                            "value": "in six days"
-                        },
-                        {
-                            "key": "one week",
-                            "value": "in one week"
-                        }
-                    ],
                     "condition":{
                         "field": "plan_bloods",
                         "equals": "Plan in place for next bloods to be taken"
@@ -52719,41 +52687,9 @@
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_sputum_time",
                     "display":"When is the next sputum sample due?",
-                    "options":[
-                        {
-                            "key": "later today"
-                        },
-                        {
-                            "key": "tomorrow"
-                        },
-                        {
-                            "key": "two days",
-                            "value": "in two days"
-                        },
-                        {
-                            "key": "three days",
-                            "value": "in three days"
-                        },
-                        {
-                            "key": "four days",
-                            "value": "in four days"
-                        },
-                        {
-                            "key": "five days",
-                            "value": "in five days"
-                        },
-                        {
-                            "key": "six days",
-                            "value": "in six days"
-                        },
-                        {
-                            "key": "one week",
-                            "value": "in one week"
-                        }
-                    ],
                     "condition":{
                         "field": "plan_sputum",
                         "equals": "Plan in place for next sputum to be taken"
@@ -52783,41 +52719,9 @@
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_urine_time",
                     "display":"When  is the next urine sample due?",
-                    "options":[
-                        {
-                            "key": "later today"
-                        },
-                        {
-                            "key": "tomorrow"
-                        },
-                        {
-                            "key": "two days",
-                            "value": "in two days"
-                        },
-                        {
-                            "key": "three days",
-                            "value": "in three days"
-                        },
-                        {
-                            "key": "four days",
-                            "value": "in four days"
-                        },
-                        {
-                            "key": "five days",
-                            "value": "in five days"
-                        },
-                        {
-                            "key": "six days",
-                            "value": "in six days"
-                        },
-                        {
-                            "key": "one week",
-                            "value": "in one week"
-                        }
-                    ],
                     "condition":{
                         "field": "plan_urine",
                         "equals": "Plan in place for next urine to be taken"
@@ -52847,41 +52751,9 @@
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_stool_time",
                     "display":"When  is the next stool sample due?",
-                    "options":[
-                        {
-                            "key": "later today"
-                        },
-                        {
-                            "key": "tomorrow"
-                        },
-                        {
-                            "key": "two days",
-                            "value": "in two days"
-                        },
-                        {
-                            "key": "three days",
-                            "value": "in three days"
-                        },
-                        {
-                            "key": "four days",
-                            "value": "in four days"
-                        },
-                        {
-                            "key": "five days",
-                            "value": "in five days"
-                        },
-                        {
-                            "key": "six days",
-                            "value": "in six days"
-                        },
-                        {
-                            "key": "one week",
-                            "value": "in one week"
-                        }
-                    ],
                     "condition":{
                         "field": "plan_stool",
                         "equals": "Plan in place for next stool sample to be taken"
@@ -52911,41 +52783,9 @@
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_swab_time",
                     "display":"When is the next swab due?",
-                    "options":[
-                        {
-                            "key": "later today"
-                        },
-                        {
-                            "key": "tomorrow"
-                        },
-                        {
-                            "key": "two days",
-                            "value": "in two days"
-                        },
-                        {
-                            "key": "three days",
-                            "value": "in three days"
-                        },
-                        {
-                            "key": "four days",
-                            "value": "in four days"
-                        },
-                        {
-                            "key": "five days",
-                            "value": "in five days"
-                        },
-                        {
-                            "key": "six days",
-                            "value": "in six days"
-                        },
-                        {
-                            "key": "one week",
-                            "value": "in one week"
-                        }
-                    ],
                     "condition":{
                         "field": "plan_swab",
                         "equals": "Plan in place for next swab to be taken"
@@ -53015,9 +52855,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_next_visit_date",
-                    "display":"What date is the next visit?",
+                    "display":"When is the next visit?",
                     "condition":{
                         "and":[
                             {
@@ -53067,7 +52907,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_next_review_med_date",
                     "display":"When is the next HITH medical review scheduled?",
                     "condition":{
@@ -53274,7 +53114,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_leap",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53314,7 +53154,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_genmed_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53354,7 +53194,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_endo_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53394,7 +53234,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_uro_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53434,7 +53274,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_gensurg_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53474,7 +53314,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ortho_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53514,7 +53354,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_obs_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53554,7 +53394,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_rheum_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53594,7 +53434,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_renal_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53634,7 +53474,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_plastics_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53674,7 +53514,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_id_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53714,7 +53554,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_cardio_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53754,7 +53594,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_immuno_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53794,7 +53634,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_allergy_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53834,7 +53674,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ent_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53874,7 +53714,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ophth_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53914,7 +53754,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_vasc_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53954,7 +53794,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_resp_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -53994,7 +53834,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_onc_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54034,7 +53874,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_haem_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54074,7 +53914,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_gastro_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54114,7 +53954,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_neuro_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54154,7 +53994,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_breast_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54194,7 +54034,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_derm_public",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54234,7 +54074,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_genmed_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54274,7 +54114,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_endo_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54314,7 +54154,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_uro_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54354,7 +54194,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_gensurg_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54394,7 +54234,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ortho_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54434,7 +54274,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_obs_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54474,7 +54314,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_rheum_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54514,7 +54354,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_renal_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54554,7 +54394,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_plastics_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54594,7 +54434,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_id_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54634,7 +54474,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_cardio_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54674,7 +54514,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_immuno_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54714,7 +54554,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_allergy_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54754,7 +54594,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ent_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54794,7 +54634,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_ophth_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54834,7 +54674,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_vasc_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54874,7 +54714,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_resp_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54914,7 +54754,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_onc_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54954,7 +54794,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_haem_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -54994,7 +54834,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_gastro_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -55034,7 +54874,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_neuro_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -55074,7 +54914,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_breast_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -55114,7 +54954,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"date",
                     "placeholder":"plan_specialist_review_date_derm_private",
                     "display":"For when is the appointment booked?",
                     "condition":{
@@ -55157,43 +54997,9 @@
                     "hide":true
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_wound_dressing_change_one",
                     "display":"When is the next wound dressing change due to wound group number 1?",
-                    "options":[
-                        {
-                            "key": "Later today",
-                            "value": " is due for change later today."
-                        },
-                        {
-                            "key": "Tomorrow",
-                            "value": " is due for change tomorrow."
-                        },
-                        {
-                            "key": "Two days",
-                            "value": " is due for change in two days."
-                        },
-                        {
-                            "key": "Three days",
-                            "value": " is due for change in three days."
-                        },
-                        {
-                            "key": "Four days",
-                            "value": " is due for change in four days."
-                        },
-                        {
-                            "key": "Five days",
-                            "value": " is due for change in five days."
-                        },
-                        {
-                            "key": "Six days",
-                            "value": " is due for change in six days."
-                        },
-                        {
-                            "key": "One week",
-                            "value": " is due for change in one week."
-                        }
-                    ],
                     "condition":{
                         "or":[
                             {
@@ -55246,43 +55052,9 @@
                     "hide":true
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_wound_dressing_change_two",
                     "display":"When is the next wound dressing change due to wound group number 2?",
-                    "options":[
-                        {
-                            "key": "Later today",
-                            "value": " is due for change later today."
-                        },
-                        {
-                            "key": "Tomorrow",
-                            "value": " is due for change tomorrow."
-                        },
-                        {
-                            "key": "Two days",
-                            "value": " is due for change in two days."
-                        },
-                        {
-                            "key": "Three days",
-                            "value": " is due for change in three days."
-                        },
-                        {
-                            "key": "Four days",
-                            "value": " is due for change in four days."
-                        },
-                        {
-                            "key": "Five days",
-                            "value": " is due for change in five days."
-                        },
-                        {
-                            "key": "Six days",
-                            "value": " is due for change in six days."
-                        },
-                        {
-                            "key": "One week",
-                            "value": " is due for change in one week."
-                        }
-                    ],
                     "condition":{
                         "or":[
                             {
@@ -55327,43 +55099,9 @@
                     "hide":true
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_wound_dressing_change_three",
                     "display":"When is the next wound dressing change due to wound group number 3?",
-                    "options":[
-                        {
-                            "key": "Later today",
-                            "value": " is due for change later today."
-                        },
-                        {
-                            "key": "Tomorrow",
-                            "value": " is due for change tomorrow."
-                        },
-                        {
-                            "key": "Two days",
-                            "value": " is due for change in two days."
-                        },
-                        {
-                            "key": "Three days",
-                            "value": " is due for change in three days."
-                        },
-                        {
-                            "key": "Four days",
-                            "value": " is due for change in four days."
-                        },
-                        {
-                            "key": "Five days",
-                            "value": " is due for change in five days."
-                        },
-                        {
-                            "key": "Six days",
-                            "value": " is due for change in six days."
-                        },
-                        {
-                            "key": "One week",
-                            "value": " is due for change in one week."
-                        }
-                    ],
                     "condition":{
                         "or":[
                             {
@@ -55400,43 +55138,9 @@
                     "hide":true
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_wound_dressing_change_four",
                     "display":"When is the next wound dressing change due to wound group number 4?",
-                    "options":[
-                        {
-                            "key": "Later today",
-                            "value": " is due for change later today."
-                        },
-                        {
-                            "key": "Tomorrow",
-                            "value": " is due for change tomorrow."
-                        },
-                        {
-                            "key": "Two days",
-                            "value": " is due for change in two days."
-                        },
-                        {
-                            "key": "Three days",
-                            "value": " is due for change in three days."
-                        },
-                        {
-                            "key": "Four days",
-                            "value": " is due for change in four days."
-                        },
-                        {
-                            "key": "Five days",
-                            "value": " is due for change in five days."
-                        },
-                        {
-                            "key": "Six days",
-                            "value": " is due for change in six days."
-                        },
-                        {
-                            "key": "One week",
-                            "value": " is due for change in one week."
-                        }
-                    ],
                     "condition":{
                         "or":[
                             {
@@ -55461,43 +55165,9 @@
                     "hide":true
                 },
             {
-                    "type":"dropdown",
+                    "type":"date",
                     "placeholder":"plan_wound_dressing_change_five",
                     "display":"When is the next wound dressing change due to wound group number 5?",
-                    "options":[
-                        {
-                            "key": "Later today",
-                            "value": " is due for change later today."
-                        },
-                        {
-                            "key": "Tomorrow",
-                            "value": " is due for change tomorrow."
-                        },
-                        {
-                            "key": "Two days",
-                            "value": " is due for change in two days."
-                        },
-                        {
-                            "key": "Three days",
-                            "value": " is due for change in three days."
-                        },
-                        {
-                            "key": "Four days",
-                            "value": " is due for change in four days."
-                        },
-                        {
-                            "key": "Five days",
-                            "value": " is due for change in five days."
-                        },
-                        {
-                            "key": "Six days",
-                            "value": " is due for change in six days."
-                        },
-                        {
-                            "key": "One week",
-                            "value": " is due for change in one week."
-                        }
-                    ],
                     "condition":{
                         "field": "wound_number",
                         "equals": "Five"
@@ -55505,6 +55175,7 @@
                 }
         ]
     },
+    
     
     
               

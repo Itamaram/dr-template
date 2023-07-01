@@ -37,14 +37,24 @@ function CheckboxControl(props) {
         )
     }
 
+    if (display === " ") {
+        return (
+            <FormGroup>
+                {
+                    options.map(option)
+                }
+            </FormGroup>
+        )
+    }
+    
     return (
         <FormGroup>
-            <FormLabel>{display || placeholder}</FormLabel>
+            <FormLabel style={{ textDecoration: 'underline' }}>{display || placeholder}</FormLabel>
             {
                 options.map(option)
             }
         </FormGroup>
-    )
+    )    
 }
 
 export const handler = {

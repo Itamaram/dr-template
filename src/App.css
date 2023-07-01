@@ -39,8 +39,6 @@
   max-height: calc(100vh - 54px); /* Adjust the height to account for the button */
 }
 
-
-
 .App-link {
   color: #61dafb;
 }
@@ -56,4 +54,32 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.react-datepicker {
+  font-family: Arial, sans-serif;
+}
+
+.react-datepicker-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.react-datepicker__input-container input:focus {
+  outline: none;
+  border-color: #61dafb;
 }

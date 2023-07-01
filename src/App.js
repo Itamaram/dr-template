@@ -103,10 +103,15 @@ class Container extends React.Component {
                 <div className="sticky-top">
                   <button className="btn btn-primary mb-3 w-100" onClick={() => {
                     const copy = (str) => {
+                      const styledString = `<div style="font-family: Open Sans, sans-serif; font-size: 16px;">${str}</div>`;
                       const listener = (e) => {
-                        e.clipboardData.setData("text/html", str);
-                        e.clipboardData.setData("text/plain", str);
                         e.preventDefault();
+                        if (e.clipboardData) {
+                          e.clipboardData.setData("text/html", styledString);
+                          e.clipboardData.setData("text/plain", stripHtmlTags(styledString));
+                        } else if (window.clipboardData) {
+                          window.clipboardData.setData("Text", styledString);
+                        }
                       };
                       document.addEventListener("copy", listener);
                       document.execCommand("copy");
@@ -139,10 +144,20 @@ function TextResult(props) {
   }
 
   return (
-    <div id="template" className="card p-3" style={{ width: "100%" }}>
+    <div id="template" className="card p-3 copied-text" style={{ width: "100%" }}>
       {parse(getText(props))}
     </div>
   )
+}
+
+function stripHtmlTags(html) {
+  // Replace <br> tags with new line characters
+  const processedHtml = html.replace(/<br\s*\/?>/gi, '\n');
+
+  const doc = new DOMParser().parseFromString(processedHtml, 'text/html');
+  const text = doc.body.textContent || "";
+
+  return text;
 }
 
 function App() {
