@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
-import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+import { FormGroup, FormLabel } from 'react-bootstrap';
 import { format, addDays } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css"; // Import the custom CSS file

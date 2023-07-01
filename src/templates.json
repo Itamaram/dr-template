@@ -227,6 +227,9 @@
                             "key": "UTI"
                         },
                         {
+                            "key": "urinary retention"
+                        },
+                        {
                             "key": "viral encephalitis"
                         },
                         {
@@ -329,7 +332,7 @@
                             "key": "Catheter Care"
                         },
                         {
-                            "key": "Trial of void"
+                            "key": "Trial of void (TOV)"
                         },
                         {
                             "key": "Heart failure management"
@@ -4502,7 +4505,7 @@
                     "placeholder":"tov_visit_time_text",
                     "condition":{
                         "field": "reason",
-                        "equals": "Trial of void"
+                        "equals": "Trial of void (TOV)"
                     },
                     "default":"<br>Trial of void visit time at ",
                     "hide":true
@@ -4513,7 +4516,7 @@
                     "display":"Visit time",
                     "condition":{
                         "field": "reason",
-                        "equals": "Trial of void"
+                        "equals": "Trial of void (TOV)"
                     }
                 },
             {
@@ -4550,7 +4553,7 @@
                         "and":[
                             {
                                 "field": "reason",
-                                "equals": "Trial of void"
+                                "equals": "Trial of void (TOV)"
                             },
                             {
                                 "or":[
@@ -4859,7 +4862,7 @@
                             },
                             {
                                 "field": "reason",
-                                "equals": "Trial of void"
+                                "equals": "Trial of void (TOV)"
                             }
                         ]
                     },
@@ -4896,7 +4899,7 @@
                             },
                             {
                                 "field": "reason",
-                                "equals": "Trial of void"
+                                "equals": "Trial of void (TOV)"
                             }
                         ]
                     },
@@ -37971,7 +37974,7 @@
                             },
                             {
                                 "field": "reason",
-                                "equals": "Trial of void"
+                                "equals": "Trial of void (TOV)"
                             }
                         ]
                     }
@@ -38021,7 +38024,7 @@
                             },
                             {
                                 "field": "reason",
-                                "equals": "Trial of void"
+                                "equals": "Trial of void (TOV)"
                             }
                         ]
                     }
@@ -55175,8 +55178,6 @@
                 }
         ]
     },
-    
-    
     
               
     {
