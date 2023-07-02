@@ -84,3 +84,6 @@ body {
   border-color: #61dafb;
 }
 
+.soft-border {
+  border-left: 4px solid #61dafb;
+}
