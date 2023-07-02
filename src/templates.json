@@ -2377,7 +2377,8 @@
                     "condition":{
                         "field": "cns_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"title",
@@ -3146,7 +3147,8 @@
                     "condition":{
                         "field": "cvs_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"title",
@@ -3440,7 +3442,8 @@
                     "condition":{
                         "field": "resp_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"radio",
@@ -4280,7 +4283,8 @@
                     "condition":{
                         "field": "git_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"radio",
@@ -5528,7 +5532,8 @@
                     "condition":{
                         "field": "renal_concerns_question",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"title",
@@ -37413,7 +37418,8 @@
                     "condition":{
                         "field": "skin_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"title",
@@ -53111,7 +53117,6 @@
                     "type":"select",
                     "placeholder":"plan_specialist_review",
                     "display":"Any specialist reviews planned?",
-                    "default":"No",
                     "options":[
                         {
                             "key": "Other"
@@ -53277,7 +53282,8 @@
                                 "equals": "Outpatients clinics"
                             }
                         ]
-                    }
+                    },
+                    "default":"No"
                 },
             {
                     "type":"text",
@@ -55419,6 +55425,7 @@
                 }
         ]
     },
+    
     
     
     

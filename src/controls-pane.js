@@ -80,9 +80,9 @@ export default function ControlsPane({ variables, values, onChange }) {
             return null; // Return null to hide the control component
           } else {
             if (
-              (definition.type !== 'checkbox' &&
-              ((values[definition.placeholder] && values[definition.placeholder].length === 0) ||
-                (values[definition.placeholder]?.[0]?.length === 0))) ||
+              (definition.type !== 'checkbox' && definition.type !== 'title' &&
+              ((values[definition.placeholder] && values[definition.placeholder].length === 0 && definition.style !== 'not required') ||
+                (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
             (definition.type === 'checkbox' && definition.style === 'required' && values[definition.placeholder].length === 0)
             ) {
               return (
