@@ -300,7 +300,8 @@
                     "condition":{
                         "field": "diagnosis",
                         "equals": "cellulitis"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -609,7 +610,8 @@
                                 "equals": "IV hydration"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -718,7 +720,8 @@
                                 "equals": "Yes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -808,7 +811,8 @@
                                 "equals": "Yes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -895,7 +899,8 @@
                                 "equals": "Yes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -994,7 +999,8 @@
                                 "equals": "Yes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -1874,7 +1880,8 @@
                     "condition":{
                         "field": "strength",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"dropdown",
@@ -3355,7 +3362,8 @@
                     "condition":{
                         "field": "type_cough",
                         "equals": "Productive"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -3523,7 +3531,8 @@
                     "condition":{
                         "field": "auscultation",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -3572,7 +3581,8 @@
                     "condition":{
                         "field": "ausculation_sound",
                         "equals": "wheeze"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -3621,7 +3631,8 @@
                     "condition":{
                         "field": "ausculation_sound",
                         "equals": "creps"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -3670,7 +3681,8 @@
                     "condition":{
                         "field": "ausculation_sound",
                         "equals": "reduced breath sounds"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -3738,7 +3750,8 @@
                     "condition":{
                         "field": "ausculation_sound",
                         "equals": "other"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"title",
@@ -4046,7 +4059,8 @@
                     "condition":{
                         "field": "vomiting",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -4207,7 +4221,8 @@
                     "condition":{
                         "field": "diarrhoea",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -4971,7 +4986,8 @@
                     "condition":{
                         "field": "idc_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -5039,7 +5055,8 @@
                     "condition":{
                         "field": "idc_meatus",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -5148,7 +5165,8 @@
                     "condition":{
                         "field": "spc_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -7674,7 +7692,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"dropdown",
@@ -9018,7 +9037,8 @@
                                 "equals": "left ear"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -9127,7 +9147,8 @@
                     "condition":{
                         "field": "pressure_wound_left_ear",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -9248,7 +9269,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_ear",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -9532,7 +9554,8 @@
                                 "equals": "right ear"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -9641,7 +9664,8 @@
                     "condition":{
                         "field": "pressure_wound_right_ear",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -9762,7 +9786,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_ear",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10046,7 +10071,8 @@
                                 "equals": "nose"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10155,7 +10181,8 @@
                     "condition":{
                         "field": "pressure_wound_nose",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10276,7 +10303,8 @@
                     "condition":{
                         "field": "pressure_npwt_nose",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10560,7 +10588,8 @@
                                 "equals": "back of the head"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10669,7 +10698,8 @@
                     "condition":{
                         "field": "pressure_wound_back_of_the_head",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -10790,7 +10820,8 @@
                     "condition":{
                         "field": "pressure_npwt_back_of_the_head",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11074,7 +11105,8 @@
                                 "equals": "left shoulder"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11183,7 +11215,8 @@
                     "condition":{
                         "field": "pressure_wound_left_shoulder",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11304,7 +11337,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_shoulder",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11588,7 +11622,8 @@
                                 "equals": "right shoulder"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11697,7 +11732,8 @@
                     "condition":{
                         "field": "pressure_wound_right_shoulder",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -11818,7 +11854,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_shoulder",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12102,7 +12139,8 @@
                                 "equals": "left elbow"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12211,7 +12249,8 @@
                     "condition":{
                         "field": "pressure_wound_left_elbow",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12332,7 +12371,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_elbow",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12616,7 +12656,8 @@
                                 "equals": "right elbow"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12725,7 +12766,8 @@
                     "condition":{
                         "field": "pressure_wound_right_elbow",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -12846,7 +12888,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_elbow",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13130,7 +13173,8 @@
                                 "equals": "upper back"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13239,7 +13283,8 @@
                     "condition":{
                         "field": "pressure_wound_upper_back",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13360,7 +13405,8 @@
                     "condition":{
                         "field": "pressure_npwt_upper_back",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13644,7 +13690,8 @@
                                 "equals": "lower back"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13753,7 +13800,8 @@
                     "condition":{
                         "field": "pressure_wound_lower_back",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -13874,7 +13922,8 @@
                     "condition":{
                         "field": "pressure_npwt_lower_back",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14158,7 +14207,8 @@
                                 "equals": "sacrum"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14267,7 +14317,8 @@
                     "condition":{
                         "field": "pressure_wound_sacrum",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14388,7 +14439,8 @@
                     "condition":{
                         "field": "pressure_npwt_sacrum",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14672,7 +14724,8 @@
                                 "equals": "buttocks"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14781,7 +14834,8 @@
                     "condition":{
                         "field": "pressure_wound_buttocks",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -14902,7 +14956,8 @@
                     "condition":{
                         "field": "pressure_npwt_buttocks",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15186,7 +15241,8 @@
                                 "equals": "left thigh"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15295,7 +15351,8 @@
                     "condition":{
                         "field": "pressure_wound_left_thigh",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15416,7 +15473,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_thigh",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15700,7 +15758,8 @@
                                 "equals": "right thigh"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15809,7 +15868,8 @@
                     "condition":{
                         "field": "pressure_wound_right_thigh",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -15930,7 +15990,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_thigh",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16214,7 +16275,8 @@
                                 "equals": "left knee"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16323,7 +16385,8 @@
                     "condition":{
                         "field": "pressure_wound_left_knee",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16444,7 +16507,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_knee",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16728,7 +16792,8 @@
                                 "equals": "right knee"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16837,7 +16902,8 @@
                     "condition":{
                         "field": "pressure_wound_right_knee",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -16958,7 +17024,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_knee",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17242,7 +17309,8 @@
                                 "equals": "left ankle"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17351,7 +17419,8 @@
                     "condition":{
                         "field": "pressure_wound_left_ankle",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17472,7 +17541,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_ankle",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17756,7 +17826,8 @@
                                 "equals": "right ankle"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17865,7 +17936,8 @@
                     "condition":{
                         "field": "pressure_wound_right_ankle",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -17986,7 +18058,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_ankle",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -18270,7 +18343,8 @@
                                 "equals": "left heel"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -18379,7 +18453,8 @@
                     "condition":{
                         "field": "pressure_wound_left_heel",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -18500,7 +18575,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_heel",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -18784,7 +18860,8 @@
                                 "equals": "right heel"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -18893,7 +18970,8 @@
                     "condition":{
                         "field": "pressure_wound_right_heel",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19014,7 +19092,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_heel",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19298,7 +19377,8 @@
                                 "equals": "left toes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19407,7 +19487,8 @@
                     "condition":{
                         "field": "pressure_wound_left_toes",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19528,7 +19609,8 @@
                     "condition":{
                         "field": "pressure_npwt_left_toes",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19812,7 +19894,8 @@
                                 "equals": "right toes"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -19921,7 +20004,8 @@
                     "condition":{
                         "field": "pressure_wound_right_toes",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -20042,7 +20126,8 @@
                     "condition":{
                         "field": "pressure_npwt_right_toes",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -21405,7 +21490,8 @@
                     "condition":{
                         "field": "wound_npwt_issues_wound1",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -22704,7 +22790,8 @@
                     "condition":{
                         "field": "wound_npwt_issues_wound2",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -23959,7 +24046,8 @@
                     "condition":{
                         "field": "wound_npwt_issues_wound3",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -25170,7 +25258,8 @@
                     "condition":{
                         "field": "wound_npwt_issues_wound4",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -26337,7 +26426,8 @@
                     "condition":{
                         "field": "wound_npwt_issues_wound5",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -26475,7 +26565,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "left lower limb"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -26591,7 +26682,8 @@
                     "condition":{
                         "field": "oedema_location_same_left_lower",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -26720,7 +26812,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_left_lower",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -26776,7 +26869,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_left_lower",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -26846,7 +26940,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "right lower limb"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -26962,7 +27057,8 @@
                     "condition":{
                         "field": "oedema_location_same_right_lower",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27091,7 +27187,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_right_lower",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27147,7 +27244,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_right_lower",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -27220,7 +27318,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "left upper limb"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27339,7 +27438,8 @@
                     "condition":{
                         "field": "oedema_location_same_left_upper",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27471,7 +27571,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_left_upper",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27527,7 +27628,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_left_upper",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -27600,7 +27702,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "right upper limb"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27719,7 +27822,8 @@
                     "condition":{
                         "field": "oedema_location_same_right_upper",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27851,7 +27955,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_right_upper",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -27907,7 +28012,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_right_upper",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -27995,7 +28101,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "face"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28129,7 +28236,8 @@
                     "condition":{
                         "field": "oedema_location_same_face",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28276,7 +28384,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_face",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28340,7 +28449,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_face",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -28428,7 +28538,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "periorbital"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28562,7 +28673,8 @@
                     "condition":{
                         "field": "oedema_location_same_periorbital",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28709,7 +28821,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_periorbital",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28773,7 +28886,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_periorbital",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -28861,7 +28975,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "orbital"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -28995,7 +29110,8 @@
                     "condition":{
                         "field": "oedema_location_same_orbital",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -29142,7 +29258,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_orbital",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -29206,7 +29323,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_orbital",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -29282,7 +29400,8 @@
                     "condition":{
                         "field": "cellulitis_location",
                         "equals": "abdomen"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -29404,7 +29523,8 @@
                     "condition":{
                         "field": "oedema_location_same_abdomen",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -29539,7 +29659,8 @@
                     "condition":{
                         "field": "cellulitis_pain_location_same_abdomen",
                         "equals": "No"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -29595,7 +29716,8 @@
                     "condition":{
                         "field": "cellulitis_concerns_abdomen",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -29851,7 +29973,8 @@
                     "condition":{
                         "field": "cellulitis_other_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -37346,7 +37469,8 @@
                         {
                             "key": "wheelchair"
                         }
-                    ]
+                    ],
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -37546,9 +37670,10 @@
                         }
                     ],
                     "condition":{
-                        "field": "social_living_concerns",
+                        "field": "psych_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -37733,7 +37858,8 @@
                     "condition":{
                         "field": "social_living_concerns",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -37864,7 +37990,8 @@
                                 "equals": "Subcutaneous clexane"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -37982,7 +38109,8 @@
                                 "equals": "Trial of void (TOV)"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -38208,7 +38336,8 @@
                     "condition":{
                         "field": "idc_removal_issues",
                         "equals": "Yes"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"title",
@@ -38240,7 +38369,8 @@
                     "condition":{
                         "field": "idc_nursing",
                         "equals": "Insertion of IDC attempted"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"text",
@@ -38285,7 +38415,8 @@
                     "condition":{
                         "field": "idc_nursing",
                         "equals": "Insertion of IDC attempted"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"dropdown",
@@ -39473,7 +39604,8 @@
                     "condition":{
                         "field": "idc_nursing",
                         "equals": "IDC inserted successfully"
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"radio",
@@ -40469,7 +40601,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40492,7 +40625,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40519,7 +40653,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40542,7 +40677,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40569,7 +40705,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40592,7 +40729,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40619,7 +40757,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40642,7 +40781,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40669,7 +40809,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40692,7 +40833,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40719,7 +40861,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40742,7 +40885,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40769,7 +40913,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40792,7 +40937,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40819,7 +40965,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40842,7 +40989,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40869,7 +41017,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40892,7 +41041,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40919,7 +41069,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40942,7 +41093,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40969,7 +41121,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -40992,7 +41145,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41019,7 +41173,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41042,7 +41197,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41069,7 +41225,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41092,7 +41249,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41119,7 +41277,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41142,7 +41301,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41169,7 +41329,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41192,7 +41353,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41219,7 +41381,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41242,7 +41405,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41269,7 +41433,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41292,7 +41457,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41319,7 +41485,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41342,7 +41509,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41369,7 +41537,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41392,7 +41561,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41419,7 +41589,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41442,7 +41613,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41469,7 +41641,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41492,7 +41665,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41519,7 +41693,8 @@
                                 "equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -41542,7 +41717,8 @@
                                 "not-equals": "No"
                             }
                         ]
-                    }
+                    },
+                    "style":"required"
                 },
             {
                     "type":"checkbox",
@@ -52935,6 +53111,7 @@
                     "type":"select",
                     "placeholder":"plan_specialist_review",
                     "display":"Any specialist reviews planned?",
+                    "default":"No",
                     "options":[
                         {
                             "key": "Other"
@@ -55242,6 +55419,7 @@
                 }
         ]
     },
+    
     
     
     
