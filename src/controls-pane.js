@@ -28,24 +28,56 @@ export default function ControlsPane({ variables, values, onChange }) {
     return filteredVariables.length;
   }
 
-  return variables
-    .filter(({ definition }) => assess(definition.condition, values))
-    .map(({ definition, handler }, index) => {
-      if (definition && handler.type === 'title' && definition.style === 'medium') {
-        const isMinimized = minimizeIndices.includes(index);
-        const titleStyle = isMinimized ? { borderLeft: '4px double #61dafb' } : {};
+  const minimizeButtonHandler = () => {
+    const indicesToMinimize = variables.reduce((indices, { definition }, index) => {
+    if (definition ) {
+        indices.push(index);
+    }
+    return indices;
+    }, []);
+    setMinimizeIndices(indicesToMinimize);
+  };
 
-        return (
-          <div key={definition.placeholder} onClick={() => handleTitleClick(index)}>
-            <div style={titleStyle}>
-              {handler.render(definition, values[definition.placeholder], x => onChange(definition.placeholder, x))}
-            </div>
-          </div>
-        );
-      } else if (minimizeIndices.includes(index)) {
-        return null; // Return null to hide the control component
-      } else {
-        return handler.render(definition, values[definition.placeholder], x => onChange(definition.placeholder, x));
-      }
-    });
+  return (
+    <div>
+        <div className="button-container">
+        <button className="btn btn-primary mb-3" onClick={minimizeButtonHandler}>
+            Minimise
+        </button>
+        <button
+            className="btn btn-primary mb-3"
+            style={{ marginLeft: '5rem' }} // Add margin to create space
+            onClick={() => {
+            setMinimizeIndices([]);
+            }}
+        >
+            Expand
+        </button>
+        </div>
+      {variables
+        .filter(({ definition }) => assess(definition.condition, values))
+        .map(({ definition, handler }, index) => {
+          if (definition && definition.style === 'medium') {
+            const isMinimized = minimizeIndices.includes(index);
+            const titleStyle = isMinimized ? { borderLeft: '4px double #61dafb' } : {};
+
+            return (
+              <div key={definition.placeholder} onClick={() => handleTitleClick(index)}>
+                <div style={titleStyle}>
+                  {handler.render(definition, values[definition.placeholder], x =>
+                    onChange(definition.placeholder, x)
+                  )}
+                </div>
+              </div>
+            );
+          } else if (minimizeIndices.includes(index)) {
+            return null; // Return null to hide the control component
+          } else {
+            return handler.render(definition, values[definition.placeholder], x =>
+              onChange(definition.placeholder, x)
+            );
+          }
+        })}
+    </div>
+  );
 }
