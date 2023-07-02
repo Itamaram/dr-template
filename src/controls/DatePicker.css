@@ -28,5 +28,9 @@
     border-color: #61dafb;
   }
   
- 
+  .react-datepicker__input-container input.react-datepicker-ignore-onclickoutside {
+    border-color: #61dafb;
+    box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.4);
+  }
+  
   
