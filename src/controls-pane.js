@@ -26,7 +26,7 @@ export default function ControlsPane({ variables, values, onChange }) {
     }
 
     return filteredVariables.length;
-  }
+  } 
 
   const minimizeButtonHandler = () => {
     const indicesToMinimize = variables.reduce((indices, { definition }, index) => {
