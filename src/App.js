@@ -161,10 +161,10 @@ class Container extends React.Component {
                 <TextResult pattern={pattern} variables={variables} values={values} />
                 <hr />
                 <FormControl
-                  as="textarea"
-                  rows={10}
-                  value={pattern}
-                  onChange={(e) => this.setState({ pattern: e.target.value })}
+                //  as="textarea"
+                //  rows={10}
+                //  value={pattern}
+                //  onChange={(e) => this.setState({ pattern: e.target.value })}
                 />
               </div>
             </div>
