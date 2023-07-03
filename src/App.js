@@ -17,6 +17,7 @@ class Container extends React.Component {
     this.state = { tindex: 0, ...this.processTemplate(templates[0]) };
 
     this.onChange = this.onChange.bind(this);
+    this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
   processTemplate(template) {
@@ -41,10 +42,7 @@ class Container extends React.Component {
   }
 
   onChange(key, value) {
-    this.setState(
-      { values: Object.assign(this.state.values, { [key]: value }) },
-      () => this.filterFields()
-    );
+    this.setState({ values: Object.assign(this.state.values, { [key]: value }) }, () => this.filterFields());
   }
 
   filterFields() {
@@ -55,9 +53,45 @@ class Container extends React.Component {
 
       const target = [definition.default || []].flat();
 
-      if (!this.arrayEquals(values[definition.placeholder], target))
-        this.onChange(definition.placeholder, target);
+      if (!this.arrayEquals(values[definition.placeholder], target)) this.onChange(definition.placeholder, target);
     });
+  }
+
+  HasRedLine(variables, values) {
+    for (const { definition } of variables) {
+      if (
+        assess(definition.condition, values) &&
+        ((definition.type !== 'checkbox' &&
+          definition.type !== 'title' &&
+          ((values[definition.placeholder] &&
+            values[definition.placeholder].length === 0 &&
+            definition.style !== 'not required') ||
+            (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
+          (definition.type === 'checkbox' &&
+          definition.style === 'required' &&
+          values[definition.placeholder].length === 0)
+        )
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  copyToClipboard(str) {
+    const styledString = `<div style="font-family: Open Sans, sans-serif; font-size: 16px;">${str}</div>`;
+    const listener = (e) => {
+      e.preventDefault();
+      if (e.clipboardData) {
+        e.clipboardData.setData('text/html', styledString);
+        e.clipboardData.setData('text/plain', stripHtmlTags(styledString));
+      } else if (window.clipboardData) {
+        window.clipboardData.setData('Text', styledString);
+      }
+    };
+    document.addEventListener('copy', listener);
+    document.execCommand('copy');
+    document.removeEventListener('copy', listener);
   }
 
   render() {
@@ -78,10 +112,7 @@ class Container extends React.Component {
                     value={tindex}
                     onChange={(e) => {
                       const newTindex = e.target.value;
-                      this.setState({
-                        tindex: newTindex,
-                        ...this.processTemplate(templates[newTindex]),
-                      });
+                      this.setState({ tindex: newTindex, ...this.processTemplate(templates[newTindex]) });
                     }}
                   >
                     {templates.map((template, index) => (
@@ -108,23 +139,20 @@ class Container extends React.Component {
                   <button
                     className="btn btn-primary mb-3 w-100"
                     onClick={() => {
-                      const copy = (str) => {
-                        const styledString = `<div style="font-family: Open Sans, sans-serif; font-size: 16px;">${str}</div>`;
-                        const listener = (e) => {
-                          e.preventDefault();
-                          if (e.clipboardData) {
-                            e.clipboardData.setData('text/html', styledString);
-                            e.clipboardData.setData('text/plain', stripHtmlTags(styledString));
-                          } else if (window.clipboardData) {
-                            window.clipboardData.setData('Text', styledString);
-                          }
-                        };
-                        document.addEventListener('copy', listener);
-                        document.execCommand('copy');
-                        document.removeEventListener('copy', listener);
-                      };
-                      copy(document.getElementById('template').innerHTML);
-                      alert('Text copied to clipboard!');
+                      if (this.HasRedLine(variables, values)) {
+                        const shouldContinue = window.confirm(
+                          'Some REQUIRED fields are not complete (in RED), are you sure you want to continue?'
+                        );
+                        if (shouldContinue) {
+                          this.copyToClipboard(document.getElementById('template').innerHTML);
+                          alert('Text copied to clipboard!');
+                        } else {
+                          this.copyToClipboard('');
+                        }
+                      } else {
+                        this.copyToClipboard(document.getElementById('template').innerHTML);
+                        alert('Text copied to clipboard!');
+                      }
                     }}
                   >
                     Copy to Clipboard
