@@ -15,6 +15,25 @@ export default function ControlsPane({ variables, values, onChange }) {
     }
   };
 
+  const hasRedLine = (index) => {
+    const nextMediumStyleIndex = findNextMediumStyleIndex(index);
+    for (let i = index + 1; i < nextMediumStyleIndex; i++) {
+      if (minimizeIndices.includes(i)) {
+        const { definition } = variables[i];
+        if (
+          assess(definition.condition, values) && (
+          (definition.type !== 'checkbox' && definition.type !== 'title' &&
+          ((values[definition.placeholder] && values[definition.placeholder].length === 0 && definition.style !== 'not required') ||
+            (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
+        (definition.type === 'checkbox' && definition.style === 'required' && values[definition.placeholder].length === 0)
+        )) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
   function findNextMediumStyleIndex(startIndex) {
     const filteredVariables = variables;
 
@@ -65,7 +84,11 @@ export default function ControlsPane({ variables, values, onChange }) {
           originalIndex = filteredVariables[originalIndex].originalIndex;
           if (definition && definition.style === 'medium') {
             const isMinimized = minimizeIndices.includes(originalIndex);
-            const titleStyle = isMinimized ? { borderLeft: '4px double #61dafb' } : {};
+            const titleStyle = isMinimized
+              ? hasRedLine(originalIndex)
+                ? { borderLeft: '4px double red' }
+                : { borderLeft: '4px double #61dafb' }
+              : {};
 
             return (
               <div key={definition.placeholder} onClick={() => handleTitleClick(originalIndex)}>
