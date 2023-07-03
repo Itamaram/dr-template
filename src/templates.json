@@ -2372,13 +2372,7 @@
                 },
             {
                     "type":"textmulti",
-                    "placeholder":"cns_concerns_text",
-                    "display":"Any other concerns about CNS?",
-                    "condition":{
-                        "field": "cns_concerns",
-                        "equals": "Yes"
-                    },
-                    "style":"not required"
+                    "placeholder":"cns_concerns_text"
                 },
             {
                     "type":"title",

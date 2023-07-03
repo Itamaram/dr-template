@@ -7,7 +7,7 @@ function TextMultiControl(props) {
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
             <textarea 
-            value={props.values[0].replace(/<br>/g, '\n') || ''} 
+            value={(props.values[0] ? props.values[0].replace(/<br>/g, '\n') : '') || ''}
             type="textmulti" 
             onChange={e => props.onChange([e.target.value.replace(/\r?\n/g, '<br>')])} 
             className="my-textarea"

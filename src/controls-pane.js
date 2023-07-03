@@ -86,8 +86,8 @@ export default function ControlsPane({ variables, values, onChange }) {
             const isMinimized = minimizeIndices.includes(originalIndex);
             const titleStyle = isMinimized
               ? hasRedLine(originalIndex)
-                ? { borderLeft: '4px double red' }
-                : { borderLeft: '4px double #61dafb' }
+                ? { borderLeft: '4px double red' , marginLeft: '6px', paddingLeft: '4px' }
+                : { borderLeft: '4px double #61dafb', paddingLeft: '4px' }
               : {};
 
             return (
@@ -109,7 +109,7 @@ export default function ControlsPane({ variables, values, onChange }) {
             (definition.type === 'checkbox' && definition.style === 'required' && values[definition.placeholder].length === 0)
             ) {
               return (
-                <div key={definition.placeholder} style={{ borderLeft: '3px double red' }}>
+                <div key={definition.placeholder} style={{ borderLeft: '3px double red', marginLeft: '10px', paddingLeft: '4px' }}>
                   {handler.render(definition, values[definition.placeholder], (x) =>
                     onChange(definition.placeholder, x)
                   )}
