@@ -87,3 +87,18 @@ body {
 .soft-border {
   border-left: 4px solid #61dafb;
 }
+
+.my-textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease-in-out; /* Add a transition for smoother visual change */
+}
+
+.my-textarea:focus {
+  outline: none;
+  border-color: #61dafb;
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.3); /* Add a box shadow to indicate focus */
+}

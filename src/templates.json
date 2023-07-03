@@ -2371,7 +2371,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"cns_concerns_text",
                     "display":"Any other concerns about CNS?",
                     "condition":{
@@ -3141,7 +3141,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"cvs_concerns_text",
                     "display":"Any other concerns about CVS?",
                     "condition":{
@@ -3436,7 +3436,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"resp_concerns_text",
                     "display":"Any other concerns about RESP?",
                     "condition":{
@@ -4277,7 +4277,7 @@
                     "inline":"True"
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"git_concerns_text",
                     "display":"Any other concerns about GIT?",
                     "condition":{
@@ -5526,7 +5526,7 @@
                     "inline":"True"
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"renal_concerns_text",
                     "display":"Any other concerns about RENAL?",
                     "condition":{
@@ -5758,27 +5758,6 @@
                     "inline":"True"
                 },
             {
-                    "type":"radio",
-                    "placeholder":"bsl_concerns",
-                    "display":"Concerns about BSL?",
-                    "options":[
-                        {
-                            "key": "Yes",
-                            "value": "<br>BSL management of patient is not ideal."
-                        },
-                        {
-                            "key": "No",
-                            "value": "<br>No concerns about BSL management."
-                        }
-                    ],
-                    "condition":{
-                        "field": "diabetes",
-                        "equals": "Yes"
-                    },
-                    "default":"No",
-                    "inline":"True"
-                },
-            {
                     "type":"text",
                     "placeholder":"bsl_pre",
                     "condition":{
@@ -5825,6 +5804,27 @@
                         "field": "ketone",
                         "equals": "Yes"
                     }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"bsl_concerns",
+                    "display":"Concerns about BSL?",
+                    "options":[
+                        {
+                            "key": "Yes",
+                            "value": "<br>BSL management of patient is not ideal."
+                        },
+                        {
+                            "key": "No",
+                            "value": "<br>No concerns about BSL management."
+                        }
+                    ],
+                    "condition":{
+                        "field": "diabetes",
+                        "equals": "Yes"
+                    },
+                    "default":"No",
+                    "inline":"True"
                 },
             {
                     "type":"title",
@@ -37412,7 +37412,7 @@
                     "default":" mL"
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"skin_concerns_text",
                     "display":"Any other concerns about INTEGUMENTARY?",
                     "condition":{
@@ -37691,7 +37691,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"psych_concerns_text",
                     "display":"Please expand on the concerns",
                     "condition":{
@@ -37877,7 +37877,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"textmulti",
                     "placeholder":"social_living_text",
                     "display":"Please expand on the concerns",
                     "condition":{
@@ -53283,7 +53283,7 @@
                             }
                         ]
                     },
-                    "default":"No"
+                    "style":"not required"
                 },
             {
                     "type":"text",
@@ -55425,6 +55425,7 @@
                 }
         ]
     },
+    
     
     
     

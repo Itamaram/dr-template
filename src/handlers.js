@@ -6,8 +6,9 @@ import { handler as title } from './controls/TitleControl'
 import { handler as select } from './controls/SelectControl'
 import { handler as date } from './controls/DateControl'
 import { handler as time } from './controls/TimeControl'
+import { handler as textmulti } from './controls/TextMultiControl'
 
-const handlers = [checkbox, dropdown, radio, text, title, select, date, time]
+const handlers = [checkbox, dropdown, radio, text, title, select, date, time, textmulti]
     .reduce((p, h) => Object.assign(p, { [h.type]: h }), {});
 
 export default handlers;
