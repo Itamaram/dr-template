@@ -1,41 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import { FormGroup, FormLabel } from 'react-bootstrap';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css"; // Import the custom CSS file
 
 function TimeControl(props) {
   const { definition, values, onChange } = props;
   const { display, placeholder, hide } = definition;
-  // eslint-disable-next-line
   const [selectedTime, setSelectedTime] = useState(null);
-  const [startDate, setStartDate] = useState(null);
 
   useEffect(() => {
     const selectedValue = values[0];
     if (selectedValue) {
-      setSelectedTime(new Date(selectedValue));
+      setSelectedTime(parse(selectedValue, 'h:mm aa', new Date()));
     }
   }, [values]);
 
   const handleTimeChange = (date) => {
-    setStartDate(date);
-    onChange([format(date, 'h:mm aa')]);
-};
+    if (date) {
+      setSelectedTime(date);
+      onChange([format(date, 'h:mm aa')]);
+    } else {
+      setSelectedTime(null);
+      onChange([]);
+    }
+  };
 
   return hide || (
     <FormGroup>
       <FormLabel>{display || placeholder}</FormLabel>
       <DatePicker
-      selected={startDate}
-      onChange={(date) => handleTimeChange(date)}
-      showTimeSelect
-      showTimeSelectOnly
-      timeIntervals={15}
-      timeCaption="Time"
-      dateFormat="h:mm aa"
-    />
+        selected={selectedTime}
+        onChange={handleTimeChange}
+        showTimeSelect
+        showTimeSelectOnly
+        timeIntervals={15}
+        timeCaption="Time"
+        dateFormat="h:mm aa"
+      />
     </FormGroup>
   );
 }
