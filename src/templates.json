@@ -3124,7 +3124,8 @@
                     "condition":{
                         "field": "oedema",
                         "not-equals": "No oedema"
-                    }
+                    },
+                    "style":"not required"
                 },
             {
                     "type":"text",
@@ -53644,7 +53645,7 @@
                     "placeholder":"plan_picc_dressing",
                     "options":[
                         {
-                            "key": "Plan in place for next sPICC dressing change",
+                            "key": "Plan in place for next PICC dressing change",
                             "value": "Next PICC dressing change is due "
                         }
                     ],
@@ -53659,8 +53660,16 @@
                     "placeholder":"plan_picc_dressing_date",
                     "display":"When is the next PICC dressing due?",
                     "condition":{
-                        "field": "plan_picc_dressing",
-                        "equals": "Plan in place for next sPICC dressing change"
+                        "and":[
+                            {
+                                "field": "plan_picc_dressing",
+                                "equals": "Plan in place for next PICC dressing change"
+                            },
+                            {
+                                "field": "iv_type",
+                                "equals": "PICC line"
+                            }
+                        ]
                     }
                 },
             {
@@ -57395,6 +57404,7 @@
                 }
         ]
     },
+    
     
               
     {
