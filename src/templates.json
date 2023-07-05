@@ -1326,7 +1326,7 @@
                     "default":["Fevers","Rigors"]
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"weight",
                     "display":"Patient current weight",
                     "condition":{
@@ -1348,7 +1348,8 @@
                                 "equals": "heart failure"
                             }
                         ]
-                    }
+                    },
+                    "text":"kg"
                 },
             {
                     "type":"text",
@@ -1403,7 +1404,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"weight_dry",
                     "display":"Patient's dry weight",
                     "condition":{
@@ -1425,7 +1426,8 @@
                                 "equals": "heart failure"
                             }
                         ]
-                    }
+                    },
+                    "text":"kg"
                 },
             {
                     "type":"dropdown",
@@ -2541,7 +2543,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"input_heart",
                     "display":"Oral fluid input in last 24 hours?",
                     "condition":{
@@ -2556,7 +2558,7 @@
                             }
                         ]
                     },
-                    "default":" L"
+                    "text":"L"
                 },
             {
                     "type":"text",
@@ -2577,7 +2579,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"output_heart",
                     "display":"Oral fluid output in last 24 hours?",
                     "condition":{
@@ -2592,7 +2594,7 @@
                             }
                         ]
                     },
-                    "default":" L"
+                    "text":"L"
                 },
             {
                     "type":"radio",
@@ -4724,7 +4726,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"input_renal",
                     "display":"Oral fluid input in last 24 hours?",
                     "condition":{
@@ -4742,7 +4744,8 @@
                                 "equals": "Fluid management"
                             }
                         ]
-                    }
+                    },
+                    "text":"L"
                 },
             {
                     "type":"text",
@@ -4767,7 +4770,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"output_renal",
                     "display":"Oral fluid output in last 24 hours?",
                     "condition":{
@@ -4785,7 +4788,8 @@
                                 "equals": "Fluid management"
                             }
                         ]
-                    }
+                    },
+                    "text":"L"
                 },
             {
                     "type":"radio",
@@ -4916,14 +4920,14 @@
                     "inline":"True"
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"bladder_scan_pre_amount",
                     "display":"How many mL was in the bladder pre void?",
                     "condition":{
                         "field": "bladder_scan_pre",
                         "equals": "Yes"
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"radio",
@@ -4953,14 +4957,14 @@
                     "inline":"True"
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"bladder_scan_post_amount",
                     "display":"How many mL was in the bladder post void?",
                     "condition":{
                         "field": "bladder_scan_post",
                         "equals": "Yes"
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"radio",
@@ -30415,9 +30419,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_left_breast",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -30437,7 +30441,8 @@
                                 "not-equals": "Left breast drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -30532,7 +30537,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_left_breast",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -30555,7 +30560,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -30584,7 +30589,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_left_breast",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -30607,7 +30612,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -30939,9 +30944,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_right_breast",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -30961,7 +30966,8 @@
                                 "not-equals": "Right breast drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -31056,7 +31062,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_right_breast",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -31079,7 +31085,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -31108,7 +31114,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_right_breast",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -31131,7 +31137,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -31463,9 +31469,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_abdo_left_upper_quadrant",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -31485,7 +31491,8 @@
                                 "not-equals": "Abdo left upper quadrant drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -31580,7 +31587,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_abdo_left_upper_quadrant",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -31603,7 +31610,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -31632,7 +31639,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_abdo_left_upper_quadrant",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -31655,7 +31662,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -31987,9 +31994,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_abdo_right_upper_quadrant",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -32009,7 +32016,8 @@
                                 "not-equals": "Abdo right upper quadrant drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -32104,7 +32112,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_abdo_right_upper_quadrant",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -32127,7 +32135,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -32156,7 +32164,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_abdo_right_upper_quadrant",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -32179,7 +32187,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -32511,9 +32519,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_abdo_left_lower_quadrant",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -32533,7 +32541,8 @@
                                 "not-equals": "Abdo left lower quadrant drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -32628,7 +32637,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_abdo_left_lower_quadrant",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -32651,7 +32660,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -32680,7 +32689,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_abdo_left_lower_quadrant",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -32703,7 +32712,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -33035,9 +33044,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_abdo_right_lower_quadrant",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -33057,7 +33066,8 @@
                                 "not-equals": "Abdo right lower quadrant drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -33152,7 +33162,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_abdo_right_lower_quadrant",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -33175,7 +33185,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -33204,7 +33214,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_abdo_right_lower_quadrant",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -33227,7 +33237,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -33559,9 +33569,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_suprapubic",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -33581,7 +33591,8 @@
                                 "not-equals": "Suprapubic drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -33676,7 +33687,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_suprapubic",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -33699,7 +33710,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -33728,7 +33739,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_suprapubic",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -33751,7 +33762,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -34083,9 +34094,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_left_flank",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -34105,7 +34116,8 @@
                                 "not-equals": "Left flank drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -34200,7 +34212,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_left_flank",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -34223,7 +34235,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -34252,7 +34264,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_left_flank",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -34275,7 +34287,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -34607,9 +34619,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_right_flank",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -34629,7 +34641,8 @@
                                 "not-equals": "Right flank drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -34724,7 +34737,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_right_flank",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -34747,7 +34760,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -34776,7 +34789,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_right_flank",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -34799,7 +34812,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -35131,9 +35144,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_left_nephrostomy",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -35153,7 +35166,8 @@
                                 "not-equals": "Left nephrostomy drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -35248,7 +35262,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_left_nephrostomy",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -35271,7 +35285,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -35300,7 +35314,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_left_nephrostomy",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -35323,7 +35337,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -35655,9 +35669,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_right_nephrostomy",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -35677,7 +35691,8 @@
                                 "not-equals": "Right nephrostomy drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -35772,7 +35787,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_right_nephrostomy",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -35795,7 +35810,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -35824,7 +35839,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_right_nephrostomy",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -35847,7 +35862,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -36179,9 +36194,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_left_gluteal",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -36201,7 +36216,8 @@
                                 "not-equals": "Left gluteal drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -36296,7 +36312,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_left_gluteal",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -36319,7 +36335,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -36348,7 +36364,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_left_gluteal",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -36371,7 +36387,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -36703,9 +36719,9 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_output_right_gluteal",
-                    "display":"Drain tube output (in mL)",
+                    "display":"Drain tube output",
                     "condition":{
                         "and":[
                             {
@@ -36725,7 +36741,8 @@
                                 "not-equals": "Right gluteal drain tube is currently clamped"
                             }
                         ]
-                    }
+                    },
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -36820,7 +36837,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_lower_right_gluteal",
                     "display":"What is the lower reportable limit?",
                     "condition":{
@@ -36843,7 +36860,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -36872,7 +36889,7 @@
                     "hide":true
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"drain_tube_limits_upper_right_gluteal",
                     "display":"What is the upper reportable limit?",
                     "condition":{
@@ -36895,7 +36912,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"title",
@@ -39540,7 +39557,7 @@
                     "default":["no urine"]
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"idc_attempt_urine",
                     "display":"Amount of urine drained",
                     "condition":{
@@ -39555,7 +39572,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -40153,7 +40170,7 @@
                     "inline":"True"
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"idc_insertion_urine",
                     "display":"Amount of urine drained",
                     "condition":{
@@ -40168,7 +40185,7 @@
                             }
                         ]
                     },
-                    "default":" mL"
+                    "text":"mL"
                 },
             {
                     "type":"text",
@@ -57404,6 +57421,7 @@
                 }
         ]
     },
+    
     
     
               
