@@ -1,43 +1,43 @@
-import React from 'react'
-import Select from 'react-select'
-import {  FormGroup, FormLabel } from 'react-bootstrap';
+import React from 'react';
+import Select from 'react-select';
+import { FormGroup, FormLabel } from 'react-bootstrap';
 
 function SelectControl(props) {
-    const { options: rawOptions, display, placeholder, default: defaultValue } = props.definition;
+  const { options: rawOptions, display, placeholder } = props.definition;
+  const { values, onChange } = props;
 
-    const options = rawOptions.map((o) => ({value: o.key, label: o.key}));
+  const options = rawOptions.map((o) => ({ value: o.key, label: o.key }));
 
-    return (
-        <FormGroup>
-            <FormLabel>{display || placeholder}</FormLabel>        
-            <Select
-                onChange={e => {
-                    //console.log(e);
-                    //props.onChange(e?.value || '');
-                    props.onChange(e.map(x => x.value))
-                }} 
-                options={options}
-                isSearchable={true} 
-                isClearable={true}
-                isMulti
-                defaultValue={
-                    Array.isArray(defaultValue) 
-                    ? options.filter(o => defaultValue.includes(o.value))
-                    : options.filter(o => defaultValue === o.value)
-                }
-            />
-        </FormGroup>            
-    )
+  const selectedOptions = options.filter((option) => values.includes(option.value));
+
+  const handleSelectChange = (selectedOptions) => {
+    const selectedValues = selectedOptions ? selectedOptions.map((option) => option.value) : [];
+    onChange(selectedValues);
+  };
+
+  return (
+    <FormGroup>
+      <FormLabel>{display || placeholder}</FormLabel>
+      <Select
+        onChange={handleSelectChange}
+        options={options}
+        isSearchable={true}
+        isClearable={true}
+        isMulti
+        value={selectedOptions}
+      />
+    </FormGroup>
+  );
 }
 
 export const handler = {
-    type: 'select',
-    render: function (definition, current, onChange) {
-        return <SelectControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
-    },
-    getValues: function (variable, values, mod) {
-        return variable.options
-        .filter(o => values.includes(o.key))
-        .map(o => o.value || o.key);
-    }
-}
+  type: 'select',
+  render: function (definition, current, onChange) {
+    return <SelectControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
+  },
+  getValues: function (variable, values, mod) {
+    return variable.options
+      .filter((option) => values.includes(option.key))
+      .map((option) => option.value || option.key);
+  },
+};
