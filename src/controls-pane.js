@@ -23,9 +23,9 @@ export default function ControlsPane({ variables, values, onChange }) {
         if (
           assess(definition.condition, values) && (
           (definition.type !== 'checkbox' && definition.type !== 'title' &&
-          ((values[definition.placeholder] && values[definition.placeholder].length === 0 && definition.style !== 'not required') ||
-            (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
-        (definition.type === 'checkbox' && definition.style === 'required' && values[definition.placeholder].length === 0)
+          ((values[definition.placeholder] && (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  && definition.style !== 'not required') ||
+            ((values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  && definition.style !== 'not required'))) ||
+        (definition.type === 'checkbox' && definition.style === 'required' && (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0) )
         )) {
           return true;
         }
@@ -94,7 +94,7 @@ export default function ControlsPane({ variables, values, onChange }) {
               <div key={definition.placeholder} onClick={() => handleTitleClick(originalIndex)}>
                 <div style={titleStyle}>
                   {handler.render(definition, values[definition.placeholder], (x) =>
-                    onChange(definition.placeholder, x)
+                    onChange(definition.placeholder, x),values
                   )}
                 </div>
               </div>
@@ -104,14 +104,14 @@ export default function ControlsPane({ variables, values, onChange }) {
           } else {
             if (
               (definition.type !== 'checkbox' && definition.type !== 'title' &&
-              ((values[definition.placeholder] && values[definition.placeholder].length === 0 && definition.style !== 'not required') ||
-                (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
-            (definition.type === 'checkbox' && definition.style === 'required' && values[definition.placeholder].length === 0)
+              ((values[definition.placeholder] && (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  && definition.style !== 'not required') ||
+                ((values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  && definition.style !== 'not required'))) ||
+            (definition.type === 'checkbox' && definition.style === 'required' && (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0) )
             ) {
               return (
                 <div key={definition.placeholder} style={{ borderLeft: '3px double red', marginLeft: '10px', paddingLeft: '4px' }}>
                   {handler.render(definition, values[definition.placeholder], (x) =>
-                    onChange(definition.placeholder, x)
+                    onChange(definition.placeholder, x),values
                   )}
                 </div>
               );
@@ -119,7 +119,7 @@ export default function ControlsPane({ variables, values, onChange }) {
               return (
                 <div key={definition.placeholder}>
                   {handler.render(definition, values[definition.placeholder], (x) =>
-                    onChange(definition.placeholder, x)
+                    onChange(definition.placeholder, x),values
                   )}
                 </div>
               );

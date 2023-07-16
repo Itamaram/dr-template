@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormLabel, Row, Col } from 'react-bootstrap';
 
 function NumberControl(props) {
   const { display, placeholder, hide, text } = props.definition;
-  const value = props.values[0] || '';
+  const value = props.values[0]?.value || '';
 
   // Remove the text part from the value
   const numericValue = value.split(' ')[0];
@@ -23,7 +23,7 @@ function NumberControl(props) {
               // Check if numericValue is empty before concatenating with text
               const valueWithText = numericValue ? `${numericValue} ${text}` : '';
 
-              props.onChange([valueWithText]); // Include the concatenated value in the onChange callback
+              props.onChange([{value: valueWithText}]); // Include the concatenated value in the onChange callback
             }}
             pattern="[0-9.]*"
             inputMode="decimal"
@@ -46,7 +46,7 @@ export const handler = {
   },
   getValues: function (variable, values, mod) {
     if (values && values.length > 0) {
-      return values[0];
+      return values.map(({value}) => value);
     }
     return '';
   }

@@ -10,7 +10,7 @@ function DateTimeControl(props) {
   const { display, placeholder, hide } = definition;
 
   useEffect(() => {
-    const selectedValue = values[0];
+    const selectedValue = values[0]?.value;
     if (selectedValue && !isNaN(selectedValue)) {
       const daysToAdd = parseInt(selectedValue, 10);
       const newDate = addDays(new Date(), daysToAdd);
@@ -24,8 +24,8 @@ function DateTimeControl(props) {
   const handleDateChange = (date) => {
     if (date) {
       const formattedDate = format(date, 'dd/MM/yyyy h:mm aa');
-      if (values[0] !== formattedDate) {
-        onChange([formattedDate]);
+      if (values[0]?.value !== formattedDate) {
+        onChange([{value: formattedDate}]);
       }
     } else {
       onChange([]);
@@ -38,7 +38,7 @@ function DateTimeControl(props) {
       <DatePicker
         todayButton="TODAY"
         showTimeSelect
-        selected={values[0] ? parse(values[0], 'dd/MM/yyyy h:mm aa', new Date()) : null}
+        selected={values[0]?.value ? parse(values[0]?.value, 'dd/MM/yyyy h:mm aa', new Date()) : null}
         dateFormat="dd/MM/yyyy h:mm aa"
         onChange={handleDateChange}
         className="custom-datepicker" // Apply the custom CSS class
@@ -54,7 +54,7 @@ export const handler = {
   },
   getValues: function (variable, values, mod) {
     if (values && values.length > 0) {
-      return values[0];
+      return values[0].value;
     }
     return '';
   }

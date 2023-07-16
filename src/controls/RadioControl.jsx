@@ -7,11 +7,11 @@ function RadioControl(props) {
     const option = o => (
         <FormCheck type="radio"
             name={placeholder}
-            onChange={() => { props.onChange(o.key) }}
+            onChange={() => props.onChange([{value: o.key}])}
             inline={inline}
             value={o.key}
             label={o.key}
-            checked={props.values.includes(o.key)}
+            checked={props.values.map(({value}) => value).includes(o.key)}
         />
     )
 
@@ -52,7 +52,7 @@ export const handler = {
     },
     getValues: function (variable, values, mod) {
         return variable.options
-            .filter(o => values.includes(o.key) && (!mod || o.key === mod))
+            .filter(o => values.map(({ value }) => value).includes(o.key) && (!mod || o.key === mod))
             .map(o => o.value || o.key);
     }
 }

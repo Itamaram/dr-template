@@ -7,9 +7,9 @@ function TextMultiControl(props) {
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
             <textarea 
-            value={(props.values[0] ? props.values[0].replace(/<br>/g, '\n') : '') || ''}
+            value={(props.values[0]?.value ? props.values[0]?.value.replace(/<br>/g, '\n') : '') || ''}
             type="textmulti" 
-            onChange={e => props.onChange([e.target.value.replace(/\r?\n/g, '<br>')])} 
+            onChange={e => props.onChange([{value: e.target.value.replace(/\r?\n/g, '<br>')}])} 
             className="my-textarea"
             />
 
@@ -23,7 +23,7 @@ export const handler = {
         return <TextMultiControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
     },
     getValues: function (variable, values, mod) {
-        return values;
+        return values.map(({value}) => value);
         ;
     }
 }

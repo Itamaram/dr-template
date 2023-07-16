@@ -28,8 +28,7 @@ class Container extends React.Component {
     // seed values
     const values = variables
       .filter((v) => v.definition.placeholder)
-      .reduce((p, v) => Object.assign(p, { [v.definition.placeholder]: [v.definition.default || []].flat() }), {});
-
+      .reduce((p, v) => Object.assign(p, { [v.definition.placeholder]: [v.definition.default || []].flat().map((value) => ({value: value})) }), {});
     return { variables, pattern, values };
   }
 
@@ -51,9 +50,10 @@ class Container extends React.Component {
     variables.forEach(({ definition }) => {
       if (assess(definition.condition, values)) return;
 
-      const target = [definition.default || []].flat();
+      const target = [definition.default || []].flat().map((value) => ({ value }));
 
-      if (!this.arrayEquals(values[definition.placeholder], target)) this.onChange(definition.placeholder, target);
+      if (!this.arrayEquals(values[definition.placeholder]?.map(({value}) => value), target.map(({value}) => value)))
+        this.onChange(definition.placeholder, target);
     });
   }
 
@@ -64,12 +64,12 @@ class Container extends React.Component {
         ((definition.type !== 'checkbox' &&
           definition.type !== 'title' &&
           ((values[definition.placeholder] &&
-            values[definition.placeholder].length === 0 &&
+            (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  &&
             definition.style !== 'not required') ||
-            (values[definition.placeholder]?.[0]?.length === 0 && definition.style !== 'not required'))) ||
+            ((values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0)  && definition.style !== 'not required'))) ||
           (definition.type === 'checkbox' &&
           definition.style === 'required' &&
-          values[definition.placeholder].length === 0)
+          (values[definition.placeholder].length === 0 || values[definition.placeholder]?.[0]?.value?.length === 0) )
         )
       ) {
         return true;

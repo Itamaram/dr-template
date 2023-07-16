@@ -19,7 +19,7 @@ export default function process(pattern, variables, values) {
                             }
                             return [];
                         }
-                        return variable.handler.getValues(variable.definition, values[key], modifier);                        
+                        return variable.handler.getValues(variable.definition, values[key], modifier);           
                     }
                     return [];
                 })

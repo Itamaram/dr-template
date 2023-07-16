@@ -6,7 +6,7 @@ function TextControl(props) {
     return hide || (
         <FormGroup>
             <FormLabel>{display || placeholder}</FormLabel>
-            <FormControl value={props.values[0] || ''} type="text" onChange={e => props.onChange([e.target.value])} />
+            <FormControl value={props.values[0]?.value || ''} type="text" onChange={e => props.onChange([{ value: e.target.value }])} />
         </FormGroup>
     );
 }
@@ -17,6 +17,6 @@ export const handler = {
         return <TextControl definition={definition} values={current} onChange={onChange} key={definition.placeholder} />;
     },
     getValues: function (variable, values, mod) {
-        return values;
+        return values.map(({value}) => value);
     }
 }

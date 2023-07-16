@@ -11,7 +11,7 @@ function TimeControl(props) {
   const [selectedTime, setSelectedTime] = useState(null);
 
   useEffect(() => {
-    const selectedValue = values[0];
+    const selectedValue = values[0]?.value;
     if (selectedValue) {
       setSelectedTime(parse(selectedValue, 'h:mm aa', new Date()));
     }
@@ -20,7 +20,7 @@ function TimeControl(props) {
   const handleTimeChange = (date) => {
     if (date) {
       setSelectedTime(date);
-      onChange([format(date, 'h:mm aa')]);
+      onChange([{value: format(date, 'h:mm aa')}]);
     } else {
       setSelectedTime(null);
       onChange([]);
@@ -50,7 +50,7 @@ export const handler = {
   },
   getValues: function (variable, values, mod) {
     if (values && values.length > 0) {
-      return values[0];
+      return values[0].value;
     }
     return '';
   }
