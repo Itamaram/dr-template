@@ -26,7 +26,7 @@ export const handler = {
                     const last = arrayCopy.pop(); // Remove the last element from the copied array
                     
                     if (arrayCopy.length === 0) {
-                      text = last.label;
+                      text = substrings[1].replace("copy1",`${last.label}`);
                     } else {
                       text = substrings[1].replace("copy1",`${arrayCopy.map(value => value.label).join(', ')} and ${last.label}`)
                     }
