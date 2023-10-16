@@ -30,10 +30,10 @@
                     "display":"ADMISSION TYPE:",
                     "options":[
                         {
-                            "key": "GEM @ Home Physiotherapy Initial assessment"
+                            "key": "GEM@home Physiotherapy review"
                         },
                         {
-                            "key": "HITH Physiotherapy Initial assessment"
+                            "key": "HITH Physiotherapy review"
                         }
                     ]
                 },
@@ -971,10 +971,10 @@
                     "display":"ADMISSION TYPE:",
                     "options":[
                         {
-                            "key": "GEM @ Home Physiotherapy Initial assessment"
+                            "key": "GEM@home Physiotherapy discharge review"
                         },
                         {
-                            "key": "HITH Physiotherapy Initial assessment"
+                            "key": "HITH Physiotherapy DC review"
                         }
                     ]
                 },
