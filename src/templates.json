@@ -582,6 +582,9 @@
                     "display":"Premorbid function - equipment",
                     "options":[
                         {
+                            "key": "Nil aids"
+                        },
+                        {
                             "key": "2WF"
                         },
                         {
