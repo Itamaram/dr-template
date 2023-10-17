@@ -1,395 +1,7 @@
 [    
     {
-        "name": "HITH/GEM@home Physiotherapy review",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain: {pain} {pain_location}<br>Other: <br>{other}<br>Update on therapy goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Estimated discharge date: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br> </p>",
-        "variables": [
-            {
-                    "type":"text",
-                    "placeholder":"down_list",
-                    "default":"down_list",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_name",
-                    "display":"Your name"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_designation",
-                    "display":"Your designation"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_number",
-                    "display":"Your contact number"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"admission",
-                    "display":"ADMISSION TYPE:",
-                    "options":[
-                        {
-                            "key": "GEM@home Physiotherapy review"
-                        },
-                        {
-                            "key": "HITH Physiotherapy review"
-                        }
-                    ]
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"hopc",
-                    "display":"Subjective:"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"id",
-                    "display":"3 Point ID check",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"consent",
-                    "display":"Consent",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"interpreter",
-                    "display":"Interpreter required",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"falls",
-                    "display":"New falls or safety concerns"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"cognition",
-                    "display":"cognition"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_mobility",
-                    "display":"Current level of function - bed mobility",
-                    "options":[
-                        {
-                            "key": "indepentent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_transfer",
-                    "display":"Current level of function - bed transfer",
-                    "options":[
-                        {
-                            "key": "indepentent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"sit_stand",
-                    "display":"Current level of function - sit to stand",
-                    "options":[
-                        {
-                            "key": "indepentent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility",
-                    "display":"Current level of function - mobility",
-                    "options":[
-                        {
-                            "key": "indepentent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility_eq",
-                    "display":"Current level of function - mobility equipment",
-                    "options":[
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"mobility_end",
-                    "display":"Current level of function - mobility endurance"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"gait",
-                    "display":"Gait analysis"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"steps",
-                    "display":"Current level of function - steps"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"range",
-                    "display":"Range and strength assessment"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"balance",
-                    "display":"Balance assessment"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"pain",
-                    "display":"Pain",
-                    "options":[
-                        {
-                            "key": "Pain free"
-                        },
-                        {
-                            "key": "1"
-                        },
-                        {
-                            "key": "2"
-                        },
-                        {
-                            "key": "3"
-                        },
-                        {
-                            "key": "4"
-                        },
-                        {
-                            "key": "5"
-                        },
-                        {
-                            "key": "6"
-                        },
-                        {
-                            "key": "7"
-                        },
-                        {
-                            "key": "8"
-                        },
-                        {
-                            "key": "9"
-                        },
-                        {
-                            "key": "10"
-                        }
-                    ],
-                    "default":"Pain free"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_location",
-                    "display":"Location of pain",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"other",
-                    "display":"Other (e.g. Wound, sensation, Obs)"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"goal_patient",
-                    "display":"Update on therapy goals"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"goal_therapy",
-                    "display":"Therapy goals (including time frames)"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"barriers",
-                    "display":"Barriers/enablers to DC"
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"treatment",
-                    "display":"Treatment provided today",
-                    "options":[
-                        {
-                            "key": "Assessment as above"
-                        },
-                        {
-                            "key": "Handover to nursing team"
-                        },
-                        {
-                            "key": "Handover to medical team"
-                        },
-                        {
-                            "key": "Referral to other allied health"
-                        },
-                        {
-                            "key": "Referral to AHA"
-                        },
-                        {
-                            "key": "Other"
-                        }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"treatment_other",
-                    "display":"Other treatment provided",
-                    "condition":{
-                        "field": "treatment",
-                        "equals": "Other"
-                    }
-                },
-            {
-                    "type":"date",
-                    "placeholder":"los_pt",
-                    "display":"Estimated discharge date"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"visit_frequency",
-                    "display":"Visit frequency",
-                    "options":[
-                        {
-                            "key": "Once a day",
-                            "value": "Daily visits"
-                        },
-                        {
-                            "key": "Every second day",
-                            "value": "Second daily visits"
-                        },
-                        {
-                            "key": "Every third day",
-                            "value": "Third daily visits"
-                        },
-                        {
-                            "key": "Twice a week",
-                            "value": "Visits twice a week"
-                        },
-                        {
-                            "key": "Every five days",
-                            "value": "Visit every five days"
-                        },
-                        {
-                            "key": "Once a week",
-                            "value": "Visits once a week"
-                        }
-                    ]
-                },
-            {
-                    "type":"date",
-                    "placeholder":"date",
-                    "display":"Date of next review"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"plan",
-                    "display":"Plan"
-                }
-        ]
-    },
-        {
         "name": " HITH/GEM@Home physio Initial Ax",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE:  {admission}<br><br>HOPC: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>Precautions/restrictions: {precautions}<br>PMHx and relevant medications: {pmhx}<br>Reason for referral: {reason}<br>Living Situation: {living}<br>Funding: {funding}<br>Home setup: {home_setup}<br>Aids:{aids|!!Other,aids_other}<br>Premorbid function - equipment: {premorbid_eq}<br>Premorbid function - level of assistance: {premorbid_assist}<br>Premorbid function – endurance/distance: {premorbid_endurance}<br>Falls History: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br><br>Balance Assessment: {balance}<br>Pain: {pain} {pain_location}<br>Other: <br>{other}<br>Patient goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Anticipated LOS from PT perspective: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br> </p>",
+        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>HOPC: <br>{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>Precautions/restrictions: {precautions}<br>PMHx and relevant medications: {pmhx}<br>Reason for referral: {reason}<br>Living Situation: {living}<br>Funding: {funding}<br>Home setup: {home_setup}<br>Aids:{aids|!!Other,aids_other}<br>premorbid function – mobility equipment: {premorbid_eq}<br>Premorbid function - level of assistance: {premorbid_assist}<br>Premorbid function – endurance/distance: {premorbid_endurance}<br>Falls History: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Patient goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Anticipated LOS from PT perspective: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br></p>",
         "variables": [
             {
                     "type":"text",
@@ -579,7 +191,7 @@
             {
                     "type":"dropdown",
                     "placeholder":"premorbid_eq",
-                    "display":"Premorbid function - equipment",
+                    "display":"premorbid function – mobility equipment",
                     "options":[
                         {
                             "key": "Nil aids"
@@ -622,7 +234,7 @@
                     "display":"Premorbid function - level of assistance",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -656,7 +268,7 @@
                     "display":"Current level of function - bed mobility",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -675,7 +287,7 @@
                     "display":"Current level of function - bed transfer",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -694,7 +306,7 @@
                     "display":"Current level of function - sit to stand",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -713,7 +325,7 @@
                     "display":"Current level of function - mobility",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -770,6 +382,11 @@
                 },
             {
                     "type":"text",
+                    "placeholder":"comments",
+                    "display":"Comments/other observations"
+                },
+            {
+                    "type":"text",
                     "placeholder":"gait",
                     "display":"Gait analysis"
                 },
@@ -791,40 +408,50 @@
             {
                     "type":"dropdown",
                     "placeholder":"pain",
-                    "display":"Pain",
+                    "display":"Pain (at rest)",
                     "options":[
                         {
                             "key": "Pain free"
                         },
                         {
-                            "key": "1"
+                            "key": "1",
+                            "value": "1/10 to "
                         },
                         {
-                            "key": "2"
+                            "key": "2",
+                            "value": "2/10 to "
                         },
                         {
-                            "key": "3"
+                            "key": "3",
+                            "value": "3/10 to "
                         },
                         {
-                            "key": "4"
+                            "key": "4",
+                            "value": "4/10 to "
                         },
                         {
-                            "key": "5"
+                            "key": "5",
+                            "value": "5/10 to "
                         },
                         {
-                            "key": "6"
+                            "key": "6",
+                            "value": "6/10 to "
                         },
                         {
-                            "key": "7"
+                            "key": "7",
+                            "value": "7/10 to "
                         },
                         {
-                            "key": "8"
+                            "key": "8",
+                            "value": "8/10 to "
                         },
                         {
-                            "key": "9"
+                            "key": "9",
+                            "value": "9/10 to "
                         },
                         {
-                            "key": "10"
+                            "key": "10",
+                            "value": "10/10 to "
                         }
                     ],
                     "default":"Pain free"
@@ -832,9 +459,145 @@
             {
                     "type":"text",
                     "placeholder":"pain_location",
-                    "display":"Location of pain",
+                    "display":"Location of pain at rest",
                     "condition":{
                         "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated",
+                    "display":"What aggravated the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved",
+                    "display":"What relieves the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"pain_move",
+                    "display":"Pain (on movement)",
+                    "options":[
+                        {
+                            "key": "Pain free"
+                        },
+                        {
+                            "key": "1",
+                            "value": "1/10 to "
+                        },
+                        {
+                            "key": "2",
+                            "value": "2/10 to "
+                        },
+                        {
+                            "key": "3",
+                            "value": "3/10 to "
+                        },
+                        {
+                            "key": "4",
+                            "value": "4/10 to "
+                        },
+                        {
+                            "key": "5",
+                            "value": "5/10 to "
+                        },
+                        {
+                            "key": "6",
+                            "value": "6/10 to "
+                        },
+                        {
+                            "key": "7",
+                            "value": "7/10 to "
+                        },
+                        {
+                            "key": "8",
+                            "value": "8/10 to "
+                        },
+                        {
+                            "key": "9",
+                            "value": "9/10 to "
+                        },
+                        {
+                            "key": "10",
+                            "value": "10/10 to "
+                        }
+                    ],
+                    "default":"Pain free"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_location",
+                    "display":"Location of pain on movement",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated",
+                    "display":"What aggravated the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved",
+                    "display":"What relieves the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
                         "not-equals": "Pain free"
                     }
                 },
@@ -842,6 +605,11 @@
                     "type":"textmulti",
                     "placeholder":"other",
                     "display":"Other (e.g. Wound, sensation, Obs)"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"patient_concerns",
+                    "display":"Patient concerns"
                 },
             {
                     "type":"textmulti",
@@ -944,8 +712,552 @@
         ]
     },
     {
+        "name": "HITH/GEM@home Physiotherapy review",
+        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Update on therapy goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Estimated discharge date: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br></p>",
+        "variables": [
+            {
+                    "type":"text",
+                    "placeholder":"down_list",
+                    "default":"down_list",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_name",
+                    "display":"Your name"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_designation",
+                    "display":"Your designation"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number",
+                    "display":"Your contact number"
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"admission",
+                    "display":"ADMISSION TYPE:",
+                    "options":[
+                        {
+                            "key": "GEM@home Physiotherapy review"
+                        },
+                        {
+                            "key": "HITH Physiotherapy review"
+                        }
+                    ]
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"hopc",
+                    "display":"Subjective:"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"id",
+                    "display":"3 Point ID check",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"consent",
+                    "display":"Consent",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"interpreter",
+                    "display":"Interpreter required",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls",
+                    "display":"New falls or safety concerns"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"cognition",
+                    "display":"cognition"
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"bed_mobility",
+                    "display":"Current level of function - bed mobility",
+                    "options":[
+                        {
+                            "key": "independent"
+                        },
+                        {
+                            "key": "supervision"
+                        },
+                        {
+                            "key": "assist by 1"
+                        },
+                        {
+                            "key": "assist by 2"
+                        }
+                    ]
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"bed_transfer",
+                    "display":"Current level of function - bed transfer",
+                    "options":[
+                        {
+                            "key": "independent"
+                        },
+                        {
+                            "key": "supervision"
+                        },
+                        {
+                            "key": "assist by 1"
+                        },
+                        {
+                            "key": "assist by 2"
+                        }
+                    ]
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"sit_stand",
+                    "display":"Current level of function - sit to stand",
+                    "options":[
+                        {
+                            "key": "independent"
+                        },
+                        {
+                            "key": "supervision"
+                        },
+                        {
+                            "key": "assist by 1"
+                        },
+                        {
+                            "key": "assist by 2"
+                        }
+                    ]
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"mobility",
+                    "display":"Current level of function - mobility",
+                    "options":[
+                        {
+                            "key": "independent"
+                        },
+                        {
+                            "key": "supervision"
+                        },
+                        {
+                            "key": "assist by 1"
+                        },
+                        {
+                            "key": "assist by 2"
+                        }
+                    ]
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"mobility_eq",
+                    "display":"Current level of function - mobility equipment",
+                    "options":[
+                        {
+                            "key": "2WF"
+                        },
+                        {
+                            "key": "4WF"
+                        },
+                        {
+                            "key": "crutches"
+                        },
+                        {
+                            "key": "sarasteady"
+                        },
+                        {
+                            "key": "wheelchair"
+                        },
+                        {
+                            "key": "pickup frame"
+                        },
+                        {
+                            "key": "gutter frame"
+                        },
+                        {
+                            "key": "single point stick"
+                        },
+                        {
+                            "key": "sling hoist"
+                        },
+                        {
+                            "key": "standing hoist"
+                        }
+                    ]
+                },
+            {
+                    "type":"text",
+                    "placeholder":"mobility_end",
+                    "display":"Current level of function - mobility endurance"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"comments",
+                    "display":"Comments/other observations"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"gait",
+                    "display":"Gait analysis"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"steps",
+                    "display":"Current level of function - steps"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"range",
+                    "display":"Range and strength assessment"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"balance",
+                    "display":"Balance assessment"
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"pain",
+                    "display":"Pain (at rest)",
+                    "options":[
+                        {
+                            "key": "Pain free"
+                        },
+                        {
+                            "key": "1",
+                            "value": "1/10 to "
+                        },
+                        {
+                            "key": "2",
+                            "value": "2/10 to "
+                        },
+                        {
+                            "key": "3",
+                            "value": "3/10 to "
+                        },
+                        {
+                            "key": "4",
+                            "value": "4/10 to "
+                        },
+                        {
+                            "key": "5",
+                            "value": "5/10 to "
+                        },
+                        {
+                            "key": "6",
+                            "value": "6/10 to "
+                        },
+                        {
+                            "key": "7",
+                            "value": "7/10 to "
+                        },
+                        {
+                            "key": "8",
+                            "value": "8/10 to "
+                        },
+                        {
+                            "key": "9",
+                            "value": "9/10 to "
+                        },
+                        {
+                            "key": "10",
+                            "value": "10/10 to "
+                        }
+                    ],
+                    "default":"Pain free"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_location",
+                    "display":"Location of pain at rest",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated",
+                    "display":"What aggravated the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved",
+                    "display":"What relieves the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"pain_move",
+                    "display":"Pain (on movement)",
+                    "options":[
+                        {
+                            "key": "Pain free"
+                        },
+                        {
+                            "key": "1",
+                            "value": "1/10 to "
+                        },
+                        {
+                            "key": "2",
+                            "value": "2/10 to "
+                        },
+                        {
+                            "key": "3",
+                            "value": "3/10 to "
+                        },
+                        {
+                            "key": "4",
+                            "value": "4/10 to "
+                        },
+                        {
+                            "key": "5",
+                            "value": "5/10 to "
+                        },
+                        {
+                            "key": "6",
+                            "value": "6/10 to "
+                        },
+                        {
+                            "key": "7",
+                            "value": "7/10 to "
+                        },
+                        {
+                            "key": "8",
+                            "value": "8/10 to "
+                        },
+                        {
+                            "key": "9",
+                            "value": "9/10 to "
+                        },
+                        {
+                            "key": "10",
+                            "value": "10/10 to "
+                        }
+                    ],
+                    "default":"Pain free"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_location",
+                    "display":"Location of pain on movement",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated",
+                    "display":"What aggravated the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved",
+                    "display":"What relieves the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"other",
+                    "display":"Other (e.g. Wound, sensation, Obs)"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"patient_concerns",
+                    "display":"Patient concerns"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"goal_patient",
+                    "display":"Update on therapy goals"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"goal_therapy",
+                    "display":"Therapy goals (including time frames)"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"barriers",
+                    "display":"Barriers/enablers to DC"
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"treatment",
+                    "display":"Treatment provided today",
+                    "options":[
+                        {
+                            "key": "Assessment as above"
+                        },
+                        {
+                            "key": "Handover to nursing team"
+                        },
+                        {
+                            "key": "Handover to medical team"
+                        },
+                        {
+                            "key": "Referral to other allied health"
+                        },
+                        {
+                            "key": "Referral to AHA"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ]
+                },
+            {
+                    "type":"text",
+                    "placeholder":"treatment_other",
+                    "display":"Other treatment provided",
+                    "condition":{
+                        "field": "treatment",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"date",
+                    "placeholder":"los_pt",
+                    "display":"Estimated discharge date"
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"visit_frequency",
+                    "display":"Visit frequency",
+                    "options":[
+                        {
+                            "key": "Once a day",
+                            "value": "Daily visits"
+                        },
+                        {
+                            "key": "Every second day",
+                            "value": "Second daily visits"
+                        },
+                        {
+                            "key": "Every third day",
+                            "value": "Third daily visits"
+                        },
+                        {
+                            "key": "Twice a week",
+                            "value": "Visits twice a week"
+                        },
+                        {
+                            "key": "Every five days",
+                            "value": "Visit every five days"
+                        },
+                        {
+                            "key": "Once a week",
+                            "value": "Visits once a week"
+                        }
+                    ]
+                },
+            {
+                    "type":"date",
+                    "placeholder":"date",
+                    "display":"Date of next review"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"plan",
+                    "display":"Plan"
+                }
+        ]
+    },
+    {
         "name": "HITH/GEM@Home Discharge Assessment",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain: {pain} {pain_location}<br>Other: <br>{other}<br>Update on therapy goals: {goal_patient,down_list}<br>Therapy goals: {goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Ongoing PT required on DC: {pt_required|No}{pt_required_options}<br>Referral/s sent: {referral}<br>DC summary completed: {dc}<br>Plan: <br>{plan}<br> </p>",
+        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Update on therapy goals: {goal_patient,down_list}<br>Therapy goals: {goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Ongoing PT required on DC: {pt_required|No}{pt_required_options}<br>Referral/s sent: {referral}<br>DC summary completed: {dc}<br>Plan: <br>{plan}<br></p>",
         "variables": [
             {
                     "type":"text",
@@ -1047,7 +1359,7 @@
                     "display":"Current level of function - bed mobility",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -1066,7 +1378,7 @@
                     "display":"Current level of function - bed transfer",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -1085,7 +1397,7 @@
                     "display":"Current level of function - sit to stand",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -1104,7 +1416,7 @@
                     "display":"Current level of function - mobility",
                     "options":[
                         {
-                            "key": "indepentent"
+                            "key": "independent"
                         },
                         {
                             "key": "supervision"
@@ -1161,6 +1473,11 @@
                 },
             {
                     "type":"text",
+                    "placeholder":"comments",
+                    "display":"Comments/other observations"
+                },
+            {
+                    "type":"text",
                     "placeholder":"gait",
                     "display":"Gait analysis"
                 },
@@ -1182,40 +1499,50 @@
             {
                     "type":"dropdown",
                     "placeholder":"pain",
-                    "display":"Pain",
+                    "display":"Pain (at rest)",
                     "options":[
                         {
                             "key": "Pain free"
                         },
                         {
-                            "key": "1"
+                            "key": "1",
+                            "value": "1/10 to "
                         },
                         {
-                            "key": "2"
+                            "key": "2",
+                            "value": "2/10 to "
                         },
                         {
-                            "key": "3"
+                            "key": "3",
+                            "value": "3/10 to "
                         },
                         {
-                            "key": "4"
+                            "key": "4",
+                            "value": "4/10 to "
                         },
                         {
-                            "key": "5"
+                            "key": "5",
+                            "value": "5/10 to "
                         },
                         {
-                            "key": "6"
+                            "key": "6",
+                            "value": "6/10 to "
                         },
                         {
-                            "key": "7"
+                            "key": "7",
+                            "value": "7/10 to "
                         },
                         {
-                            "key": "8"
+                            "key": "8",
+                            "value": "8/10 to "
                         },
                         {
-                            "key": "9"
+                            "key": "9",
+                            "value": "9/10 to "
                         },
                         {
-                            "key": "10"
+                            "key": "10",
+                            "value": "10/10 to "
                         }
                     ],
                     "default":"Pain free"
@@ -1223,9 +1550,145 @@
             {
                     "type":"text",
                     "placeholder":"pain_location",
-                    "display":"Location of pain",
+                    "display":"Location of pain at rest",
                     "condition":{
                         "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_aggravated",
+                    "display":"What aggravated the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved_text",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_relieved",
+                    "display":"What relieves the pain?",
+                    "condition":{
+                        "field": "pain",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"pain_move",
+                    "display":"Pain (on movement)",
+                    "options":[
+                        {
+                            "key": "Pain free"
+                        },
+                        {
+                            "key": "1",
+                            "value": "1/10 to "
+                        },
+                        {
+                            "key": "2",
+                            "value": "2/10 to "
+                        },
+                        {
+                            "key": "3",
+                            "value": "3/10 to "
+                        },
+                        {
+                            "key": "4",
+                            "value": "4/10 to "
+                        },
+                        {
+                            "key": "5",
+                            "value": "5/10 to "
+                        },
+                        {
+                            "key": "6",
+                            "value": "6/10 to "
+                        },
+                        {
+                            "key": "7",
+                            "value": "7/10 to "
+                        },
+                        {
+                            "key": "8",
+                            "value": "8/10 to "
+                        },
+                        {
+                            "key": "9",
+                            "value": "9/10 to "
+                        },
+                        {
+                            "key": "10",
+                            "value": "10/10 to "
+                        }
+                    ],
+                    "default":"Pain free"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_location",
+                    "display":"Location of pain on movement",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is aggravated by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_aggravated",
+                    "display":"What aggravated the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved_text",
+                    "condition":{
+                        "field": "pain_move",
+                        "not-equals": "Pain free"
+                    },
+                    "default":"<br>Pain on movement is relieved by: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pain_move_relieved",
+                    "display":"What relieves the pain on movement?",
+                    "condition":{
+                        "field": "pain_move",
                         "not-equals": "Pain free"
                     }
                 },
@@ -1233,6 +1696,11 @@
                     "type":"textmulti",
                     "placeholder":"other",
                     "display":"Other (e.g. Wound, sensation, Obs)"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"patient_concerns",
+                    "display":"Patient concerns"
                 },
             {
                     "type":"checkbox",
@@ -1362,6 +1830,7 @@
                 }
         ]
     },
+    
        
     {
         "name": "HITH nursing",
