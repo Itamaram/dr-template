@@ -1,8 +1,24 @@
 [    
     {
-        "name": " HITH/GEM@Home physio Initial Ax",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>HOPC: <br>{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>Precautions/restrictions: {precautions}<br>PMHx and relevant medications: {pmhx}<br>Reason for referral: {reason}<br>Living Situation: {living}<br>Funding: {funding}<br>Home setup: {home_setup}<br>Aids:{aids|!!Other,aids_other}<br>premorbid function – mobility equipment: {premorbid_eq}<br>Premorbid function - level of assistance: {premorbid_assist}<br>Premorbid function – endurance/distance: {premorbid_endurance}<br>Falls History: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Patient goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Anticipated LOS from PT perspective: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br></p>",
+        "name": " HITH/GEM@Home physio template",
+        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_update|!!Other,treatment_discharge|!!Other,treatment_other,down_list}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{visit_frequency_text}{visit_frequency}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
+            {
+                    "type":"radio",
+                    "placeholder":"type_template",
+                    "display":"Which type of template is it?",
+                    "options":[
+                        {
+                            "key": "Initial assessment"
+                        },
+                        {
+                            "key": "Review"
+                        },
+                        {
+                            "key": "Discharge"
+                        }
+                    ]
+                },
             {
                     "type":"text",
                     "placeholder":"down_list",
@@ -12,17 +28,29 @@
             {
                     "type":"text",
                     "placeholder":"clinician_name",
-                    "display":"Your name"
+                    "display":"Your name",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"clinician_designation",
-                    "display":"Your designation"
+                    "display":"Your designation",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"clinician_number",
-                    "display":"Your contact number"
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"dropdown",
@@ -35,12 +63,65 @@
                         {
                             "key": "HITH Physiotherapy Initial assessment"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"subjective_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Discharge"
+                            }
+                        ]
+                    },
+                    "default":"Subjective",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"subjective",
+                    "display":"Subjective",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"hopc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"HOPC",
+                    "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"hopc",
-                    "display":"HOPC:"
+                    "display":"HOPC:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
                 },
             {
                     "type":"radio",
@@ -54,6 +135,10 @@
                             "key": "No"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
                     "default":"Yes",
                     "inline":"True"
                 },
@@ -69,6 +154,10 @@
                             "key": "No"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
                     "default":"Yes",
                     "inline":"True"
                 },
@@ -84,23 +173,79 @@
                             "key": "No"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
                     "default":"Yes",
                     "inline":"True"
                 },
             {
                     "type":"text",
+                    "placeholder":"precautions_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Precautions/restrictions: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
                     "placeholder":"precautions",
-                    "display":"Precautions/restrictions"
+                    "display":"Precautions/restrictions",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pmhx_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>PMHx and relevant medications: ",
+                    "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"pmhx",
-                    "display":"PMHx and relevant medications"
+                    "display":"PMHx and relevant medications",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"reason_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Reason for referral: ",
+                    "hide":true
                 },
             {
                     "type":"text",
                     "placeholder":"reason",
-                    "display":"Reason for referral"
+                    "display":"Reason for referral",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"living_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Living Situation: ",
+                    "hide":true
                 },
             {
                     "type":"select",
@@ -122,7 +267,21 @@
                         {
                             "key": "relative"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"funding_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Funding: ",
+                    "hide":true
                 },
             {
                     "type":"select",
@@ -144,12 +303,40 @@
                         {
                             "key": "NDIS"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"home_setup_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Home setup: ",
+                    "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"home_setup",
-                    "display":"Home setup"
+                    "display":"Home setup",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"aids_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Aids: ",
+                    "hide":true
                 },
             {
                     "type":"checkbox",
@@ -177,19 +364,33 @@
                         {
                             "key": "Other"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"aids_other",
                     "display":"Other aids",
                     "condition":{
-                        "field": "aids",
-                        "equals": "Other"
+                        "field": "type_template",
+                        "equals": "Initial assessment"
                     }
                 },
             {
-                    "type":"dropdown",
+                    "type":"text",
+                    "placeholder":"premorbid_eq_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Premorbid function – mobility equipment: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
                     "placeholder":"premorbid_eq",
                     "display":"premorbid function – mobility equipment",
                     "options":[
@@ -226,10 +427,24 @@
                         {
                             "key": "standing hoist"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"text",
+                    "placeholder":"premorbid_assist_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Premorbid function - level of assistance: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
                     "placeholder":"premorbid_assist",
                     "display":"Premorbid function - level of assistance",
                     "options":[
@@ -245,25 +460,96 @@
                         {
                             "key": "assist by 2"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"premorbid_endurance_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Premorbid function – endurance/distance: ",
+                    "hide":true
                 },
             {
                     "type":"text",
                     "placeholder":"premorbid_endurance",
-                    "display":"Premorbid function - endurance/distance"
+                    "display":"Premorbid function - endurance/distance",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"Falls History",
+                    "hide":true
                 },
             {
                     "type":"text",
                     "placeholder":"falls",
-                    "display":"Falls history"
+                    "display":"Falls history",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls_new_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Discharge"
+                            }
+                        ]
+                    },
+                    "default":"New falls or safety concerns",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls_new",
+                    "display":"New falls or safety concerns",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Discharge"
+                            }
+                        ]
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"cognition",
-                    "display":"cognition"
+                    "display":"cognition",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"bed_mobility",
                     "display":"Current level of function - bed mobility",
                     "options":[
@@ -279,10 +565,14 @@
                         {
                             "key": "assist by 2"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"bed_transfer",
                     "display":"Current level of function - bed transfer",
                     "options":[
@@ -298,10 +588,14 @@
                         {
                             "key": "assist by 2"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"sit_stand",
                     "display":"Current level of function - sit to stand",
                     "options":[
@@ -317,10 +611,14 @@
                         {
                             "key": "assist by 2"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"mobility",
                     "display":"Current level of function - mobility",
                     "options":[
@@ -336,13 +634,20 @@
                         {
                             "key": "assist by 2"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"mobility_eq",
                     "display":"Current level of function - mobility equipment",
                     "options":[
+                        {
+                            "key": "nil aids"
+                        },
                         {
                             "key": "2WF"
                         },
@@ -373,37 +678,65 @@
                         {
                             "key": "standing hoist"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"mobility_end",
-                    "display":"Current level of function - mobility endurance"
+                    "display":"Current level of function - mobility endurance",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"comments",
-                    "display":"Comments/other observations"
+                    "display":"Comments/other observations",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"gait",
-                    "display":"Gait analysis"
+                    "display":"Gait analysis",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"steps",
-                    "display":"Current level of function - steps"
+                    "display":"Current level of function - steps",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"textmulti",
                     "placeholder":"range",
-                    "display":"Range and strength assessment"
+                    "display":"Range and strength assessment",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"textmulti",
                     "placeholder":"balance",
-                    "display":"Balance assessment"
+                    "display":"Balance assessment",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"dropdown",
@@ -454,6 +787,10 @@
                             "value": "10/10 to "
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
                     "default":"Pain free"
                 },
             {
@@ -552,6 +889,10 @@
                             "value": "10/10 to "
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
                     "default":"Pain free"
                 },
             {
@@ -604,27 +945,117 @@
             {
                     "type":"textmulti",
                     "placeholder":"other",
-                    "display":"Other (e.g. Wound, sensation, Obs)"
+                    "display":"Other (e.g. Wound, sensation, Obs)",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"patient_concerns",
-                    "display":"Patient concerns"
+                    "display":"Patient concerns",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goal_patient_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"Patient goals",
+                    "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"goal_patient",
-                    "display":"Patient goals"
+                    "display":"Patient goals",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goal_patient_update_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Discharge"
+                            }
+                        ]
+                    },
+                    "default":"Update on therapy goals",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"goal_patient_update",
+                    "display":"Update on therapy goals",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"goal_patient_discharge",
+                    "display":"Update on therapy goals",
+                    "options":[
+                        {
+                            "key": "Goals achieved"
+                        },
+                        {
+                            "key": "Goals not achieved"
+                        },
+                        {
+                            "key": "Goals partially achieved"
+                        },
+                        {
+                            "key": "Ongoing Goals to be achieved in community"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goal_therapy_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Therapy goals (including time frames):<br>",
+                    "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"goal_therapy",
-                    "display":"Therapy goals (including time frames)"
+                    "display":"Therapy goals (including time frames)",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
                 },
             {
                     "type":"text",
                     "placeholder":"barriers",
-                    "display":"Barriers/enablers to DC"
+                    "display":"Barriers/enablers to DC",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 },
             {
                     "type":"checkbox",
@@ -652,530 +1083,15 @@
                         {
                             "key": "Other"
                         }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"treatment_other",
-                    "display":"Other treatment provided",
-                    "condition":{
-                        "field": "treatment",
-                        "equals": "Other"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"los_pt",
-                    "display":"Anticipated length of stay from PT perspective"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"visit_frequency",
-                    "display":"Visit frequency",
-                    "options":[
-                        {
-                            "key": "Once a day",
-                            "value": "Daily visits"
-                        },
-                        {
-                            "key": "Every second day",
-                            "value": "Second daily visits"
-                        },
-                        {
-                            "key": "Every third day",
-                            "value": "Third daily visits"
-                        },
-                        {
-                            "key": "Twice a week",
-                            "value": "Visits twice a week"
-                        },
-                        {
-                            "key": "Every five days",
-                            "value": "Visit every five days"
-                        },
-                        {
-                            "key": "Once a week",
-                            "value": "Visits once a week"
-                        }
-                    ]
-                },
-            {
-                    "type":"date",
-                    "placeholder":"date",
-                    "display":"Date of next review"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"plan",
-                    "display":"Plan"
-                }
-        ]
-    },
-    {
-        "name": "HITH/GEM@home Physiotherapy review",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Update on therapy goals: <br>{goal_patient}<br>Therapy goals: <br>{goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Estimated discharge date: {los_pt}<br>Visit frequency: {visit_frequency}<br>Date of next review: {date}<br>Plan: <br>{plan}<br></p>",
-        "variables": [
-            {
-                    "type":"text",
-                    "placeholder":"down_list",
-                    "default":"down_list",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_name",
-                    "display":"Your name"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_designation",
-                    "display":"Your designation"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_number",
-                    "display":"Your contact number"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"admission",
-                    "display":"ADMISSION TYPE:",
-                    "options":[
-                        {
-                            "key": "GEM@home Physiotherapy review"
-                        },
-                        {
-                            "key": "HITH Physiotherapy review"
-                        }
-                    ]
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"hopc",
-                    "display":"Subjective:"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"id",
-                    "display":"3 Point ID check",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
                     ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"consent",
-                    "display":"Consent",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"interpreter",
-                    "display":"Interpreter required",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"falls",
-                    "display":"New falls or safety concerns"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"cognition",
-                    "display":"cognition"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_mobility",
-                    "display":"Current level of function - bed mobility",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_transfer",
-                    "display":"Current level of function - bed transfer",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"sit_stand",
-                    "display":"Current level of function - sit to stand",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility",
-                    "display":"Current level of function - mobility",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility_eq",
-                    "display":"Current level of function - mobility equipment",
-                    "options":[
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"mobility_end",
-                    "display":"Current level of function - mobility endurance"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"comments",
-                    "display":"Comments/other observations"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"gait",
-                    "display":"Gait analysis"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"steps",
-                    "display":"Current level of function - steps"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"range",
-                    "display":"Range and strength assessment"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"balance",
-                    "display":"Balance assessment"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"pain",
-                    "display":"Pain (at rest)",
-                    "options":[
-                        {
-                            "key": "Pain free"
-                        },
-                        {
-                            "key": "1",
-                            "value": "1/10 to "
-                        },
-                        {
-                            "key": "2",
-                            "value": "2/10 to "
-                        },
-                        {
-                            "key": "3",
-                            "value": "3/10 to "
-                        },
-                        {
-                            "key": "4",
-                            "value": "4/10 to "
-                        },
-                        {
-                            "key": "5",
-                            "value": "5/10 to "
-                        },
-                        {
-                            "key": "6",
-                            "value": "6/10 to "
-                        },
-                        {
-                            "key": "7",
-                            "value": "7/10 to "
-                        },
-                        {
-                            "key": "8",
-                            "value": "8/10 to "
-                        },
-                        {
-                            "key": "9",
-                            "value": "9/10 to "
-                        },
-                        {
-                            "key": "10",
-                            "value": "10/10 to "
-                        }
-                    ],
-                    "default":"Pain free"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_location",
-                    "display":"Location of pain at rest",
                     "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
+                        "field": "type_template",
+                        "equals": "Initial assessment"
                     }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_aggravated_text",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain is aggravated by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_aggravated",
-                    "display":"What aggravated the pain?",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_relieved_text",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain is relieved by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_relieved",
-                    "display":"What relieves the pain?",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"pain_move",
-                    "display":"Pain (on movement)",
-                    "options":[
-                        {
-                            "key": "Pain free"
-                        },
-                        {
-                            "key": "1",
-                            "value": "1/10 to "
-                        },
-                        {
-                            "key": "2",
-                            "value": "2/10 to "
-                        },
-                        {
-                            "key": "3",
-                            "value": "3/10 to "
-                        },
-                        {
-                            "key": "4",
-                            "value": "4/10 to "
-                        },
-                        {
-                            "key": "5",
-                            "value": "5/10 to "
-                        },
-                        {
-                            "key": "6",
-                            "value": "6/10 to "
-                        },
-                        {
-                            "key": "7",
-                            "value": "7/10 to "
-                        },
-                        {
-                            "key": "8",
-                            "value": "8/10 to "
-                        },
-                        {
-                            "key": "9",
-                            "value": "9/10 to "
-                        },
-                        {
-                            "key": "10",
-                            "value": "10/10 to "
-                        }
-                    ],
-                    "default":"Pain free"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_location",
-                    "display":"Location of pain on movement",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_aggravated_text",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain on movement is aggravated by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_aggravated",
-                    "display":"What aggravated the pain on movement?",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_relieved_text",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain on movement is relieved by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_relieved",
-                    "display":"What relieves the pain on movement?",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"other",
-                    "display":"Other (e.g. Wound, sensation, Obs)"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"patient_concerns",
-                    "display":"Patient concerns"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"goal_patient",
-                    "display":"Update on therapy goals"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"goal_therapy",
-                    "display":"Therapy goals (including time frames)"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"barriers",
-                    "display":"Barriers/enablers to DC"
                 },
             {
                     "type":"checkbox",
-                    "placeholder":"treatment",
+                    "placeholder":"treatment_update",
                     "display":"Treatment provided today",
                     "options":[
                         {
@@ -1196,26 +1112,116 @@
                         {
                             "key": "Other"
                         }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"treatment_other",
-                    "display":"Other treatment provided",
+                    ],
                     "condition":{
-                        "field": "treatment",
-                        "equals": "Other"
+                        "field": "type_template",
+                        "equals": "Review"
                     }
                 },
             {
-                    "type":"date",
+                    "type":"checkbox",
+                    "placeholder":"treatment_discharge",
+                    "display":"Treatment provided today",
+                    "options":[
+                        {
+                            "key": "Assessment as above"
+                        },
+                        {
+                            "key": "Handover to nursing team"
+                        },
+                        {
+                            "key": "Handover to medical team"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    }
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"treatment_other",
+                    "display":"Other treatment provided",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "treatment",
+                                "equals": "Other"
+                            },
+                            {
+                                "field": "treatment_update",
+                                "equals": "Other"
+                            },
+                            {
+                                "field": "treatment_discharge",
+                                "equals": "Other"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"los_pt_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Anticipated LOS from PT perspective: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
                     "placeholder":"los_pt",
-                    "display":"Estimated discharge date"
+                    "display":"Anticipated length of stay from PT perspective",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"discharge_date_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br>Estimated discharge date: ",
+                    "hide":true
+                },
+            {
+                    "type":"date",
+                    "placeholder":"discharge_date",
+                    "display":"Estimated discharge date",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"visit_frequency_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    },
+                    "default":"<br>PT visit frequency: ",
+                    "hide":true
                 },
             {
                     "type":"dropdown",
                     "placeholder":"visit_frequency",
-                    "display":"Visit frequency",
+                    "display":"PT visit frequency",
                     "options":[
                         {
                             "key": "Once a day",
@@ -1241,67 +1247,77 @@
                             "key": "Once a week",
                             "value": "Visits once a week"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"date_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    },
+                    "default":"<br>Date of next PT review: ",
+                    "hide":true
                 },
             {
                     "type":"date",
                     "placeholder":"date",
-                    "display":"Date of next review"
+                    "display":"Date of next PT review",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    }
                 },
             {
-                    "type":"textmulti",
-                    "placeholder":"plan",
-                    "display":"Plan"
-                }
-        ]
-    },
-    {
-        "name": "HITH/GEM@Home Discharge Assessment",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}<br><br>Subjective: <br>{hopc}<br><br>3 Point ID check: {id}           Consent: {consent}<br>Interpreter required: {interpreter}<br>New falls or safety concerns: {falls}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis:  {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>Update on therapy goals: {goal_patient,down_list}<br>Therapy goals: {goal_therapy}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other,treatment_other,down_list}<br>Ongoing PT required on DC: {pt_required|No}{pt_required_options}<br>Referral/s sent: {referral}<br>DC summary completed: {dc}<br>Plan: <br>{plan}<br></p>",
-        "variables": [
-            {
                     "type":"text",
-                    "placeholder":"down_list",
-                    "default":"down_list",
+                    "placeholder":"aha_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    },
+                    "default":"<br>Ongoing AHA indicated: ",
                     "hide":true
                 },
             {
-                    "type":"text",
-                    "placeholder":"clinician_name",
-                    "display":"Your name"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_designation",
-                    "display":"Your designation"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"clinician_number",
-                    "display":"Your contact number"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"admission",
-                    "display":"ADMISSION TYPE:",
-                    "options":[
-                        {
-                            "key": "GEM@home Physiotherapy discharge review"
-                        },
-                        {
-                            "key": "HITH Physiotherapy DC review"
-                        }
-                    ]
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"hopc",
-                    "display":"Subjective:"
-                },
-            {
                     "type":"radio",
-                    "placeholder":"id",
-                    "display":"3 Point ID check",
+                    "placeholder":"aha",
+                    "display":"Ongoing AHA indicated?",
                     "options":[
                         {
                             "key": "Yes"
@@ -1310,454 +1326,64 @@
                             "key": "No"
                         }
                     ],
-                    "default":"Yes",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    },
                     "inline":"True"
                 },
             {
-                    "type":"radio",
-                    "placeholder":"consent",
-                    "display":"Consent",
+                    "type":"dropdown",
+                    "placeholder":"aha_frequency",
+                    "display":"AHA frequency",
                     "options":[
                         {
-                            "key": "Yes"
+                            "key": "Once a day",
+                            "value": "Daily visits"
                         },
                         {
-                            "key": "No"
+                            "key": "Every second day",
+                            "value": "Second daily visits"
+                        },
+                        {
+                            "key": "Every third day",
+                            "value": "Third daily visits"
+                        },
+                        {
+                            "key": "Twice a week",
+                            "value": "Visits twice a week"
+                        },
+                        {
+                            "key": "Every five days",
+                            "value": "Visit every five days"
+                        },
+                        {
+                            "key": "Once a week",
+                            "value": "Visits once a week"
                         }
                     ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"interpreter",
-                    "display":"Interpreter required",
-                    "options":[
-                        {
-                            "key": "Yes"
-                        },
-                        {
-                            "key": "No"
-                        }
-                    ],
-                    "default":"Yes",
-                    "inline":"True"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"falls",
-                    "display":"New falls or safety concerns"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"cognition",
-                    "display":"cognition"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_mobility",
-                    "display":"Current level of function - bed mobility",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"bed_transfer",
-                    "display":"Current level of function - bed transfer",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"sit_stand",
-                    "display":"Current level of function - sit to stand",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility",
-                    "display":"Current level of function - mobility",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ]
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"mobility_eq",
-                    "display":"Current level of function - mobility equipment",
-                    "options":[
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"mobility_end",
-                    "display":"Current level of function - mobility endurance"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"comments",
-                    "display":"Comments/other observations"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"gait",
-                    "display":"Gait analysis"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"steps",
-                    "display":"Current level of function - steps"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"range",
-                    "display":"Range and strength assessment"
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"balance",
-                    "display":"Balance assessment"
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"pain",
-                    "display":"Pain (at rest)",
-                    "options":[
-                        {
-                            "key": "Pain free"
-                        },
-                        {
-                            "key": "1",
-                            "value": "1/10 to "
-                        },
-                        {
-                            "key": "2",
-                            "value": "2/10 to "
-                        },
-                        {
-                            "key": "3",
-                            "value": "3/10 to "
-                        },
-                        {
-                            "key": "4",
-                            "value": "4/10 to "
-                        },
-                        {
-                            "key": "5",
-                            "value": "5/10 to "
-                        },
-                        {
-                            "key": "6",
-                            "value": "6/10 to "
-                        },
-                        {
-                            "key": "7",
-                            "value": "7/10 to "
-                        },
-                        {
-                            "key": "8",
-                            "value": "8/10 to "
-                        },
-                        {
-                            "key": "9",
-                            "value": "9/10 to "
-                        },
-                        {
-                            "key": "10",
-                            "value": "10/10 to "
-                        }
-                    ],
-                    "default":"Pain free"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_location",
-                    "display":"Location of pain at rest",
                     "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
+                        "field": "aha",
+                        "equals": "Yes"
                     }
                 },
             {
                     "type":"text",
-                    "placeholder":"pain_aggravated_text",
+                    "placeholder":"pt_required_text",
                     "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
+                        "field": "type_template",
+                        "equals": "Discharge"
                     },
-                    "default":"<br>Pain is aggravated by: ",
+                    "default":"<br>Ongoing PT required on DC: ",
                     "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_aggravated",
-                    "display":"What aggravated the pain?",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_relieved_text",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain is relieved by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_relieved",
-                    "display":"What relieves the pain?",
-                    "condition":{
-                        "field": "pain",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"pain_move",
-                    "display":"Pain (on movement)",
-                    "options":[
-                        {
-                            "key": "Pain free"
-                        },
-                        {
-                            "key": "1",
-                            "value": "1/10 to "
-                        },
-                        {
-                            "key": "2",
-                            "value": "2/10 to "
-                        },
-                        {
-                            "key": "3",
-                            "value": "3/10 to "
-                        },
-                        {
-                            "key": "4",
-                            "value": "4/10 to "
-                        },
-                        {
-                            "key": "5",
-                            "value": "5/10 to "
-                        },
-                        {
-                            "key": "6",
-                            "value": "6/10 to "
-                        },
-                        {
-                            "key": "7",
-                            "value": "7/10 to "
-                        },
-                        {
-                            "key": "8",
-                            "value": "8/10 to "
-                        },
-                        {
-                            "key": "9",
-                            "value": "9/10 to "
-                        },
-                        {
-                            "key": "10",
-                            "value": "10/10 to "
-                        }
-                    ],
-                    "default":"Pain free"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_location",
-                    "display":"Location of pain on movement",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_aggravated_text",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain on movement is aggravated by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_aggravated",
-                    "display":"What aggravated the pain on movement?",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_relieved_text",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    },
-                    "default":"<br>Pain on movement is relieved by: ",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"pain_move_relieved",
-                    "display":"What relieves the pain on movement?",
-                    "condition":{
-                        "field": "pain_move",
-                        "not-equals": "Pain free"
-                    }
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"other",
-                    "display":"Other (e.g. Wound, sensation, Obs)"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"patient_concerns",
-                    "display":"Patient concerns"
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"goal_patient",
-                    "display":"Update on therapy goals",
-                    "options":[
-                        {
-                            "key": "Goals achieved"
-                        },
-                        {
-                            "key": "Goals not achieved"
-                        },
-                        {
-                            "key": "Goals partially achieved"
-                        },
-                        {
-                            "key": "Ongoing Goals to be achieved in community"
-                        }
-                    ]
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"goal_therapy",
-                    "display":"Therapy goals (including time frames)"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"barriers",
-                    "display":"Barriers/enablers to DC"
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"treatment",
-                    "display":"Treatment provided today",
-                    "options":[
-                        {
-                            "key": "Assessment as above"
-                        },
-                        {
-                            "key": "Handover to nursing team"
-                        },
-                        {
-                            "key": "Handover to medical team"
-                        },
-                        {
-                            "key": "Other"
-                        }
-                    ]
-                },
-            {
-                    "type":"text",
-                    "placeholder":"treatment_other",
-                    "display":"Other treatment provided",
-                    "condition":{
-                        "field": "treatment",
-                        "equals": "Other"
-                    }
                 },
             {
                     "type":"radio",
@@ -1771,10 +1397,14 @@
                             "key": "No"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    },
                     "inline":"True"
                 },
             {
-                    "type":"dropdown",
+                    "type":"select",
                     "placeholder":"pt_required_options",
                     "display":" ",
                     "options":[
@@ -1787,7 +1417,21 @@
                         {
                             "key": "OP Physio"
                         }
-                    ]
+                    ],
+                    "condition":{
+                        "field": "pt_required",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"referral_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    },
+                    "default":"<br>Referral/s sent: ",
+                    "hide":true
                 },
             {
                     "type":"radio",
@@ -1804,7 +1448,21 @@
                             "key": "N/A"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    },
                     "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    },
+                    "default":"<br>DC summary completed: ",
+                    "hide":true
                 },
             {
                     "type":"radio",
@@ -1821,15 +1479,25 @@
                             "key": "N/A"
                         }
                     ],
-                    "inline":"True"
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge"
+                    }
                 },
             {
                     "type":"textmulti",
                     "placeholder":"plan",
-                    "display":"Plan"
+                    "display":"Plan",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
                 }
         ]
     },
+    
+    
+    
     
        
     {
