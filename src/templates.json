@@ -1556,7 +1556,504 @@
                 }
         ]
     },
+    {
+        "name": "HITH intake Bridging Anticoagulation assessment",
+        "pattern": "<p>{risk_endo}{risk_surg}{red}{yellow}{green}{endo_low_more}{endo_low_less}{endo_high_more}{endo_high_less}{non_high_more}{post_more}{post_less}</p>",
+        "variables": [
+            {
+                    "type":"text",
+                    "placeholder":"green",
+                    "condition":{
+                        "or":[
+                            {
+                                "and":[
+                                    {
+                                        "field": "reason",
+                                        "equals": "Post-procedure"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Greater than 30mL/min/1.73m2"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "reason",
+                                        "equals": "Post-procedure"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Less than 30 mL/min/1.73m2"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Non-endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "High"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Greater than 30mL/min/1.73m2"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "Low"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Greater than 30mL/min/1.73m2"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "Low"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Less than 30 mL/min/1.73m2"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "default":"If there are no further concerns, can accept patient for anticoagulation therapy under HITH.<br><br>Enoxaparin dose to expect (If any concerns or deviation from recommendation, escalate to HITH medical team): <br>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"yellow",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "reason",
+                                "equals": "New to warfarin"
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "High"
+                                    },
+                                    {
+                                        "or":[
+                                            {
+                                                "field": "egfr",
+                                                "equals": "Greater than 30mL/min/1.73m2"
+                                            },
+                                            {
+                                                "field": "egfr",
+                                                "equals": "Less than 30 mL/min/1.73m2"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Endoscopy"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "default":"Please escalate patient to the HITH medical team for further assessment<br>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"red",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "weight",
+                                "equals": "Greater than 120kg"
+                            },
+                            {
+                                "field": "type",
+                                "equals": "Other"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "On dialysis"
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Non-endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "Low"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Non-endoscopy"
+                                    },
+                                    {
+                                        "field": "egfr",
+                                        "equals": "Less than 30 mL/min/1.73m2"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "default":"Please ask home team to escalate patient to HATH for anticoagulation plan and only accept under HITH once the plan from HATH is documented.",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"weight",
+                    "display":"What is the patient's weight?",
+                    "options":[
+                        {
+                            "key": "Less than 120 kg"
+                        },
+                        {
+                            "key": "Greater than 120kg"
+                        }
+                    ]
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"reason",
+                    "display":"Why is the Bridging Anticoagulation required?",
+                    "options":[
+                        {
+                            "key": "Pre-procedure"
+                        },
+                        {
+                            "key": "Post-procedure"
+                        },
+                        {
+                            "key": "New to warfarin"
+                        }
+                    ],
+                    "condition":{
+                        "field": "weight",
+                        "equals": "Less than 120 kg"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"type",
+                    "display":"Which anticoagulat agent is the patient normally on?",
+                    "options":[
+                        {
+                            "key": "Warfarin (coumadin)"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ],
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "reason",
+                                "equals": "Pre-procedure"
+                            },
+                            {
+                                "field": "reason",
+                                "equals": "Post-procedure"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"procedure",
+                    "display":"Procedure type",
+                    "options":[
+                        {
+                            "key": "Endoscopy"
+                        },
+                        {
+                            "key": "Non-endoscopy"
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "reason",
+                                "equals": "Pre-procedure"
+                            },
+                            {
+                                "field": "type",
+                                "equals": "Warfarin (coumadin)"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"bleeding",
+                    "display":"What is the bleeding risk of the procedure? (view right side of screen for further advice)",
+                    "options":[
+                        {
+                            "key": "Low"
+                        },
+                        {
+                            "key": "High"
+                        }
+                    ],
+                    "condition":{
+                        "field": "procedure",
+                        "not-equals": []
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"egfr",
+                    "display":"What is the patient's eGFR?",
+                    "options":[
+                        {
+                            "key": "Greater than 30mL/min/1.73m2"
+                        },
+                        {
+                            "key": "Less than 30 mL/min/1.73m2"
+                        },
+                        {
+                            "key": "On dialysis"
+                        }
+                    ],
+                    "condition":{
+                        "or":[
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "not-equals": []
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "procedure",
+                                        "equals": "Non-endoscopy"
+                                    },
+                                    {
+                                        "field": "bleeding",
+                                        "equals": "High"
+                                    }
+                                ]
+                            },
+                            {
+                                "and":[
+                                    {
+                                        "field": "reason",
+                                        "equals": "Post-procedure"
+                                    },
+                                    {
+                                        "field": "type",
+                                        "equals": "Warfarin (coumadin)"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"risk_endo",
+                    "condition":{
+                        "field": "procedure",
+                        "equals": "Endoscopy"
+                    },
+                    "default":"<b>BLEEDING RISK TO BE DECIDED BY REFERRING TEAM</b> EH guidelines to assess risk of bleeding and dosing can be found in Policy 3136 <a href=http://ehpolicies.eh.local:90/index.aspx?itemDetails=3136&xText=colonoscopy%20warfarin&xType=ANY>Policy & Procedures KnowledgeBase - Home - Guidelines for the Management of Anticoagulant and Antiplatelet Therapy in patients undergoing endoscopic procedures (eh.local)</a><br><br>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"risk_surg",
+                    "condition":{
+                        "field": "procedure",
+                        "equals": "Non-endoscopy"
+                    },
+                    "default":"<b>BLEEDING RISK TO BE DECIDED BY REFERRING TEAM</b> EH guidelines to assist in dosing can be found in Policy 3354 <a href=http://ehpolicies.eh.local:90/index.aspx?itemDetails=3354&xText=warfarin&xType=ANY>Policy & Procedures KnowledgeBase - Home - Warfarin Guideline (eh.local)</a><br><br>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"endo_low_more",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "procedure",
+                                "equals": "Endoscopy"
+                            },
+                            {
+                                "field": "bleeding",
+                                "equals": "Low"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Greater than 30mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1.5mg/kg daily OR 1mg/kg BD<br><u>Withhold ENOXAPARIN for 4 - 8 hours prior to procedure</u>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"endo_low_less",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "procedure",
+                                "equals": "Endoscopy"
+                            },
+                            {
+                                "field": "bleeding",
+                                "equals": "Low"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Less than 30 mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1mg/kg daily<br><u>Withhold ENOXAPARIN for 4 - 8 hours prior to procedure</u>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"endo_high_more",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "procedure",
+                                "equals": "Endoscopy"
+                            },
+                            {
+                                "field": "bleeding",
+                                "equals": "High"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Greater than 30mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1.5mg/kg daily OR 1mg/kg BD<br><u>Withhold Enoxaparin 12h (for low dose/prophylactic enoxaparin) OR 24h hours (for regular dose enoxaparin) prior to procedure</u>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"endo_high_less",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "procedure",
+                                "equals": "Endoscopy"
+                            },
+                            {
+                                "field": "bleeding",
+                                "equals": "High"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Less than 30 mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1mg/kg daily<br><u>Withhold Enoxaparin 12h (for low dose/prophylactic enoxaparin) OR 24h hours (for regular dose enoxaparin) prior to procedure</u>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"non_high_more",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "procedure",
+                                "equals": "Non-endoscopy"
+                            },
+                            {
+                                "field": "bleeding",
+                                "equals": "High"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Greater than 30mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Withhold warfarin for 5 days prior to procedure (Day -5)<br>Enoxaparin 1.5 mg/kg daily OR 1mg/kg BD daily on days 2 and 3 before procedure (Day -2 and -3) <br>Enoxaparin 1 mg/kg daily one day prior to procedure (Day -1)<br>Day of procedure – nil pre-op enoxaparin",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"post_more",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "reason",
+                                "equals": "Post-procedure"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Greater than 30mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1.5mg/kg daily OR 1mg/kg BD",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"post_less",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "reason",
+                                "equals": "Post-procedure"
+                            },
+                            {
+                                "field": "egfr",
+                                "equals": "Less than 30 mL/min/1.73m2"
+                            }
+                        ]
+                    },
+                    "default":"Enoxaparin 1mg/kg daily",
+                    "hide":true
+                }
+        ]
+    },
     
+    
+    
+       
     
     
     
