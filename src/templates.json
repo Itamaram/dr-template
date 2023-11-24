@@ -1,7 +1,7 @@
 [    
     {
         "name": " HITH/GEM@Home physio template",
-        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}{type_template}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{visit_frequency_text}{visit_frequency}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "pattern": "<p>Clinician name: {clinician_name} Designation: {clinician_designation} Contact number: {clinician_number}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{visit_frequency_text}{visit_frequency}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
                     "type":"radio",
@@ -102,9 +102,82 @@
                             },
                             {
                                 "field": "type_template",
-                                "equals": "Review"
+                                "equals": "Discharge"
                             }
                         ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"isbar_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>ISBAR Handover: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"isbar",
+                    "display":"ISBAR Handover received from ward?",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No",
+                            "value": "Not received from the ward"
+                        },
+                        {
+                            "key": "N/A"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"isbar_type",
+                    "display":"What type of handover was received?",
+                    "options":[
+                        {
+                            "key": "verbal",
+                            "value": "Verbal handover received from the ward."
+                        },
+                        {
+                            "key": "email",
+                            "value": "Email handover received from the ward"
+                        },
+                        {
+                            "key": "DC summary",
+                            "value": "Discharge summary received from the ward"
+                        }
+                    ],
+                    "condition":{
+                        "field": "isbar",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"isbar_na",
+                    "display":"Why handover not applicable?",
+                    "options":[
+                        {
+                            "key": "External referral",
+                            "value": "Not applicable as external referral."
+                        },
+                        {
+                            "key": "New referral received within HITH",
+                            "value": "Not applicable as new referral received internally from the HITH team"
+                        }
+                    ],
+                    "condition":{
+                        "field": "isbar",
+                        "equals": "N/A"
                     }
                 },
             {
@@ -1477,6 +1550,15 @@
                         },
                         {
                             "key": "OP Physio"
+                        },
+                        {
+                            "key": "IPC"
+                        },
+                        {
+                            "key": "CHSP PT"
+                        },
+                        {
+                            "key": "Other"
                         }
                     ],
                     "condition":{
@@ -1556,6 +1638,7 @@
                 }
         ]
     },
+    
     {
         "name": "HITH intake Bridging Anticoagulation assessment",
         "pattern": "<p>{risk_endo}{risk_surg}{red}{yellow}{green}{endo_low_more}{endo_low_less}{endo_high_more}{endo_high_less}{non_high_more}{post_more}{post_less}</p>",
