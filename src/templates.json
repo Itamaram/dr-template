@@ -1685,7 +1685,588 @@
                 }
         ]
     },
+    {
+        "name": " HITH allied health assistant review",
+        "pattern": "<p><b>Allied Health Assistant Review</b><br><br>AHA review completed today<br>Purpose of review: {purpose}<br><br>Clinician name: {clinician_name|Ana Henderson;Harry Anthony;Phillippa Pahi}{clinician_name_other} <br>Designation: Allied Health assistant <br>Contact number: {clinician_number}{clinician_number_ana}{clinician_number_harry}{clinician_number_phillippa}<br><br>3 Point ID check: {id} <br>Consent: {consent}{declined}{interpreter_text}{interpreter}{subjective_text}{subjective}{mobility_text}{mobility}{hr_text}{hr}{bp_text}{bp}{rr_text}{rr}{spo2_text}{spo2}{oxygen}{oxygen_yes}{temp_text}{temp}{weight_text}{weight}{assessment_text}{assessment}{summary_text}{summary}{plan_text}{plan,down_list}</p>",
+        "variables": [
+            {
+                    "type":"text",
+                    "placeholder":"down_list",
+                    "default":"down_list",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"purpose",
+                    "display":"Purpose of review",
+                    "options":[
+                        {
+                            "key": "Occupational Therapy"
+                        },
+                        {
+                            "key": "Dietetics"
+                        },
+                        {
+                            "key": "Social Work"
+                        },
+                        {
+                            "key": "Physiotherapy"
+                        }
+                    ]
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"clinician_name",
+                    "display":"Team member writing note",
+                    "options":[
+                        {
+                            "key": "Ana Henderson"
+                        },
+                        {
+                            "key": "Harry Anthony"
+                        },
+                        {
+                            "key": "Phillippa Pahi"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ]
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_name_other",
+                    "display":"Your name",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"number",
+                    "placeholder":"clinician_number",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number_ana",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Ana Henderson"
+                    },
+                    "default":"0421898461",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number_harry",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Harry Anthony"
+                    },
+                    "default":"0468886460",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number_phillippa",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Phillippa Pahi"
+                    },
+                    "default":"0407061351",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"id",
+                    "display":"3 Point ID check",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"consent",
+                    "display":"Consent",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No",
+                            "value": "Patient declined any allied health input.<br>"
+                        }
+                    ],
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"declined",
+                    "display":"Why did patient decline?",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "No"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"interpreter",
+                    "display":"Interpreter required",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"No",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"interpreter_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br>Interpreter required: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"subjective_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br><br><u>Subjective:</u><br>",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"subjective",
+                    "display":"Subjective",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"mobility_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br><br><u>Objective:</u><br>Mobility – ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"mobility",
+                    "display":"Mobility function",
+                    "options":[
+                        {
+                            "key": "Nil aids"
+                        },
+                        {
+                            "key": "2WF"
+                        },
+                        {
+                            "key": "4WF"
+                        },
+                        {
+                            "key": "crutches"
+                        },
+                        {
+                            "key": "sarasteady"
+                        },
+                        {
+                            "key": "wheelchair"
+                        },
+                        {
+                            "key": "pickup frame"
+                        },
+                        {
+                            "key": "gutter frame"
+                        },
+                        {
+                            "key": "single point stick"
+                        },
+                        {
+                            "key": "sling hoist"
+                        },
+                        {
+                            "key": "standing hoist"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"obs",
+                    "display":"observations performed?",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"No"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"hr_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>HR - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"hr",
+                    "display":"Heart rate",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bp_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>Blood pressure - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bp",
+                    "display":"Blood pressure",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"rr_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>Respiratory rate - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"rr",
+                    "display":"Respiratory rate",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"spo2_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>Oxygen saturation - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"spo2",
+                    "display":"Oxygen saturation",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":" %"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"oxygen",
+                    "display":"Oxygen?",
+                    "options":[
+                        {
+                            "key": "Room Air",
+                            "value": " on RA"
+                        },
+                        {
+                            "key": "Oxygen",
+                            "value": " on "
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"Room Air",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"oxygen_yes",
+                    "display":"How many litters?",
+                    "condition":{
+                        "field": "oxygen",
+                        "equals": "Oxygen"
+                    },
+                    "default":" L"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"temp_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>Temperature - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"temp",
+                    "display":"Temperature",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":" C"
+                },
+            {
+                    "type":"number",
+                    "placeholder":"weight",
+                    "display":"Patient current weight",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "text":"kg"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"weight_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "obs",
+                                "equals": "Yes"
+                            },
+                            {
+                                "field": "consent",
+                                "equals": "Yes"
+                            }
+                        ]
+                    },
+                    "default":"<br>Weight - ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"assessment_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br><br><u>Assessment - Patient performance with tasks completed:</u><br>",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"assessment",
+                    "display":"Patient performance with tasks completed:",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"summary_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br><br><u>Summary of intervention/action:</u><br>",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"summary",
+                    "display":"Summary of intervention/action",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"plan",
+                    "display":"Plan",
+                    "options":[
+                        {
+                            "key": "Clinical handover to treating therapist"
+                        },
+                        {
+                            "key": "Added to AHA handover"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":["Clinical handover to treating therapist"]
+                },
+            {
+                    "type":"text",
+                    "placeholder":"plan_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br><br><u>Plan:</u><br>",
+                    "hide":true
+                }
+        ]
+    },
     
+    
+        
     
     {
         "name": "HITH intake Bridging Anticoagulation assessment",
