@@ -1,7 +1,7 @@
 [    
     {
         "name": " HITH/GEM@Home physio template",
-        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{visit_frequency_text}{visit_frequency}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "pattern": "<p>Iftah is a dedicated and passionate HITH physician with a diverse array of public appointments throughout Melbourne. Drawing on a solid foundation in General Practice, he deeply understands the significance of allowing patients to heal in the comfort of their own homes. Since embracing the HITH movement, Iftah has been at the forefront of exploring innovative models of care. These include managing of acute inflammatory colitis at home. Iftah envisions a future where there is strong collaboration among HITH units across Australasia. He believes of fostering a network which not only shares best practices, but also pushes the boundaries of what HITH can achieve.<br><br><br>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
                     "type":"radio",
@@ -61,7 +61,7 @@
                     }
                 },
             {
-                    "type":"text",
+                    "type":"number",
                     "placeholder":"clinician_number",
                     "display":"Your contact number",
                     "condition":{
@@ -391,6 +391,25 @@
                             "key": "relative"
                         }
                     ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"premorbid_adl_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Pre morbid ADL function: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"premorbid_adl",
+                    "display":"Pre morbid ADL function",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -1383,67 +1402,6 @@
                 },
             {
                     "type":"text",
-                    "placeholder":"visit_frequency_text",
-                    "condition":{
-                        "or":[
-                            {
-                                "field": "type_template",
-                                "equals": "Initial assessment"
-                            },
-                            {
-                                "field": "type_template",
-                                "equals": "Review"
-                            }
-                        ]
-                    },
-                    "default":"<br>PT visit frequency: ",
-                    "hide":true
-                },
-            {
-                    "type":"dropdown",
-                    "placeholder":"visit_frequency",
-                    "display":"PT visit frequency",
-                    "options":[
-                        {
-                            "key": "Once a day",
-                            "value": "Daily visits"
-                        },
-                        {
-                            "key": "Every second day",
-                            "value": "Second daily visits"
-                        },
-                        {
-                            "key": "Every third day",
-                            "value": "Third daily visits"
-                        },
-                        {
-                            "key": "Twice a week",
-                            "value": "Visits twice a week"
-                        },
-                        {
-                            "key": "Every five days",
-                            "value": "Visit every five days"
-                        },
-                        {
-                            "key": "Once a week",
-                            "value": "Visits once a week"
-                        }
-                    ],
-                    "condition":{
-                        "or":[
-                            {
-                                "field": "type_template",
-                                "equals": "Initial assessment"
-                            },
-                            {
-                                "field": "type_template",
-                                "equals": "Review"
-                            }
-                        ]
-                    }
-                },
-            {
-                    "type":"text",
                     "placeholder":"date_text",
                     "condition":{
                         "or":[
@@ -1685,6 +1643,7 @@
                 }
         ]
     },
+    
     {
         "name": " HITH allied health assistant review",
         "pattern": "<p><b>Allied Health Assistant Review</b><br><br>AHA review completed today<br>Purpose of review: {purpose}<br><br>Clinician name: {clinician_name|Ana Henderson;Harry Anthony;Phillippa Pahi}{clinician_name_other} <br>Designation: Allied Health assistant <br>Contact number: {clinician_number}{clinician_number_ana}{clinician_number_harry}{clinician_number_phillippa}<br><br>3 Point ID check: {id} <br>Consent: {consent}{declined}{interpreter_text}{interpreter}{subjective_text}{subjective}{mobility_text}{mobility}{hr_text}{hr}{bp_text}{bp}{rr_text}{rr}{spo2_text}{spo2}{oxygen}{oxygen_yes}{temp_text}{temp}{weight_text}{weight}{assessment_text}{assessment}{summary_text}{summary}{plan_text}{plan,down_list}</p>",
