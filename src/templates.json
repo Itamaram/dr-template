@@ -1643,7 +1643,2393 @@
                 }
         ]
     },
+    {
+        "name": " HITH/GEM@Home OT template",
+        "pattern": "<p>{clinician_name_text}{clinician_name|Emily Snaize}{clinician_name_other}{designation_text}{clinician_number}{clinician_number_emily}{dc_buffer}ADMISSION TYPE: {admission} Occupational Therapy {type_template}{hopc_text}{hopc}{pmhx_text}{pmhx}{precautions_text}{precautions}{discharge_text}{discharge_destination}{discharge_date_text}{discharge_date}{performance_dc_text}{performance_dc}{intervention_dc_text}{intervention_dc}{modification_dc_text}{modification_dc}{follow_dc_text}{follow_dc}{referral_dc_text}{referral_dc}{name_dc_text}{clinician_name_dc|Emily Snaize}{clinician_name_other_dc}{designation_dc_text}{date_dc_completed}{id_text}{id}{consent_text}{consent}{interpreter_text}{interpreter}{handover_text}{handover}{reason_text}{reason}{social_text}{living}{funding_text}{funding}{services_text}{services}{premorbid_lof_text}{premorbid_lof}{transfers_text}{transfers}{transfer_aids_text}{transfer_aids}{falls_text}{falls}{falls_number}{falls_mechanism_text}{falls_mechanism}{falls_alarm}{vision}{hearing}{cognition}{finance}{medication}{mobility_comment_text}{mobility_comment}{personal_occupation_text}{eating}{grooming}{toileting,toileting_extra}{showering,showering_extra}{dressing,dressing_extra}{personal_comment_text}{personal_comment}{domestic_occupation_text}{meal_preparation}{cleaning}{laundry}{gardening}{domestic_comment_text}{domestic_comment}{domestic_occupation_text}{community_transportation}{grocery_shopping}{attending_appointments}{community_comment_text}{community_comment}{wounds_text}{wounds}{productivity_text}{productivity}{domestic_occupation_text}{dwelling,dwelling_extra}{front_access_text}{front_access}{front_access_steps}{front_access_steps_text}{front_access_comment_text}{front_access_comment}{back_access_text}{back_access}{back_access_steps}{back_access_steps_text}{back_access_comment_text}{back_access_comment}{bathroom_text}{bathroom_location}{bathroom_access}{bathroom_lip}{bathroom_tub}{bathroom_aids_text}{bathroom_aids}{toilet_location}{toilet_aids_text}{toilet_aids}{bathroom_aids}{bed_text}{bed_type}{bed_aids_text}{bed_aids}{seating_text}{seating}{seating_aids_text}{seating_aids}{home_comments_text}{home_comments}{subjective_text}{subjective}{objective_text}{transfers_obj_text}{transfers_obj}{padls_obj_text}{padls_obj}{dadls_obj_text}{dadls_obj}{cadls_obj_text}{cadls_obj}{cognition_obj_text}{cognition_obj}{goals_int_text}{goals_int}{goals_therapy_text}{goals_therapy}{barriers_initial_text}{barriers_initial}{progress_review_text}{progress_review}{assessment_review_text}{assessment_review}{treatment_text}{recommendation}{barriers_review_text}{barriers_review}{edd_text}{edd}{plan_review_text}{plan_review}{los_anticipated}{aha_referral}{plan_initial_text}{plan_initial}</p>",
+        "variables": [
+            {
+                "type":"title",
+                "condition":{
+                    "field": "type_template",
+                    "equals": "Initial assessment"
+                },
+                "text":"Background",
+                "style":"medium"
+            },
+            {
+                    "type":"radio",
+                    "placeholder":"type_template",
+                    "display":"Which type of template is it?",
+                    "options":[
+                        {
+                            "key": "Initial assessment",
+                            "value": "Initial Assessment"
+                        },
+                        {
+                            "key": "Review"
+                        },
+                        {
+                            "key": "Discharge Summary"
+                        }
+                    ]
+                },
+            {
+                    "type":"text",
+                    "placeholder":"down_list",
+                    "default":"down_list",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_name_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"Clinician name: ",
+                    "hide":true
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"clinician_name",
+                    "display":"Team member writing note",
+                    "options":[
+                        {
+                            "key": "Emily Snaize"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_name_other",
+                    "display":"Your name",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"number",
+                    "placeholder":"clinician_number",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number_emily",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Emily Snaize"
+                    },
+                    "default":"0432 092 649",
+                    "hide":true
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"clinician_name_dc",
+                    "display":"Team member writing note",
+                    "options":[
+                        {
+                            "key": "Emily Snaize"
+                        },
+                        {
+                            "key": "Other"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_name_other_dc",
+                    "display":"Your name",
+                    "condition":{
+                        "field": "clinician_name_dc",
+                        "equals": "Other"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"designation_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"<br>Designation: Occupational Therapist<br>Contact number: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"dc_buffer",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"<br><br>",
+                    "hide":true
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"admission",
+                    "display":"ADMISSION TYPE:",
+                    "options":[
+                        {
+                            "key": "GEM@home"
+                        },
+                        {
+                            "key": "HITH"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"hopc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>HOPC: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"hopc",
+                    "display":"History of presenting complaint:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"pmhx_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Phx: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"pmhx",
+                    "display":"Phx:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"precautions_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Precautions: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"precautions",
+                    "display":"Precautions:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"discharge_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br><br>Refer to Occupational Therapy Initial Ax attached for details of Shx, Home Set Up and PMLOF.<br><br>Discharge Destination: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"discharge_destination",
+                    "display":"Discharge Destination:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"discharge_date_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br>Discharge date: ",
+                    "hide":true
+                },
+            {
+                    "type":"date",
+                    "placeholder":"discharge_date",
+                    "display":"Discharge date",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"performance_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br><br>Occupational Performance on Discharge: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"performance_dc",
+                    "display":"Occupational Performance on Discharge:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"intervention_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br>Intervention Strategies Implemented to achieve LOF: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"intervention_dc",
+                    "display":"Intervention Strategies Implemented to achieve LOF:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"modification_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br>Home Modifications and/or Aids and Equipment: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"modification_dc",
+                    "display":"Home Modifications and/or Aids and Equipment:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"follow_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br>Follow Up Goals: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"follow_dc",
+                    "display":"Follow Up Goals:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"referral_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br><br>Referral to: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"referral_dc",
+                    "display":"Referral to:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"name_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br><br>Name: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"designation_dc_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    },
+                    "default":"<br>Signature<br>Desgination: Occupational Therapist<br>Date: ",
+                    "hide":true
+                },
+            {
+                    "type":"date",
+                    "placeholder":"date_dc_completed",
+                    "display":"Date Discharge completed",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Discharge Summary"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"id_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"<br><br>3 Point ID check: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"id",
+                    "display":"3 Point ID check",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"consent_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"<br>Consent: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"consent",
+                    "display":"Consent",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"Yes",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"interpreter_text",
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"<br>Interpreter required: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"interpreter",
+                    "display":"Interpreter required",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "and":[
+                            {
+                                "field": "type_template",
+                                "not-equals": []
+                            },
+                            {
+                                "field": "type_template",
+                                "not-equals": "Discharge Summary"
+                            }
+                        ]
+                    },
+                    "default":"No",
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"handover_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Handover received: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"handover",
+                    "display":"Handover received:",
+                    "options":[
+                        {
+                            "key": "Yes"
+                        },
+                        {
+                            "key": "No"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"reason_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Reason for referral: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"reason",
+                    "display":"Reason for referral",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"social_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Social History:<br>&emsp;Living Situation: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"living",
+                    "display":"Living Situation",
+                    "options":[
+                        {
+                            "key": "Lives alone"
+                        },
+                        {
+                            "key": "Spouse/partner"
+                        },
+                        {
+                            "key": "Dependants"
+                        },
+                        {
+                            "key": "Friend"
+                        },
+                        {
+                            "key": "Relative"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"funding_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Funding: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"funding",
+                    "display":"Funding",
+                    "options":[
+                        {
+                            "key": "CHSP"
+                        },
+                        {
+                            "key": "HCP"
+                        },
+                        {
+                            "key": "DVA (white/gold)"
+                        },
+                        {
+                            "key": "Pension"
+                        },
+                        {
+                            "key": "NDIS"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"services_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Services: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"services",
+                    "display":"Services",
+                    "options":[
+                        {
+                            "key": "MOW"
+                        },
+                        {
+                            "key": "Showering"
+                        },
+                        {
+                            "key": "HH"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"premorbid_lof_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Premorbid level of function: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"premorbid_lof",
+                    "display":"Premorbid level of function:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Mobility & Cognition",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"transfers_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Mobility & Cognition<br>&emsp;Transfers: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"transfers",
+                    "display":"Transfers",
+                    "options":[
+                        {
+                            "key": "Independent"
+                        },
+                        {
+                            "key": "Supervision"
+                        },
+                        {
+                            "key": "Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"transfer_aids_text",
+                    "condition":{
+                        "field": "transfer_aids",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids:  ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"transfer_aids",
+                    "display":"Transfer aids: ",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Falls History (12/12): ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"falls",
+                    "display":"Falls History (12/12)",
+                    "options":[
+                        {
+                            "key": "Yes",
+                            "value": "Falls history(#"
+                        },
+                        {
+                            "key": "No falls"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"number",
+                    "placeholder":"falls_number",
+                    "display":"Number of falls",
+                    "condition":{
+                        "field": "falls",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"falls_mechanism_text",
+                    "condition":{
+                        "field": "falls",
+                        "equals": "Yes"
+                    },
+                    "default":")<br>&emsp;&emsp;&emsp;&emsp;Mechanism of falls: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"falls_mechanism",
+                    "display":"Mechanism of fall",
+                    "condition":{
+                        "field": "falls",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"falls_alarm",
+                    "display":"Falls alarm",
+                    "options":[
+                        {
+                            "key": "Yes",
+                            "value": "<br>&emsp;&emsp;&emsp;&emsp;Has falls alarm"
+                        },
+                        {
+                            "key": "No",
+                            "value": "<br>&emsp;&emsp;&emsp;&emsp;Doesn’t have falls alarm"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"vision",
+                    "display":"Vision",
+                    "options":[
+                        {
+                            "key": "NAD",
+                            "value": "<br>&emsp;Vision: NAD"
+                        },
+                        {
+                            "key": "Impaired",
+                            "value": "<br>&emsp;Vision: Impaired"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"hearing",
+                    "display":"Hearing",
+                    "options":[
+                        {
+                            "key": "NAD",
+                            "value": "<br>&emsp;Hearing: NAD"
+                        },
+                        {
+                            "key": "Impaired",
+                            "value": "<br>&emsp;Hearing: Impaired"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"cognition",
+                    "display":"Cognition",
+                    "options":[
+                        {
+                            "key": "NAD",
+                            "value": "<br>&emsp;Cognition: NAD"
+                        },
+                        {
+                            "key": "Impaired",
+                            "value": "<br>&emsp;Cognition: Impaired"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"finance",
+                    "display":"Finance Management",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Finance Mx: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Financial Mx: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Financial Mx: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"medication",
+                    "display":"Medication Management",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Medication Mx: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Medication Mx: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Medication Mx: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"mobility_comment_text",
+                    "condition":{
+                        "field": "mobility_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;Comments: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"mobility_comment",
+                    "display":"Comments/other observations",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Personal Occupations",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"personal_occupation_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Personal Occupations",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"eating",
+                    "display":"Eating",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Eating: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Eating: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Eating: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"grooming",
+                    "display":"Grooming",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Grooming: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Grooming: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Grooming: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"toileting",
+                    "display":"Toileting",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Toileting: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Toileting: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Toileting: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"toileting_extra",
+                    "display":"continence ",
+                    "options":[
+                        {
+                            "key": "Continent"
+                        },
+                        {
+                            "key": "Incontinent"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"showering",
+                    "display":"Showering",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Showering: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Showering: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Showering: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"showering_extra",
+                    "display":"Showering position",
+                    "options":[
+                        {
+                            "key": "Standing"
+                        },
+                        {
+                            "key": "Seating"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"dressing",
+                    "display":"Dressing",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Dressing: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Dressing: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Dressing: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"dressing_extra",
+                    "display":"Dressing position",
+                    "options":[
+                        {
+                            "key": "Standing"
+                        },
+                        {
+                            "key": "Seating"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"personal_comment_text",
+                    "condition":{
+                        "field": "personal_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;Comments: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"personal_comment",
+                    "display":"Comments/other observations",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Domestic Occupations",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"domestic_occupation_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Domestic Occupations",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"meal_preparation",
+                    "display":"Meal Preparation",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Meal Preparation: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Meal Preparation: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Meal Preparation: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"cleaning",
+                    "display":"Cleaning",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Cleaning: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Cleaning: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Cleaning: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"laundry",
+                    "display":"Laundry",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Laundry: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Laundry: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Laundry: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"gardening",
+                    "display":"Gardening",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Gardening: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Gardening: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Gardening: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"domestic_comment_text",
+                    "condition":{
+                        "field": "domestic_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;Comments: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"domestic_comment",
+                    "display":"Comments/other observations",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Community Occupations",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"community_occupation_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Community Occupations",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"community_transportation",
+                    "display":"Community Transportation",
+                    "options":[
+                        {
+                            "key": "Driving",
+                            "value": "<br>&emsp;Community Transportation: Driving"
+                        },
+                        {
+                            "key": "Public Transport",
+                            "value": "<br>&emsp;Community Transportation: Public Transport"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Community Transportation: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"grocery_shopping",
+                    "display":"Grocery Shopping",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Grocery Shopping: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Grocery Shopping: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Grocery Shopping: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"attending_appointments",
+                    "display":"Attending Appointments",
+                    "options":[
+                        {
+                            "key": "Independent",
+                            "value": "<br>&emsp;Attending Appointments: Independent"
+                        },
+                        {
+                            "key": "Supervision",
+                            "value": "<br>&emsp;Attending Appointments: Supervision"
+                        },
+                        {
+                            "key": "Assisted",
+                            "value": "<br>&emsp;Attending Appointments: Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"community_comment_text",
+                    "condition":{
+                        "field": "community_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;Comments: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"community_comment",
+                    "display":"Comments/other observations",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"wounds_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Other (e.g. pressure injuries/wounds): ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"wounds",
+                    "display":"Other (e.g. pressure injuries/wounds):",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"productivity_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Productivity and Leisure: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"productivity",
+                    "display":"Productivity and Leisure:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Home Setup",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"home_setup_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Home Setup",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"dwelling",
+                    "display":"Dwelling",
+                    "options":[
+                        {
+                            "key": "Owner Occupied",
+                            "value": "<br>&emsp;Dwelling: Owner Occupied"
+                        },
+                        {
+                            "key": "Rental (private/public)",
+                            "value": "<br>&emsp;Dwelling: Rental (private/public)"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"dwelling_extra",
+                    "display":"Dwelling storeys",
+                    "options":[
+                        {
+                            "key": "Single",
+                            "value": "single storey"
+                        },
+                        {
+                            "key": "Double",
+                            "value": "double storey"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"front_access_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Front Access: ",
+                    "hide":true
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"front_access",
+                    "display":"Front Access",
+                    "options":[
+                        {
+                            "key": "Level access"
+                        },
+                        {
+                            "key": "Rails"
+                        },
+                        {
+                            "key": "Steps",
+                            "value": "Steps (#"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"number",
+                    "placeholder":"front_access_steps",
+                    "display":"Number of steps in the front",
+                    "condition":{
+                        "field": "front_access",
+                        "equals": "Steps"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"front_access_steps_text",
+                    "condition":{
+                        "field": "front_access",
+                        "equals": "Steps"
+                    },
+                    "default":")",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"front_access_comment_text",
+                    "condition":{
+                        "field": "front_access_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Comments:  ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"front_access_comment",
+                    "display":"Comments about front access",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"back_access_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Back Access: ",
+                    "hide":true
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"back_access",
+                    "display":"Back Access",
+                    "options":[
+                        {
+                            "key": "Level access"
+                        },
+                        {
+                            "key": "Rails"
+                        },
+                        {
+                            "key": "Steps",
+                            "value": "Steps (#"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"number",
+                    "placeholder":"back_access_steps",
+                    "display":"Number of steps in the back",
+                    "condition":{
+                        "field": "back_access",
+                        "equals": "Steps"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"back_access_steps_text",
+                    "condition":{
+                        "field": "back_access",
+                        "equals": "Steps"
+                    },
+                    "default":")",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"back_access_comment_text",
+                    "condition":{
+                        "field": "back_access_comment",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Comments:  ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"back_access_comment",
+                    "display":"Comments about back access",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bathroom_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Bathroom ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"bathroom_location",
+                    "display":"Bathroom location",
+                    "options":[
+                        {
+                            "key": "Ensuite",
+                            "value": "(ensuite): "
+                        },
+                        {
+                            "key": "Separate",
+                            "value": "(separate): "
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"bathroom_access",
+                    "display":"Bathroom access",
+                    "options":[
+                        {
+                            "key": "SSR"
+                        },
+                        {
+                            "key": "Lip"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"bathroom_lip",
+                    "display":"Bathroom lip size",
+                    "options":[
+                        {
+                            "key": "Small",
+                            "value": " (small)"
+                        },
+                        {
+                            "key": "Large",
+                            "value": " (large)"
+                        }
+                    ],
+                    "condition":{
+                        "field": "bathroom_access",
+                        "equals": "Lip"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"bathroom_tub",
+                    "display":"Bathroom info",
+                    "options":[
+                        {
+                            "key": "Bath",
+                            "value": ". Bath."
+                        },
+                        {
+                            "key": "Shower over bath",
+                            "value": ". Shower over bath."
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bathroom_aids_text",
+                    "condition":{
+                        "field": "bathroom_aids",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"bathroom_aids",
+                    "display":"Bathroom aids",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"toilet_location",
+                    "display":"Toilet location",
+                    "options":[
+                        {
+                            "key": "In bathroom",
+                            "value": "<br>&emsp;Toilet (in bathroom)"
+                        },
+                        {
+                            "key": "Separate",
+                            "value": "<br>&emsp;Toilet (separate)"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "inline":"True"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"toilet_aids_text",
+                    "condition":{
+                        "field": "toilet_aids",
+                        "not-equals": []
+                    },
+                    "default":" - Aids: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"toilet_aids",
+                    "display":"Toilet aids",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bed_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Bed: ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"bed_type",
+                    "display":"Bed type",
+                    "options":[
+                        {
+                            "key": "SB"
+                        },
+                        {
+                            "key": "DB"
+                        },
+                        {
+                            "key": "QB"
+                        },
+                        {
+                            "key": "KB"
+                        },
+                        {
+                            "key": "Hospital bed"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"bed_aids_text",
+                    "condition":{
+                        "field": "bed_aids",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"bed_aids",
+                    "display":"Bed aids",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"seating_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Seating: ",
+                    "hide":true
+                },
+            {
+                    "type":"checkbox",
+                    "placeholder":"seating",
+                    "display":"Seating type",
+                    "options":[
+                        {
+                            "key": "Standard"
+                        },
+                        {
+                            "key": "High back chair"
+                        },
+                        {
+                            "key": "Recliner"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"seating_aids_text",
+                    "condition":{
+                        "field": "seating_aids",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"seating_aids",
+                    "display":"Seating aids",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"home_comments_text",
+                    "condition":{
+                        "field": "home_comments",
+                        "not-equals": []
+                    },
+                    "default":"<br>&emsp;Comments: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"home_comments",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"subjective_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>S./ Patient Reports:",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"subjective",
+                    "display":"Patient Reports:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"objective_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>O./ Review completed.",
+                    "hide":true
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Current Level of Function/Goals",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"transfers_obj_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br><br>Current LOF:<Br>&emsp;Transfers and Mobility: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"transfers_obj",
+                    "display":"Transfers and Mobility:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"padls_obj_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br>&emsp;pADLs: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"padls_obj",
+                    "display":"pADLs:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"dadls_obj_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br>&emsp;dADLs: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"dadls_obj",
+                    "display":"dADLs:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"cadls_obj_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br>&emsp;cADLs: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"cadls_obj",
+                    "display":"cADLs:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"cognition_obj_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br>&emsp;Cognition: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"cognition_obj",
+                    "display":"Cognition:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goals_int_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Patient goals: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"goals_int",
+                    "display":"Patient goals:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goals_therapy_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Therapy goals: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"goals_therapy",
+                    "display":"Therapy goals:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"barriers_initial_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br><br>Barriers/enablers to DC:  ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"barriers_initial",
+                    "display":"Barriers/enablers to DC:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"progress_review_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>Progress toward admission goals: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"progress_review",
+                    "display":"Progress toward admission goals:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"assessment_review_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>Assessment:<br>",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"assessment_review",
+                    "display":"Assessment:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Summary",
+                    "style":"medium"
+                },
+            {
+                    "type":"text",
+                    "placeholder":"treatment_text",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    },
+                    "default":"<br><br>Rx provided today:<br>&emsp;1. Assessment as above<br>&emsp;2. Explained OT role and expected LOS with service<br>&emsp;3. OT recommendations: ",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"recommendation",
+                    "display":"OT recommendations:",
+                    "condition":{
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Initial assessment"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"barriers_review_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>Barriers to D/C: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"barriers_review",
+                    "display":"Barriers to D/C:",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"edd_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br>Estimate date of discharge: ",
+                    "hide":true
+                },
+            {
+                    "type":"date",
+                    "placeholder":"edd",
+                    "display":"Estimate date of discharge: ",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"plan_review_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    },
+                    "default":"<br><br>Plan: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"plan_review",
+                    "display":"Plan",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Review"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"los_anticipated",
+                    "display":"Anticipated LOS from OT perspective:",
+                    "options":[
+                        {
+                            "key": "2 weeks",
+                            "value": "<br><br>Anticipated LOS from OT perspective: 2 weeks"
+                        },
+                        {
+                            "key": "2 weeks +",
+                            "value": "<br><br>Anticipated LOS from OT perspective: 2 weeks +"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"aha_referral",
+                    "display":"Referral to AHA indicated:",
+                    "options":[
+                        {
+                            "key": "Yes",
+                            "value": "<br>Referral to AHA indicated: Yes"
+                        },
+                        {
+                            "key": "No",
+                            "value": "<br>Referral to AHA indicated: No"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"plan_initial_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>Plan/next review: ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"plan_initial",
+                    "display":"Plan/next review: ",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                }
+        ]
+    },
     
+    
+    
+       
     {
         "name": " HITH allied health assistant review",
         "pattern": "<p><b>Allied Health Assistant Review</b><br><br>AHA review completed today<br>Purpose of review: {purpose}<br><br>Clinician name: {clinician_name|Ana Henderson;Harry Anthony;Phillippa Pahi}{clinician_name_other} <br>Designation: Allied Health assistant <br>Contact number: {clinician_number}{clinician_number_ana}{clinician_number_harry}{clinician_number_phillippa}<br><br>3 Point ID check: {id} <br>Consent: {consent}{declined}{interpreter_text}{interpreter}{subjective_text}{subjective}{mobility_text}{mobility}{hr_text}{hr}{bp_text}{bp}{rr_text}{rr}{spo2_text}{spo2}{oxygen}{oxygen_yes}{temp_text}{temp}{weight_text}{weight}{assessment_text}{assessment}{summary_text}{summary}{plan_text}{plan,down_list}</p>",

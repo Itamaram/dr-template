@@ -21,7 +21,7 @@ function NumberControl(props) {
               const numericValue = inputValue.replace(/[^0-9.]/g, '');
 
               // Check if numericValue is empty before concatenating with text
-              const valueWithText = numericValue ? `${numericValue} ${text}` : '';
+              const valueWithText = numericValue ? text ? `${numericValue} ${text}` : `${numericValue}` : '';
 
               props.onChange([{value: valueWithText}]); // Include the concatenated value in the onChange callback
             }}
