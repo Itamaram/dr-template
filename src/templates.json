@@ -4032,7 +4032,7 @@
        
     {
         "name": " HITH allied health assistant review",
-        "pattern": "<p><b>Allied Health Assistant Review</b><br><br>AHA review completed today<br>Purpose of review: {purpose}<br><br>Clinician name: {clinician_name|Ana Henderson;Harry Anthony;Phillippa Pahi}{clinician_name_other} <br>Designation: Allied Health assistant <br>Contact number: {clinician_number}{clinician_number_ana}{clinician_number_harry}{clinician_number_phillippa}<br><br>3 Point ID check: {id} <br>Consent: {consent}{declined}{interpreter_text}{interpreter}{subjective_text}{subjective}{mobility_text}{mobility}{hr_text}{hr}{bp_text}{bp}{rr_text}{rr}{spo2_text}{spo2}{oxygen}{oxygen_yes}{temp_text}{temp}{weight_text}{weight}{assessment_text}{assessment}{summary_text}{summary}{plan_text}{plan,down_list}</p>",
+        "pattern": "<p><b>Allied Health Assistant Review</b><br><br>AHA review completed today<br>Purpose of review: {purpose}<br><br>Clinician name: {clinician_name|Ana Henderson;Harry Anthony;Phillippa Pahi}{clinician_name_other} <br>Designation: Allied Health assistant <br>Contact number: {clinician_number}{clinician_number_ana}{clinician_number_harry}{clinician_number_phillippa}<br><br>3 Point ID check: {id} <br>Consent: {consent}{declined}{interpreter_text}{interpreter}{subjective_text}{subjective}{obs_aha_text}{obs_aha}{hr_text}{hr}{bp_text}{bp}{rr_text}{rr}{spo2_text}{spo2}{oxygen}{oxygen_yes}{temp_text}{temp}{weight_text}{weight}{mobility_text}{mobility,mobility_assist}{assessment_text}{assessment}{summary_text}{summary}{plan_text}{plan,down_list}</p>",
         "variables": [
             {
                     "type":"text",
@@ -4219,53 +4219,18 @@
                 },
             {
                     "type":"text",
-                    "placeholder":"mobility_text",
+                    "placeholder":"obs_aha_text",
                     "condition":{
                         "field": "consent",
                         "equals": "Yes"
                     },
-                    "default":"<br><br><u>Objective:</u><br>Mobility – ",
+                    "default":"<br><br><u>Objective:</u><br>",
                     "hide":true
                 },
             {
-                    "type":"select",
-                    "placeholder":"mobility",
-                    "display":"Mobility function",
-                    "options":[
-                        {
-                            "key": "Nil aids"
-                        },
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ],
+                    "type":"text",
+                    "placeholder":"obs_aha",
+                    "display":"What did you observe?",
                     "condition":{
                         "field": "consent",
                         "equals": "Yes"
@@ -4274,7 +4239,7 @@
             {
                     "type":"radio",
                     "placeholder":"obs",
-                    "display":"observations performed?",
+                    "display":"Nursing observations performed?",
                     "options":[
                         {
                             "key": "Yes"
@@ -4543,6 +4508,92 @@
                 },
             {
                     "type":"text",
+                    "placeholder":"mobility_text",
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    },
+                    "default":"<br>Mobility – ",
+                    "hide":true
+                },
+            {
+                    "type":"select",
+                    "placeholder":"mobility",
+                    "display":"Mobility function",
+                    "options":[
+                        {
+                            "key": "Nil aids"
+                        },
+                        {
+                            "key": "2WF"
+                        },
+                        {
+                            "key": "4WF"
+                        },
+                        {
+                            "key": "crutches"
+                        },
+                        {
+                            "key": "sarasteady"
+                        },
+                        {
+                            "key": "wheelchair"
+                        },
+                        {
+                            "key": "pickup frame"
+                        },
+                        {
+                            "key": "gutter frame"
+                        },
+                        {
+                            "key": "single point stick"
+                        },
+                        {
+                            "key": "sling hoist"
+                        },
+                        {
+                            "key": "standing hoist"
+                        },
+                        {
+                            "key": "Indoor walker"
+                        },
+                        {
+                            "key": "knee walker"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"dropdown",
+                    "placeholder":"mobility_assist",
+                    "display":"Level of assistance",
+                    "options":[
+                        {
+                            "key": "independent"
+                        },
+                        {
+                            "key": "supervision"
+                        },
+                        {
+                            "key": "close supervision"
+                        },
+                        {
+                            "key": "A x 1"
+                        },
+                        {
+                            "key": "A x 2"
+                        }
+                    ],
+                    "condition":{
+                        "field": "consent",
+                        "equals": "Yes"
+                    }
+                },
+            {
+                    "type":"text",
                     "placeholder":"assessment_text",
                     "condition":{
                         "field": "consent",
@@ -4609,6 +4660,9 @@
                 }
         ]
     },
+    
+    
+    
     
     
         
