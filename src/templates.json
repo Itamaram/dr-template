@@ -1,7 +1,7 @@
 [    
     {
-        "name": " HITH/GEM@Home physio template",
-        "pattern": "Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "name": " HITH/GEM@Home Physio template",
+        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
                     "type":"radio",
@@ -41,6 +41,9 @@
                         },
                         {
                             "key": "Rosie Jones"
+                        },
+                        {
+                            "key": "Joel Manning"
                         },
                         {
                             "key": "Other"
@@ -100,6 +103,17 @@
                         "equals": "Rosie Jones"
                     },
                     "default":"0403728218",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"clinician_number_joel",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Joel Manning"
+                    },
+                    "default":"0461 565 874",
                     "hide":true
                 },
             {
@@ -1643,19 +1657,20 @@
                 }
         ]
     },
+    
     {
         "name": " HITH/GEM@Home OT template",
-        "pattern": "<p>{clinician_name_text}{clinician_name|Emily Snaize}{clinician_name_other}{designation_text}{clinician_number}{clinician_number_emily}{dc_buffer}ADMISSION TYPE: {admission} Occupational Therapy {type_template}{hopc_text}{hopc}{pmhx_text}{pmhx}{precautions_text}{precautions}{discharge_text}{discharge_destination}{discharge_date_text}{discharge_date}{performance_dc_text}{performance_dc}{intervention_dc_text}{intervention_dc}{modification_dc_text}{modification_dc}{follow_dc_text}{follow_dc}{referral_dc_text}{referral_dc}{name_dc_text}{clinician_name_dc|Emily Snaize}{clinician_name_other_dc}{designation_dc_text}{date_dc_completed}{id_text}{id}{consent_text}{consent}{interpreter_text}{interpreter}{handover_text}{handover}{reason_text}{reason}{social_text}{living}{funding_text}{funding}{services_text}{services}{premorbid_lof_text}{premorbid_lof}{transfers_text}{transfers}{transfer_aids_text}{transfer_aids}{falls_text}{falls}{falls_number}{falls_mechanism_text}{falls_mechanism}{falls_alarm}{vision}{hearing}{cognition}{finance}{medication}{mobility_comment_text}{mobility_comment}{personal_occupation_text}{eating}{grooming}{toileting,toileting_extra}{showering,showering_extra}{dressing,dressing_extra}{personal_comment_text}{personal_comment}{domestic_occupation_text}{meal_preparation}{cleaning}{laundry}{gardening}{domestic_comment_text}{domestic_comment}{domestic_occupation_text}{community_transportation}{grocery_shopping}{attending_appointments}{community_comment_text}{community_comment}{wounds_text}{wounds}{productivity_text}{productivity}{domestic_occupation_text}{dwelling,dwelling_extra}{front_access_text}{front_access}{front_access_steps}{front_access_steps_text}{front_access_comment_text}{front_access_comment}{back_access_text}{back_access}{back_access_steps}{back_access_steps_text}{back_access_comment_text}{back_access_comment}{bathroom_text}{bathroom_location}{bathroom_access}{bathroom_lip}{bathroom_tub}{bathroom_aids_text}{bathroom_aids}{toilet_location}{toilet_aids_text}{toilet_aids}{bathroom_aids}{bed_text}{bed_type}{bed_aids_text}{bed_aids}{seating_text}{seating}{seating_aids_text}{seating_aids}{home_comments_text}{home_comments}{subjective_text}{subjective}{objective_text}{transfers_obj_text}{transfers_obj}{padls_obj_text}{padls_obj}{dadls_obj_text}{dadls_obj}{cadls_obj_text}{cadls_obj}{cognition_obj_text}{cognition_obj}{goals_int_text}{goals_int}{goals_therapy_text}{goals_therapy}{barriers_initial_text}{barriers_initial}{progress_review_text}{progress_review}{assessment_review_text}{assessment_review}{treatment_text}{recommendation}{barriers_review_text}{barriers_review}{edd_text}{edd}{plan_review_text}{plan_review}{los_anticipated}{aha_referral}{plan_initial_text}{plan_initial}</p>",
+        "pattern": "<p>{clinician_name_text}{clinician_name|Emily Snaize}{clinician_name_other}{designation_text}{clinician_number}{clinician_number_emily}{dc_buffer}ADMISSION TYPE: {admission} Occupational Therapy {type_template}{hopc_text}{hopc}{pmhx_text}{pmhx}{precautions_text}{precautions}{discharge_text}{discharge_destination}{discharge_date_text}{discharge_date}{performance_dc_text}{performance_dc}{intervention_dc_text}{intervention_dc}{modification_dc_text}{modification_dc}{follow_dc_text}{follow_dc}{referral_dc_text}{referral_dc}{name_dc_text}{clinician_name_dc|Emily Snaize}{clinician_name_other_dc}{designation_dc_text}{date_dc_completed}{id_text}{id}{consent_text}{consent}{interpreter_text}{interpreter}{handover_text}{handover}{reason_text}{reason}{social_text}{living}{funding_text}{funding}{services_text}{services}{premorbid_lof_text}{premorbid_lof}{transfers_bed_text}{transfers_bed}{transfers_sit_text}{transfers_sit}{transfer_aids_text}{transfer_aids}{mobility_text}{mobility}{falls_text}{falls}{falls_number}{falls_mechanism_text}{falls_mechanism}{falls_alarm}{vision}{hearing}{cognition}{finance}{medication}{mobility_comment_text}{mobility_comment}{personal_occupation_text}{eating}{grooming}{toileting,toileting_extra}{showering,showering_extra}{dressing,dressing_extra}{personal_comment_text}{personal_comment}{domestic_occupation_text}{meal_preparation}{cleaning}{laundry}{gardening}{domestic_comment_text}{domestic_comment}{community_occupation_text}{community_transportation}{grocery_shopping}{attending_appointments}{community_comment_text}{community_comment}{wounds_text}{wounds}{productivity_text}{productivity}{home_setup_text}{dwelling,dwelling_extra}{front_access_text}{front_access_comment}{back_access_text}{back_access_comment}{bathroom_text}{bathroom_comment}{toilet_aids_text}{toilet_aids}{bed_text}{bed_aids}{seating_text}{seating_aids}{home_comments_text}{home_comments}{subjective_text}{subjective}{objective_text}{transfers_obj_text}{transfers_obj}{padls_obj_text}{padls_obj}{dadls_obj_text}{dadls_obj}{cadls_obj_text}{cadls_obj}{cognition_obj_text}{cognition_obj}{goals_int_text}{goals_int}{goals_therapy_text}{goals_therapy}{barriers_initial_text}{barriers_initial}{progress_review_text}{progress_review}{assessment_review_text}{assessment_review}{treatment_text}{recommendation}{barriers_review_text}{barriers_review}{edd_text}{edd}{plan_review_text}{plan_review}{los_anticipated}{aha_referral}{aha_referal_reason}{plan_initial_text}{plan_initial}</p>",
         "variables": [
             {
-                "type":"title",
-                "condition":{
-                    "field": "type_template",
-                    "equals": "Initial assessment"
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Background",
+                    "style":"medium"
                 },
-                "text":"Background",
-                "style":"medium"
-            },
             {
                     "type":"radio",
                     "placeholder":"type_template",
@@ -2334,6 +2349,15 @@
                     }
                 },
             {
+                    "type":"title",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "text":"Premorbid level of function:",
+                    "style":"medium"
+                },
+            {
                     "type":"text",
                     "placeholder":"premorbid_lof_text",
                     "condition":{
@@ -2346,35 +2370,56 @@
             {
                     "type":"textmulti",
                     "placeholder":"premorbid_lof",
-                    "display":"Premorbid level of function:",
+                    "display":" ",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
                     }
                 },
             {
-                    "type":"title",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "text":"Mobility & Cognition",
-                    "style":"medium"
-                },
-            {
                     "type":"text",
-                    "placeholder":"transfers_text",
+                    "placeholder":"transfers_bed_text",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"<br><br>Mobility & Cognition<br>&emsp;Transfers: ",
+                    "default":"<br><br>Mobility & Cognition<br>&emsp;Bed transfers: ",
                     "hide":true
                 },
             {
                     "type":"radio",
-                    "placeholder":"transfers",
-                    "display":"Transfers",
+                    "placeholder":"transfers_bed",
+                    "display":"Transfers bed",
+                    "options":[
+                        {
+                            "key": "Independent"
+                        },
+                        {
+                            "key": "Supervision"
+                        },
+                        {
+                            "key": "Assisted"
+                        }
+                    ],
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"transfers_sit_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Sit to stand transfers: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"transfers_sit",
+                    "display":"Transfers sit to stand",
                     "options":[
                         {
                             "key": "Independent"
@@ -2398,13 +2443,42 @@
                         "field": "transfer_aids",
                         "not-equals": []
                     },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids:  ",
+                    "default":"<br>&emsp;Aids:  ",
                     "hide":true
                 },
             {
                     "type":"text",
                     "placeholder":"transfer_aids",
                     "display":"Transfer aids: ",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"mobility_text",
+                    "condition":{
+                        "field": "type_template",
+                        "equals": "Initial assessment"
+                    },
+                    "default":"<br>&emsp;Mobility: ",
+                    "hide":true
+                },
+            {
+                    "type":"radio",
+                    "placeholder":"mobility",
+                    "options":[
+                        {
+                            "key": "Independent"
+                        },
+                        {
+                            "key": "Supervision"
+                        },
+                        {
+                            "key": "Assisted"
+                        }
+                    ],
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -2613,15 +2687,6 @@
                     }
                 },
             {
-                    "type":"title",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "text":"Personal Occupations",
-                    "style":"medium"
-                },
-            {
                     "type":"text",
                     "placeholder":"personal_occupation_text",
                     "condition":{
@@ -2820,15 +2885,6 @@
                     }
                 },
             {
-                    "type":"title",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "text":"Domestic Occupations",
-                    "style":"medium"
-                },
-            {
                     "type":"text",
                     "placeholder":"domestic_occupation_text",
                     "condition":{
@@ -2948,15 +3004,6 @@
                         "field": "type_template",
                         "equals": "Initial assessment"
                     }
-                },
-            {
-                    "type":"title",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "text":"Community Occupations",
-                    "style":"medium"
                 },
             {
                     "type":"text",
@@ -3164,59 +3211,9 @@
                     "hide":true
                 },
             {
-                    "type":"checkbox",
-                    "placeholder":"front_access",
-                    "display":"Front Access",
-                    "options":[
-                        {
-                            "key": "Level access"
-                        },
-                        {
-                            "key": "Rails"
-                        },
-                        {
-                            "key": "Steps",
-                            "value": "Steps (#"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"number",
-                    "placeholder":"front_access_steps",
-                    "display":"Number of steps in the front",
-                    "condition":{
-                        "field": "front_access",
-                        "equals": "Steps"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"front_access_steps_text",
-                    "condition":{
-                        "field": "front_access",
-                        "equals": "Steps"
-                    },
-                    "default":")",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"front_access_comment_text",
-                    "condition":{
-                        "field": "front_access_comment",
-                        "not-equals": []
-                    },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Comments:  ",
-                    "hide":true
-                },
-            {
                     "type":"textmulti",
                     "placeholder":"front_access_comment",
-                    "display":"Comments about front access",
+                    "display":"Front access",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -3233,59 +3230,9 @@
                     "hide":true
                 },
             {
-                    "type":"checkbox",
-                    "placeholder":"back_access",
-                    "display":"Back Access",
-                    "options":[
-                        {
-                            "key": "Level access"
-                        },
-                        {
-                            "key": "Rails"
-                        },
-                        {
-                            "key": "Steps",
-                            "value": "Steps (#"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"number",
-                    "placeholder":"back_access_steps",
-                    "display":"Number of steps in the back",
-                    "condition":{
-                        "field": "back_access",
-                        "equals": "Steps"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"back_access_steps_text",
-                    "condition":{
-                        "field": "back_access",
-                        "equals": "Steps"
-                    },
-                    "default":")",
-                    "hide":true
-                },
-            {
-                    "type":"text",
-                    "placeholder":"back_access_comment_text",
-                    "condition":{
-                        "field": "back_access_comment",
-                        "not-equals": []
-                    },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Comments:  ",
-                    "hide":true
-                },
-            {
                     "type":"textmulti",
                     "placeholder":"back_access_comment",
-                    "display":"Comments about back access",
+                    "display":"Back access",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -3298,139 +3245,32 @@
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"<br>&emsp;Bathroom ",
-                    "hide":true
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"bathroom_location",
-                    "display":"Bathroom location",
-                    "options":[
-                        {
-                            "key": "Ensuite",
-                            "value": "(ensuite): "
-                        },
-                        {
-                            "key": "Separate",
-                            "value": "(separate): "
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "inline":"True"
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"bathroom_access",
-                    "display":"Bathroom access",
-                    "options":[
-                        {
-                            "key": "SSR"
-                        },
-                        {
-                            "key": "Lip"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"bathroom_lip",
-                    "display":"Bathroom lip size",
-                    "options":[
-                        {
-                            "key": "Small",
-                            "value": " (small)"
-                        },
-                        {
-                            "key": "Large",
-                            "value": " (large)"
-                        }
-                    ],
-                    "condition":{
-                        "field": "bathroom_access",
-                        "equals": "Lip"
-                    },
-                    "inline":"True"
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"bathroom_tub",
-                    "display":"Bathroom info",
-                    "options":[
-                        {
-                            "key": "Bath",
-                            "value": ". Bath."
-                        },
-                        {
-                            "key": "Shower over bath",
-                            "value": ". Shower over bath."
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "inline":"True"
-                },
-            {
-                    "type":"text",
-                    "placeholder":"bathroom_aids_text",
-                    "condition":{
-                        "field": "bathroom_aids",
-                        "not-equals": []
-                    },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
+                    "default":"<br>&emsp;Bathroom Access: ",
                     "hide":true
                 },
             {
                     "type":"textmulti",
-                    "placeholder":"bathroom_aids",
-                    "display":"Bathroom aids",
+                    "placeholder":"bathroom_comment",
+                    "display":"Bathroom",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
                     }
-                },
-            {
-                    "type":"radio",
-                    "placeholder":"toilet_location",
-                    "display":"Toilet location",
-                    "options":[
-                        {
-                            "key": "In bathroom",
-                            "value": "<br>&emsp;Toilet (in bathroom)"
-                        },
-                        {
-                            "key": "Separate",
-                            "value": "<br>&emsp;Toilet (separate)"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "inline":"True"
                 },
             {
                     "type":"text",
                     "placeholder":"toilet_aids_text",
                     "condition":{
-                        "field": "toilet_aids",
-                        "not-equals": []
+                        "field": "type_template",
+                        "equals": "Initial assessment"
                     },
-                    "default":" - Aids: ",
+                    "default":"<br>&emsp;Toilet: ",
                     "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"toilet_aids",
-                    "display":"Toilet aids",
+                    "display":"Toilet",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -3443,49 +3283,13 @@
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"<br>&emsp;Bed: ",
-                    "hide":true
-                },
-            {
-                    "type":"select",
-                    "placeholder":"bed_type",
-                    "display":"Bed type",
-                    "options":[
-                        {
-                            "key": "SB"
-                        },
-                        {
-                            "key": "DB"
-                        },
-                        {
-                            "key": "QB"
-                        },
-                        {
-                            "key": "KB"
-                        },
-                        {
-                            "key": "Hospital bed"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"bed_aids_text",
-                    "condition":{
-                        "field": "bed_aids",
-                        "not-equals": []
-                    },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
+                    "default":"<br>&emsp;Bedroom: ",
                     "hide":true
                 },
             {
                     "type":"textmulti",
                     "placeholder":"bed_aids",
-                    "display":"Bed aids",
+                    "display":"Bedroom",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -3499,36 +3303,6 @@
                         "equals": "Initial assessment"
                     },
                     "default":"<br>&emsp;Seating: ",
-                    "hide":true
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"seating",
-                    "display":"Seating type",
-                    "options":[
-                        {
-                            "key": "Standard"
-                        },
-                        {
-                            "key": "High back chair"
-                        },
-                        {
-                            "key": "Recliner"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"seating_aids_text",
-                    "condition":{
-                        "field": "seating_aids",
-                        "not-equals": []
-                    },
-                    "default":"<br>&emsp;&emsp;&emsp;&emsp;Aids: ",
                     "hide":true
                 },
             {
@@ -3553,6 +3327,7 @@
             {
                     "type":"textmulti",
                     "placeholder":"home_comments",
+                    "display":"Home environment comment",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -3993,7 +3768,7 @@
                     "options":[
                         {
                             "key": "Yes",
-                            "value": "<br>Referral to AHA indicated: Yes"
+                            "value": "<br>Referral to AHA indicated: Yes. For: "
                         },
                         {
                             "key": "No",
@@ -4006,13 +3781,22 @@
                     }
                 },
             {
+                    "type":"textmulti",
+                    "placeholder":"aha_referal_reason",
+                    "display":"AHA reason for referral",
+                    "condition":{
+                        "field": "aha_referral",
+                        "equals": "Yes"
+                    }
+                },
+            {
                     "type":"text",
                     "placeholder":"plan_initial_text",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"<br>Plan/next review: ",
+                    "default":"<br><br>Plan/next review: ",
                     "hide":true
                 },
             {
@@ -4026,6 +3810,8 @@
                 }
         ]
     },
+    
+    
     
     
     
