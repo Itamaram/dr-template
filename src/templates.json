@@ -1660,7 +1660,7 @@
     
     {
         "name": " HITH/GEM@Home OT template",
-        "pattern": "<p>{clinician_name_text}{clinician_name|Emily Snaize}{clinician_name_other}{designation_text}{clinician_number}{clinician_number_emily}{dc_buffer}ADMISSION TYPE: {admission} Occupational Therapy {type_template}{hopc_text}{hopc}{pmhx_text}{pmhx}{precautions_text}{precautions}{discharge_text}{discharge_destination}{discharge_date_text}{discharge_date}{performance_dc_text}{performance_dc}{intervention_dc_text}{intervention_dc}{modification_dc_text}{modification_dc}{follow_dc_text}{follow_dc}{referral_dc_text}{referral_dc}{name_dc_text}{clinician_name_dc|Emily Snaize}{clinician_name_other_dc}{designation_dc_text}{date_dc_completed}{id_text}{id}{consent_text}{consent}{interpreter_text}{interpreter}{handover_text}{handover}{reason_text}{reason}{social_text}{living}{funding_text}{funding}{services_text}{services}{premorbid_lof_text}{premorbid_lof}{transfers_bed_text}{transfers_bed}{transfers_sit_text}{transfers_sit}{transfer_aids_text}{transfer_aids}{mobility_text}{mobility}{falls_text}{falls}{falls_number}{falls_mechanism_text}{falls_mechanism}{falls_alarm}{vision}{hearing}{cognition}{finance}{medication}{mobility_comment_text}{mobility_comment}{personal_occupation_text}{eating}{grooming}{toileting,toileting_extra}{showering,showering_extra}{dressing,dressing_extra}{personal_comment_text}{personal_comment}{domestic_occupation_text}{meal_preparation}{cleaning}{laundry}{gardening}{domestic_comment_text}{domestic_comment}{community_occupation_text}{community_transportation}{grocery_shopping}{attending_appointments}{community_comment_text}{community_comment}{wounds_text}{wounds}{productivity_text}{productivity}{home_setup_text}{dwelling,dwelling_extra}{front_access_text}{front_access_comment}{back_access_text}{back_access_comment}{bathroom_text}{bathroom_comment}{toilet_aids_text}{toilet_aids}{bed_text}{bed_aids}{seating_text}{seating_aids}{home_comments_text}{home_comments}{subjective_text}{subjective}{objective_text}{transfers_obj_text}{transfers_obj}{padls_obj_text}{padls_obj}{dadls_obj_text}{dadls_obj}{cadls_obj_text}{cadls_obj}{cognition_obj_text}{cognition_obj}{goals_int_text}{goals_int}{goals_therapy_text}{goals_therapy}{barriers_initial_text}{barriers_initial}{progress_review_text}{progress_review}{assessment_review_text}{assessment_review}{treatment_text}{recommendation}{barriers_review_text}{barriers_review}{edd_text}{edd}{plan_review_text}{plan_review}{los_anticipated}{aha_referral}{aha_referal_reason}{plan_initial_text}{plan_initial}</p>",
+        "pattern": "<p>{clinician_name_text}{clinician_name|Emily Snaize}{clinician_name|Evelyn Vo}{clinician_name_other}{designation_text}{clinician_number}{clinician_number_emily}{clinician_number_eve}{dc_buffer}ADMISSION TYPE: {admission} Occupational Therapy {type_template}{hopc_text}{hopc}{pmhx_text}{pmhx}{precautions_text}{precautions}{discharge_text}{discharge_destination}{discharge_date_text}{discharge_date}{performance_dc_text}{performance_dc}{intervention_dc_text}{intervention_dc}{modification_dc_text}{modification_dc}{follow_dc_text}{follow_dc}{referral_dc_text}{referral_dc}{name_dc_text}{clinician_name_dc|Emily Snaize}{clinician_name_dc|Evelyn Vo}{clinician_name_other_dc}{designation_dc_text}{date_dc_completed}{id_text}{id}{consent_text}{consent}{interpreter_text}{interpreter}{handover_text}{handover}{reason_text}{reason}{social_text}{living}{funding_text}{funding}{services_text}{services}{premorbid_lof_text}{premorbid_lof}{transfers_bed_text}{transfers_bed}{transfers_sit_text}{transfers_sit}{transfer_aids_text}{transfer_aids}{mobility_text}{mobility}{falls_text}{falls}{falls_number}{falls_mechanism_text}{falls_mechanism}{falls_alarm}{vision}{hearing}{cognition}{finance}{medication}{mobility_comment_text}{mobility_comment}{personal_occupation_text}{eating}{grooming}{toileting,toileting_extra}{showering,showering_extra}{dressing,dressing_extra}{personal_comment_text}{personal_comment}{domestic_occupation_text}{meal_preparation}{cleaning}{laundry}{gardening}{domestic_comment_text}{domestic_comment}{community_occupation_text}{community_transportation}{grocery_shopping}{attending_appointments}{community_comment_text}{community_comment}{wounds_text}{wounds}{productivity_text}{productivity}{home_setup_text}{dwelling,dwelling_extra}{front_access_text}{front_access_comment}{back_access_text}{back_access_comment}{bathroom_text}{bathroom_comment}{toilet_aids_text}{toilet_aids}{bed_text}{bed_aids}{seating_text}{seating_aids}{home_comments_text}{home_comments}{subjective_text}{subjective}{objective_text}{transfers_obj_text}{transfers_obj}{padls_obj_text}{padls_obj}{dadls_obj_text}{dadls_obj}{cadls_obj_text}{cadls_obj}{cognition_obj_text}{cognition_obj}{goals_int_text}{goals_int}{goals_therapy_text}{goals_therapy}{barriers_initial_text}{barriers_initial}{progress_review_text}{progress_review}{assessment_review_text}{assessment_review}{treatment_text}{recommendation}{barriers_review_text}{barriers_review}{edd_text}{edd}{plan_review_text}{plan_review}{los_anticipated}{aha_referral}{aha_referal_reason}{plan_initial_text}{plan_initial}</p>",
         "variables": [
             {
                     "type":"title",
@@ -1721,6 +1721,9 @@
                             "key": "Emily Snaize"
                         },
                         {
+                            "key": "Evelyn Vo"
+                        },
+                        {
                             "key": "Other"
                         }
                     ],
@@ -1767,12 +1770,26 @@
                     "hide":true
                 },
             {
+                    "type":"text",
+                    "placeholder":"clinician_number_eve",
+                    "display":"Your contact number",
+                    "condition":{
+                        "field": "clinician_name",
+                        "equals": "Evelyn Vo"
+                    },
+                    "default":"0461 557 925",
+                    "hide":true
+                },
+            {
                     "type":"dropdown",
                     "placeholder":"clinician_name_dc",
                     "display":"Team member writing note",
                     "options":[
                         {
                             "key": "Emily Snaize"
+                        },
+                        {
+                            "key": "Evelyn Vo"
                         },
                         {
                             "key": "Other"
@@ -3810,6 +3827,7 @@
                 }
         ]
     },
+    
     
     
     
