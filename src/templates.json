@@ -1,7 +1,7 @@
 [    
     {
         "name": " HITH/GEM@Home Physio template",
-        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}<br><br>{hopc_text}{subjective_text}:<br>{subjective}{hopc}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{funding_text}{funding}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_patient_update}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{hopc_text}{hopc}<br><br>{subjective_text}:<br>{subjective}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq_text}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}{goal_patient_discharge_text}{goal_patient_discharge_comment}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
                     "type":"radio",
@@ -135,41 +135,6 @@
                 },
             {
                     "type":"text",
-                    "placeholder":"subjective_text",
-                    "condition":{
-                        "or":[
-                            {
-                                "field": "type_template",
-                                "equals": "Review"
-                            },
-                            {
-                                "field": "type_template",
-                                "equals": "Discharge"
-                            }
-                        ]
-                    },
-                    "default":"Subjective",
-                    "hide":true
-                },
-            {
-                    "type":"textmulti",
-                    "placeholder":"subjective",
-                    "display":"Subjective",
-                    "condition":{
-                        "or":[
-                            {
-                                "field": "type_template",
-                                "equals": "Review"
-                            },
-                            {
-                                "field": "type_template",
-                                "equals": "Discharge"
-                            }
-                        ]
-                    }
-                },
-            {
-                    "type":"text",
                     "placeholder":"isbar_text",
                     "condition":{
                         "field": "type_template",
@@ -248,7 +213,7 @@
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"HOPC",
+                    "default":"<br><br>HOPC:<br>",
                     "hide":true
                 },
             {
@@ -258,6 +223,25 @@
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"subjective_text",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    },
+                    "default":"Subjective",
+                    "hide":true
+                },
+            {
+                    "type":"textmulti",
+                    "placeholder":"subjective",
+                    "display":"Subjective",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
                     }
                 },
             {
@@ -424,42 +408,6 @@
                     "type":"textmulti",
                     "placeholder":"premorbid_adl",
                     "display":"Pre morbid ADL function",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"funding_text",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "default":"<br>Funding: ",
-                    "hide":true
-                },
-            {
-                    "type":"select",
-                    "placeholder":"funding",
-                    "display":"Funding",
-                    "options":[
-                        {
-                            "key": "CHSP"
-                        },
-                        {
-                            "key": "HCP"
-                        },
-                        {
-                            "key": "DVA (white/gold)"
-                        },
-                        {
-                            "key": "Pension"
-                        },
-                        {
-                            "key": "NDIS"
-                        }
-                    ],
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -1154,35 +1102,53 @@
                     "hide":true
                 },
             {
-                    "type":"textmulti",
-                    "placeholder":"goal_patient_update",
-                    "display":"Update on therapy goals",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Review"
-                    }
-                },
-            {
                     "type":"radio",
                     "placeholder":"goal_patient_discharge",
                     "display":"Update on therapy goals",
                     "options":[
                         {
-                            "key": "Goals achieved"
+                            "key": "IP goals achieved"
                         },
                         {
-                            "key": "Goals not achieved"
+                            "key": "IP goals not achieved"
                         },
                         {
-                            "key": "Goals partially achieved"
+                            "key": "IP goals partially achieved"
                         },
                         {
-                            "key": "Ongoing Goals to be achieved in community"
+                            "key": "Ongoing goals to be achieved in the community"
                         }
                     ],
                     "condition":{
-                        "field": "type_template",
-                        "equals": "Discharge"
+                        "or":[
+                            {
+                                "field": "type_template",
+                                "equals": "Discharge"
+                            },
+                            {
+                                "field": "type_template",
+                                "equals": "Review"
+                            }
+                        ]
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goal_patient_discharge_text",
+                    "condition":{
+                        "field": "goal_patient_discharge",
+                        "not-equals": []
+                    },
+                    "default":". ",
+                    "hide":true
+                },
+            {
+                    "type":"text",
+                    "placeholder":"goal_patient_discharge_comment",
+                    "display":"Update on therapy goals comment",
+                    "condition":{
+                        "field": "goal_patient_discharge",
+                        "not-equals": []
                     }
                 },
             {
@@ -1577,6 +1543,15 @@
                             "key": "CHSP PT"
                         },
                         {
+                            "key": "HCP PT"
+                        },
+                        {
+                            "key": "private PT"
+                        },
+                        {
+                            "key": "DVA funded PT"
+                        },
+                        {
                             "key": "Other"
                         }
                     ],
@@ -1657,6 +1632,8 @@
                 }
         ]
     },
+    
+    
     
     {
         "name": " HITH/GEM@Home OT template",
