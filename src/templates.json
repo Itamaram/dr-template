@@ -1,7 +1,7 @@
 [    
     {
         "name": " HITH/GEM@Home Physio template",
-        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{hopc_text}{hopc}<br><br>{subjective_text}:<br>{subjective}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{home_setup_text}{home_setup}{aids_text}{aids|!!Other,aids_other}{premorbid_eq_text}{premorbid_eq}{premorbid_assist_text}{premorbid_assist}{premorbid_endurance_text}{premorbid_endurance}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br>Current level of function - bed mobility: {bed_mobility}<br>Current level of function - bed transfer: {bed_transfer}<br>Current level of function - sit to stand: {sit_stand}<br>Current level of function – mobility: {mobility}<br>Current level of function - mobility equipment: {mobility_eq}<br>Current level of function - mobility endurance: {mobility_end}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}<br>Other objective measures eg. 6min walk test, TUGT, 10m walk test, Timed STS: {balance_test}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}{goal_patient_discharge_text}{goal_patient_discharge_comment}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{hopc_text}{hopc}<br><br>{subjective_text}:<br>{subjective}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{home_setup_text}{home_setup}{premorbid_text}{premorbid}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br><br>Current level of function<br>- Bed mobility: {bed_mobility}<br>- Bed transfer: {bed_transfer}<br>- Sit to stand: {sit_stand}<br>- Ambulation (aid, assistance, distance): {mobility}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Current ADL function : {adl_func_current}<br><br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}{obj_measure|6 minute walk test}{obj_measure_6}{obj_measure|Timed up and go test}{obj_measure_up}{obj_measure|10 metre walk test}{obj_measure_10}{obj_measure|5 x sit to stand test}{obj_measure_5}{obj_measure|Other}{obj_measure_other}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}{goal_patient_discharge_text}{goal_patient_discharge_comment}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
                     "type":"radio",
@@ -434,156 +434,18 @@
                 },
             {
                     "type":"text",
-                    "placeholder":"aids_text",
+                    "placeholder":"premorbid_text",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
                     },
-                    "default":"<br>Aids: ",
-                    "hide":true
-                },
-            {
-                    "type":"checkbox",
-                    "placeholder":"aids",
-                    "display":"Aids",
-                    "options":[
-                        {
-                            "key": "shower stool"
-                        },
-                        {
-                            "key": "shower chair"
-                        },
-                        {
-                            "key": "over toilet frame"
-                        },
-                        {
-                            "key": "pickup stick"
-                        },
-                        {
-                            "key": "recliner"
-                        },
-                        {
-                            "key": "high back chair"
-                        },
-                        {
-                            "key": "Other"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"aids_other",
-                    "display":"Other aids",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"premorbid_eq_text",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "default":"<br>Premorbid function – mobility equipment: ",
-                    "hide":true
-                },
-            {
-                    "type":"select",
-                    "placeholder":"premorbid_eq",
-                    "display":"premorbid function – mobility equipment",
-                    "options":[
-                        {
-                            "key": "Nil aids"
-                        },
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"premorbid_assist_text",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "default":"<br>Premorbid function - level of assistance: ",
-                    "hide":true
-                },
-            {
-                    "type":"select",
-                    "placeholder":"premorbid_assist",
-                    "display":"Premorbid function - level of assistance",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    }
-                },
-            {
-                    "type":"text",
-                    "placeholder":"premorbid_endurance_text",
-                    "condition":{
-                        "field": "type_template",
-                        "equals": "Initial assessment"
-                    },
-                    "default":"<br>Premorbid function – endurance/distance: ",
+                    "default":"<br>Premorbid function (aid, assistance, endurance/distance): ",
                     "hide":true
                 },
             {
                     "type":"text",
-                    "placeholder":"premorbid_endurance",
-                    "display":"Premorbid function - endurance/distance",
+                    "placeholder":"premorbid",
+                    "display":"premorbid function",
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -722,76 +584,9 @@
                     }
                 },
             {
-                    "type":"select",
-                    "placeholder":"mobility",
-                    "display":"Current level of function - mobility",
-                    "options":[
-                        {
-                            "key": "independent"
-                        },
-                        {
-                            "key": "supervision"
-                        },
-                        {
-                            "key": "assist by 1"
-                        },
-                        {
-                            "key": "assist by 2"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "not-equals": []
-                    }
-                },
-            {
-                    "type":"select",
-                    "placeholder":"mobility_eq",
-                    "display":"Current level of function - mobility equipment",
-                    "options":[
-                        {
-                            "key": "nil aids"
-                        },
-                        {
-                            "key": "2WF"
-                        },
-                        {
-                            "key": "4WF"
-                        },
-                        {
-                            "key": "crutches"
-                        },
-                        {
-                            "key": "sarasteady"
-                        },
-                        {
-                            "key": "wheelchair"
-                        },
-                        {
-                            "key": "pickup frame"
-                        },
-                        {
-                            "key": "gutter frame"
-                        },
-                        {
-                            "key": "single point stick"
-                        },
-                        {
-                            "key": "sling hoist"
-                        },
-                        {
-                            "key": "standing hoist"
-                        }
-                    ],
-                    "condition":{
-                        "field": "type_template",
-                        "not-equals": []
-                    }
-                },
-            {
                     "type":"text",
-                    "placeholder":"mobility_end",
-                    "display":"Current level of function - mobility endurance",
+                    "placeholder":"mobility",
+                    "display":"Current level of function - Ambulation (aid, assistance, distance)",
                     "condition":{
                         "field": "type_template",
                         "not-equals": []
@@ -825,6 +620,15 @@
                     }
                 },
             {
+                    "type":"text",
+                    "placeholder":"adl_func_current",
+                    "display":"Current ADL function ",
+                    "condition":{
+                        "field": "type_template",
+                        "not-equals": []
+                    }
+                },
+            {
                     "type":"textmulti",
                     "placeholder":"range",
                     "display":"Range and strength assessment",
@@ -843,12 +647,79 @@
                     }
                 },
             {
-                    "type":"text",
-                    "placeholder":"balance_test",
-                    "display":"Other objective measures eg. 6min walk test, TUGT, 10m walk test, Timed STS",
+                    "type":"checkbox",
+                    "placeholder":"obj_measure",
+                    "display":"Other objective measures used",
+                    "options":[
+                        {
+                            "key": "6 minute walk test",
+                            "value": "<br>6 minute walk test: "
+                        },
+                        {
+                            "key": "Timed up and go test",
+                            "value": "<br>Time up and go test: "
+                        },
+                        {
+                            "key": "10 metre walk test",
+                            "value": "<br>10 metre walk test: "
+                        },
+                        {
+                            "key": "5 x sit to stand test",
+                            "value": "<br>5 x sit to stand test: "
+                        },
+                        {
+                            "key": "Other",
+                            "value": "<br>Other objective measures used: "
+                        }
+                    ],
                     "condition":{
                         "field": "type_template",
                         "not-equals": []
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"obj_measure_6",
+                    "display":"6 minute walk test",
+                    "condition":{
+                        "field": "obj_measure",
+                        "equals": "6 minute walk test"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"obj_measure_up",
+                    "display":"Timed up and go test",
+                    "condition":{
+                        "field": "obj_measure",
+                        "equals": "Timed up and go test"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"obj_measure_10",
+                    "display":"10 metre walk test",
+                    "condition":{
+                        "field": "obj_measure",
+                        "equals": "10 metre walk test"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"obj_measure_5",
+                    "display":"5 x sit to stand test",
+                    "condition":{
+                        "field": "obj_measure",
+                        "equals": "5 x sit to stand test"
+                    }
+                },
+            {
+                    "type":"text",
+                    "placeholder":"obj_measure_other",
+                    "display":"Other object measure test",
+                    "condition":{
+                        "field": "obj_measure",
+                        "equals": "Other"
                     }
                 },
             {
@@ -1641,6 +1512,7 @@
                 }
         ]
     },
+    
     
     
     
