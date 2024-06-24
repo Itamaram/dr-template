@@ -102,3 +102,29 @@ body {
   border-color: #61dafb;
   box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.3); /* Add a box shadow to indicate focus */
 }
+
+.sticky-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px; /* Adjust the width as needed */
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #fff; /* Optional: Set a background color */
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Optional: Add a shadow for better separation */
+  z-index: 1000;
+}
+
+.container-fluid {
+  display: flex;
+}
+
+.left-section {
+  flex-grow: 1;
+  margin-right: 320px; /* Adjust according to the width of the right section */
+}
+
+textarea {
+  width: 100%;
+}
+
