@@ -1,5 +1,5 @@
 export default function assess(condition, values) {
-    if (!condition)
+    if (!condition || Object.keys(condition).length === 0)
         return true;
     if (condition.and)
         return condition.and.every(c => assess(c, values));
