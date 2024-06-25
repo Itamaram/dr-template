@@ -426,21 +426,27 @@
                     "display":"Living Situation",
                     "options":[
                         {
-                            "key": "lives alone"
+                            "key": "lives alone",
+                            "value": "lives alone"
                         },
                         {
-                            "key": "spouse/partner"
+                            "key": "spouse/partner",
+                            "value": "spouse/partner"
                         },
                         {
-                            "key": "dependants"
+                            "key": "dependants",
+                            "value": "dependants"
                         },
                         {
-                            "key": "friend"
+                            "key": "friend",
+                            "value": "friend"
                         },
                         {
-                            "key": "relative"
+                            "key": "relative",
+                            "value": "relative"
                         }
                     ],
+                    "default":[],
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -570,6 +576,7 @@
                     "type":"select",
                     "placeholder":"bed_mobility",
                     "display":"Current level of function - bed mobility",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -593,6 +600,7 @@
                     "type":"select",
                     "placeholder":"bed_transfer",
                     "display":"Current level of function - bed transfer",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -616,6 +624,7 @@
                     "type":"select",
                     "placeholder":"sit_stand",
                     "display":"Current level of function - sit to stand",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -1457,6 +1466,7 @@
             {
                     "type":"select",
                     "placeholder":"pt_required_options",
+                    "default":[],
                     "display":" ",
                     "options":[
                         {
@@ -2188,6 +2198,7 @@
                     "type":"select",
                     "placeholder":"living",
                     "display":"Living Situation",
+                    "default":[],
                     "options":[
                         {
                             "key": "Lives alone"
@@ -2224,6 +2235,7 @@
                     "type":"select",
                     "placeholder":"funding",
                     "display":"Funding",
+                    "default":[],
                     "options":[
                         {
                             "key": "CHSP"
@@ -2260,6 +2272,7 @@
                     "type":"select",
                     "placeholder":"services",
                     "display":"Services",
+                    "default":[],
                     "options":[
                         {
                             "key": "MOW"
@@ -3757,6 +3770,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"purpose",
                     "display":"Purpose of review",
                     "options":[
@@ -4233,6 +4247,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"mobility",
                     "display":"Mobility function",
                     "options":[
@@ -5034,6 +5049,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"diagnosis",
                     "display":"Patient's diagnosis",
                     "options":[
