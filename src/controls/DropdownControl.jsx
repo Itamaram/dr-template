@@ -151,16 +151,12 @@ export const handler = {
       />
     );
   },
-  getValues: function (variable, values, mod) {
-    if (mod && mod.trim() !== '') {
-      const modValues = mod.split(';').map((s) => s.trim());
-      return variable.options
-        .filter((option) => values.map(({ value }) => value).includes(option.key) && modValues.includes(option.key))
-        .map((option) => option.value || option.key);
-    } else {
-      return variable.options
-        .filter((option) => values.map(({ value }) => value).includes(option.key))
-        .map((option) => option.value || option.key);
+  getValues: function (variable, values = [], mod) {
+    if (!Array.isArray(values)) {
+      values = [];
     }
+    return variable.options
+      .filter(o => values.map(({ value }) => value).includes(o.key) && (!mod || o.key === mod))
+      .map(o => o.value || o.key);
   },
 };
