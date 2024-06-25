@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { FormControl, Form, Row, Col, Button} from 'react-bootstrap';
+import { FormControl, Form, Row, Col, Button } from 'react-bootstrap';
 import parse from 'html-react-parser';
 
 import assess from './conditions';
@@ -47,10 +47,10 @@ function Container() {
     }
   }, [editMode]);
 
-    // Function to update template data
-    const updateTemplateData = (newTemplateData) => {
-      setTemplateData(newTemplateData);
-    };
+  // Function to update template data
+  const updateTemplateData = (newTemplateData) => {
+    setTemplateData(newTemplateData);
+  };
 
   function processTemplate(template) {
     const variables = template.variables.map((v) => ({ definition: v, handler: handlers[v.type] }));
@@ -401,25 +401,41 @@ const handleLeftClick = (event) => {
   }
 
   function handlePlaceholderModalSave(updatedPlaceholders) {
-    const updatedPlaceholderContent = updatedPlaceholders.join(',');
+    const specialPlaceholders = ['down_list', 'colon', 'fullstop'];
+    const remainingPlaceholders = updatedPlaceholders.filter(ph => !specialPlaceholders.includes(ph));
+    
     const text = textareaRef.current.value;
     const cursorPos = textareaRef.current.selectionStart;
     const beforeCursor = text.substring(0, cursorPos);
     const afterCursor = text.substring(cursorPos);
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
     const afterPlaceholder = afterCursor.indexOf('}');
-
-    const newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(updatedPlaceholderContent)}${text.substring(cursorPos + afterPlaceholder)}`;
-    textareaRef.current.value = newText;
-    textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder + 1 + updatedPlaceholderContent.length;
-
-    setTemplateData((prevState) => ({
-      ...prevState,
-      pattern: textToHtml(newText),
-    }));
-
+  
+    // If there are no remaining normal placeholders, remove the entire placeholder element
+    if (remainingPlaceholders.length === 0) {
+      const newText = `${text.substring(0, beforePlaceholder)}${text.substring(cursorPos + afterPlaceholder + 1)}`;
+      textareaRef.current.value = newText;
+      textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder;
+  
+      setTemplateData((prevState) => ({
+        ...prevState,
+        pattern: textToHtml(newText),
+      }));
+    } else {
+      const updatedPlaceholderContent = updatedPlaceholders.join(',');
+      const newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(updatedPlaceholderContent)}${text.substring(cursorPos + afterPlaceholder)}`;
+      textareaRef.current.value = newText;
+      textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder + 1 + updatedPlaceholderContent.length;
+  
+      setTemplateData((prevState) => ({
+        ...prevState,
+        pattern: textToHtml(newText),
+      }));
+    }
+  
     setShowEditPlaceholderModal(false);
   }
+  
 
   function handleModalClose() {
     setShowModal(false);
@@ -459,7 +475,6 @@ const handleLeftClick = (event) => {
       reader.readAsText(file);
     }
   };
-  
 
   const deleteVariable = (placeholder) => {
     setTemplateData((prevState) => {
@@ -475,6 +490,15 @@ const handleLeftClick = (event) => {
         pattern: updatedPattern,
       };
     });
+  };
+
+  const handlePlaceholderClick = (placeholder) => {
+    const variable = templateData.variables.find(v => v.definition.placeholder === placeholder);
+    if (variable && variable.definition.options && variable.definition.options.length > 0) {
+      setModalOptions(variable.definition.options);
+      setModalPlaceholder(placeholder);
+      setShowModal(true);
+    }
   };
 
   const { variables, values, pattern } = templateData;
@@ -520,20 +544,20 @@ const handleLeftClick = (event) => {
       <div className="row">
         <div className="col py-4">
           <div className="sticky-top">
-          <ControlsPane
-        variables={templateData.variables}
-        values={templateData.values}
-        onChange={onChange}
-        editMode={editMode}
-        editControl={editControl}
-        placeholders={placeholders}
-        moveVariable={moveVariable}
-        selectedVariable={selectedVariable}
-        setSelectedVariable={setSelectedVariable}
-        deleteVariable={deleteVariable}
-        updateTemplateData={updateTemplateData}
-        pattern={templateData.pattern} // Pass the pattern
-      />
+            <ControlsPane
+              variables={templateData.variables}
+              values={templateData.values}
+              onChange={onChange}
+              editMode={editMode}
+              editControl={editControl}
+              placeholders={placeholders}
+              moveVariable={moveVariable}
+              selectedVariable={selectedVariable}
+              setSelectedVariable={setSelectedVariable}
+              deleteVariable={deleteVariable}
+              updateTemplateData={updateTemplateData}
+              pattern={templateData.pattern} // Pass the pattern
+            />
           </div>
         </div>
         <div className="col py-4">
@@ -571,7 +595,7 @@ const handleLeftClick = (event) => {
                 <>
                   <Button onClick={handleExport} className="mb-3 w-100">
                     Export
-                  </Button>                  
+                  </Button>
                   <hr />
                   <FormControl
                     as="textarea"
@@ -583,7 +607,7 @@ const handleLeftClick = (event) => {
                     onClick={handleLeftClick}
                     className="sticky-top"
                   />
-                    <input
+                  <input
                     type="file"
                     accept=".txt"
                     onChange={handleImport}
@@ -592,9 +616,9 @@ const handleLeftClick = (event) => {
                 </>
               )}
               <FormControl
-            //    as="textarea"
-            //    rows={10}
-            //    value={JSON.stringify(jsonObject, null, 2)}
+              //    as="textarea"
+              //    rows={10}
+              //    value={JSON.stringify(jsonObject, null, 2)}
               />
             </div>
           </div>
@@ -612,6 +636,7 @@ const handleLeftClick = (event) => {
         onHide={() => setShowEditPlaceholderModal(false)}
         placeholders={placeholderValues}
         onSave={handlePlaceholderModalSave}
+        handlePlaceholderClick={handlePlaceholderClick} // Pass the click handler
       />
     </div>
   );

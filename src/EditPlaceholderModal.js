@@ -1,4 +1,3 @@
-// EditPlaceholderModal.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal, Button, ListGroup, FormCheck } from 'react-bootstrap';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
@@ -8,7 +7,7 @@ const ItemType = {
   PLACEHOLDER: 'placeholder',
 };
 
-const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlaceholder }) => {
+const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlaceholder, onClick }) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -41,12 +40,16 @@ const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlace
         justifyContent: 'space-between',
         alignItems: 'center',
       }}
+      onClick={() => onClick(placeholder)}
     >
       {placeholder}
       <Button
         variant="danger"
         size="sm"
-        onClick={() => removePlaceholder(index)}
+        onClick={(e) => {
+          e.stopPropagation();
+          removePlaceholder(index);
+        }}
       >
         Remove
       </Button>
@@ -54,7 +57,7 @@ const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlace
   );
 };
 
-function EditPlaceholderModal({ show, onHide, placeholders, onSave }) {
+function EditPlaceholderModal({ show, onHide, placeholders, onSave, handlePlaceholderClick }) {
   const [placeholderList, setPlaceholderList] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -115,6 +118,7 @@ function EditPlaceholderModal({ show, onHide, placeholders, onSave }) {
                 placeholder={placeholder}
                 movePlaceholder={movePlaceholder}
                 removePlaceholder={removePlaceholder}
+                onClick={handlePlaceholderClick} // Handle clicks
               />
             ))}
           </ListGroup>

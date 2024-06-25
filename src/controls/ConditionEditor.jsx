@@ -68,7 +68,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
       const operatorKey = Object.keys(cond).find(key => key !== 'field');
       const selectedField = cond.field;
       const selectedFieldVariable = variables.find(v => v.definition.placeholder === selectedField);
-      const options = selectedFieldVariable ? selectedFieldVariable.definition.options : null;
+      const options = selectedFieldVariable ? (selectedFieldVariable?.definition?.options?.length > 0 ? selectedFieldVariable.definition.options : null) : null;
 
       if (cond.and || cond.or) {
         const operatorKey = cond.and ? 'and' : 'or';
