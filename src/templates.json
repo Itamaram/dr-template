@@ -1,6 +1,6 @@
 [
     {
-        "name": "testing new",
+        "name": "testing new1",
         "pattern": "<p>testing{test}{type_template}</p>",
         "variables": [
             
