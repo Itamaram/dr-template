@@ -156,12 +156,12 @@ export const handler = {
     if (mod && mod.includes("!!")) {
       mod = mod.replace(/!!/g, "");
       return variable.options
-        .filter(o => values.map(({ value }) => value).includes(o.key))
+        ?.filter(o => values.map(({ value }) => value).includes(o.key))
         .filter(o => !mod || mod.split(';').map((s) => s.trim()).every((m) => m !== o.key))
         .map(o => o.value || o.key);
     } else {
       return variable.options
-        .filter(o => values.map(({ value }) => value).includes(o.key))
+        ?.filter(o => values.map(({ value }) => value).includes(o.key))
         .filter(o => !mod || mod.split(';').map(s => s.trim()).includes(o.key))
         .map(o => o.value || o.key);
     }

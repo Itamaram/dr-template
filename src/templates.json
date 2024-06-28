@@ -4390,7 +4390,103 @@
                 }
         ]
     },
-    
+    {
+        "name": "MDT Case Conference",
+        "pattern": "<p>MULTI-DISCPLINARY CASE CONFERENCE<br>Date: {new_date_1719541535645}<br>Link Person: {new_text_1719541546982}<br>Link Designation: {new_text_1719541554896}<br>Link contact: {new_text_1719541565631}<br><br>Patient discussed in case conference today. Please refer to patient directed subacute admission plan<br>(AD3087)<br>Comments:<br>{new_textmulti_1719541576631}<br><br>Progress: Drop down box: {new_dropdown_1719541587699}<br><br>EDD: {new_date_1719541601183}<br>Plan: <br>{new_textmulti_1719541613817}</p>",
+        "variables": [
+          {
+            "placeholder": "new_date_1719541535645",
+            "type": "date",
+            "display": "Today's date",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541546982",
+            "type": "text",
+            "display": "Link person",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541554896",
+            "type": "text",
+            "display": "Link Designation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541565631",
+            "type": "text",
+            "display": "Link contact number",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1719541576631",
+            "type": "textmulti",
+            "display": "Patient discussed in case conference today. Please refer to patient directed subacute admission plan (AD3087) Comments:",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_dropdown_1719541587699",
+            "type": "dropdown",
+            "display": "Progress",
+            "options": [
+              {
+                "key": "On track",
+                "value": "On track"
+              },
+              {
+                "key": "Slow to progress",
+                "value": "Slow to progress"
+              },
+              {
+                "key": "Bring EDD forward",
+                "value": "Bring EDD forward"
+              },
+              {
+                "key": "Extended EDD",
+                "value": "Extended EDD"
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Extended ED",
+            "newKey": "Extended EDD"
+          },
+          {
+            "placeholder": "new_date_1719541601183",
+            "type": "date",
+            "display": "EDD",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1719541613817",
+            "type": "textmulti",
+            "display": "Plan",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          }
+        ]
+      },    
     
     
     
