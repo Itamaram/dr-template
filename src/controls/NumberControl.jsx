@@ -1,46 +1,40 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { FormControl, FormGroup, FormLabel, Row, Col } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function NumberControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { display, placeholder, hide, text, default: defaultValue = '' } = definition;
-
   const inputRef = useRef(null);
   const [cursorPosition, setCursorPosition] = useState(0);
   const [localValue, setLocalValue] = useState(values[0]?.value || '');
 
-  const handleInputChange = (e) => {
-    const cursorPos = e.target.selectionStart;
-    setCursorPosition(cursorPos);
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/[^0-9.]/g, '');
-    const valueWithText = numericValue ? text ? `${numericValue} ${text}` : `${numericValue}` : '';
-    setLocalValue(valueWithText);
-    onChange([{ value: valueWithText }]);
-  };
+  // Remove the text part from the value
+  const numericValue = localValue.split(' ')[0];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [localValue, cursorPosition]);
+
+  useLayoutEffect(() => {
     if (!editMode && defaultValue && values.length === 0) {
       const numericDefaultValue = defaultValue.replace(/[^0-9.]/g, '');
-      const valueWithText = numericDefaultValue ? text ? `${numericDefaultValue} ${text}` : `${numericDefaultValue}` : '';
+      const valueWithText = numericDefaultValue ? (text ? `${numericDefaultValue} ${text}` : `${numericDefaultValue}`) : '';
       onChange([{ value: valueWithText }]);
     }
   }, [editMode, defaultValue, onChange, text, values]);
 
-  useEffect(() => {
-    if (inputRef.current && inputRef.current.value !== localValue) {
-      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
-    }
-  }, [cursorPosition, localValue]);
-
-  useEffect(() => {
-    setLocalValue(values[0]?.value || '');
-  }, [values]);
-
-  if (!editMode && hide) {
-    return null;
-  }
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    const numericValue = inputValue.replace(/[^0-9.]/g, '');
+    const valueWithText = numericValue ? (text ? `${numericValue} ${text}` : `${numericValue}`) : '';
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    setLocalValue(valueWithText);
+    onChange([{ value: valueWithText }]);
+  };
 
   if (editMode) {
     return (
@@ -69,7 +63,7 @@ function NumberControl(props) {
       <Row>
         <Col xs={9}>
           <FormControl
-            value={localValue.split(' ')[0]} // Only include the numeric value in the text box
+            value={numericValue} // Only include the numeric value in the text box
             type="text"
             onChange={handleInputChange}
             pattern="[0-9.]*"

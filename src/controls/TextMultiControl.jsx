@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { FormGroup, FormLabel, FormControl } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
@@ -12,8 +12,9 @@ function TextMultiControl(props) {
   const handleInputChange = (e) => {
     const cursorPos = e.target.selectionStart;
     setCursorPosition(cursorPos);
-    setLocalValue(e.target.value);
-    onChange([{ value: e.target.value.replace(/\r?\n/g, '<br>') }]);
+    const newValue = e.target.value;
+    setLocalValue(newValue);
+    onChange([{ value: newValue.replace(/\r?\n/g, '<br>') }]);
   };
 
   const handleDefaultChange = (e) => {
@@ -22,13 +23,13 @@ function TextMultiControl(props) {
     editControl(placeholder, display, hide, e.target.value.replace(/\r?\n/g, '<br>'), placeholder, definition.condition, {});
   };
 
-  useEffect(() => {
-    if (inputRef.current && inputRef.current.value !== localValue) {
+  useLayoutEffect(() => {
+    if (inputRef.current) {
       inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
     }
-  }, [cursorPosition, localValue]);
+  }, [localValue, cursorPosition]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setLocalValue(values[0]?.value.replace(/<br>/g, '\n') || '');
   }, [values]);
 

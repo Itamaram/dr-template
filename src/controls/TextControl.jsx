@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable';
 
@@ -10,19 +10,20 @@ function TextControl(props) {
   const [localValue, setLocalValue] = useState(values[0]?.value || '');
 
   const handleInputChange = (e) => {
+    const newValue = e.target.value;
     const cursorPos = e.target.selectionStart;
     setCursorPosition(cursorPos);
-    setLocalValue(e.target.value);
-    onChange([{ value: e.target.value }]);
+    setLocalValue(newValue);
+    onChange([{ value: newValue }]);
   };
 
-  useEffect(() => {
-    if (inputRef.current && inputRef.current.value !== localValue) {
+  useLayoutEffect(() => {
+    if (inputRef.current) {
       inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
     }
-  }, [cursorPosition, localValue]);
+  }, [localValue, cursorPosition]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setLocalValue(values[0]?.value || '');
   }, [values]);
 
