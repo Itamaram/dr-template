@@ -1,10 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { FormControl, FormGroup, FormLabel, Button, Row, Col } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function DropdownControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { options = [], display, placeholder, default: defaultValue = '' } = definition;
+  const inputRefs = useRef([]);
+
+  const [cursorPositions, setCursorPositions] = useState(options.map(() => 0));
+  const [localOptions, setLocalOptions] = useState(options);
+  const [localDefaultValue, setLocalDefaultValue] = useState(defaultValue);
 
   const handleOptionChange = (index, field, value) => {
     const oldKey = options[index].key;
@@ -16,12 +21,14 @@ function DropdownControl(props) {
       updatedFields.newKey = value;
     }
 
-    editControl(placeholder, display, definition.hide, defaultValue, placeholder, definition.condition, updatedFields);
+    editControl(placeholder, display, definition.hide, localDefaultValue, placeholder, definition.condition, updatedFields);
+    setLocalOptions(updatedOptions);
   };
 
   const handleAddOption = () => {
     const updatedOptions = [...options, { key: 'new_option', value: 'New Option' }];
-    editControl(placeholder, display, definition.hide, defaultValue, placeholder, definition.condition, { options: updatedOptions });
+    editControl(placeholder, display, definition.hide, localDefaultValue, placeholder, definition.condition, { options: updatedOptions });
+    setLocalOptions(updatedOptions);
   };
 
   const handleRemoveOption = index => {
@@ -47,22 +54,43 @@ function DropdownControl(props) {
       const updatedOptions = options.filter((_, i) => i !== index);
       const newDefaultValue = oldKey === defaultValue ? '' : defaultValue;
       editControl(placeholder, display, definition.hide, newDefaultValue, placeholder, definition.condition, { options: updatedOptions, oldKey, newKey: '' }, action);
+      setLocalOptions(updatedOptions);
+      setLocalDefaultValue(newDefaultValue);
     } else {
       const updatedOptions = options.filter((_, i) => i !== index);
       const newDefaultValue = oldKey === defaultValue ? '' : defaultValue;
       editControl(placeholder, display, definition.hide, newDefaultValue, placeholder, definition.condition, { options: updatedOptions });
+      setLocalOptions(updatedOptions);
+      setLocalDefaultValue(newDefaultValue);
     }
   };
 
   const handleDefaultChange = key => {
     const newDefaultValue = key === defaultValue ? '' : key;
     editControl(placeholder, display, definition.hide, newDefaultValue, placeholder, definition.condition, {});
+    setLocalDefaultValue(newDefaultValue);
   };
+
+  const handleOptionInputChange = (index, field, e) => {
+    const cursorPos = e.target.selectionStart;
+    const newCursorPositions = [...cursorPositions];
+    newCursorPositions[index] = cursorPos;
+    setCursorPositions(newCursorPositions);
+    handleOptionChange(index, field, e.target.value);
+  };
+
+  useLayoutEffect(() => {
+    options.forEach((_, index) => {
+      if (inputRefs.current[index]) {
+        inputRefs.current[index].setSelectionRange(cursorPositions[index], cursorPositions[index]);
+      }
+    });
+  }, [localOptions, cursorPositions, options]);
 
   // Ensure default value is set when switching to non-edit mode
   const prevEditMode = useRef(editMode);
   const isFirstRender = useRef(true);
-  
+
   useEffect(() => {
     if (isFirstRender.current || (!editMode && prevEditMode.current)) {
       onChange([{ value: defaultValue }]);
@@ -89,22 +117,24 @@ function DropdownControl(props) {
         controlType="Dropdown" // Pass control type
       >
         <FormGroup>
-          {options.map((o, i) => (
-            <Row key={i} onClick={() => handleDefaultChange(o.key)} style={{ cursor: 'pointer', backgroundColor: defaultValue === o.key ? 'lightblue' : 'inherit' }}>
+          {localOptions.map((o, i) => (
+            <Row key={i} onClick={() => handleDefaultChange(o.key)} style={{ cursor: 'pointer', backgroundColor: localDefaultValue === o.key ? 'lightblue' : 'inherit' }}>
               <Col>
                 <FormControl
                   type="text"
                   value={o.key}
-                  onChange={(e) => handleOptionChange(i, 'key', e.target.value)}
+                  onChange={(e) => handleOptionInputChange(i, 'key', e)}
                   placeholder="Key"
+                  ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
                 />
               </Col>
               <Col>
                 <FormControl
                   type="text"
                   value={o.value}
-                  onChange={(e) => handleOptionChange(i, 'value', e.target.value)}
+                  onChange={(e) => handleOptionInputChange(i, 'value', e)}
                   placeholder="Value"
+                  ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
                 />
               </Col>
               <Col>
