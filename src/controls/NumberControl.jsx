@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FormControl, FormGroup, FormLabel, Row, Col } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
@@ -6,10 +6,19 @@ function NumberControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { display, placeholder, hide, text, default: defaultValue = '' } = definition;
 
-  const value = values[0]?.value || '';
+  const inputRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const [localValue, setLocalValue] = useState(values[0]?.value || '');
 
-  // Remove the text part from the value
-  const numericValue = value.split(' ')[0];
+  const handleInputChange = (e) => {
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    const inputValue = e.target.value;
+    const numericValue = inputValue.replace(/[^0-9.]/g, '');
+    const valueWithText = numericValue ? text ? `${numericValue} ${text}` : `${numericValue}` : '';
+    setLocalValue(valueWithText);
+    onChange([{ value: valueWithText }]);
+  };
 
   useEffect(() => {
     if (!editMode && defaultValue && values.length === 0) {
@@ -19,12 +28,19 @@ function NumberControl(props) {
     }
   }, [editMode, defaultValue, onChange, text, values]);
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/[^0-9.]/g, '');
-    const valueWithText = numericValue ? text ? `${numericValue} ${text}` : `${numericValue}` : '';
-    onChange([{ value: valueWithText }]);
-  };
+  useEffect(() => {
+    if (inputRef.current && inputRef.current.value !== localValue) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [cursorPosition, localValue]);
+
+  useEffect(() => {
+    setLocalValue(values[0]?.value || '');
+  }, [values]);
+
+  if (!editMode && hide) {
+    return null;
+  }
 
   if (editMode) {
     return (
@@ -43,7 +59,6 @@ function NumberControl(props) {
         setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
         controlType="Number" // Pass control type
       >
-
       </DraggableVariable>
     );
   }
@@ -54,11 +69,12 @@ function NumberControl(props) {
       <Row>
         <Col xs={9}>
           <FormControl
-            value={numericValue} // Only include the numeric value in the text box
+            value={localValue.split(' ')[0]} // Only include the numeric value in the text box
             type="text"
             onChange={handleInputChange}
             pattern="[0-9.]*"
             inputMode="decimal"
+            ref={inputRef} // Attach ref to the input
           />
         </Col>
         <Col xs={3} className="d-flex align-items-center">

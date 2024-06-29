@@ -7,7 +7,22 @@ const ItemTypes = {
   VARIABLE: 'variable',
 };
 
-const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, editControl, placeholders, showModels, deleteVariable, children, variables, selectedVariable, setSelectedVariable, controlType }) => {
+const DraggableVariable = ({
+  variable,
+  index,
+  moveVariable,
+  editMode,
+  onChange,
+  editControl,
+  placeholders,
+  showModels,
+  deleteVariable,
+  children,
+  variables,
+  selectedVariable,
+  setSelectedVariable,
+  controlType,
+}) => {
   const ref = useRef(null);
   const [canDrag, setCanDrag] = useState(true);
   const [title, setTitle] = useState(variable.definition.placeholder);
@@ -69,7 +84,8 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
     };
   }, []);
 
-  const validateTitle = (value) => /^[a-zA-Z0-9_]*$/.test(value) && value !== '' && (!placeholders.includes(value) || value === originalPlaceholder);
+  const validateTitle = (value) =>
+    /^[a-zA-Z0-9_]*$/.test(value) && value !== '' && (!placeholders.includes(value) || value === originalPlaceholder);
 
   const handleTitleChange = (e) => {
     const newTitle = e.target.value;
@@ -79,44 +95,76 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
 
   const handleTitleBlur = () => {
     if (isValid) {
-      editControl(variable.definition.placeholder, variable.definition.display, variable.definition.hide, variable.definition.default, title, variable.definition.condition, { inline });
-      setOriginalPlaceholder(title);  // Update the original placeholder if the new title is valid
+      editControl(
+        variable.definition.placeholder,
+        variable.definition.display,
+        variable.definition.hide,
+        variable.definition.default,
+        title,
+        variable.definition.condition,
+        { inline }
+      );
+      setOriginalPlaceholder(title); // Update the original placeholder if the new title is valid
     } else {
-      setTitle(originalPlaceholder);  // Revert to the previous valid placeholder without showing an alert
-      setIsValid(true);  // Reset isValid state
+      setTitle(originalPlaceholder); // Revert to the previous valid placeholder without showing an alert
+      setIsValid(true); // Reset isValid state
     }
-    setIsEditingPlaceholder(false);  // Exit edit mode on blur
+    setIsEditingPlaceholder(false); // Exit edit mode on blur
   };
 
   const handleChange = (field, value) => {
-    editControl(variable.definition.placeholder, field === 'display' ? value : variable.definition.display, field === 'hide' ? value : variable.definition.hide, field === 'default' ? value : variable.definition.default, title, variable.definition.condition, { inline });
+    editControl(
+      variable.definition.placeholder,
+      field === 'display' ? value : variable.definition.display,
+      field === 'hide' ? value : variable.definition.hide,
+      field === 'default' ? value : variable.definition.default,
+      title,
+      variable.definition.condition,
+      { inline }
+    );
   };
 
   const handleConditionChange = (newCondition) => {
-    editControl(variable.definition.placeholder, variable.definition.display, variable.definition.hide, variable.definition.default, title, newCondition, { inline });
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      variable.definition.default,
+      title,
+      newCondition,
+      { inline }
+    );
   };
 
   const handleDelete = () => {
     deleteVariable(variable.definition.placeholder);
   };
 
-  const handleInlineChange = e => {
+  const handleInlineChange = (e) => {
     setInline(e.target.checked);
-    editControl(variable.definition.placeholder, variable.definition.display, variable.definition.hide, variable.definition.default, title, variable.definition.condition, { inline: e.target.checked });
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      variable.definition.default,
+      title,
+      variable.definition.condition,
+      { inline: e.target.checked }
+    );
   };
 
   const handleVariableClick = () => {
-   if (editMode) {
+    if (editMode) {
       if (selectedVariable === variable.definition.placeholder) {
         setSelectedVariable(null);
       } else {
         setSelectedVariable(variable.definition.placeholder);
-  //      copyToClipboard(`${variable.definition.placeholder}`);
+        // copyToClipboard(`${variable.definition.placeholder}`);
       }
     }
   };
 
-  const availablePlaceholders = placeholders.filter(ph => ph !== variable.definition.placeholder);
+  const availablePlaceholders = placeholders.filter((ph) => ph !== variable.definition.placeholder);
 
   return (
     <Card
@@ -128,14 +176,16 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
         border: '1px solid #ccc',
         borderRadius: '4px',
         position: 'relative',
-        backgroundColor: selectedVariable === variable.definition.placeholder ? '#f0f0f0' : '#fff' // Highlight selected variable
+        backgroundColor: selectedVariable === variable.definition.placeholder ? '#f0f0f0' : '#fff', // Highlight selected variable
       }}
       onClick={handleVariableClick} // Add onClick handler
     >
       {editMode && (
         <>
           <div style={{ position: 'absolute', top: '5px', left: '5px', fontWeight: 'bold' }}>{controlType}</div>
-          <Button variant="danger" style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={handleDelete}>X</Button>
+          <Button variant="danger" style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={handleDelete}>
+            X
+          </Button>
         </>
       )}
       {editMode ? (
@@ -148,26 +198,30 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
                 marginTop: '20px',
                 color: isEditingPlaceholder ? 'inherit' : 'grey',
                 cursor: isEditingPlaceholder ? 'text' : 'pointer',
-                display: 'inline-block'
+                display: 'inline-block',
               }}
             >
               {isEditingPlaceholder ? (
-                <FormControl
-                  type="text"
-                  value={title}
-                  onChange={handleTitleChange}
-                  onBlur={handleTitleBlur}
-                  autoFocus
-                  isInvalid={!isValid}
-                />
+                <>
+                  <FormControl
+                    type="text"
+                    value={title}
+                    onChange={handleTitleChange}
+                    onBlur={handleTitleBlur}
+                    autoFocus
+                    isInvalid={!isValid}
+                  />
+                  {(!isValid && isEditingPlaceholder) && (
+                    <FormControl.Feedback type="invalid">
+                      Placeholder must be unique, not empty, and can only contain letters, numbers, and underscores.
+                    </FormControl.Feedback>
+                  )}
+                </>
               ) : (
                 <span>{title}</span>
               )}
             </div>
           )}
-          <FormControl.Feedback type="invalid">
-            Placeholder must be unique, not empty, and can only contain letters, numbers, and underscores.
-          </FormControl.Feedback>
           {showModels.includes('display') && (
             <FormGroup>
               <FormLabel>Display</FormLabel>
@@ -180,7 +234,7 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
           )}
           {showModels.includes('hide') && (
             <FormGroup>
-              <FormCheck 
+              <FormCheck
                 type="checkbox"
                 label="Hide"
                 checked={variable.definition.hide}
@@ -213,8 +267,8 @@ const DraggableVariable = ({ variable, index, moveVariable, editMode, onChange, 
             <ConditionEditor
               condition={variable.definition.condition}
               setCondition={handleConditionChange}
-              placeholders={availablePlaceholders}  // Pass available placeholders
-              variables={variables}  // Pass variables to ConditionEditor
+              placeholders={availablePlaceholders} // Pass available placeholders
+              variables={variables} // Pass variables to ConditionEditor
             />
           )}
         </div>

@@ -48,7 +48,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
     const condition = updatedConditions[index];
 
     if (field === 'field') {
-      updatedConditions[index] = { ...condition, field: value };
+      updatedConditions[index] = { ...condition, field: value } ;
     } else if (field === 'operator') {
       const operatorKey = Object.keys(condition).find(key => key !== 'field');
       updatedConditions[index] = { field: condition.field, [value]: condition[operatorKey] };
@@ -131,13 +131,17 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                     <FormControl
                       as="select"
                       value={cond[operatorKey]}
-                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value === "" ? [] : e.target.value;
+                        handleConditionChange(index, operatorKey, value);
+                      }}
                     >
                       <option value="">Select Value</option>
                       {options.map((opt, idx) => (
                         <option key={idx} value={opt.key}>{opt.key}</option>
                       ))}
                     </FormControl>
+
                   ) : (
                     <FormControl
                       value={cond[operatorKey]}

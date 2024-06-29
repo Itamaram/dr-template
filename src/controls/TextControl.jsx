@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
-import DraggableVariable from '../DraggableVariable'; // Ensure correct import
+import DraggableVariable from '../DraggableVariable';
 
 function TextControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { display, placeholder } = definition;
+  const inputRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const [localValue, setLocalValue] = useState(values[0]?.value || '');
+
+  const handleInputChange = (e) => {
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    setLocalValue(e.target.value);
+    onChange([{ value: e.target.value }]);
+  };
+
+  useEffect(() => {
+    if (inputRef.current && inputRef.current.value !== localValue) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [cursorPosition, localValue]);
+
+  useEffect(() => {
+    setLocalValue(values[0]?.value || '');
+  }, [values]);
 
   if (!editMode && definition.hide) {
     return null;
   }
-
-  const handleInputChange = (e) => {
-    onChange([{ value: e.target.value }]);
-  };
 
   return (
     <FormGroup>
@@ -25,7 +41,8 @@ function TextControl(props) {
                 <FormControl
                   type="text"
                   value={vals[0]?.value || ''}
-                  onChange={(e) => onChange([{ value: e.target.value }])}
+                  onChange={handleInputChange}
+                  ref={inputRef} // Attach ref to the input
                 />
               ),
             },
@@ -36,20 +53,21 @@ function TextControl(props) {
           onChange={onChange}
           editControl={editControl}
           placeholders={placeholders}
-          deleteVariable={deleteVariable} // Pass deleteVariable function
-          showModels={['display', 'hide', 'default', 'condition', 'placeholder']} // Specify which models to show
-          variables={variables}  // Pass variables to DraggableVariable
-          selectedVariable={selectedVariable} // Pass selectedVariable
-          setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
-          controlType="Text" // Pass control type
+          deleteVariable={deleteVariable} 
+          showModels={['display', 'hide', 'default', 'condition', 'placeholder']} 
+          variables={variables}  
+          selectedVariable={selectedVariable} 
+          setSelectedVariable={setSelectedVariable} 
+          controlType="Text" 
         />
       ) : (
         <>
           <FormLabel>{display || placeholder}</FormLabel>
           <FormControl
             type="text"
-            value={values[0]?.value || ''}
+            value={localValue}
             onChange={handleInputChange}
+            ref={inputRef} // Attach ref to the input
           />
         </>
       )}
@@ -69,10 +87,10 @@ export const handler = {
       placeholders={placeholders}
       index={index}
       moveVariable={moveVariable}
-      variables={variables}  // Pass variables to TextControl
-      deleteVariable={deleteVariable} // Pass deleteVariable function
-      selectedVariable={selectedVariable} // Pass selectedVariable
-      setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
+      variables={variables}  
+      deleteVariable={deleteVariable} 
+      selectedVariable={selectedVariable} 
+      setSelectedVariable={setSelectedVariable} 
       key={definition.placeholder}
     />
   ),
