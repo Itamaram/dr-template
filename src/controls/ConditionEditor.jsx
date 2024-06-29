@@ -137,6 +137,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                       }}
                     >
                       <option value="">Select Value</option>
+                      <option value={[]}>Empty</option>
                       {options.map((opt, idx) => (
                         <option key={idx} value={opt.key}>{opt.key}</option>
                       ))}

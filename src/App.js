@@ -630,9 +630,9 @@ const handleLeftClick = (event) => {
                 </>
               )}
               <FormControl
-                  as="textarea"
-                  rows={10}
-                  value={JSON.stringify(jsonObject, null, 2)}
+             //     as="textarea"
+             //     rows={10}
+             //     value={JSON.stringify(jsonObject, null, 2)}
               />
             </div>
           </div>
