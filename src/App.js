@@ -269,7 +269,9 @@ function Container() {
   function handleRightClick(event) {
     event.preventDefault();
     const placeholders = templateData.variables.map(v => v.definition.placeholder);
-    const cursorPos = textareaRef.current.selectionStart;
+  
+    // Get the cursor position
+    const cursorPos = event.target.selectionStart || textareaRef.current.selectionStart;
     setCursorPosition(cursorPos);
   
     if (!selectedVariable || !placeholders.includes(selectedVariable)) {
@@ -281,10 +283,12 @@ function Container() {
     const afterCursor = text.substring(cursorPos);
   
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
+    const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
     const afterPlaceholder = afterCursor.indexOf('}');
+    const afterPlaceholderopen = afterCursor.indexOf('{');
   
     // Check if the cursor is between }{
-    if (beforeCursor.endsWith('}') && afterCursor.startsWith('{')) {
+    if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>=beforePlaceholder && afterPlaceholder >= afterPlaceholderopen)) {
       const variable = templateData.variables.find(v => v.definition.placeholder === selectedVariable);
       if (variable && variable.definition.options && variable.definition.options.length > 0) {
         setModalOptions(variable.definition.options);
@@ -340,6 +344,7 @@ function Container() {
     }));
   }
   
+  
 const handleLeftClick = (event) => {
   if (!editMode) return;
 
@@ -349,10 +354,12 @@ const handleLeftClick = (event) => {
   const afterCursor = text.substring(cursorPos);
 
   const beforePlaceholder = beforeCursor.lastIndexOf('{');
+  const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
   const afterPlaceholder = afterCursor.indexOf('}');
+  const afterPlaceholderopen = afterCursor.indexOf('{');
 
   // Check if the cursor is between }{
-  if (beforeCursor.endsWith('}') && afterCursor.startsWith('{')) {
+  if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>beforePlaceholder && afterPlaceholder > afterPlaceholderopen)) {
     // Do nothing as the cursor is between two placeholders
     setShowEditPlaceholderModal(false);
     return;
@@ -376,19 +383,21 @@ const handleLeftClick = (event) => {
     const afterCursor = text.substring(cursorPosition, text.length);
 
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
+    const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
     const afterPlaceholder = afterCursor.indexOf('}');
+    const afterPlaceholderopen = afterCursor.indexOf('{');
 
     let newText;
-    if (beforePlaceholder !== -1 && (afterPlaceholder !== -1 || afterCursor.startsWith('}'))) {
+    if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>=beforePlaceholder && afterPlaceholder >= afterPlaceholderopen)) {
+      newText = `${beforeCursor}${newValue}${afterCursor}`;
+      textarea.value = newText;
+      textarea.selectionStart = textarea.selectionEnd = cursorPosition + newValue.length;
+    } else {
       const placeholderContent = text.substring(beforePlaceholder + 1, cursorPosition + afterPlaceholder);
       const newPlaceholderContent = `${placeholderContent},${modalPlaceholder}${optionsStr}`;
       newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(newPlaceholderContent)}${text.substring(cursorPosition + afterPlaceholder)}`;
       textarea.value = newText;
       textarea.selectionStart = textarea.selectionEnd = cursorPosition + newPlaceholderContent.length - placeholderContent.length;
-    } else {
-      newText = `${beforeCursor}${newValue}${afterCursor}`;
-      textarea.value = newText;
-      textarea.selectionStart = textarea.selectionEnd = cursorPosition + newValue.length;
     }
 
     setTemplateData(prevState => ({
@@ -435,6 +444,7 @@ const handleLeftClick = (event) => {
   
     setShowEditPlaceholderModal(false);
   }
+  
   
 
   function handleModalClose() {
@@ -493,6 +503,10 @@ const handleLeftClick = (event) => {
   };
 
   const handlePlaceholderClick = (placeholder) => {
+
+  // Split the placeholder by '|' and take the left value
+  placeholder = placeholder.includes('|') ? placeholder.split('|')[0] : placeholder;
+
     const variable = templateData.variables.find(v => v.definition.placeholder === placeholder);
     if (variable && variable.definition.options && variable.definition.options.length > 0) {
       setModalOptions(variable.definition.options);

@@ -8,6 +8,7 @@ const ItemType = {
 };
 
 const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlaceholder, onClick }) => {
+  
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -30,6 +31,9 @@ const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlace
 
   drag(drop(ref));
 
+  // Split the placeholder by '|' and take the left value
+  const displayText = placeholder.includes('|') ? placeholder.split('|')[0] : placeholder;
+
   return (
     <ListGroup.Item
       ref={ref}
@@ -42,7 +46,7 @@ const DraggablePlaceholder = ({ placeholder, index, movePlaceholder, removePlace
       }}
       onClick={() => onClick(placeholder)}
     >
-      {placeholder}
+      {displayText}
       <Button
         variant="danger"
         size="sm"
