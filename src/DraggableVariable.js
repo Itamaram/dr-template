@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { Card, FormControl, FormCheck, FormGroup, FormLabel, Button } from 'react-bootstrap';
 import ConditionEditor from './controls/ConditionEditor';
@@ -24,12 +24,18 @@ const DraggableVariable = ({
   controlType,
 }) => {
   const ref = useRef(null);
+  const inputRef = useRef(null);
+  const defaultInputRef = useRef(null);
   const [canDrag, setCanDrag] = useState(true);
   const [title, setTitle] = useState(variable.definition.placeholder);
   const [isValid, setIsValid] = useState(true);
   const [originalPlaceholder, setOriginalPlaceholder] = useState(variable.definition.placeholder);
   const [inline, setInline] = useState(variable.definition.inline || false);
   const [isEditingPlaceholder, setIsEditingPlaceholder] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const [defaultCursorPosition, setDefaultCursorPosition] = useState(0);
+  const [localValue, setLocalValue] = useState(variable.definition.display || '');
+  const [localDefaultValue, setLocalDefaultValue] = useState(variable.definition.default || '');
 
   const [, drop] = useDrop({
     accept: ItemTypes.VARIABLE,
@@ -66,7 +72,7 @@ const DraggableVariable = ({
 
   const opacity = isDragging ? 0 : 1;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const inputElements = ref.current.querySelectorAll('input, textarea, select');
     const handleFocus = () => setCanDrag(false);
     const handleBlur = () => setCanDrag(true);
@@ -83,6 +89,18 @@ const DraggableVariable = ({
       });
     };
   }, []);
+
+  useLayoutEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [localValue, cursorPosition]);
+
+  useLayoutEffect(() => {
+    if (defaultInputRef.current) {
+      defaultInputRef.current.setSelectionRange(defaultCursorPosition, defaultCursorPosition);
+    }
+  }, [localDefaultValue, defaultCursorPosition]);
 
   const validateTitle = (value) =>
     /^[a-zA-Z0-9_]*$/.test(value) && value !== '' && (!placeholders.includes(value) || value === originalPlaceholder);
@@ -164,6 +182,22 @@ const DraggableVariable = ({
     }
   };
 
+  const handleDisplayChange = (e) => {
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    const newValue = e.target.value;
+    setLocalValue(newValue);
+    handleChange('display', newValue);
+  };
+
+  const handleDefaultChange = (e) => {
+    const cursorPos = e.target.selectionStart;
+    setDefaultCursorPosition(cursorPos);
+    const newValue = e.target.value;
+    setLocalDefaultValue(newValue);
+    handleChange('default', newValue);
+  };
+
   const availablePlaceholders = placeholders.filter((ph) => ph !== variable.definition.placeholder);
 
   return (
@@ -227,8 +261,9 @@ const DraggableVariable = ({
               <FormLabel>Display</FormLabel>
               <FormControl
                 type="text"
-                value={variable.definition.display}
-                onChange={(e) => handleChange('display', e.target.value)}
+                value={localValue}
+                onChange={handleDisplayChange}
+                ref={inputRef} // Attach ref to the input
               />
             </FormGroup>
           )}
@@ -247,8 +282,9 @@ const DraggableVariable = ({
               <FormLabel>Default Value</FormLabel>
               <FormControl
                 type="text"
-                value={variable.definition.default}
-                onChange={(e) => handleChange('default', e.target.value)}
+                value={localDefaultValue}
+                onChange={handleDefaultChange}
+                ref={defaultInputRef} // Attach ref to the default input
               />
             </FormGroup>
           )}

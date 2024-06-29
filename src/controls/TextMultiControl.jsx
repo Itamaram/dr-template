@@ -20,7 +20,9 @@ function TextMultiControl(props) {
   const handleDefaultChange = (e) => {
     const cursorPos = e.target.selectionStart;
     setCursorPosition(cursorPos);
-    editControl(placeholder, display, hide, e.target.value.replace(/\r?\n/g, '<br>'), placeholder, definition.condition, {});
+    const newValue = e.target.value.replace(/\r?\n/g, '<br>');
+    setLocalValue(newValue);
+    editControl(placeholder, display, hide, newValue, placeholder, definition.condition, {});
   };
 
   useLayoutEffect(() => {
