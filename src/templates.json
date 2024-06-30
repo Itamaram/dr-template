@@ -1,30 +1,11 @@
 [
     {
-        "name": "testing new",
+        "name": "testing new1",
         "pattern": "<p>testing{test}{type_template}</p>",
         "variables": [
-            
-            {
-                "type":"text",
-                "placeholder":"down_list",
-                "default":"down_list",
-                "hide":true
-            },
-            {
-                "type": "title",
-                "text":"Background",
-                "style":"medium"
-            },
           {
-            "type": "date",
-            "placeholder": "test1",
-            "display": "testing",
-            "hide": false,
-            "condition":{}
-          },
-          {
-            "type": "radio",
             "placeholder": "type_template",
+            "type": "radio",
             "display": "Which type of template is it?",
             "options": [
               {
@@ -40,7 +21,62 @@
                 "value": " Physiotherapy Discharge review"
               }
             ],
-            "hide": false
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "new_option",
+            "newKey": "Discharge"
+          },
+          {
+            "type": "text",
+            "placeholder": "down_list",
+            "default": "down_list",
+            "hide": false,
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "type": "title",
+            "text": "Background",
+            "style": "medium"
+          },
+          {
+            "type": "date",
+            "placeholder": "test1",
+            "display": "testing",
+            "hide": false,
+            "condition": {}
+          },
+          {
+            "type": "select",
+            "placeholder": "living",
+            "display": "Living Situation",
+            "options": [
+              {
+                "key": "lives alone",
+                "value": "lives alone"
+              },
+              {
+                "key": "spouse/partner",
+                "value": "spouse/partner"
+              },
+              {
+                "key": "dependants",
+                "value": "dependants"
+              },
+              {
+                "key": "friend",
+                "value": "friend"
+              },
+              {
+                "key": "relative",
+                "value": "relative"
+              }
+            ],
+            "default": []
           },
           {
             "type": "text",
@@ -56,24 +92,29 @@
         "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{hopc_text}{hopc}<br><br>{subjective_text}:<br>{subjective}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{home_setup_text}{home_setup}{premorbid_text}{premorbid}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br><br>Current level of function<br>- Bed mobility: {bed_mobility}<br>- Bed transfer: {bed_transfer}<br>- Sit to stand: {sit_stand}<br>- Ambulation (aid, assistance, distance): {mobility}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Current ADL function : {adl_func_current}<br><br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}{obj_measure|6 minute walk test}{obj_measure_6}{obj_measure|Timed up and go test}{obj_measure_up}{obj_measure|10 metre walk test}{obj_measure_10}{obj_measure|5 x sit to stand test}{obj_measure_5}{obj_measure|Other}{obj_measure_other}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}{goal_patient_discharge_text}{goal_patient_discharge_comment}<br>Barriers/enablers to DC: {barriers}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
         "variables": [
             {
-                    "type":"radio",
-                    "placeholder":"type_template",
-                    "display":"Which type of template is it?",
-                    "options":[
-                        {
-                            "key": "Initial assessment",
-                            "value": " Physiotherapy Initial assessment"
-                        },
-                        {
-                            "key": "Review",
-                            "value": " Physiotherapy Review"
-                        },
-                        {
-                            "key": "Discharge",
-                            "value": " Physiotherapy Discharge review"
-                        }
-                    ]
-                },
+                "placeholder": "type_template",
+                "type": "radio",
+                "display": "Which type of template is it?",
+                "options": [
+                  {
+                    "key": "Initial assessment",
+                    "value": " Physiotherapy Initial assessment"
+                  },
+                  {
+                    "key": "Review",
+                    "value": " Physiotherapy Review"
+                  },
+                  {
+                    "key": "Discharge",
+                    "value": " Physiotherapy Discharge review"
+                  }
+                ],
+                "hide": false,
+                "default": "",
+                "inline": false,
+                "oldKey": "new_option",
+                "newKey": "Discharge"
+              },
             {
                     "type":"text",
                     "placeholder":"down_list",
@@ -426,21 +467,27 @@
                     "display":"Living Situation",
                     "options":[
                         {
-                            "key": "lives alone"
+                            "key": "lives alone",
+                            "value": "lives alone"
                         },
                         {
-                            "key": "spouse/partner"
+                            "key": "spouse/partner",
+                            "value": "spouse/partner"
                         },
                         {
-                            "key": "dependants"
+                            "key": "dependants",
+                            "value": "dependants"
                         },
                         {
-                            "key": "friend"
+                            "key": "friend",
+                            "value": "friend"
                         },
                         {
-                            "key": "relative"
+                            "key": "relative",
+                            "value": "relative"
                         }
                     ],
+                    "default":[],
                     "condition":{
                         "field": "type_template",
                         "equals": "Initial assessment"
@@ -570,6 +617,7 @@
                     "type":"select",
                     "placeholder":"bed_mobility",
                     "display":"Current level of function - bed mobility",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -593,6 +641,7 @@
                     "type":"select",
                     "placeholder":"bed_transfer",
                     "display":"Current level of function - bed transfer",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -616,6 +665,7 @@
                     "type":"select",
                     "placeholder":"sit_stand",
                     "display":"Current level of function - sit to stand",
+                    "default":[],
                     "options":[
                         {
                             "key": "independent"
@@ -1457,6 +1507,7 @@
             {
                     "type":"select",
                     "placeholder":"pt_required_options",
+                    "default":[],
                     "display":" ",
                     "options":[
                         {
@@ -2188,6 +2239,7 @@
                     "type":"select",
                     "placeholder":"living",
                     "display":"Living Situation",
+                    "default":[],
                     "options":[
                         {
                             "key": "Lives alone"
@@ -2224,6 +2276,7 @@
                     "type":"select",
                     "placeholder":"funding",
                     "display":"Funding",
+                    "default":[],
                     "options":[
                         {
                             "key": "CHSP"
@@ -2260,6 +2313,7 @@
                     "type":"select",
                     "placeholder":"services",
                     "display":"Services",
+                    "default":[],
                     "options":[
                         {
                             "key": "MOW"
@@ -3757,6 +3811,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"purpose",
                     "display":"Purpose of review",
                     "options":[
@@ -4233,6 +4288,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"mobility",
                     "display":"Mobility function",
                     "options":[
@@ -4375,7 +4431,103 @@
                 }
         ]
     },
-    
+    {
+        "name": "MDT Case Conference",
+        "pattern": "<p>MULTI-DISCPLINARY CASE CONFERENCE<br>Date: {new_date_1719541535645}<br>Link Person: {new_text_1719541546982}<br>Link Designation: {new_text_1719541554896}<br>Link contact: {new_text_1719541565631}<br><br>Patient discussed in case conference today. Please refer to patient directed subacute admission plan<br>(AD3087)<br>Comments:<br>{new_textmulti_1719541576631}<br><br>Progress: Drop down box: {new_dropdown_1719541587699}<br><br>EDD: {new_date_1719541601183}<br>Plan: <br>{new_textmulti_1719541613817}</p>",
+        "variables": [
+          {
+            "placeholder": "new_date_1719541535645",
+            "type": "date",
+            "display": "Today's date",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541546982",
+            "type": "text",
+            "display": "Link person",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541554896",
+            "type": "text",
+            "display": "Link Designation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1719541565631",
+            "type": "text",
+            "display": "Link contact number",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1719541576631",
+            "type": "textmulti",
+            "display": "Patient discussed in case conference today. Please refer to patient directed subacute admission plan (AD3087) Comments:",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_dropdown_1719541587699",
+            "type": "dropdown",
+            "display": "Progress",
+            "options": [
+              {
+                "key": "On track",
+                "value": "On track"
+              },
+              {
+                "key": "Slow to progress",
+                "value": "Slow to progress"
+              },
+              {
+                "key": "Bring EDD forward",
+                "value": "Bring EDD forward"
+              },
+              {
+                "key": "Extended EDD",
+                "value": "Extended EDD"
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Extended ED",
+            "newKey": "Extended EDD"
+          },
+          {
+            "placeholder": "new_date_1719541601183",
+            "type": "date",
+            "display": "EDD",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1719541613817",
+            "type": "textmulti",
+            "display": "Plan",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          }
+        ]
+      },    
     
     
     
@@ -5034,6 +5186,7 @@
                 },
             {
                     "type":"select",
+                    "default":[],
                     "placeholder":"diagnosis",
                     "display":"Patient's diagnosis",
                     "options":[

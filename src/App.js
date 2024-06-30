@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { FormControl, Form, Row, Col, Button} from 'react-bootstrap';
+import { FormControl, Form, Row, Col, Button } from 'react-bootstrap';
 import parse from 'html-react-parser';
 
 import assess from './conditions';
@@ -47,10 +47,10 @@ function Container() {
     }
   }, [editMode]);
 
-    // Function to update template data
-    const updateTemplateData = (newTemplateData) => {
-      setTemplateData(newTemplateData);
-    };
+  // Function to update template data
+  const updateTemplateData = (newTemplateData) => {
+    setTemplateData(newTemplateData);
+  };
 
   function processTemplate(template) {
     const variables = template.variables.map((v) => ({ definition: v, handler: handlers[v.type] }));
@@ -105,24 +105,24 @@ function Container() {
             placeholder: newPlaceholder,
             ...updatedFields,
           };
-
+  
           if (!isConditionEmpty(condition)) {
             updatedDefinition.condition = condition;
           } else {
             delete updatedDefinition.condition;
           }
-
+  
           return {
             ...variable,
             definition: updatedDefinition,
           };
         }
-
+  
         let updatedCondition = variable.definition.condition;
         if (variable.definition.condition && typeof variable.definition.condition === 'object') {
           updatedCondition = updateConditionPlaceholders(variable.definition.condition, key, newPlaceholder, updatedFields.oldKey, updatedFields.newKey, action);
         }
-
+  
         return {
           ...variable,
           definition: {
@@ -131,15 +131,15 @@ function Container() {
           },
         };
       });
-
+  
       const updatedValues = { ...prevState.values };
       if (updatedValues[key]) {
         updatedValues[newPlaceholder] = updatedValues[key];
         delete updatedValues[key];
       }
-
+  
       const updatedPattern = updatePatternPlaceholders(prevState.pattern, key, newPlaceholder);
-
+  
       return {
         ...prevState,
         variables: updatedVariables,
@@ -148,22 +148,22 @@ function Container() {
       };
     });
   }
-
+  
   function updateConditionPlaceholders(condition, oldPlaceholder, newPlaceholder, oldKey, newKey, action) {
     if (!condition) {
       return condition;
     }
-
+  
     if (Array.isArray(condition)) {
       return condition.map(cond => updateConditionPlaceholders(cond, oldPlaceholder, newPlaceholder, oldKey, newKey, action)).filter(cond => cond !== null);
     }
-
+  
     let updatedCondition = { ...condition };
-
+  
     if (condition.field === oldPlaceholder) {
       updatedCondition = { ...updatedCondition, field: newPlaceholder };
     }
-
+  
     const operatorKey = Object.keys(updatedCondition).find(key => key !== 'field');
     if (operatorKey && Array.isArray(updatedCondition[operatorKey])) {
       updatedCondition = {
@@ -173,11 +173,14 @@ function Container() {
     } else if (condition.field === oldPlaceholder && condition[operatorKey] === oldKey) {
       if (action === 'remove') {
         return null;
+      } else if (action === 'update') {
+        updatedCondition[operatorKey] = newKey;
       }
     }
-
+  
     return updatedCondition;
   }
+  
 
   function moveVariable(dragIndex, hoverIndex) {
     const draggedVariable = templateData.variables[dragIndex];
@@ -269,7 +272,9 @@ function Container() {
   function handleRightClick(event) {
     event.preventDefault();
     const placeholders = templateData.variables.map(v => v.definition.placeholder);
-    const cursorPos = textareaRef.current.selectionStart;
+  
+    // Get the cursor position
+    const cursorPos = event.target.selectionStart || textareaRef.current.selectionStart;
     setCursorPosition(cursorPos);
   
     if (!selectedVariable || !placeholders.includes(selectedVariable)) {
@@ -281,10 +286,12 @@ function Container() {
     const afterCursor = text.substring(cursorPos);
   
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
+    const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
     const afterPlaceholder = afterCursor.indexOf('}');
+    const afterPlaceholderopen = afterCursor.indexOf('{');
   
     // Check if the cursor is between }{
-    if (beforeCursor.endsWith('}') && afterCursor.startsWith('{')) {
+    if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>=beforePlaceholder && afterPlaceholder >= afterPlaceholderopen)) {
       const variable = templateData.variables.find(v => v.definition.placeholder === selectedVariable);
       if (variable && variable.definition.options && variable.definition.options.length > 0) {
         setModalOptions(variable.definition.options);
@@ -340,6 +347,7 @@ function Container() {
     }));
   }
   
+  
 const handleLeftClick = (event) => {
   if (!editMode) return;
 
@@ -349,10 +357,12 @@ const handleLeftClick = (event) => {
   const afterCursor = text.substring(cursorPos);
 
   const beforePlaceholder = beforeCursor.lastIndexOf('{');
+  const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
   const afterPlaceholder = afterCursor.indexOf('}');
+  const afterPlaceholderopen = afterCursor.indexOf('{');
 
   // Check if the cursor is between }{
-  if (beforeCursor.endsWith('}') && afterCursor.startsWith('{')) {
+  if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>beforePlaceholder && afterPlaceholder > afterPlaceholderopen)) {
     // Do nothing as the cursor is between two placeholders
     setShowEditPlaceholderModal(false);
     return;
@@ -376,19 +386,21 @@ const handleLeftClick = (event) => {
     const afterCursor = text.substring(cursorPosition, text.length);
 
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
+    const beforePlaceholderclose = beforeCursor.lastIndexOf('}');
     const afterPlaceholder = afterCursor.indexOf('}');
+    const afterPlaceholderopen = afterCursor.indexOf('{');
 
     let newText;
-    if (beforePlaceholder !== -1 && (afterPlaceholder !== -1 || afterCursor.startsWith('}'))) {
+    if ((beforeCursor.endsWith('}') && afterCursor.startsWith('{')) || (beforePlaceholderclose>=beforePlaceholder && afterPlaceholder >= afterPlaceholderopen)) {
+      newText = `${beforeCursor}${newValue}${afterCursor}`;
+      textarea.value = newText;
+      textarea.selectionStart = textarea.selectionEnd = cursorPosition + newValue.length;
+    } else {
       const placeholderContent = text.substring(beforePlaceholder + 1, cursorPosition + afterPlaceholder);
       const newPlaceholderContent = `${placeholderContent},${modalPlaceholder}${optionsStr}`;
       newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(newPlaceholderContent)}${text.substring(cursorPosition + afterPlaceholder)}`;
       textarea.value = newText;
       textarea.selectionStart = textarea.selectionEnd = cursorPosition + newPlaceholderContent.length - placeholderContent.length;
-    } else {
-      newText = `${beforeCursor}${newValue}${afterCursor}`;
-      textarea.value = newText;
-      textarea.selectionStart = textarea.selectionEnd = cursorPosition + newValue.length;
     }
 
     setTemplateData(prevState => ({
@@ -401,25 +413,42 @@ const handleLeftClick = (event) => {
   }
 
   function handlePlaceholderModalSave(updatedPlaceholders) {
-    const updatedPlaceholderContent = updatedPlaceholders.join(',');
+    const specialPlaceholders = ['down_list', 'colon', 'fullstop'];
+    const remainingPlaceholders = updatedPlaceholders.filter(ph => !specialPlaceholders.includes(ph));
+    
     const text = textareaRef.current.value;
     const cursorPos = textareaRef.current.selectionStart;
     const beforeCursor = text.substring(0, cursorPos);
     const afterCursor = text.substring(cursorPos);
     const beforePlaceholder = beforeCursor.lastIndexOf('{');
     const afterPlaceholder = afterCursor.indexOf('}');
-
-    const newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(updatedPlaceholderContent)}${text.substring(cursorPos + afterPlaceholder)}`;
-    textareaRef.current.value = newText;
-    textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder + 1 + updatedPlaceholderContent.length;
-
-    setTemplateData((prevState) => ({
-      ...prevState,
-      pattern: textToHtml(newText),
-    }));
-
+  
+    // If there are no remaining normal placeholders, remove the entire placeholder element
+    if (remainingPlaceholders.length === 0) {
+      const newText = `${text.substring(0, beforePlaceholder)}${text.substring(cursorPos + afterPlaceholder + 1)}`;
+      textareaRef.current.value = newText;
+      textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder;
+  
+      setTemplateData((prevState) => ({
+        ...prevState,
+        pattern: textToHtml(newText),
+      }));
+    } else {
+      const updatedPlaceholderContent = updatedPlaceholders.join(',');
+      const newText = `${text.substring(0, beforePlaceholder + 1)}${reorderPlaceholders(updatedPlaceholderContent)}${text.substring(cursorPos + afterPlaceholder)}`;
+      textareaRef.current.value = newText;
+      textareaRef.current.selectionStart = textareaRef.current.selectionEnd = beforePlaceholder + 1 + updatedPlaceholderContent.length;
+  
+      setTemplateData((prevState) => ({
+        ...prevState,
+        pattern: textToHtml(newText),
+      }));
+    }
+  
     setShowEditPlaceholderModal(false);
   }
+  
+  
 
   function handleModalClose() {
     setShowModal(false);
@@ -459,7 +488,6 @@ const handleLeftClick = (event) => {
       reader.readAsText(file);
     }
   };
-  
 
   const deleteVariable = (placeholder) => {
     setTemplateData((prevState) => {
@@ -475,6 +503,19 @@ const handleLeftClick = (event) => {
         pattern: updatedPattern,
       };
     });
+  };
+
+  const handlePlaceholderClick = (placeholder) => {
+
+  // Split the placeholder by '|' and take the left value
+  placeholder = placeholder.includes('|') ? placeholder.split('|')[0] : placeholder;
+
+    const variable = templateData.variables.find(v => v.definition.placeholder === placeholder);
+    if (variable && variable.definition.options && variable.definition.options.length > 0) {
+      setModalOptions(variable.definition.options);
+      setModalPlaceholder(placeholder);
+      setShowModal(true);
+    }
   };
 
   const { variables, values, pattern } = templateData;
@@ -520,20 +561,20 @@ const handleLeftClick = (event) => {
       <div className="row">
         <div className="col py-4">
           <div className="sticky-top">
-          <ControlsPane
-        variables={templateData.variables}
-        values={templateData.values}
-        onChange={onChange}
-        editMode={editMode}
-        editControl={editControl}
-        placeholders={placeholders}
-        moveVariable={moveVariable}
-        selectedVariable={selectedVariable}
-        setSelectedVariable={setSelectedVariable}
-        deleteVariable={deleteVariable}
-        updateTemplateData={updateTemplateData}
-        pattern={templateData.pattern} // Pass the pattern
-      />
+            <ControlsPane
+              variables={templateData.variables}
+              values={templateData.values}
+              onChange={onChange}
+              editMode={editMode}
+              editControl={editControl}
+              placeholders={placeholders}
+              moveVariable={moveVariable}
+              selectedVariable={selectedVariable}
+              setSelectedVariable={setSelectedVariable}
+              deleteVariable={deleteVariable}
+              updateTemplateData={updateTemplateData}
+              pattern={templateData.pattern} // Pass the pattern
+            />
           </div>
         </div>
         <div className="col py-4">
@@ -571,7 +612,7 @@ const handleLeftClick = (event) => {
                 <>
                   <Button onClick={handleExport} className="mb-3 w-100">
                     Export
-                  </Button>                  
+                  </Button>
                   <hr />
                   <FormControl
                     as="textarea"
@@ -583,7 +624,7 @@ const handleLeftClick = (event) => {
                     onClick={handleLeftClick}
                     className="sticky-top"
                   />
-                    <input
+                  <input
                     type="file"
                     accept=".txt"
                     onChange={handleImport}
@@ -592,9 +633,9 @@ const handleLeftClick = (event) => {
                 </>
               )}
               <FormControl
-            //    as="textarea"
-            //    rows={10}
-            //    value={JSON.stringify(jsonObject, null, 2)}
+                  as="textarea"
+                  rows={10}
+                  value={JSON.stringify(jsonObject, null, 2)}
               />
             </div>
           </div>
@@ -612,6 +653,7 @@ const handleLeftClick = (event) => {
         onHide={() => setShowEditPlaceholderModal(false)}
         placeholders={placeholderValues}
         onSave={handlePlaceholderModalSave}
+        handlePlaceholderClick={handlePlaceholderClick} // Pass the click handler
       />
     </div>
   );

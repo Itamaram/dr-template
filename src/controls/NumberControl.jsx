@@ -1,20 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { FormControl, FormGroup, FormLabel, Row, Col } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function NumberControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { display, placeholder, hide, text, default: defaultValue = '' } = definition;
-
-  const value = values[0]?.value || '';
+  const inputRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const [localValue, setLocalValue] = useState(values[0]?.value || '');
 
   // Remove the text part from the value
-  const numericValue = value.split(' ')[0];
+  const numericValue = localValue.split(' ')[0];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [localValue, cursorPosition]);
+
+  useLayoutEffect(() => {
     if (!editMode && defaultValue && values.length === 0) {
       const numericDefaultValue = defaultValue.replace(/[^0-9.]/g, '');
-      const valueWithText = numericDefaultValue ? text ? `${numericDefaultValue} ${text}` : `${numericDefaultValue}` : '';
+      const valueWithText = numericDefaultValue ? (text ? `${numericDefaultValue} ${text}` : `${numericDefaultValue}`) : '';
       onChange([{ value: valueWithText }]);
     }
   }, [editMode, defaultValue, onChange, text, values]);
@@ -22,7 +29,10 @@ function NumberControl(props) {
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
     const numericValue = inputValue.replace(/[^0-9.]/g, '');
-    const valueWithText = numericValue ? text ? `${numericValue} ${text}` : `${numericValue}` : '';
+    const valueWithText = numericValue ? (text ? `${numericValue} ${text}` : `${numericValue}`) : '';
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    setLocalValue(valueWithText);
     onChange([{ value: valueWithText }]);
   };
 
@@ -43,7 +53,6 @@ function NumberControl(props) {
         setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
         controlType="Number" // Pass control type
       >
-
       </DraggableVariable>
     );
   }
@@ -59,6 +68,7 @@ function NumberControl(props) {
             onChange={handleInputChange}
             pattern="[0-9.]*"
             inputMode="decimal"
+            ref={inputRef} // Attach ref to the input
           />
         </Col>
         <Col xs={3} className="d-flex align-items-center">

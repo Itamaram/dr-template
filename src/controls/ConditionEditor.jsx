@@ -68,7 +68,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
       const operatorKey = Object.keys(cond).find(key => key !== 'field');
       const selectedField = cond.field;
       const selectedFieldVariable = variables.find(v => v.definition.placeholder === selectedField);
-      const options = selectedFieldVariable ? selectedFieldVariable.definition.options : null;
+      const options = selectedFieldVariable ? (selectedFieldVariable?.definition?.options?.length > 0 ? selectedFieldVariable.definition.options : null) : null;
 
       if (cond.and || cond.or) {
         const operatorKey = cond.and ? 'and' : 'or';
@@ -131,9 +131,13 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                     <FormControl
                       as="select"
                       value={cond[operatorKey]}
-                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value)}
+  onChange={(e) => {
+    const value = e.target.value === "" ? [] : e.target.value;
+    handleConditionChange(index, operatorKey, value);
+  }}
                     >
                       <option value="">Select Value</option>
+                      <option value={[]}>Empty</option>
                       {options.map((opt, idx) => (
                         <option key={idx} value={opt.key}>{opt.key}</option>
                       ))}

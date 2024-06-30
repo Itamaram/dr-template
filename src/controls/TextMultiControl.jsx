@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { FormGroup, FormLabel, FormControl } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function TextMultiControl(props) {
   const { definition, values, onChange, editMode, editControl, placeholders, index, moveVariable, variables, deleteVariable, selectedVariable, setSelectedVariable } = props;
   const { display, placeholder, hide, default: defaultValue } = definition;
+  const inputRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const [localValue, setLocalValue] = useState(values[0]?.value.replace(/<br>/g, '\n') || '');
 
   const handleInputChange = (e) => {
-    onChange([{ value: e.target.value.replace(/\r?\n/g, '<br>') }]);
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    const newValue = e.target.value;
+    setLocalValue(newValue);
+    onChange([{ value: newValue.replace(/\r?\n/g, '<br>') }]);
   };
 
   const handleDefaultChange = (e) => {
-    editControl(placeholder, display, hide, e.target.value.replace(/\r?\n/g, '<br>'), placeholder, definition.condition, {});
+    const cursorPos = e.target.selectionStart;
+    setCursorPosition(cursorPos);
+    const newValue = e.target.value.replace(/\r?\n/g, '<br>');
+    setLocalValue(newValue);
+    editControl(placeholder, display, hide, newValue, placeholder, definition.condition, {});
   };
+
+  useLayoutEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+    }
+  }, [localValue, cursorPosition]);
+
+  useLayoutEffect(() => {
+    setLocalValue(values[0]?.value.replace(/<br>/g, '\n') || '');
+  }, [values]);
 
   if (!editMode && hide) {
     return null;
@@ -37,20 +58,17 @@ function TextMultiControl(props) {
           controlType="Text Multi" // Pass control type
         >
           <FormGroup>
+            <FormLabel>Default Value</FormLabel>
+            <FormControl
+              as="textarea"
+              rows={5}
+              value={(defaultValue ? defaultValue.replace(/<br>/g, '\n') : '') || ''}
+              onChange={handleDefaultChange}
+              placeholder="Enter default text"
+              className="my-textarea"
+              ref={inputRef} // Attach ref to the input
+            />
           </FormGroup>
-          {editMode && (
-            <FormGroup>
-              <FormLabel>Default Value</FormLabel>
-              <FormControl
-                as="textarea"
-                rows={5}
-                value={(defaultValue ? defaultValue.replace(/<br>/g, '\n') : '') || ''}
-                onChange={handleDefaultChange}
-                placeholder="Enter default text"
-                className="my-textarea"
-              />
-            </FormGroup>
-          )}
         </DraggableVariable>
       ) : (
         <>
@@ -58,9 +76,10 @@ function TextMultiControl(props) {
           <FormControl
             as="textarea"
             rows={5}
-            value={(values[0]?.value ? values[0]?.value.replace(/<br>/g, '\n') : '') || ''}
+            value={localValue}
             onChange={handleInputChange}
             className="my-textarea"
+            ref={inputRef} // Attach ref to the input
           />
         </>
       )}
