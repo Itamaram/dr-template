@@ -12,8 +12,8 @@ export default function assess(condition, values) {
     if (condition['not-equals'])
         return !!condition['not-equals'].length
             ? !values[condition.field]?.map(({value}) => value).includes(condition['not-equals'])
-            : values[condition.field][0]?.value === ''?!!values[condition.field][0]?.value.length
-            :!!values[condition.field].length;
+            : values[condition?.field]? values[condition.field][0]?.value === ''?!!values[condition.field][0]?.value.length
+            :!!values[condition.field].length: false;
     if (condition.contains)
         return !!condition.contains.length
             ? values[condition.field]?.map(({value}) => value.toLowerCase().includes(condition.contains.toLowerCase())).some(function(v) { return v === true;})

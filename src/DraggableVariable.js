@@ -1,6 +1,6 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Card, FormControl, FormCheck, FormGroup, FormLabel, Button } from 'react-bootstrap';
+import { Card, FormControl, FormCheck, FormGroup, FormLabel, Button, Row, Col } from 'react-bootstrap';
 import ConditionEditor from './controls/ConditionEditor';
 
 const ItemTypes = {
@@ -36,6 +36,10 @@ const DraggableVariable = ({
   const [defaultCursorPosition, setDefaultCursorPosition] = useState(0);
   const [localValue, setLocalValue] = useState(variable.definition.display || '');
   const [localDefaultValue, setLocalDefaultValue] = useState(variable.definition.default || '');
+  const [localOptions, setLocalOptions] = useState(variable.definition.options || []);
+
+  const inputRefs = useRef([]);
+  const [cursorPositions, setCursorPositions] = useState(localOptions.map(() => 0));
 
   const [, drop] = useDrop({
     accept: ItemTypes.VARIABLE,
@@ -101,6 +105,14 @@ const DraggableVariable = ({
       defaultInputRef.current.setSelectionRange(defaultCursorPosition, defaultCursorPosition);
     }
   }, [localDefaultValue, defaultCursorPosition]);
+
+  useLayoutEffect(() => {
+    localOptions.forEach((_, index) => {
+      if (inputRefs.current[index]) {
+        inputRefs.current[index].setSelectionRange(cursorPositions[index], cursorPositions[index]);
+      }
+    });
+  }, [localOptions, cursorPositions]);
 
   const validateTitle = (value) =>
     /^[a-zA-Z0-9_]*$/.test(value) && value !== '' && (!placeholders.includes(value) || value === originalPlaceholder);
@@ -177,7 +189,6 @@ const DraggableVariable = ({
         setSelectedVariable(null);
       } else {
         setSelectedVariable(variable.definition.placeholder);
-        // copyToClipboard(`${variable.definition.placeholder}`);
       }
     }
   };
@@ -196,6 +207,128 @@ const DraggableVariable = ({
     const newValue = e.target.value;
     setLocalDefaultValue(newValue);
     handleChange('default', newValue);
+  };
+
+  const handleOptionInputChange = (index, field, e) => {
+    const cursorPos = e.target.selectionStart;
+    const newCursorPositions = [...cursorPositions];
+    newCursorPositions[index] = cursorPos;
+    setCursorPositions(newCursorPositions);
+    handleOptionChange(index, field, e.target.value);
+  };
+
+  const handleOptionChange = (index, field, value) => {
+    const oldKey = localOptions[index].key;
+    const updatedOptions = localOptions.map((opt, i) => (i === index ? { ...opt, [field]: value } : opt));
+    const updatedFields = { options: updatedOptions };
+
+    if (field === 'key') {
+      updatedFields.oldKey = oldKey;
+      updatedFields.newKey = value;
+    }
+
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      variable.definition.default,
+      title,
+      variable.definition.condition,
+      updatedFields, 'update'
+    );
+    setLocalOptions(updatedOptions);
+  };
+
+  const handleAddOption = () => {
+    const updatedOptions = [...localOptions, { key: 'new_option', value: 'New Option' }];
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      variable.definition.default,
+      title,
+      variable.definition.condition,
+      { options: updatedOptions }
+    );
+    setLocalOptions(updatedOptions);
+  };
+
+  const handleRemoveOption = index => {
+    const optionToRemove = localOptions[index];
+    const oldKey = optionToRemove.key;
+
+    const isKeyUsedInConditions = variables.some(variable => {
+      const condition = variable.definition.condition;
+      return condition && JSON.stringify(condition).includes(`"field":"${title}"`) && JSON.stringify(condition).includes(`"equals":"${oldKey}"`);
+    });
+
+    if (isKeyUsedInConditions) {
+      const shouldDeleteConditions = window.confirm(`The key "${oldKey}" is used in conditions. Do you want to proceed? This will delete all conditions related to this key`);
+
+      let action;
+      if (shouldDeleteConditions) {
+        action = 'remove';
+      } else {
+        return;
+      }
+
+      const updatedOptions = localOptions.filter((_, i) => i !== index);
+      const newDefaultValue = oldKey === localDefaultValue ? '' : localDefaultValue;
+      editControl(
+        variable.definition.placeholder,
+        variable.definition.display,
+        variable.definition.hide,
+        newDefaultValue,
+        title,
+        variable.definition.condition,
+        { options: updatedOptions, oldKey, newKey: '' },
+        action
+      );
+      setLocalOptions(updatedOptions);
+      setLocalDefaultValue(newDefaultValue);
+    } else {
+      const updatedOptions = localOptions.filter((_, i) => i !== index);
+      const newDefaultValue = oldKey === localDefaultValue ? '' : localDefaultValue;
+      editControl(
+        variable.definition.placeholder,
+        variable.definition.display,
+        variable.definition.hide,
+        newDefaultValue,
+        title,
+        variable.definition.condition,
+        { options: updatedOptions }
+      );
+      setLocalOptions(updatedOptions);
+      setLocalDefaultValue(newDefaultValue);
+    }
+  };
+
+  const handleOptionClick = (key) => {
+    let newDefaultValue;
+    if (controlType === 'Checkbox' || controlType === 'Select') {
+      if (Array.isArray(localDefaultValue)) {
+        if (localDefaultValue.includes(key)) {
+          newDefaultValue = localDefaultValue.filter((value) => value !== key);
+        } else {
+          newDefaultValue = [...localDefaultValue, key];
+        }
+      } else {
+        newDefaultValue = [key];
+      }
+    } else {
+      newDefaultValue = key === localDefaultValue ? '' : key;
+    }
+
+    setLocalDefaultValue(newDefaultValue);
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      newDefaultValue,
+      title,
+      variable.definition.condition,
+      { inline }
+    );
   };
 
   const availablePlaceholders = placeholders.filter((ph) => ph !== variable.definition.placeholder);
@@ -296,6 +429,44 @@ const DraggableVariable = ({
                 checked={inline}
                 onChange={handleInlineChange}
               />
+            </FormGroup>
+          )}
+          {showModels.includes('options') && (
+            <FormGroup>
+              <FormLabel>Options</FormLabel>
+              {localOptions.map((o, i) => (
+                <Row
+                  key={i}
+                  style={{
+                    cursor: 'pointer',
+                    backgroundColor: (Array.isArray(localDefaultValue) ? localDefaultValue.includes(o.key) : localDefaultValue === o.key) ? 'lightblue' : 'inherit',
+                  }}
+                  onClick={() => handleOptionClick(o.key)} // Add click handler for options
+                >
+                  <Col>
+                    <FormControl
+                      type="text"
+                      value={o.key}
+                      onChange={(e) => handleOptionInputChange(i, 'key', e)}
+                      placeholder="Key"
+                      ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
+                    />
+                  </Col>
+                  <Col>
+                    <FormControl
+                      type="text"
+                      value={o.value}
+                      onChange={(e) => handleOptionInputChange(i, 'value', e)}
+                      placeholder="Value"
+                      ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
+                    />
+                  </Col>
+                  <Col>
+                    <Button variant="danger" onClick={() => handleRemoveOption(i)}>Remove</Button>
+                  </Col>
+                </Row>
+              ))}
+              <Button variant="primary" onClick={handleAddOption}>Add Option</Button>
             </FormGroup>
           )}
           {children}

@@ -23,25 +23,33 @@
             "condition":{}
           },
           {
-            "type": "radio",
-            "placeholder": "type_template",
-            "display": "Which type of template is it?",
-            "options": [
-              {
-                "key": "Initial assessment",
-                "value": " Physiotherapy Initial assessment"
-              },
-              {
-                "key": "Review",
-                "value": " Physiotherapy Review"
-              },
-              {
-                "key": "Discharge",
-                "value": " Physiotherapy Discharge review"
-              }
+            "type":"select",
+            "placeholder":"living",
+            "display":"Living Situation",
+            "options":[
+                {
+                    "key": "lives alone",
+                    "value": "lives alone"
+                },
+                {
+                    "key": "spouse/partner",
+                    "value": "spouse/partner"
+                },
+                {
+                    "key": "dependants",
+                    "value": "dependants"
+                },
+                {
+                    "key": "friend",
+                    "value": "friend"
+                },
+                {
+                    "key": "relative",
+                    "value": "relative"
+                }
             ],
-            "hide": false
-          },
+            "default":[]
+        },
           {
             "type": "text",
             "placeholder": "test2",

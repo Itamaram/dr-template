@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Select from 'react-select/creatable';
-import { FormGroup, FormLabel, Row, Col, FormControl, Button } from 'react-bootstrap';
+import { FormGroup, FormLabel } from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function SelectControl(props) {
@@ -16,7 +16,7 @@ function SelectControl(props) {
 
   useEffect(() => {
     const getSelectedOptions = () => {
-      return defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key });
+      return defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : [];
     };
     setSelectedOptions(getSelectedOptions());
   }, [options, defaultValues]);
@@ -33,83 +33,8 @@ function SelectControl(props) {
       label: inputValue,
     };
     setOptions((prevOptions) => [...prevOptions, newOption]);
+    setSelectedOptions((prevSelected) => (prevSelected ? [...prevSelected, newOption] : [newOption]));
     onChange([...values, newOption]);
-    setSelectedOptions((prevSelected) => [...prevSelected, newOption]);
-  };
-
-  const handleOptionChange = (index, field, value) => {
-    const oldKey = options[index].value;
-    const updatedOptions = options.map((opt, i) => (i === index ? { ...opt, [field]: value } : opt));
-    const updatedFields = { options: updatedOptions.map(({ value, label }) => ({ key: label, value })) };
-
-    if (field === 'value') {
-      updatedFields.oldKey = oldKey;
-      updatedFields.newKey = value;
-    }
-
-    editControl(placeholder, display, definition.hide, defaultValues, placeholder, definition.condition, updatedFields);
-    setOptions(updatedOptions);
-    const getSelectedOptions = () => {
-      return defaultValues.map(key => updatedOptions.find(option => option.value === key) || { value: key, label: key });
-    };
-    setSelectedOptions(getSelectedOptions());
-  };
-
-  const handleAddOption = () => {
-    const updatedOptions = [...options, { value: 'new_option', label: 'New Option' }];
-    editControl(placeholder, display, definition.hide, defaultValues, placeholder, definition.condition, { options: updatedOptions.map(({ value, label }) => ({ key: label, value })) });
-    setOptions(updatedOptions);
-    const getSelectedOptions = () => {
-      return defaultValues.map(key => updatedOptions.find(option => option.value === key) || { value: key, label: key });
-    };
-    setSelectedOptions(getSelectedOptions());
-  };
-
-  const handleRemoveOption = (index) => {
-    const optionToRemove = options[index];
-    const oldKey = optionToRemove.value;
-
-    // Check if the key is used in any conditions
-    const isKeyUsedInConditions = variables.some(variable => {
-      const condition = variable.definition.condition;
-      return condition && JSON.stringify(condition).includes(`"field":"${placeholder}"`) && JSON.stringify(condition).includes(`"equals":"${oldKey}"`);
-    });
-
-    if (isKeyUsedInConditions) {
-      const shouldDeleteConditions = window.confirm(`The key "${oldKey}" is used in conditions. Do you want to proceed? This will delete all conditions related to this key`);
-
-      let action;
-      if (shouldDeleteConditions) {
-        action = 'remove';
-      } else {
-        return;
-      }
-
-      const updatedOptions = options.filter((_, i) => i !== index);
-      const newDefaultValues = defaultValues.filter(value => value !== oldKey);
-      editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, { options: updatedOptions.map(({ value, label }) => ({ key: label, value })), oldKey, newKey: '' }, action);
-      setOptions(updatedOptions);
-      const getSelectedOptions = () => {
-        return newDefaultValues.map(key => updatedOptions.find(option => option.value === key) || { value: key, label: key });
-      };
-      setSelectedOptions(getSelectedOptions());
-    } else {
-      const updatedOptions = options.filter((_, i) => i !== index);
-      const newDefaultValues = defaultValues.filter(value => value !== oldKey);
-      editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, { options: updatedOptions.map(({ value, label }) => ({ key: label, value })) });
-      setOptions(updatedOptions);
-      const getSelectedOptions = () => {
-        return newDefaultValues.map(key => updatedOptions.find(option => option.value === key) || { value: key, label: key });
-      };
-      setSelectedOptions(getSelectedOptions());
-    }
-  };
-
-  const handleDefaultChange = key => {
-    const newDefaultValues = defaultValues.includes(key)
-      ? defaultValues.filter(value => value !== key)
-      : [...defaultValues, key];
-    editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, {});
   };
 
   // Ensure default values are set when switching to non-edit mode
@@ -119,14 +44,21 @@ function SelectControl(props) {
   useEffect(() => {
     if (isFirstRender.current || (!editMode && prevEditMode.current)) {
       const getSelectedOptions = () => {
-        return defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key });
+        return defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : [];
       };
-      onChange(defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }));
+      onChange(defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : []);
       isFirstRender.current = false;
       setSelectedOptions(getSelectedOptions());
     }
     prevEditMode.current = editMode;
   }, [editMode, defaultValues, onChange, options]);
+
+  useEffect(() => {
+    const getSelectedOptions = () => {
+      return values ? values.map(({ value }) => options.find(option => option.value === value) || { value, label: value }) : [];
+    };
+    setSelectedOptions(getSelectedOptions());
+  }, [options, values]);
 
   if (editMode) {
     return (
@@ -139,38 +71,12 @@ function SelectControl(props) {
         editControl={editControl}
         placeholders={placeholders}
         deleteVariable={deleteVariable} // Pass deleteVariable function
-        showModels={['display', 'condition', 'placeholder']} // Specify which models to show
+        showModels={['display', 'condition', 'placeholder', 'options']} // Specify which models to show
         variables={variables} // Pass variables to DraggableVariable
         selectedVariable={selectedVariable} // Pass selectedVariable
         setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
         controlType="Select" // Pass control type
       >
-        <FormGroup>
-          {options.map((o, i) => (
-            <Row key={i} onClick={() => handleDefaultChange(o.value)} style={{ cursor: 'pointer', backgroundColor: defaultValues.includes(o.value) ? 'lightblue' : 'inherit' }}>
-              <Col>
-                <FormControl
-                  type="text"
-                  value={o.label}
-                  onChange={(e) => handleOptionChange(i, 'label', e.target.value)}
-                  placeholder="Key"
-                />
-              </Col>
-              <Col>
-                <FormControl
-                  type="text"
-                  value={o.value}
-                  onChange={(e) => handleOptionChange(i, 'value', e.target.value)}
-                  placeholder="Value"
-                />
-              </Col>
-              <Col>
-                <Button variant="danger" onClick={() => handleRemoveOption(i)}>Remove</Button>
-              </Col>
-            </Row>
-          ))}
-          <Button variant="primary" onClick={handleAddOption}>Add Option</Button>
-        </FormGroup>
       </DraggableVariable>
     );
   }

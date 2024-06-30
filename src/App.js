@@ -105,24 +105,24 @@ function Container() {
             placeholder: newPlaceholder,
             ...updatedFields,
           };
-
+  
           if (!isConditionEmpty(condition)) {
             updatedDefinition.condition = condition;
           } else {
             delete updatedDefinition.condition;
           }
-
+  
           return {
             ...variable,
             definition: updatedDefinition,
           };
         }
-
+  
         let updatedCondition = variable.definition.condition;
         if (variable.definition.condition && typeof variable.definition.condition === 'object') {
           updatedCondition = updateConditionPlaceholders(variable.definition.condition, key, newPlaceholder, updatedFields.oldKey, updatedFields.newKey, action);
         }
-
+  
         return {
           ...variable,
           definition: {
@@ -131,15 +131,15 @@ function Container() {
           },
         };
       });
-
+  
       const updatedValues = { ...prevState.values };
       if (updatedValues[key]) {
         updatedValues[newPlaceholder] = updatedValues[key];
         delete updatedValues[key];
       }
-
+  
       const updatedPattern = updatePatternPlaceholders(prevState.pattern, key, newPlaceholder);
-
+  
       return {
         ...prevState,
         variables: updatedVariables,
@@ -148,22 +148,22 @@ function Container() {
       };
     });
   }
-
+  
   function updateConditionPlaceholders(condition, oldPlaceholder, newPlaceholder, oldKey, newKey, action) {
     if (!condition) {
       return condition;
     }
-
+  
     if (Array.isArray(condition)) {
       return condition.map(cond => updateConditionPlaceholders(cond, oldPlaceholder, newPlaceholder, oldKey, newKey, action)).filter(cond => cond !== null);
     }
-
+  
     let updatedCondition = { ...condition };
-
+  
     if (condition.field === oldPlaceholder) {
       updatedCondition = { ...updatedCondition, field: newPlaceholder };
     }
-
+  
     const operatorKey = Object.keys(updatedCondition).find(key => key !== 'field');
     if (operatorKey && Array.isArray(updatedCondition[operatorKey])) {
       updatedCondition = {
@@ -173,11 +173,14 @@ function Container() {
     } else if (condition.field === oldPlaceholder && condition[operatorKey] === oldKey) {
       if (action === 'remove') {
         return null;
+      } else if (action === 'update') {
+        updatedCondition[operatorKey] = newKey;
       }
     }
-
+  
     return updatedCondition;
   }
+  
 
   function moveVariable(dragIndex, hoverIndex) {
     const draggedVariable = templateData.variables[dragIndex];
@@ -630,9 +633,9 @@ const handleLeftClick = (event) => {
                 </>
               )}
               <FormControl
-             //     as="textarea"
-             //     rows={10}
-             //     value={JSON.stringify(jsonObject, null, 2)}
+                  as="textarea"
+                  rows={10}
+                  value={JSON.stringify(jsonObject, null, 2)}
               />
             </div>
           </div>
