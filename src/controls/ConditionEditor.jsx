@@ -131,7 +131,10 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                     <FormControl
                       as="select"
                       value={cond[operatorKey]}
-                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value)}
+  onChange={(e) => {
+    const value = e.target.value === "" ? [] : e.target.value;
+    handleConditionChange(index, operatorKey, value);
+  }}
                     >
                       <option value="">Select Value</option>
                       <option value={[]}>Empty</option>
