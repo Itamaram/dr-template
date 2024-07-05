@@ -1,7 +1,7 @@
 [
     {
         "name": "testing new1",
-        "pattern": "<p>testing{test}{type_template}</p>",
+        "pattern": "<p>testing{test}{type_template}{living}</p>",
         "variables": [
           {
             "placeholder": "type_template",
@@ -56,7 +56,7 @@
             "display": "Living Situation",
             "options": [
               {
-                "key": "lives alone",
+                "key": "Lives alone",
                 "value": "lives alone"
               },
               {
@@ -76,7 +76,10 @@
                 "value": "relative"
               }
             ],
-            "default": []
+            "default": [
+                "spouse/partner",
+                "dependants"
+              ]
           },
           {
             "type": "text",

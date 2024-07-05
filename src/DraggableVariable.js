@@ -1,7 +1,8 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Card, FormControl, FormCheck, FormGroup, FormLabel, Button, Row, Col } from 'react-bootstrap';
+import { Card, FormControl, FormCheck, FormGroup, FormLabel, Button} from 'react-bootstrap';
 import ConditionEditor from './controls/ConditionEditor';
+import DraggableOption from './DraggableOption'; // Import the new DraggableOption component
 
 const ItemTypes = {
   VARIABLE: 'variable',
@@ -234,7 +235,7 @@ const DraggableVariable = ({
       variable.definition.default,
       title,
       variable.definition.condition,
-      updatedFields, 'update'
+      updatedFields
     );
     setLocalOptions(updatedOptions);
   };
@@ -328,6 +329,23 @@ const DraggableVariable = ({
       title,
       variable.definition.condition,
       { inline }
+    );
+  };
+
+  const moveOption = (dragIndex, hoverIndex) => {
+    const draggedOption = localOptions[dragIndex];
+    const updatedOptions = [...localOptions];
+    updatedOptions.splice(dragIndex, 1);
+    updatedOptions.splice(hoverIndex, 0, draggedOption);
+    setLocalOptions(updatedOptions);
+    editControl(
+      variable.definition.placeholder,
+      variable.definition.display,
+      variable.definition.hide,
+      localDefaultValue,
+      title,
+      variable.definition.condition,
+      { options: updatedOptions }
     );
   };
 
@@ -435,36 +453,16 @@ const DraggableVariable = ({
             <FormGroup>
               <FormLabel>Options</FormLabel>
               {localOptions.map((o, i) => (
-                <Row
+                <DraggableOption
                   key={i}
-                  style={{
-                    cursor: 'pointer',
-                    backgroundColor: (Array.isArray(localDefaultValue) ? localDefaultValue.includes(o.key) : localDefaultValue === o.key) ? 'lightblue' : 'inherit',
-                  }}
-                  onClick={() => handleOptionClick(o.key)} // Add click handler for options
-                >
-                  <Col>
-                    <FormControl
-                      type="text"
-                      value={o.key}
-                      onChange={(e) => handleOptionInputChange(i, 'key', e)}
-                      placeholder="Key"
-                      ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
-                    />
-                  </Col>
-                  <Col>
-                    <FormControl
-                      type="text"
-                      value={o.value}
-                      onChange={(e) => handleOptionInputChange(i, 'value', e)}
-                      placeholder="Value"
-                      ref={(el) => inputRefs.current[i] = el} // Attach ref to the input
-                    />
-                  </Col>
-                  <Col>
-                    <Button variant="danger" onClick={() => handleRemoveOption(i)}>Remove</Button>
-                  </Col>
-                </Row>
+                  option={o}
+                  index={i}
+                  moveOption={moveOption}
+                  handleOptionInputChange={handleOptionInputChange}
+                  handleRemoveOption={handleRemoveOption}
+                  localDefaultValue={localDefaultValue}
+                  handleOptionClick={handleOptionClick}
+                />
               ))}
               <Button variant="primary" onClick={handleAddOption}>Add Option</Button>
             </FormGroup>

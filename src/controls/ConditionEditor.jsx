@@ -43,19 +43,21 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
     }
   };
 
-  const handleConditionChange = (index, field, value) => {
+  const handleConditionChange = (index, field, value,options) => {
     const updatedConditions = [...localCondition];
     const condition = updatedConditions[index];
 
     if (field === 'field') {
-      updatedConditions[index] = { ...condition, field: value };
+      const operatorKey = Object.keys(condition).find(key => key !== 'field');
+      const empty = options ? [] : ""
+      updatedConditions[index] = { ...condition, field: value, [operatorKey]: empty };
     } else if (field === 'operator') {
       const operatorKey = Object.keys(condition).find(key => key !== 'field');
       updatedConditions[index] = { field: condition.field, [value]: condition[operatorKey] };
       delete updatedConditions[index][operatorKey];
     } else {
       const operatorKey = Object.keys(condition).find(key => key !== 'field');
-      updatedConditions[index] = { ...condition, [operatorKey]: value };
+      updatedConditions[index] = { ...condition, [operatorKey]: value};
     }
 
     const newCondition = updatedConditions.length > 1 || depth > 0 ? updatedConditions : updatedConditions[0] || [];
@@ -108,7 +110,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                   <FormControl
                     as="select"
                     value={cond.field}
-                    onChange={(e) => handleConditionChange(index, 'field', e.target.value)}
+                    onChange={(e) => handleConditionChange(index, 'field', e.target.value,variables.find(v => v.definition.placeholder === e.target.value) ? (variables.find(v => v.definition.placeholder === e.target.value)?.definition?.options?.length > 0 ? variables.find(v => v.definition.placeholder === e.target.value).definition.options : null) : null)}
                   >
                     <option value="">Select Field</option>
                     {placeholders.map((ph, idx) => (
@@ -120,7 +122,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                   <FormControl
                     as="select"
                     value={operatorKey}
-                    onChange={(e) => handleConditionChange(index, 'operator', e.target.value)}
+                    onChange={(e) => handleConditionChange(index, 'operator', e.target.value,options)}
                   >
                     <option value="equals">Equals</option>
                     <option value="not-equals">Not Equals</option>
@@ -131,13 +133,9 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                     <FormControl
                       as="select"
                       value={cond[operatorKey]}
-  onChange={(e) => {
-    const value = e.target.value === "" ? [] : e.target.value;
-    handleConditionChange(index, operatorKey, value);
-  }}
+                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value === '' ? []:e.target.value,options)}
                     >
-                      <option value="">Select Value</option>
-                      <option value={[]}>Empty</option>
+                      <option value="">Empty</option>
                       {options.map((opt, idx) => (
                         <option key={idx} value={opt.key}>{opt.key}</option>
                       ))}
@@ -145,7 +143,7 @@ function ConditionEditor({ condition, setCondition, placeholders, variables, dep
                   ) : (
                     <FormControl
                       value={cond[operatorKey]}
-                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value)}
+                      onChange={(e) => handleConditionChange(index, operatorKey, e.target.value,options)}
                     />
                   )}
                 </Col>

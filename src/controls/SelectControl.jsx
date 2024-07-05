@@ -9,6 +9,7 @@ function SelectControl(props) {
 
   const [options, setOptions] = useState(rawOptions.map((o) => ({ value: o.key, label: o.key })));
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     setOptions(rawOptions.map((o) => ({ value: o.key, label: o.key })));
@@ -16,10 +17,22 @@ function SelectControl(props) {
 
   useEffect(() => {
     const getSelectedOptions = () => {
-      return defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : [];
+      if (( values && JSON.stringify(values[0]?.value) !== JSON.stringify(defaultValues))) {
+        return values.map(({ value }) => options.find(option => option.value === value) || { value, label: value });
+      } else if (defaultValues && isFirstRender.current) {
+        return defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key });
+      }
+      return [];
     };
-    setSelectedOptions(getSelectedOptions());
-  }, [options, defaultValues]);
+
+    const select = getSelectedOptions()
+
+    setSelectedOptions(select);
+    if (isFirstRender.current) {
+      onChange(select)
+      isFirstRender.current = false;
+    }
+  }, [options, values, defaultValues, onChange]);
 
   const handleSelectChange = (selectedOptions) => {
     const selectedValues = selectedOptions ? selectedOptions.map(({ value, label }) => ({ value, label })) : [];
@@ -37,28 +50,6 @@ function SelectControl(props) {
     onChange([...values, newOption]);
   };
 
-  // Ensure default values are set when switching to non-edit mode
-  const prevEditMode = useRef(editMode);
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    if (isFirstRender.current || (!editMode && prevEditMode.current)) {
-      const getSelectedOptions = () => {
-        return defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : [];
-      };
-      onChange(defaultValues ? defaultValues.map(key => options.find(option => option.value === key) || { value: key, label: key }) : []);
-      isFirstRender.current = false;
-      setSelectedOptions(getSelectedOptions());
-    }
-    prevEditMode.current = editMode;
-  }, [editMode, defaultValues, onChange, options]);
-
-  useEffect(() => {
-    const getSelectedOptions = () => {
-      return values ? values.map(({ value }) => options.find(option => option.value === value) || { value, label: value }) : [];
-    };
-    setSelectedOptions(getSelectedOptions());
-  }, [options, values]);
 
   if (editMode) {
     return (
