@@ -75,11 +75,7 @@
                 "key": "relative",
                 "value": "relative"
               }
-            ],
-            "default": [
-                "spouse/partner",
-                "dependants"
-              ]
+            ]
           },
           {
             "type": "text",
