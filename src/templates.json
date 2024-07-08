@@ -51,7 +51,7 @@
             "condition": {}
           },
           {
-            "type": "select",
+            "type": "checkbox",
             "placeholder": "living",
             "display": "Living Situation",
             "options": [
@@ -75,7 +75,11 @@
                 "key": "relative",
                 "value": "relative"
               }
-            ]
+            ],
+            "default": [
+                "spouse/partner",
+                "dependants"
+              ]
           },
           {
             "type": "text",
@@ -3792,7 +3796,297 @@
         ]
     },
     
-    
+    {
+        "name": "Dietetics review",
+        "pattern": "<p>Dietetics Review re:  {new_text_1720399701715}<br><br>Date:  {new_datetime_1720399778787}<br><br>ID: Yes, Consent: Yes <br><br>Handover received from dietitian <br><br>Review conducted via {new_radio_1720399874316}<br><br>Interpreter required: {new_radio_1720400270919}<br><br> <br>Anthropometry: <br><br>Weight:   {new_text_1720400417702}  {new_date_1720400478621}    <br><br>Height: {new_text_1720400551710} <br><br>BMI:  {new_text_1720400582645}<br><br>HWR: {new_text_1720400817879}<br><br>Weight history: {new_textmulti_1720400833038}<br><br>Interpretation: {new_textmulti_1720401116479}<br><br>SGA/GLIM rating: {new_textmulti_1720401138223} <br><br>Biochemistry: {new_textmulti_1720401157263}<br><br>BGLs:  {new_textmulti_1720401190224}<br><br>Clinical:  {new_textmulti_1720401221296}<br><br>Relevant medications: {new_textmulti_1720401236943} <br><br>Social: {new_textmulti_1720401256008}<br><br>Diet:  <br><br>24 hour diet recall: <br><br>{new_textmulti_1720401315311}<br><br>Oral intake:  MJ: {new_text_1720401815321} Protein (g): {new_text_1720401604633}<br><br>Pt meeting {new_text_1720401894810}% EER, {new_text_1720401927633}% EPR <br><br>Other: {new_text_1720401954841}<br><br><br>Nutrition Diagnosis: {new_textmulti_1720401973753}<br><br>Intervention:  {new_textmulti_1720401992505}<br><br>Monitor: {new_textmulti_1720402030922}<br><br>Review: {new_textmulti_1720402050075}<br><br> {new_dropdown_1720402172442}<br><br></p>",
+        "variables": [
+          {
+            "placeholder": "new_title_1720399742075",
+            "type": "title",
+            "display": "Title",
+            "options": []
+          },
+          {
+            "placeholder": "new_text_1720399701715",
+            "type": "text",
+            "display": "Dietetic Review reason",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_datetime_1720399778787",
+            "type": "datetime",
+            "display": "Datetime",
+            "options": []
+          },
+          {
+            "placeholder": "new_radio_1720399874316",
+            "type": "radio",
+            "display": "Review performed via ",
+            "options": [
+              {
+                "key": "Phone",
+                "value": "Phone"
+              },
+              {
+                "key": "Face to face",
+                "value": "Face to face"
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Face to fac",
+            "newKey": "Face to face"
+          },
+          {
+            "placeholder": "new_radio_1720400270919",
+            "type": "radio",
+            "display": "Interpreter required",
+            "options": [
+              {
+                "key": "Yes",
+                "value": "Yes"
+              },
+              {
+                "key": "No",
+                "value": "No"
+              }
+            ],
+            "hide": false,
+            "default": "No",
+            "inline": false,
+            "oldKey": "N",
+            "newKey": "No"
+          },
+          {
+            "placeholder": "new_text_1720400417702",
+            "type": "text",
+            "display": "Weight",
+            "options": [],
+            "hide": false,
+            "default": " kg",
+            "inline": false
+          },
+          {
+            "placeholder": "new_date_1720400478621",
+            "type": "date",
+            "display": "Date",
+            "options": []
+          },
+          {
+            "placeholder": "new_text_1720400551710",
+            "type": "text",
+            "display": "Height",
+            "options": [],
+            "hide": false,
+            "default": "cm",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720400582645",
+            "type": "text",
+            "display": "BMI",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720400817879",
+            "type": "text",
+            "display": "HWR",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720400833038",
+            "type": "textmulti",
+            "display": "Weight history",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401116479",
+            "type": "textmulti",
+            "display": "Interpretation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401138223",
+            "type": "textmulti",
+            "display": "SGA/GLIM rating",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401157263",
+            "type": "textmulti",
+            "display": "Biochemistry",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401190224",
+            "type": "textmulti",
+            "display": "Blood glucose levels",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401221296",
+            "type": "textmulti",
+            "display": "Clinical",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401236943",
+            "type": "textmulti",
+            "display": "Relevant medications",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401256008",
+            "type": "textmulti",
+            "display": "Social",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401315311",
+            "type": "textmulti",
+            "display": "Diet - 24 hour recall",
+            "options": [],
+            "hide": false,
+            "default": "Breakfast:<br><br>Morning tea<br><br>Lunch:<br><br>Afternoon tea:<br><br>Dinner:<br><br>Supper:<br><br>Fluids:",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720401815321",
+            "type": "text",
+            "display": "MJ",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720401604633",
+            "type": "text",
+            "display": "g protein",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720401894810",
+            "type": "text",
+            "display": "% EER",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720401927633",
+            "type": "text",
+            "display": "% EPR",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_text_1720401954841",
+            "type": "text",
+            "display": "Other",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401973753",
+            "type": "textmulti",
+            "display": "Nutrition Diagnosis",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720401992505",
+            "type": "textmulti",
+            "display": "Intervention",
+            "options": [],
+            "hide": false,
+            "default": "1. Supplements<br>2. Diet education",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720402030922",
+            "type": "textmulti",
+            "display": "Monitor",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_textmulti_1720402050075",
+            "type": "textmulti",
+            "display": "Review",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false
+          },
+          {
+            "placeholder": "new_dropdown_1720402172442",
+            "type": "dropdown",
+            "display": "Dropdown",
+            "options": [
+              {
+                "key": "Nicola Hacon",
+                "value": "Nicola Hacon APD #8586"
+              },
+              {
+                "key": "Natalie",
+                "value": "Natalie Lim APD #3010"
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Natali",
+            "newKey": "Natalie"
+          }
+        ]
+      },  
     
     
     
