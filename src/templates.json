@@ -1128,7 +1128,7 @@
             "hide": true
           },
           {
-            "type": "text",
+            "type": "textmulti",
             "placeholder": "goal_patient_discharge_comment",
             "display": "Update on therapy goals comment",
             "condition": {
