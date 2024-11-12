@@ -92,7 +92,7 @@
       },    
       {
         "name": " HITH/GEM@Home Physio template",
-        "pattern": "<p>Clinician name: {clinician_name|Cath Davey;Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other} <br>Designation: Physiotherapist <br>Contact number: {clinician_number}{clinician_number_cath}{clinician_number_zannie}{clinician_number_rosie}{clinician_number_joel}<br><br>ADMISSION TYPE: {admission}{type_template}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{hopc_text}{hopc}<br><br>{subjective_text}:<br>{subjective}<br><br>3 Point ID check: {id} Consent: {consent}<br>Interpreter required: {interpreter}<br>{precautions_text}{precautions}{pmhx_text}{pmhx}{reason_text}{reason}{living_text}{living}{premorbid_adl_text}{premorbid_adl}{home_setup_text}{home_setup}{premorbid_text}{premorbid}<br>{falls_text}{falls_new_text}: {falls}{falls_new}<br>Cognition: {cognition}<br><br>Current level of function<br>- Bed mobility: {bed_mobility}<br>- Bed transfer: {bed_transfer}<br>- Sit to stand: {sit_stand}<br>- Ambulation (aid, assistance, distance): {mobility}<br>Comments/other observations: {comments}<br>Gait analysis: {gait}<br>Steps: {steps}<br>Current ADL function : {adl_func_current}<br><br>Range and Strength Assessment: {range}<br>Balance Assessment: {balance}{obj_measure|6 minute walk test}{obj_measure_6}{obj_measure|Timed up and go test}{obj_measure_up}{obj_measure|10 metre walk test}{obj_measure_10}{obj_measure|5 x sit to stand test}{obj_measure_5}{obj_measure|Other}{obj_measure_other}<br>Pain (at rest): {pain}{pain_location}{pain_aggravated_text}{pain_aggravated}{pain_relieved_text}{pain_relieved}<br>Pain (on movement): {pain_move}{pain_move_location}{pain_move_aggravated_text}{pain_move_aggravated}{pain_move_relieved_text}{pain_move_relieved}<br>Other: <br>{other}<br>Patient concerns: {patient_concerns}<br>{goal_patient_text}{goal_patient_update_text}: {goal_patient}{goal_therapy_text}{goal_therapy}{goal_patient_discharge}{goal_patient_discharge_text}{goal_patient_discharge_comment}<br>Barriers/enablers to DC: {barriers}<br>Impression/Diagnosis: {impression_diagnosis}<br>Treatment provided today:{treatment|!!Other;Referral to other allied health,treatment_update|!!Other;Referral to other allied health,treatment_discharge|!!Other;Referral to other allied health,treatment_other,treatment_referral_text,down_list}{treatment_referral}{los_pt_text}{los_pt}{discharge_date_text}{discharge_date}{date_text}{date}{aha_text}{aha|No}{aha_frequency}{pt_required_text}{pt_required|No}{pt_required_options}{referral_text}{referral}{dc_text}{dc}<br><br>Plan: <br>{plan}</p>",
+        "pattern": "<p>{student_text}{student_name}{student_supervisor_text}{clinician_name_text}{clinician_name|Zannie Bhatt;Rosie Jones;Joel Manning}{clinician_name_other}{contact_text}{clinician_number}{clinician_number_dropdown}{admission_text}{admission}{type_template}{location_text}{location}{background_title}{isbar_text}{isbar|No}{isbar_type}{isbar_na}{reason_referral_text}{reason_referral}{reason_referral_other}{reason_review_text}{reason_review_radio}{reason_review_other}{hopc_text}{hopc}{adm_dx_text}{adm_dx}{precautions_checkbox}{precautions_text}{PMHx_text}{PMHx}{id_text}{id}{consent_text}{consent}{consent_student_text}{consent_student_radio}{interpreter_text}{interpreter}{language_text}{language}{interpreter_used_text}{interpreter_used}{interpreter_used_informal}{SUBJECTIVE_title}{living_text}{living}{home_setup_text}{home_setup}{premorbid_adl_text}{premorbid_adl}{premorbid_text}{premorbid_mob}{falls_hx_text}{falls_hx}{patient_comments_text}{patient_comments}{pain_text}{pain_multi}{new_fall_text}{new_fall}{safety_text}{safety}{OBJECTIVE_title}{cognition_text}{cognition_radio}{cognition_other}{CLOF_title}{CLOF_bed_mob_text}{CLOF_bed_mob}{CLOF_bed_TF_text}{CLOF_bed_TF}{CLOF_STS_text}{CLOF_STS}{CLOF_amb_text}{CLOF_amb}{CLOF_steps_radio|Steps}{CLOF_steps}{CLOF_steps_radio|Ramp}{CLOF_ramp}{CLOF_steps_radio|N/A}{gait_text}{gait}{comments_text}{comments}{adl_text}{adl_func_current}{range_text}{range}{balance_text}{balance_type}{balance_other}{CTSIB_checkbox|FAEO}{CTSIB_FAEO}{CTSIB_checkbox|FAEC}{CTSIB_FAEC}{CTSIB_checkbox|FTEO}{CTSIB_FTEO}{CTSIB_checkbox|FTEC}{CTSIB_FTEC}{CTSIB_checkbox|L tandem}{CTSIB_L_tandem}{CTSIB_checkbox|R tandem}{CTSIB_R_tandem}{CTSIB_checkbox|Other/ comments:}{CTSIB_other}{obj_measure|6 minute walk test}{6mwt_distance_text}{6mwt_distance}{6mwt_pre_obs_text}{6mwt_pre_obs}{6mwt_post_obs_text}{6mwt_post_obs}{6mwt_comments}{6mwt_comments_multi}{obj_measure|Timed up and go test}{TUG_time_text}{TUG_time}{TUG_aid_text}{TUG_aid}{TUG_chair_text}{TUG_chair}{TUG_comments_text}{TUG_comments}{obj_measure|5 x sit to stand test}{5STS_time_text}{5STS_time}{5STS_UL}{5STS_UL_radio}{5STS_chair_text}{5STS_chair}{5STS_comments_text}{5STS_comments}{obj_measure|Step test}{step_L_text}{step_L}{step_R_text}{step_R}{step_mods_text}{step_mods}{step_comment_text}{step_comment}{obj_measure|Chest Ax}{chest_exp_text}{chest_exp}{chest_cough_text}{chest_cough}{chest_ausc_text}{chest_ausc}{chest_rpe_text}{chest_rpe}{chest_other}{chest_other_text}{obj_measure|Vitals}{vital_time_text}{vital_time}{vital_BP_text}{vital_BP}{vital_HR_text}{vital_HR}{vital_O2_text}{vital_O2}{vital_RR_text}{vital_RR}{vital_temp_text}{vital_temp}{obj_measure|Coordination Ax}{coord_finger_text}{coord_finger}{coord_fore_text}{coord_fore}{coord_heel_text}{coord_heel}{coord_tap_text}{coord_tap}{coord_other_text}{coord_other}{obj_measure|Vestibular Ax}{vestib_field_text}{vestib_field}{vestib_smooth_text}{vestib_smooth}{vestib_int_text}{vestib_int}{vestib_VOR_text}{vestib_VOR}{vestib_VOR_canc_text}{vestib_VOR_canc}{vestib_skew_text}{vestib_skew}{vestib_HIT_text}{vestib_HIT}{vestib_dix_text}{vestib_dix}{vestib_other_text}{vestib_other}{obj_measure|Neglect/ Inattention screen}{neglect_field}{neglect_field_text}{neglect_vis_inattent}{neglect_vis_inattent_text}{neglect_vis_neglect}{neglect_vis_neglect_text}{obj_measure|Patient Specific Functional Scale}{PSFS_text}{PSFS_checkbox}{obj_measure|Falls Efficacy Scale }{obj_measure|Other}{other}{ANALYSIS_text}{factors_text}{factors_checkbox}{factors_other}{pt_concerns_text}{patient_concerns}{barriers_text}{barriers}{enablers_text}{enablers}{problem_text}{problem}{impression_text}{impression}{pt_goals_text}{pt_goals_PSFS}{pt_goals}{goals_text}{goals}{goals_update_text}{goals_update}{TREATMENT_title}{treatment_init|Ax a/a}{treatment_init|Expl PT role & est LOS}{treatment_init|HEP created}{treatment_init|Ex's prescribed - AD2865}{treatment_init|H/O nursing team}{treatment_init|H/O medical team}{treatment_update|Ax a/a}{treatment_update|Ex's RV'd & adjusted as per AD2865}{treatment_update|HEP RV & update}{treatment_update|H/O nursing team}{treatment_update|H/O medical team}{treatment_discharge|Ax a/a}{treatment_discharge|Ex's as per AD2865}{treatment_discharge|HEP RV & update}{treatment_discharge|H/O nursing team}{treatment_discharge|H/O medical team}{treatment_init|Ref to other AHP}{treatment_update|Ref to other AHP}{treatment_referral}{treatment_init|Ref to AHA }{treatment_update|Ref to AHA }{treatment_discharge|Ref to AHA }{AHA_ref_text}{AHA_ref}{treatment_init|Discussed F/U options}{treatment_update|Discussed F/U options}{treatment_discharge|Discussed F/U options}{fu_options}{treatment_init|Education}{treatment_update|Education}{treatment_discharge|Education}{education}{treatment_init|Other}{treatment_update|Other}{treatment_discharge|Other}{treatment_other}{REVIEW_title}{los_pt_text}{los_pt}{EDD_date_text}{EDD_date}{EDD_text}{EDD_radio}{EDD_no}{EDD_yes}{date_text}{date}{follow_text}{follow_radio}{pt_required_options}{referral_text}{referral}{dc_text}{dc}{falls_recs_text}{falls_recs_checkbox}{falls_recs_other}</p>",
         "variables": [
           {
             "placeholder": "type_template",
@@ -101,7 +101,7 @@
             "options": [
               {
                 "key": "Initial assessment",
-                "value": " Physiotherapy Initial assessment"
+                "value": " Physiotherapy Initial Assessment"
               },
               {
                 "key": "Review",
@@ -109,7 +109,7 @@
               },
               {
                 "key": "Discharge",
-                "value": " Physiotherapy Discharge review"
+                "value": " Physiotherapy Discharge Review"
               }
             ],
             "hide": false,
@@ -125,13 +125,116 @@
             "hide": true
           },
           {
+            "placeholder": "student_checkbox",
+            "type": "checkbox",
+            "display": "Select if student entry",
+            "options": [
+              {
+                "key": "Physiotherapy student: ",
+                "value": ""
+              }
+            ],
+            "hide": false,
+            "default": [
+              "new_option"
+            ],
+            "inline": false,
+            "oldKey": "Physiotherapy student:",
+            "newKey": "Physiotherapy student: ",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "student_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "Physiotherapy student: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": "Physiotherapy student: "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "student_name",
+            "type": "text",
+            "display": "Student name",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": "Physiotherapy student: "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "student_supervisor_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Supervising clinician: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": "Physiotherapy student: "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "clinician_name_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "Clinician name: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": []
+                }
+              ]
+            }
+          },
+          {
             "type": "dropdown",
             "placeholder": "clinician_name",
             "display": "Team member writing note",
             "options": [
-              {
-                "key": "Cath Davey"
-              },
               {
                 "key": "Zannie Bhatt"
               },
@@ -148,7 +251,10 @@
             "condition": {
               "field": "type_template",
               "not-equals": []
-            }
+            },
+            "hide": false,
+            "default": "Cath Davey",
+            "inline": false
           },
           {
             "type": "text",
@@ -157,6 +263,19 @@
             "condition": {
               "field": "clinician_name",
               "equals": "Other"
+            }
+          },
+          {
+            "placeholder": "contact_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Designation: Physiotherapist<br>Contact number: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
             }
           },
           {
@@ -169,48 +288,41 @@
             }
           },
           {
-            "type": "text",
-            "placeholder": "clinician_number_cath",
-            "display": "Your contact number",
-            "condition": {
-              "field": "clinician_name",
-              "equals": "Cath Davey"
-            },
-            "default": "0468884216",
-            "hide": true
+            "placeholder": "clinician_number_dropdown",
+            "type": "dropdown",
+            "display": "Which phone are you carrying?",
+            "options": [
+              {
+                "key": "clear case",
+                "value": "0434 791 528"
+              },
+              {
+                "key": "red case",
+                "value": "0403 728 218"
+              },
+              {
+                "key": "black case",
+                "value": "0461 565 874"
+              }
+            ],
+            "hide": false,
+            "default": "new_option",
+            "inline": false,
+            "oldKey": "black cas",
+            "newKey": "black case"
           },
           {
+            "placeholder": "admission_text",
             "type": "text",
-            "placeholder": "clinician_number_zannie",
-            "display": "Your contact number",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>ADMISSION TYPE: ",
+            "inline": false,
             "condition": {
-              "field": "clinician_name",
-              "equals": "Zannie Bhatt"
-            },
-            "default": "0403728218",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "clinician_number_rosie",
-            "display": "Your contact number",
-            "condition": {
-              "field": "clinician_name",
-              "equals": "Rosie Jones"
-            },
-            "default": "0403728218",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "clinician_number_joel",
-            "display": "Your contact number",
-            "condition": {
-              "field": "clinician_name",
-              "equals": "Joel Manning"
-            },
-            "default": "0461 565 874",
-            "hide": true
+              "field": "type_template",
+              "not-equals": []
+            }
           },
           {
             "type": "dropdown",
@@ -218,12 +330,82 @@
             "display": "ADMISSION TYPE:",
             "options": [
               {
-                "key": "GEM@home"
+                "key": "GEM@Home"
               },
               {
                 "key": "HITH"
               }
             ],
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            },
+            "hide": false,
+            "default": "GEM@Home",
+            "inline": false,
+            "oldKey": "GEM@ome",
+            "newKey": "GEM@Home"
+          },
+          {
+            "placeholder": "location_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Location: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": []
+            }
+          },
+          {
+            "placeholder": "location",
+            "type": "dropdown",
+            "display": "Location: ",
+            "options": [
+              {
+                "key": "Home visit",
+                "value": ""
+              },
+              {
+                "key": "HITH clinic",
+                "value": ""
+              },
+              {
+                "key": "Phone review",
+                "value": ""
+              }
+            ],
+            "hide": false,
+            "default": "Home visit",
+            "inline": false,
+            "oldKey": "Phone revie",
+            "newKey": "Phone review"
+          },
+          {
+            "placeholder": "new_title_1727930485713",
+            "type": "title",
+            "display": "BACKGROUND",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "BACKGROUND",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            },
+            "inline": false
+          },
+          {
+            "placeholder": "background_title",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>BACKGROUND<br>",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
@@ -236,8 +418,9 @@
               "field": "type_template",
               "equals": "Initial assessment"
             },
-            "default": "<br><br>ISBAR Handover: ",
-            "hide": true
+            "default": "<br>ISBAR Handover: ",
+            "hide": true,
+            "inline": false
           },
           {
             "type": "radio",
@@ -281,7 +464,10 @@
             "condition": {
               "field": "isbar",
               "equals": "Yes"
-            }
+            },
+            "hide": false,
+            "default": "",
+            "inline": false
           },
           {
             "type": "radio",
@@ -303,6 +489,118 @@
             }
           },
           {
+            "placeholder": "reason_referral_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Reason for referral: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "reason_referral",
+            "type": "radio",
+            "display": "Reason for referral",
+            "options": [
+              {
+                "key": "Blanket GEM",
+                "value": "Blanket GEM@Home referral"
+              },
+              {
+                "key": "Other",
+                "value": " "
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Othe",
+            "newKey": "Other",
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "reason_referral_other",
+            "type": "text",
+            "display": "Reason for referral",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "reason_referral",
+              "equals": "Other"
+            }
+          },
+          {
+            "placeholder": "reason_review_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Reason for review: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Review"
+            }
+          },
+          {
+            "placeholder": "reason_review_radio",
+            "type": "radio",
+            "display": "Reason for review",
+            "options": [
+              {
+                "key": "Scheduled",
+                "value": ""
+              },
+              {
+                "key": "Post fall",
+                "value": ""
+              },
+              {
+                "key": "Clinical/ functional deterioration",
+                "value": ""
+              },
+              {
+                "key": "Post presentation to ED",
+                "value": ""
+              },
+              {
+                "key": "Other",
+                "value": ""
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Othe",
+            "newKey": "Other",
+            "condition": {
+              "field": "type_template",
+              "equals": "Review"
+            }
+          },
+          {
+            "placeholder": "reason_review_other",
+            "type": "text",
+            "display": "Reason for review",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "reason_review_radio",
+              "equals": "Other"
+            }
+          },
+          {
             "type": "text",
             "placeholder": "hopc_text",
             "condition": {
@@ -310,7 +608,8 @@
               "equals": "Initial assessment"
             },
             "default": "<br><br>HOPC:<br>",
-            "hide": true
+            "hide": true,
+            "inline": false
           },
           {
             "type": "textmulti",
@@ -322,19 +621,125 @@
             }
           },
           {
+            "placeholder": "adm_dx_text",
             "type": "text",
-            "placeholder": "subjective_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Admission diagnosis: ",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Discharge"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "adm_dx",
+            "type": "text",
+            "display": "Admission diagnosis",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Discharge"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "precautions_checkbox",
+            "type": "checkbox",
+            "display": "Precautions/ restrictions",
+            "options": [
+              {
+                "key": "Prec/ restrictions/ WB status:",
+                "value": "<br><br>Precautions/ restrictions/ WB status: "
+              }
+            ],
+            "hide": false,
+            "default": [
+              "new_option",
+              "Prec/ restrictions/ WB status"
+            ],
+            "inline": false,
+            "oldKey": "Prec/ restrictions/ WB status",
+            "newKey": "Prec/ restrictions/ WB status:",
             "condition": {
               "field": "type_template",
               "not-equals": []
-            },
-            "default": "Subjective",
-            "hide": true
+            }
           },
           {
+            "placeholder": "precautions_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "precautions_checkbox",
+                  "equals": "Prec/ restrictions/ WB status:"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "PMHx_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Relevant PMHx and medications:<br>",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "PMHx",
             "type": "textmulti",
-            "placeholder": "subjective",
-            "display": "Subjective",
+            "display": "Relevant PMHx and meds",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "id_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>3 point ID check: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
@@ -346,18 +751,36 @@
             "display": "3 Point ID check",
             "options": [
               {
-                "key": "Yes"
+                "key": "Yes",
+                "value": "Yes. "
               },
               {
-                "key": "No"
+                "key": "No",
+                "value": "No. "
               }
             ],
             "condition": {
               "field": "type_template",
               "not-equals": []
             },
-            "default": "Yes",
-            "inline": "True"
+            "default": "No. ",
+            "inline": "True",
+            "hide": false,
+            "oldKey": "No.",
+            "newKey": "No"
+          },
+          {
+            "placeholder": "consent_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "Consent: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
           },
           {
             "type": "radio",
@@ -365,18 +788,89 @@
             "display": "Consent",
             "options": [
               {
-                "key": "Yes"
+                "key": "Yes",
+                "value": "Yes. "
               },
               {
-                "key": "No"
+                "key": "No",
+                "value": "No. "
               }
             ],
             "condition": {
               "field": "type_template",
               "not-equals": []
             },
-            "default": "Yes",
-            "inline": "True"
+            "default": "No. ",
+            "inline": "True",
+            "hide": false,
+            "oldKey": "No.",
+            "newKey": "No"
+          },
+          {
+            "placeholder": "consent_student_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "Consent to student: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": "Physiotherapy student: "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "consent_student_radio",
+            "type": "radio",
+            "display": "Consent to student",
+            "options": [
+              {
+                "key": "Yes",
+                "value": "Yes. "
+              },
+              {
+                "key": "No",
+                "value": "No. "
+              }
+            ],
+            "hide": false,
+            "default": "new_option",
+            "inline": true,
+            "oldKey": "N",
+            "newKey": "No",
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "student_checkbox",
+                  "equals": "Physiotherapy student: "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "interpreter_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Interpreter required: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
           },
           {
             "type": "radio",
@@ -384,74 +878,168 @@
             "display": "Interpreter required",
             "options": [
               {
-                "key": "Yes"
+                "key": "Yes. "
               },
               {
-                "key": "No"
+                "key": "No. "
               }
             ],
             "condition": {
               "field": "type_template",
               "not-equals": []
             },
-            "default": "No",
-            "inline": "True"
+            "default": "",
+            "inline": "True",
+            "hide": false,
+            "oldKey": "No.",
+            "newKey": "No. "
           },
           {
+            "placeholder": "language_text",
             "type": "text",
-            "placeholder": "precautions_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Language: ",
+            "inline": false,
             "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "<br>Precautions/restrictions: ",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "precautions",
-            "display": "Precautions/restrictions",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "interpreter",
+                  "equals": "Yes. "
+                }
+              ]
             }
           },
           {
+            "placeholder": "language",
             "type": "text",
-            "placeholder": "pmhx_text",
+            "display": "Language",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "<br>PMHx and relevant medications: ",
-            "hide": true
-          },
-          {
-            "type": "textmulti",
-            "placeholder": "pmhx",
-            "display": "PMHx and relevant medications",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "interpreter",
+                  "equals": "Yes. "
+                }
+              ]
             }
           },
           {
+            "placeholder": "interpreter_used_text",
             "type": "text",
-            "placeholder": "reason_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Interpreter used: ",
+            "inline": false,
             "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "<br>Reason for referral: ",
-            "hide": true
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "interpreter",
+                  "equals": "Yes. "
+                }
+              ]
+            }
           },
           {
+            "placeholder": "interpreter_used",
+            "type": "dropdown",
+            "display": "Interpreter used",
+            "options": [
+              {
+                "key": "Phone. ",
+                "value": ""
+              },
+              {
+                "key": "Formal in-person. ",
+                "value": ""
+              },
+              {
+                "key": "Informal.",
+                "value": "Informal - "
+              }
+            ],
+            "hide": false,
+            "default": "Informal",
+            "inline": false,
+            "oldKey": "Informal",
+            "newKey": "Informal.",
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "interpreter",
+                  "equals": "Yes. "
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "interpreter_used_informal",
             "type": "text",
-            "placeholder": "reason",
-            "display": "Reason for referral",
+            "display": "Name and relationship of informal interpreter",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "interpreter_used",
+                  "equals": "Informal."
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727930521466",
+            "type": "title",
+            "display": "SUBJECTIVE",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "SUBJECTIVE",
             "condition": {
               "field": "type_template",
-              "equals": "Initial assessment"
+              "not-equals": []
+            },
+            "inline": false
+          },
+          {
+            "placeholder": "SUBJECTIVE_title",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>SUBJECTIVE ASSESSMENT",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
             }
           },
           {
@@ -461,36 +1049,38 @@
               "field": "type_template",
               "equals": "Initial assessment"
             },
-            "default": "<br>Living Situation: ",
-            "hide": true
+            "default": "<br><br>Living situation: ",
+            "hide": true,
+            "inline": false
           },
           {
-            "type": "select",
             "placeholder": "living",
-            "display": "Living Situation",
-            "options": [
-              {
-                "key": "lives alone",
-                "value": "lives alone"
-              },
-              {
-                "key": "spouse/partner",
-                "value": "spouse/partner"
-              },
-              {
-                "key": "dependants",
-                "value": "dependants"
-              },
-              {
-                "key": "friend",
-                "value": "friend"
-              },
-              {
-                "key": "relative",
-                "value": "relative"
-              }
-            ],
-            "default": [],
+            "type": "text",
+            "display": "Living situation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "type": "text",
+            "placeholder": "home_setup_text",
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            },
+            "default": "<br>Home set-up: ",
+            "hide": true,
+            "inline": false
+          },
+          {
+            "type": "textmulti",
+            "placeholder": "home_setup",
+            "display": "Home setup",
             "condition": {
               "field": "type_template",
               "equals": "Initial assessment"
@@ -517,37 +1107,23 @@
           },
           {
             "type": "text",
-            "placeholder": "home_setup_text",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "<br>Home setup: ",
-            "hide": true
-          },
-          {
-            "type": "textmulti",
-            "placeholder": "home_setup",
-            "display": "Home setup",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            }
-          },
-          {
-            "type": "text",
             "placeholder": "premorbid_text",
             "condition": {
               "field": "type_template",
               "equals": "Initial assessment"
             },
-            "default": "<br>Premorbid function (aid, assistance, endurance/distance): ",
-            "hide": true
+            "default": "<br>Premorbid mobility: ",
+            "hide": true,
+            "inline": false
           },
           {
-            "type": "text",
-            "placeholder": "premorbid",
-            "display": "premorbid function",
+            "placeholder": "premorbid_mob",
+            "type": "textmulti",
+            "display": "Premorbid mobility (aid, assistance, endurance/distance, limiting factors, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "equals": "Initial assessment"
@@ -555,152 +1131,440 @@
           },
           {
             "type": "text",
-            "placeholder": "falls_text",
+            "placeholder": "falls_hx_text",
             "condition": {
               "field": "type_template",
               "equals": "Initial assessment"
             },
-            "default": "Falls History",
-            "hide": true
+            "default": "<br>Falls history: ",
+            "hide": true,
+            "inline": false
           },
           {
-            "type": "text",
-            "placeholder": "falls",
+            "placeholder": "falls_hx",
+            "type": "textmulti",
             "display": "Falls history",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "equals": "Initial assessment"
             }
           },
           {
+            "placeholder": "patient_comments_text",
             "type": "text",
-            "placeholder": "falls_new_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Patient comments: ",
+            "inline": false
+          },
+          {
+            "placeholder": "patient_comments",
+            "type": "textmulti",
+            "display": "Patient comments/ subjective",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "or": [
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "pain_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Pain: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "pain_multi",
+            "type": "textmulti",
+            "display": "Pain (score, quality, behaviour/ pattern, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "new_fall_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Details of fall: ",
+            "inline": false,
+            "condition": {
+              "and": [
                 {
                   "field": "type_template",
                   "equals": "Review"
                 },
                 {
-                  "field": "type_template",
-                  "equals": "Discharge"
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
                 }
               ]
+            }
+          },
+          {
+            "placeholder": "new_fall",
+            "type": "textmulti",
+            "display": "Fall details (date, time, location, activity, footwear/ aid used, how got up, injuries, actions, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "safety_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>New or ongoing safety concerns: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "safety",
+            "type": "textmulti",
+            "display": "New or ongoing safety concerns",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "new_title_1727930547227",
+            "type": "title",
+            "display": "OBJECTIVE",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "OBJECTIVE",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
             },
-            "default": "New falls or safety concerns",
-            "hide": true
+            "inline": false
           },
           {
+            "placeholder": "OBJECTIVE_title",
             "type": "text",
-            "placeholder": "falls_new",
-            "display": "New falls or safety concerns",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>OBJECTIVE ASSESSMENT",
+            "inline": false,
             "condition": {
-              "or": [
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "cognition_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Cognition: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "cognition_radio",
+            "type": "radio",
+            "display": "Cognition",
+            "options": [
+              {
+                "key": "A+O",
+                "value": "Alert and orientated. "
+              },
+              {
+                "key": "Other",
+                "value": " "
+              }
+            ],
+            "hide": false,
+            "default": "A+O",
+            "inline": true,
+            "oldKey": "Othe",
+            "newKey": "Other",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "cognition_other",
+            "type": "text",
+            "display": "Comment",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
                 {
                   "field": "type_template",
-                  "equals": "Review"
+                  "not-equals": []
                 },
                 {
-                  "field": "type_template",
-                  "equals": "Discharge"
+                  "field": "cognition_radio",
+                  "equals": "Other"
                 }
               ]
             }
           },
           {
-            "type": "text",
-            "placeholder": "cognition",
-            "display": "cognition",
+            "placeholder": "new_title_1727930240918",
+            "type": "title",
+            "display": "CURRENT LEVEL OF FUNCTION",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "underline",
+            "text": "CURRENT LEVEL OF FUNCTION",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
             }
           },
           {
-            "type": "select",
-            "placeholder": "bed_mobility",
-            "display": "Current level of function - bed mobility",
-            "default": [],
+            "placeholder": "CLOF_title",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>CURRENT LEVEL OF FUNCTION: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_bed_mob_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Bed mobility: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_bed_mob",
+            "type": "text",
+            "display": "Bed mobility",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_bed_TF_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Bed transfers: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_bed_TF",
+            "type": "text",
+            "display": "Bed transfers",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_STS_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Sit to stand: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_STS",
+            "type": "text",
+            "display": "Sit to stand",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_amb_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Ambulation: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_amb",
+            "type": "text",
+            "display": "Ambulation (aid, assistance, distance)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "CLOF_steps_radio",
+            "type": "radio",
+            "display": "Steps or ramp",
             "options": [
               {
-                "key": "independent"
+                "key": "Steps",
+                "value": "<br>- Up/down steps: "
               },
               {
-                "key": "supervision"
+                "key": "Ramp",
+                "value": "<br>- Up/down ramp: "
               },
               {
-                "key": "assist by 1"
-              },
-              {
-                "key": "assist by 2"
+                "key": "N/A",
+                "value": "<br>- Steps/ ramp: Not applicable. "
               }
             ],
+            "hide": false,
+            "default": "",
+            "inline": true,
+            "oldKey": "N/",
+            "newKey": "N/A",
             "condition": {
               "field": "type_template",
               "not-equals": []
             }
           },
           {
-            "type": "select",
-            "placeholder": "bed_transfer",
-            "display": "Current level of function - bed transfer",
-            "default": [],
-            "options": [
-              {
-                "key": "independent"
-              },
-              {
-                "key": "supervision"
-              },
-              {
-                "key": "assist by 1"
-              },
-              {
-                "key": "assist by 2"
-              }
-            ],
-            "condition": {
-              "field": "type_template",
-              "not-equals": []
-            }
-          },
-          {
-            "type": "select",
-            "placeholder": "sit_stand",
-            "display": "Current level of function - sit to stand",
-            "default": [],
-            "options": [
-              {
-                "key": "independent"
-              },
-              {
-                "key": "supervision"
-              },
-              {
-                "key": "assist by 1"
-              },
-              {
-                "key": "assist by 2"
-              }
-            ],
-            "condition": {
-              "field": "type_template",
-              "not-equals": []
-            }
-          },
-          {
+            "placeholder": "CLOF_steps",
             "type": "text",
-            "placeholder": "mobility",
-            "display": "Current level of function - Ambulation (aid, assistance, distance)",
+            "display": "Steps",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "type_template",
-              "not-equals": []
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CLOF_steps_radio",
+                  "equals": "Steps"
+                }
+              ]
             }
           },
           {
+            "placeholder": "CLOF_ramp",
             "type": "text",
-            "placeholder": "comments",
-            "display": "Comments/other observations",
+            "display": "Ramp",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CLOF_steps_radio",
+                  "equals": "Ramp"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "gait_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Gait analysis: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
@@ -716,9 +1580,35 @@
             }
           },
           {
+            "placeholder": "comments_text",
             "type": "text",
-            "placeholder": "steps",
-            "display": "Current level of function - steps",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Comments: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "type": "text",
+            "placeholder": "comments",
+            "display": "Comments/other observations",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "adl_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Current ADL function: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
@@ -734,6 +1624,19 @@
             }
           },
           {
+            "placeholder": "range_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Range and Strength Assessment:<br>",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
             "type": "textmulti",
             "placeholder": "range",
             "display": "Range and strength assessment",
@@ -743,12 +1646,258 @@
             }
           },
           {
-            "type": "textmulti",
-            "placeholder": "balance",
-            "display": "Balance assessment",
+            "placeholder": "balance_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Balance Assessment: ",
+            "inline": false
+          },
+          {
+            "placeholder": "balance_type",
+            "type": "radio",
+            "display": "Type of balance Ax",
+            "options": [
+              {
+                "key": "CTSIB",
+                "value": "CTSIB:<br>"
+              },
+              {
+                "key": "Other",
+                "value": " <br>"
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": true,
+            "oldKey": "Othe",
+            "newKey": "Other",
             "condition": {
               "field": "type_template",
               "not-equals": []
+            }
+          },
+          {
+            "type": "textmulti",
+            "placeholder": "balance_other",
+            "display": "Balance Ax",
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "balance_type",
+                  "equals": "Other"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_checkbox",
+            "type": "checkbox",
+            "display": "CTSIB",
+            "options": [
+              {
+                "key": "FAEO",
+                "value": "<br> - Feet apart, eyes open: "
+              },
+              {
+                "key": "FAEC",
+                "value": "<br> - Feet apart, eyes closed: "
+              },
+              {
+                "key": "FTEO",
+                "value": "<br> - Feet together, eyes open: "
+              },
+              {
+                "key": "FTEC",
+                "value": "<br> - Feet together, eyes closed: "
+              },
+              {
+                "key": "L tandem",
+                "value": "<br> - Left tandem, eyes open: "
+              },
+              {
+                "key": "R tandem",
+                "value": "<br> - Right tandem, eyes open: "
+              },
+              {
+                "key": "Other/ comments:",
+                "value": "<br> - "
+              }
+            ],
+            "hide": false,
+            "default": [
+              "Other",
+              "Other/ comments: "
+            ],
+            "inline": false,
+            "oldKey": "Other/ comments: ",
+            "newKey": "Other/ comments:",
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "balance_type",
+                  "equals": "CTSIB"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_FAEO",
+            "type": "text",
+            "display": "FAEO",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "FAEO"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_FAEC",
+            "type": "text",
+            "display": "FAEC",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "FAEC"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_FTEO",
+            "type": "text",
+            "display": "FTEO",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "FTEO"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_FTEC",
+            "type": "text",
+            "display": "FTEC",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "FTEC"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_L_tandem",
+            "type": "text",
+            "display": "L tandem",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "L tandem"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_R_tandem",
+            "type": "text",
+            "display": "R tandem",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "R tandem"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "CTSIB_other",
+            "type": "textmulti",
+            "display": "Other CTSIB",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "CTSIB_checkbox",
+                  "equals": "Other/ comments:"
+                }
+              ]
             }
           },
           {
@@ -758,283 +1907,2380 @@
             "options": [
               {
                 "key": "6 minute walk test",
-                "value": "<br>6 minute walk test: "
+                "value": "<br><br>6 minute walk test:<br>"
               },
               {
                 "key": "Timed up and go test",
-                "value": "<br>Time up and go test: "
-              },
-              {
-                "key": "10 metre walk test",
-                "value": "<br>10 metre walk test: "
+                "value": "<br><br>Timed up and go test: <br>"
               },
               {
                 "key": "5 x sit to stand test",
-                "value": "<br>5 x sit to stand test: "
+                "value": "<br><br>5 x sit to stand test: <br>"
+              },
+              {
+                "key": "Step test",
+                "value": "<br><br>Step test: <br>"
+              },
+              {
+                "key": "Chest Ax",
+                "value": "<br><br>Chest assessment: <br>"
+              },
+              {
+                "key": "Vitals",
+                "value": "<br><br>Vital signs: <br>"
+              },
+              {
+                "key": "Coordination Ax",
+                "value": "<br><br>Coordination assessment:<br>"
+              },
+              {
+                "key": "Vestibular Ax",
+                "value": "<br><br>Vestibular assessment:<br>"
+              },
+              {
+                "key": "Visual Neglect/ Inattention screen",
+                "value": "<br><br>Visual Neglect/ Inattention Screen:<br>"
+              },
+              {
+                "key": "Patient Specific Functional Scale",
+                "value": "<br><br>Patient Specific Functional Scale (PSFS):<br>"
               },
               {
                 "key": "Other",
-                "value": "<br>Other objective measures used: "
+                "value": "<br><br>"
               }
             ],
             "condition": {
               "field": "type_template",
               "not-equals": []
-            }
+            },
+            "hide": false,
+            "default": [
+              "10 metre walk test",
+              "new_option",
+              "Falls Efficacy Scale "
+            ],
+            "inline": false,
+            "oldKey": "VisualNeglect/ Inattention screen",
+            "newKey": "Visual Neglect/ Inattention screen"
           },
           {
+            "placeholder": "obj_space",
             "type": "text",
-            "placeholder": "obj_measure_6",
-            "display": "6 minute walk test",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>",
+            "inline": false,
             "condition": {
-              "field": "obj_measure",
-              "equals": "6 minute walk test"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "not-equals": []
+                }
+              ]
             }
           },
           {
+            "placeholder": "new_title_1727932604072",
+            "type": "title",
+            "display": "6 minute walk test details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "6 minute walk test details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "6mwt_distance_text",
             "type": "text",
-            "placeholder": "obj_measure_up",
-            "display": "Timed up and go test",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - distance (m): ",
+            "inline": false,
             "condition": {
-              "field": "obj_measure",
-              "equals": "Timed up and go test"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
             }
           },
           {
+            "placeholder": "6mwt_distance",
             "type": "text",
-            "placeholder": "obj_measure_10",
-            "display": "10 metre walk test",
+            "display": "distance (m)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "obj_measure",
-              "equals": "10 metre walk test"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
             }
           },
           {
+            "placeholder": "6mwt_pre_obs_text",
             "type": "text",
-            "placeholder": "obj_measure_5",
-            "display": "5 x sit to stand test",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Pre-test obs: ",
+            "inline": false,
             "condition": {
-              "field": "obj_measure",
-              "equals": "5 x sit to stand test"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
             }
           },
           {
+            "placeholder": "6mwt_pre_obs",
             "type": "text",
-            "placeholder": "obj_measure_other",
-            "display": "Other object measure test",
+            "display": "Pre-test obs (e.g., HR, SpO2, BP, RPE, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "obj_measure",
-              "equals": "Other"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
             }
           },
           {
-            "type": "dropdown",
-            "placeholder": "pain",
-            "display": "Pain (at rest)",
+            "placeholder": "6mwt_post_obs_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Post-test obs: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "6mwt_post_obs",
+            "type": "text",
+            "display": "Post-test obs (e.g., HR, SpO2, BP, RPE, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "6mwt_comments",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "6mwt_comments_multi",
+            "type": "textmulti",
+            "display": "Comments/ other relevant details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "6 minute walk test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727933205964",
+            "type": "title",
+            "display": "Timed Up and Go details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Timed Up and Go details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_time_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Time (s): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_time",
+            "type": "text",
+            "display": "Time (sec)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_aid_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Gait aid: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_aid",
+            "type": "text",
+            "display": "Gait aid used",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_chair_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Chair used: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_chair",
+            "type": "text",
+            "display": "Chair used (e.g., type, seat height, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_comments_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "TUG_comments",
+            "type": "textmulti",
+            "display": "Comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Timed up and go test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727933558222",
+            "type": "title",
+            "display": "5 x STS test details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "5 x STS test details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "5STS_time_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Time (s): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "5STS_time",
+            "type": "text",
+            "display": "Time (sec)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "5STS_UL",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Upper limb use: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "5STS_UL_radio",
+            "type": "radio",
+            "display": "Upper limb use",
             "options": [
               {
-                "key": "Pain free"
+                "key": "Yes",
+                "value": "Yes. "
               },
               {
-                "key": "1",
-                "value": "1/10 to "
-              },
-              {
-                "key": "2",
-                "value": "2/10 to "
-              },
-              {
-                "key": "3",
-                "value": "3/10 to "
-              },
-              {
-                "key": "4",
-                "value": "4/10 to "
-              },
-              {
-                "key": "5",
-                "value": "5/10 to "
-              },
-              {
-                "key": "6",
-                "value": "6/10 to "
-              },
-              {
-                "key": "7",
-                "value": "7/10 to "
-              },
-              {
-                "key": "8",
-                "value": "8/10 to "
-              },
-              {
-                "key": "9",
-                "value": "9/10 to "
-              },
-              {
-                "key": "10",
-                "value": "10/10 to "
+                "key": "No",
+                "value": "No. "
               }
             ],
+            "hide": false,
+            "default": "",
+            "inline": true,
+            "oldKey": "N",
+            "newKey": "No",
             "condition": {
-              "field": "type_template",
-              "not-equals": []
-            },
-            "default": "Pain free"
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_location",
-            "display": "Location of pain at rest",
-            "condition": {
-              "field": "pain",
-              "not-equals": "Pain free"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
             }
           },
           {
+            "placeholder": "5STS_chair_text",
             "type": "text",
-            "placeholder": "pain_aggravated_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Chair used: ",
+            "inline": false,
             "condition": {
-              "field": "pain",
-              "not-equals": "Pain free"
-            },
-            "default": "<br>Pain is aggravated by: ",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_aggravated",
-            "display": "What aggravated the pain?",
-            "condition": {
-              "field": "pain",
-              "not-equals": "Pain free"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
             }
           },
           {
+            "placeholder": "5STS_chair",
             "type": "text",
-            "placeholder": "pain_relieved_text",
+            "display": "Chair used (e.g., type, seat height, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "pain",
-              "not-equals": "Pain free"
-            },
-            "default": "<br>Pain is relieved by: ",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_relieved",
-            "display": "What relieves the pain?",
-            "condition": {
-              "field": "pain",
-              "not-equals": "Pain free"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
             }
           },
           {
-            "type": "dropdown",
-            "placeholder": "pain_move",
-            "display": "Pain (on movement)",
+            "placeholder": "5STS_comments_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "5STS_comments",
+            "type": "textmulti",
+            "display": "Comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "5 x sit to stand test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727949920831",
+            "type": "title",
+            "display": "Step test details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Step test details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_L_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Left stance: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_L",
+            "type": "text",
+            "display": "Left stance",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_R_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Right stance: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_R",
+            "type": "text",
+            "display": "Right stance",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_mods_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Modifications: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_mods",
+            "type": "text",
+            "display": "Modifications (e.g., no step, altered step height, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_comment_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "step_comment",
+            "type": "text",
+            "display": "Comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Step test"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727950518969",
+            "type": "title",
+            "display": "Chest details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Chest details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_exp_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Chest expansion: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_exp",
+            "type": "text",
+            "display": "Expansion",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_cough_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Cough: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_cough",
+            "type": "text",
+            "display": "Cough",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_ausc_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Auscultation: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_ausc",
+            "type": "text",
+            "display": "Auscultation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_rpe_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - RPE: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_rpe",
+            "type": "text",
+            "display": "RPE",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_other",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Other/ Comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "chest_other_text",
+            "type": "textmulti",
+            "display": "Other/ comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Chest Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727950437279",
+            "type": "title",
+            "display": "Vital signs details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Vital signs details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_time_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Time taken: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_time",
+            "type": "time",
+            "display": "Time",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_BP_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - BP (mmHg): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_BP",
+            "type": "text",
+            "display": "BP",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_HR_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - HR (bpm): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_HR",
+            "type": "text",
+            "display": "HR",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_O2_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - SpO2 (%): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_O2",
+            "type": "text",
+            "display": "SpO2",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_RR_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - RR (bpm): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_RR",
+            "type": "text",
+            "display": "RR",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_temp_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Temp (C): ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vital_temp",
+            "type": "text",
+            "display": "Temperature",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vitals"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727951671195",
+            "type": "title",
+            "display": "Coordination details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Coordination details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_finger_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Finger-nose: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_finger",
+            "type": "text",
+            "display": "Finger-nose",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_fore_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Forearm pronation-supination: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_fore",
+            "type": "text",
+            "display": "Forearm pron/supn",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_heel_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Heel-shin: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_heel",
+            "type": "text",
+            "display": "Heel-shin",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_tap_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Foot tap: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_tap",
+            "type": "text",
+            "display": "Foot tap",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_other_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Other/ comments: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "coord_other",
+            "type": "textmulti",
+            "display": "Other/comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Coordination Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1727952181966",
+            "type": "title",
+            "display": "Vestibular Ax details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "Vestibular Ax details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_field_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": " - Visual field & ROM: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_field",
+            "type": "text",
+            "display": "Field & ROM",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_smooth_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Smooth pursuit: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_smooth",
+            "type": "text",
+            "display": "Smooth pursuit",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_int_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Intermitten saccades: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_int",
+            "type": "text",
+            "display": "Intermittent saccades",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_VOR_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - VOR: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_VOR",
+            "type": "text",
+            "display": "VOR",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_VOR_canc_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - VOR cancellation: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_VOR_canc",
+            "type": "text",
+            "display": "VOR cancellation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_skew_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Skew deviation test: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_skew",
+            "type": "text",
+            "display": "Skew deviation",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_HIT_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Head impulse test: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_HIT",
+            "type": "text",
+            "display": "Head impulse test",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_dix_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Dix-Hallpike test: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_dix",
+            "type": "text",
+            "display": "Dix-Hallpike",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_other_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br> - Comments/ other tests: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "vestib_other",
+            "type": "textmulti",
+            "display": "Comments/ other tests",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Vestibular Ax"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1730258261814",
+            "type": "title",
+            "display": "Neglect/ Inattention screen details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "normal",
+            "text": "Neglect/ Inattention screen details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_field",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Visual field & ROM: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_field_text",
+            "type": "text",
+            "display": "Visual field & ROM",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_vis_inattent",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Visual inattention: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_vis_inattent_text",
+            "type": "text",
+            "display": "Visual inattention",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_vis_neglect",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Visual neglect: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "neglect_vis_neglect_text",
+            "type": "text",
+            "display": "Visual neglect",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Visual Neglect/ Inattention screen"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1730259070898",
+            "type": "title",
+            "display": "PSFS details",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "text": "PSFS details",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Patient Specific Functional Scale"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "PSFS_text",
+            "type": "textmulti",
+            "display": "PSFS details (numbered list w scores)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Patient Specific Functional Scale"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "PSFS_checkbox",
+            "type": "checkbox",
+            "display": "Select if relevant",
             "options": [
               {
-                "key": "Pain free"
-              },
-              {
-                "key": "1",
-                "value": "1/10 to "
-              },
-              {
-                "key": "2",
-                "value": "2/10 to "
-              },
-              {
-                "key": "3",
-                "value": "3/10 to "
-              },
-              {
-                "key": "4",
-                "value": "4/10 to "
-              },
-              {
-                "key": "5",
-                "value": "5/10 to "
-              },
-              {
-                "key": "6",
-                "value": "6/10 to "
-              },
-              {
-                "key": "7",
-                "value": "7/10 to "
-              },
-              {
-                "key": "8",
-                "value": "8/10 to "
-              },
-              {
-                "key": "9",
-                "value": "9/10 to "
-              },
-              {
-                "key": "10",
-                "value": "10/10 to "
+                "key": "Paper copy in file",
+                "value": " <br>(Please see correspondence section for copy)"
               }
             ],
+            "hide": false,
+            "default": [
+              "new_option"
+            ],
+            "inline": false,
+            "oldKey": "Paper copy in fil",
+            "newKey": "Paper copy in file",
             "condition": {
-              "field": "type_template",
-              "not-equals": []
-            },
-            "default": "Pain free"
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_move_location",
-            "display": "Location of pain on movement",
-            "condition": {
-              "field": "pain_move",
-              "not-equals": "Pain free"
-            }
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_move_aggravated_text",
-            "condition": {
-              "field": "pain_move",
-              "not-equals": "Pain free"
-            },
-            "default": "<br>Pain on movement is aggravated by: ",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_move_aggravated",
-            "display": "What aggravated the pain on movement?",
-            "condition": {
-              "field": "pain_move",
-              "not-equals": "Pain free"
-            }
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_move_relieved_text",
-            "condition": {
-              "field": "pain_move",
-              "not-equals": "Pain free"
-            },
-            "default": "<br>Pain on movement is relieved by: ",
-            "hide": true
-          },
-          {
-            "type": "text",
-            "placeholder": "pain_move_relieved",
-            "display": "What relieves the pain on movement?",
-            "condition": {
-              "field": "pain_move",
-              "not-equals": "Pain free"
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Patient Specific Functional Scale"
+                }
+              ]
             }
           },
           {
             "type": "textmulti",
             "placeholder": "other",
             "display": "Other (e.g. Wound, sensation, Obs)",
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "obj_measure",
+                  "equals": "Other"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1728018403106",
+            "type": "title",
+            "display": "ANALYSIS & PLAN",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "ANALYSIS & PLAN",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "ANALYSIS_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>ANALYSIS & PLAN",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "factors_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Factors contributing to patient's fall:",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "factors_checkbox",
+            "type": "checkbox",
+            "display": "Factors contributing to patient's fall",
+            "options": [
+              {
+                "key": "Mobility aids required/ inappropriately used",
+                "value": "<br>- Mobility aids required/ inappropriately used"
+              },
+              {
+                "key": "Inappropriate footwear",
+                "value": "<br>- Inappropriate footwear"
+              },
+              {
+                "key": "History of falls",
+                "value": "<br>- History of falls"
+              },
+              {
+                "key": "Cognitive impairment/ confusion",
+                "value": "<br>- Cognitive impairment/ confusion"
+              },
+              {
+                "key": "Medication",
+                "value": "<br>- Medication"
+              },
+              {
+                "key": "Dizziness/ vertigo",
+                "value": "<br>- Dizziness/ vertigo"
+              },
+              {
+                "key": "Visual impairment",
+                "value": "<br>- Visual impairment"
+              },
+              {
+                "key": "Hearing impairment",
+                "value": "<br>- Hearing impairment"
+              },
+              {
+                "key": "Incontinence",
+                "value": "<br>- Incontinence"
+              },
+              {
+                "key": "Other/ comments",
+                "value": "<br>- Other/ comments: "
+              }
+            ],
+            "hide": false,
+            "default": [
+              "Mobility aids required",
+              "new_option"
+            ],
+            "inline": false,
+            "oldKey": "Other/ comment",
+            "newKey": "Other/ comments",
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "factors_other",
+            "type": "textmulti",
+            "display": "Other factors/ comments",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "factors_checkbox",
+                  "equals": "Other/ comments"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "pt_concerns_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Patient concerns: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "not-equals": []
@@ -1050,124 +4296,22 @@
             }
           },
           {
+            "placeholder": "barriers_text",
             "type": "text",
-            "placeholder": "goal_patient_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Barriers to DC: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "Patient goals",
-            "hide": true
-          },
-          {
-            "type": "textmulti",
-            "placeholder": "goal_patient",
-            "display": "Patient goals",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            }
-          },
-          {
-            "type": "text",
-            "placeholder": "goal_patient_update_text",
-            "condition": {
-              "or": [
-                {
-                  "field": "type_template",
-                  "equals": "Review"
-                },
-                {
-                  "field": "type_template",
-                  "equals": "Discharge"
-                }
-              ]
-            },
-            "default": "Update on therapy goals",
-            "hide": true
-          },
-          {
-            "type": "radio",
-            "placeholder": "goal_patient_discharge",
-            "display": "Update on therapy goals",
-            "options": [
-              {
-                "key": "IP goals achieved"
-              },
-              {
-                "key": "IP goals not achieved"
-              },
-              {
-                "key": "IP goals partially achieved"
-              },
-              {
-                "key": "Ongoing goals to be achieved in the community"
-              }
-            ],
-            "condition": {
-              "or": [
-                {
-                  "field": "type_template",
-                  "equals": "Discharge"
-                },
-                {
-                  "field": "type_template",
-                  "equals": "Review"
-                }
-              ]
-            }
-          },
-          {
-            "type": "text",
-            "placeholder": "goal_patient_discharge_text",
-            "condition": {
-              "field": "goal_patient_discharge",
-              "not-equals": []
-            },
-            "default": ". ",
-            "hide": true
-          },
-          {
-            "type": "textmulti",
-            "placeholder": "goal_patient_discharge_comment",
-            "display": "Update on therapy goals comment",
-            "condition": {
-              "field": "goal_patient_discharge",
               "not-equals": []
             }
           },
           {
-            "type": "text",
-            "placeholder": "goal_therapy_text",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            },
-            "default": "<br>Therapy goals (including time frames):<br>",
-            "hide": true
-          },
-          {
-            "type": "textmulti",
-            "placeholder": "goal_therapy",
-            "display": "Therapy goals (including time frames)",
-            "condition": {
-              "field": "type_template",
-              "equals": "Initial assessment"
-            }
-          },
-          {
-            "type": "text",
             "placeholder": "barriers",
-            "display": "Barriers/enablers to DC",
-            "condition": {
-              "field": "type_template",
-              "not-equals": []
-            }
-          },
-          {
-            "placeholder": "impression_diagnosis",
-            "type": "textmulti",
-            "display": "Impression/Diagnosis",
+            "type": "text",
+            "display": "Barriers to DC",
             "options": [],
             "hide": false,
             "default": "",
@@ -1178,33 +4322,285 @@
             }
           },
           {
+            "placeholder": "enablers_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>Enablers to DC: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "enablers",
+            "type": "text",
+            "display": "Enablers to DC",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "problem_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Problem list: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "problem",
+            "type": "textmulti",
+            "display": "Problem list (numbered and prioritised)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "impression_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Impression/ diagnosis: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "impression",
+            "type": "textmulti",
+            "display": "Impression/ diagnosis",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "pt_goals_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Patient goals:<br>",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "pt_goals_PSFS",
             "type": "checkbox",
-            "placeholder": "treatment",
+            "display": "Select if relevant",
+            "options": [
+              {
+                "key": "- See PSFS above",
+                "value": ""
+              }
+            ],
+            "hide": false,
+            "default": [
+              "new_option",
+              "See PSFS",
+              "- See PSFS"
+            ],
+            "inline": false,
+            "oldKey": "- See PSFS abov",
+            "newKey": "- See PSFS above",
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "pt_goals",
+            "type": "textmulti",
+            "display": "Patient goals (numbered)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "field": "pt_goals_PSFS",
+                  "not-equals": "- See PSFS above"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "goals_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Therapy goals:<br>",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "goals",
+            "type": "textmulti",
+            "display": "PT goals (SMART, prioritised)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Initial assessment"
+            }
+          },
+          {
+            "placeholder": "goals_update_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Update on therapy goals:<br>",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Discharge"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "goals_update",
+            "type": "textmulti",
+            "display": "Update on therapy goals (List in full and rate - Achieved, Ongoing, Reconciled, Community, etc.)",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Discharge"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "new_title_1728019245966",
+            "type": "title",
+            "display": "TREATMENT PROVIDED TODAY",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "TREATMENT PROVIDED TODAY",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "not-equals": []
+            }
+          },
+          {
+            "placeholder": "TREATMENT_title",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>TREATMENT PROVIDED TODAY<br>",
+            "inline": false,
+            "condition": {
+              "field": "",
+              "equals": ""
+            }
+          },
+          {
+            "type": "checkbox",
+            "placeholder": "treatment_init",
             "display": "Treatment provided today",
             "options": [
               {
-                "key": "Assessment as above"
+                "key": "Ax a/a",
+                "value": "<br>- Assessment as above // Findings explained to patient"
               },
               {
-                "key": "Explained PT role and expected LOS with service"
+                "key": "Expl PT role & est LOS",
+                "value": "<br>- Explained PT role and expected LOS with service"
               },
               {
-                "key": "Exercises as per AD2865"
+                "key": "HEP created",
+                "value": "<br>- HEP created - provided to patient and copy placed in file"
               },
               {
-                "key": "Handover to nursing team"
+                "key": "Ex's prescribed - AD2865",
+                "value": "<br>- Exercises prescribed as per AD2865"
               },
               {
-                "key": "Handover to medical team"
+                "key": "H/O nursing team",
+                "value": "<br>- Handover to nursing team"
               },
               {
-                "key": "Referral to other allied health"
+                "key": "H/O medical team",
+                "value": "<br>- Handover to medical team"
               },
               {
-                "key": "Referral to AHA"
+                "key": "Ref to other AHP",
+                "value": "<br>- Referral to: "
               },
               {
-                "key": "Other"
+                "key": "Ref to AHA ",
+                "value": "<br>- Referral to AHA for:<br>"
+              },
+              {
+                "key": "Discussed F/U options",
+                "value": "<br>- Discussed follow-up options: "
+              },
+              {
+                "key": "Education",
+                "value": "<br>- Education re: "
+              },
+              {
+                "key": "Other",
+                "value": "<br>- "
               }
             ],
             "condition": {
@@ -1212,9 +4608,20 @@
               "equals": "Initial assessment"
             },
             "default": [
-              "Assessment as above",
-              "Explained PT role and expected LOS with service"
-            ]
+              "",
+              "Referral to AHA",
+              "Education re: ",
+              "Expl PT role & expected LOS with service",
+              "Exercises prescribed as per AD2865",
+              "Ref to other allied health",
+              "Ref to AHA for",
+              "Discussed follow-up options",
+              "Ax a/a // Findings explained to patient"
+            ],
+            "hide": false,
+            "inline": false,
+            "oldKey": "Ref to other AH",
+            "newKey": "Ref to other AHP"
           },
           {
             "type": "checkbox",
@@ -1222,32 +4629,55 @@
             "display": "Treatment provided today",
             "options": [
               {
-                "key": "Assessment as above"
+                "key": "Ax a/a",
+                "value": "<br>- Assessment as above // Findings explained to patient"
               },
               {
-                "key": "Exercises as per AD2865"
+                "key": "Ex's RV'd & adjusted as per AD2865",
+                "value": "<br>- Exercises reviewed and adjusted as per AD2865"
               },
               {
-                "key": "Handover to nursing team"
+                "key": "HEP RV & update",
+                "value": "<br>- HEP review and update- provided to patient and copy placed in file"
               },
               {
-                "key": "Handover to medical team"
+                "key": "H/O nursing team",
+                "value": "<br>- Handover to nursing team"
               },
               {
-                "key": "Referral to other allied health"
+                "key": "H/O medical team",
+                "value": "<br>- Handover to medical team"
               },
               {
-                "key": "Referral to AHA"
+                "key": "Ref to other AHP",
+                "value": "<br>- Referral to: "
               },
               {
-                "key": "Other"
+                "key": "Ref to AHA ",
+                "value": "<br>- Referral to AHA for:<br>"
+              },
+              {
+                "key": "Discussed F/U options",
+                "value": "<br>- Discussed follow-up options: "
+              },
+              {
+                "key": "Education",
+                "value": "<br>- Education re: "
+              },
+              {
+                "key": "Other",
+                "value": "<br>- "
               }
             ],
             "condition": {
               "field": "type_template",
               "equals": "Review"
             },
-            "default": "Assessment as above"
+            "default": [],
+            "hide": false,
+            "inline": false,
+            "oldKey": "Discussed follow-up options",
+            "newKey": "Discussed F/U options"
           },
           {
             "type": "checkbox",
@@ -1255,29 +4685,240 @@
             "display": "Treatment provided today",
             "options": [
               {
-                "key": "Assessment as above"
+                "key": "Ax a/a",
+                "value": "<br>- Assessment as above // Findings explained to patient"
               },
               {
-                "key": "Exercises as per AD2865"
+                "key": "Ex's as per AD2865",
+                "value": "<br>- Exercises as per AD2865"
               },
               {
-                "key": "Handover to nursing team"
+                "key": "HEP RV & update",
+                "value": "<br>- HEP review and update- provided to patient and copy placed in file"
               },
               {
-                "key": "Handover to medical team"
+                "key": "H/O nursing team",
+                "value": "<br>- Handover to nursing team"
               },
               {
-                "key": "Referral to other allied health"
+                "key": "H/O medical team",
+                "value": "<br>- Handover to medical team"
               },
               {
-                "key": "Other"
+                "key": "Ref to AHA ",
+                "value": "<br>- Referral to AHA for:<br>"
+              },
+              {
+                "key": "Discussed F/U options",
+                "value": "<br>- Discussed follow-up: "
+              },
+              {
+                "key": "Education",
+                "value": "<br>- Education re: "
+              },
+              {
+                "key": "Other",
+                "value": "<br>- "
               }
             ],
             "condition": {
               "field": "type_template",
               "equals": "Discharge"
             },
-            "default": "Assessment as above"
+            "default": [],
+            "hide": false,
+            "inline": false,
+            "oldKey": "Education ",
+            "newKey": "Education"
+          },
+          {
+            "placeholder": "treatment_referral_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Referral to: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "or": [
+                    {
+                      "field": "treatment_init",
+                      "equals": "Ref to other AHP"
+                    },
+                    {
+                      "field": "treatment_update",
+                      "equals": "Ref to other AHP"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "placeholder": "treatment_referral",
+            "display": "Which other allied health did you refer to and for what?",
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "field": "type_template",
+                      "equals": "Initial assessment"
+                    },
+                    {
+                      "field": "treatment_init",
+                      "equals": "Ref to other AHP"
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "field": "type_template",
+                      "equals": "Review"
+                    },
+                    {
+                      "field": "treatment_update",
+                      "equals": "Ref to other AHP"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "AHA_ref_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>- Referral to AHA for: ",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "or": [
+                    {
+                      "field": "treatment_init",
+                      "equals": "Ref to AHA "
+                    },
+                    {
+                      "field": "treatment_update",
+                      "equals": "Ref to AHA "
+                    },
+                    {
+                      "field": "treatment_discharge",
+                      "equals": "Ref to AHA "
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "AHA_ref",
+            "type": "text",
+            "display": "What was delegated to the AHA?",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "or": [
+                    {
+                      "field": "treatment_init",
+                      "equals": "Ref to AHA "
+                    },
+                    {
+                      "field": "treatment_update",
+                      "equals": "Ref to AHA "
+                    },
+                    {
+                      "field": "treatment_discharge",
+                      "equals": "Ref to AHA "
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "fu_options",
+            "type": "text",
+            "display": "What was discussed for follow-up options? Did they consent to any referrals?",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "treatment_init",
+                  "equals": "Discussed F/U options"
+                },
+                {
+                  "field": "treatment_update",
+                  "equals": "Discussed F/U options"
+                },
+                {
+                  "field": "treatment_discharge",
+                  "equals": "Discussed F/U options"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "education",
+            "type": "textmulti",
+            "display": "What education was provided?",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "not-equals": []
+                },
+                {
+                  "or": [
+                    {
+                      "field": "treatment_init",
+                      "equals": "Education"
+                    },
+                    {
+                      "field": "treatment_update",
+                      "equals": "Education"
+                    },
+                    {
+                      "field": "treatment_discharge",
+                      "equals": "Education"
+                    }
+                  ]
+                }
+              ]
+            }
           },
           {
             "type": "textmulti",
@@ -1286,7 +4927,7 @@
             "condition": {
               "or": [
                 {
-                  "field": "treatment",
+                  "field": "treatment_init",
                   "equals": "Other"
                 },
                 {
@@ -1301,46 +4942,31 @@
             }
           },
           {
-            "type": "text",
-            "placeholder": "treatment_referral_text",
+            "placeholder": "new_title_1730263000722",
+            "type": "title",
+            "display": "REVIEW/ RECOMMENDATIONS",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "style": "medium",
+            "text": "REVIEW/ RECOMMENDATIONS",
+            "inline": false,
             "condition": {
-              "or": [
-                {
-                  "field": "treatment",
-                  "equals": "Referral to other allied health"
-                },
-                {
-                  "field": "treatment_update",
-                  "equals": "Referral to other allied health"
-                },
-                {
-                  "field": "treatment_discharge",
-                  "equals": "Referral to other allied health"
-                }
-              ]
-            },
-            "default": "Patient was referred to ",
-            "hide": true
+              "field": "type_template",
+              "not-equals": []
+            }
           },
           {
+            "placeholder": "REVIEW_title",
             "type": "text",
-            "placeholder": "treatment_referral",
-            "display": "Which other allied health did you refer to?",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br><br>REVIEW/ RECOMMENDATIONS",
+            "inline": false,
             "condition": {
-              "or": [
-                {
-                  "field": "treatment",
-                  "equals": "Referral to other allied health"
-                },
-                {
-                  "field": "treatment_update",
-                  "equals": "Referral to other allied health"
-                },
-                {
-                  "field": "treatment_discharge",
-                  "equals": "Referral to other allied health"
-                }
-              ]
+              "field": "type_template",
+              "not-equals": []
             }
           },
           {
@@ -1350,8 +4976,9 @@
               "field": "type_template",
               "equals": "Initial assessment"
             },
-            "default": "<br>Anticipated LOS from PT perspective: ",
-            "hide": true
+            "default": "<br><br>Anticipated LOS from PT perspective: ",
+            "hide": true,
+            "inline": false
           },
           {
             "type": "text",
@@ -1363,22 +4990,117 @@
             }
           },
           {
+            "placeholder": "EDD_date_text",
             "type": "text",
-            "placeholder": "discharge_date_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Estimated discharge date: ",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "equals": "Review"
-            },
-            "default": "<br>Estimated discharge date: ",
-            "hide": true
+            }
           },
           {
+            "placeholder": "EDD_date",
             "type": "date",
-            "placeholder": "discharge_date",
-            "display": "Estimated discharge date",
+            "display": "EDD",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
               "field": "type_template",
               "equals": "Review"
+            }
+          },
+          {
+            "placeholder": "EDD_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br>On track for EDD: ",
+            "inline": false,
+            "condition": {
+              "field": "type_template",
+              "equals": "Review"
+            }
+          },
+          {
+            "placeholder": "EDD_radio",
+            "type": "radio",
+            "display": "On track for EDD?",
+            "options": [
+              {
+                "key": "Yes",
+                "value": "Yes. "
+              },
+              {
+                "key": "No",
+                "value": "No - "
+              }
+            ],
+            "hide": false,
+            "default": "",
+            "inline": true,
+            "oldKey": "N",
+            "newKey": "No",
+            "condition": {
+              "field": "type_template",
+              "equals": "Review"
+            }
+          },
+          {
+            "placeholder": "EDD_no",
+            "type": "text",
+            "display": "Why not?",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "EDD_radio",
+                  "equals": "No"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "EDD_yes",
+            "type": "checkbox",
+            "display": "Only if applicable",
+            "options": [
+              {
+                "key": "Physio not to delay discharge",
+                "value": ""
+              }
+            ],
+            "hide": false,
+            "default": [
+              "new_option"
+            ],
+            "inline": false,
+            "oldKey": "Physio not to delay discharg",
+            "newKey": "Physio not to delay discharge",
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "EDD_radio",
+                  "equals": "Yes"
+                }
+              ]
             }
           },
           {
@@ -1396,8 +5118,9 @@
                 }
               ]
             },
-            "default": "<br>Date of next PT review: ",
-            "hide": true
+            "default": "<br><br>Date of next PT review: ",
+            "hide": true,
+            "inline": false
           },
           {
             "type": "date",
@@ -1417,8 +5140,13 @@
             }
           },
           {
+            "placeholder": "plan_text",
             "type": "text",
-            "placeholder": "aha_text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Plan for next PT review: ",
+            "inline": false,
             "condition": {
               "or": [
                 {
@@ -1430,104 +5158,83 @@
                   "equals": "Review"
                 }
               ]
-            },
-            "default": "<br>Ongoing AHA indicated: ",
-            "hide": true
-          },
-          {
-            "type": "radio",
-            "placeholder": "aha",
-            "display": "Ongoing AHA indicated?",
-            "options": [
-              {
-                "key": "Yes"
-              },
-              {
-                "key": "No"
-              }
-            ],
-            "condition": {
-              "or": [
-                {
-                  "field": "type_template",
-                  "equals": "Initial assessment"
-                },
-                {
-                  "field": "type_template",
-                  "equals": "Review"
-                }
-              ]
-            },
-            "inline": "True"
-          },
-          {
-            "type": "dropdown",
-            "placeholder": "aha_frequency",
-            "display": "AHA frequency",
-            "options": [
-              {
-                "key": "Once a day",
-                "value": "Daily visits"
-              },
-              {
-                "key": "Every second day",
-                "value": "Second daily visits"
-              },
-              {
-                "key": "Every third day",
-                "value": "Third daily visits"
-              },
-              {
-                "key": "Twice a week",
-                "value": "Visits twice a week"
-              },
-              {
-                "key": "Every five days",
-                "value": "Visit every five days"
-              },
-              {
-                "key": "Once a week",
-                "value": "Visits once a week"
-              }
-            ],
-            "condition": {
-              "field": "aha",
-              "equals": "Yes"
             }
           },
           {
+            "placeholder": "plan_next",
             "type": "text",
-            "placeholder": "pt_required_text",
+            "display": "Plan for next review",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
             "condition": {
-              "field": "type_template",
-              "equals": "Discharge"
-            },
-            "default": "<br>Ongoing PT required on DC: ",
-            "hide": true
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Initial assessment"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                }
+              ]
+            }
           },
           {
+            "placeholder": "follow_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Follow-up plan: ",
+            "inline": false,
+            "condition": {
+              "or": [
+                {
+                  "field": "type_template",
+                  "equals": "Initial assessment"
+                },
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "follow_radio",
             "type": "radio",
-            "placeholder": "pt_required",
-            "display": "Ongoing PT required on DC",
+            "display": "Follow-up plan",
             "options": [
               {
-                "key": "Yes"
+                "key": "TBC - no suggestion",
+                "value": "To be confirmed. "
               },
               {
-                "key": "No"
+                "key": "TBC - with suggestions",
+                "value": "To be confirmed - ? "
+              },
+              {
+                "key": "Confirmed",
+                "value": "Confirmed - "
               }
             ],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "oldKey": "Confirme",
+            "newKey": "Confirmed",
             "condition": {
               "field": "type_template",
-              "equals": "Discharge"
-            },
-            "inline": "True"
+              "not-equals": []
+            }
           },
           {
             "type": "select",
             "placeholder": "pt_required_options",
             "default": [],
-            "display": " ",
+            "display": " Follow-up options",
             "options": [
               {
                 "key": "PAC PT"
@@ -1557,9 +5264,19 @@
                 "key": "Other"
               }
             ],
+            "hide": false,
+            "inline": false,
             "condition": {
-              "field": "pt_required",
-              "equals": "Yes"
+              "or": [
+                {
+                  "field": "follow_radio",
+                  "equals": "TBC - with suggestions"
+                },
+                {
+                  "field": "follow_radio",
+                  "equals": "Confirmed"
+                }
+              ]
             }
           },
           {
@@ -1609,7 +5326,7 @@
             "display": "DC summary completed",
             "options": [
               {
-                "key": "Yes see AD0415"
+                "key": "Yes - see AD0415"
               },
               {
                 "key": "No"
@@ -1621,15 +5338,120 @@
             "condition": {
               "field": "type_template",
               "equals": "Discharge"
+            },
+            "hide": false,
+            "default": "Yes see AD0415",
+            "inline": false,
+            "oldKey": "Yes -see AD0415",
+            "newKey": "Yes - see AD0415"
+          },
+          {
+            "placeholder": "falls_recs_text",
+            "type": "text",
+            "display": "",
+            "options": [],
+            "hide": true,
+            "default": "<br><br>Falls prevention recommendations:",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
+                }
+              ]
             }
           },
           {
-            "type": "textmulti",
-            "placeholder": "plan",
-            "display": "Plan",
+            "placeholder": "falls_recs_checkbox",
+            "type": "checkbox",
+            "display": "Falls prevention recommendations",
+            "options": [
+              {
+                "key": "Appropriate clothing",
+                "value": "<br>- Appropriate clothing"
+              },
+              {
+                "key": "Appropriate footwear",
+                "value": "<br>- Appropriate footwear"
+              },
+              {
+                "key": "Phone/ personal alarm in reach",
+                "value": "<br>- Phone/ personal alarm in reach"
+              },
+              {
+                "key": "Gait aid in reach at all times",
+                "value": "<br>- Gait aid in reach at all times"
+              },
+              {
+                "key": "Clutter reduced/ removed",
+                "value": "<br>- Clutter reduced/ removed"
+              },
+              {
+                "key": "24/7 supervision by family/ carer",
+                "value": "<br>- 24/7 supervision by family/ carer"
+              },
+              {
+                "key": "Regular toileting schedule",
+                "value": "<br>- Regular toileting schedule"
+              },
+              {
+                "key": "Patient & carer education",
+                "value": "<br>- Patient & carer education"
+              },
+              {
+                "key": "Equipment review (ref to OT)",
+                "value": "<br>- Equipment review (flagged with OT)"
+              },
+              {
+                "key": "Other/ comments",
+                "value": "<br>- "
+              }
+            ],
+            "hide": false,
+            "default": [
+              "Equipment ",
+              "new_option"
+            ],
+            "inline": false,
+            "oldKey": "Other/ comment",
+            "newKey": "Other/ comments",
             "condition": {
-              "field": "type_template",
-              "not-equals": []
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "reason_review_radio",
+                  "equals": "Post fall"
+                }
+              ]
+            }
+          },
+          {
+            "placeholder": "falls_recs_other",
+            "type": "textmulti",
+            "display": "Other/ comments for falls recommendations",
+            "options": [],
+            "hide": false,
+            "default": "",
+            "inline": false,
+            "condition": {
+              "and": [
+                {
+                  "field": "type_template",
+                  "equals": "Review"
+                },
+                {
+                  "field": "falls_recs_checkbox",
+                  "equals": "Other/ comments"
+                }
+              ]
             }
           }
         ]
