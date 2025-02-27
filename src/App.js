@@ -620,8 +620,8 @@ const handleLeftClick = (event) => {
                     ref={textareaRef}
                     value={htmlToText(pattern)}
                     onChange={handlePatternChange}
-                    onContextMenu={handleRightClick}
-                    onClick={handleLeftClick}
+                    //onContextMenu={handleRightClick}
+                    //onClick={handleLeftClick}
                     className="sticky-top"
                   />
                   <input
