@@ -269,6 +269,7 @@ function Container() {
     }));
   }
 
+  // eslint-disable-next-line no-unused-vars
   function handleRightClick(event) {
     event.preventDefault();
     const placeholders = templateData.variables.map(v => v.definition.placeholder);
@@ -348,6 +349,7 @@ function Container() {
   }
   
   
+// eslint-disable-next-line no-unused-vars
 const handleLeftClick = (event) => {
   if (!editMode) return;
 
