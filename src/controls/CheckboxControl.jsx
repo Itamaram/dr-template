@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Col, FormCheck, FormGroup, FormLabel, Row, FormControl, Button } from 'react-bootstrap';
+import React, {useRef, useEffect } from 'react';
+import { Col, FormCheck, FormGroup, FormLabel, Row} from 'react-bootstrap';
 import DraggableVariable from '../DraggableVariable'; // Ensure correct import
 
 function CheckboxControl(props) {
@@ -9,61 +9,6 @@ function CheckboxControl(props) {
   const update = ({ checked, value }) => {
     if (checked) return values.concat({ value });
     return values.filter(v => v.value !== value);
-  };
-
-  const handleOptionChange = (index, field, value) => {
-    const oldKey = options[index].key;
-    const updatedOptions = options.map((opt, i) => (i === index ? { ...opt, [field]: value } : opt));
-    const updatedFields = { options: updatedOptions };
-
-    if (field === 'key') {
-      updatedFields.oldKey = oldKey;
-      updatedFields.newKey = value;
-    }
-
-    editControl(placeholder, display, definition.hide, defaultValues, placeholder, definition.condition, updatedFields);
-  };
-
-  const handleAddOption = () => {
-    const updatedOptions = [...options, { key: 'new_option', value: 'New Option' }];
-    editControl(placeholder, display, definition.hide, defaultValues, placeholder, definition.condition, { options: updatedOptions });
-  };
-
-  const handleRemoveOption = index => {
-    const optionToRemove = options[index];
-    const oldKey = optionToRemove.key;
-
-    // Check if the key is used in any conditions
-    const isKeyUsedInConditions = variables.some(variable => {
-      const condition = variable.definition.condition;
-      return condition && JSON.stringify(condition).includes(`"field":"${placeholder}"`) && JSON.stringify(condition).includes(`"equals":"${oldKey}"`);
-    });
-
-    if (isKeyUsedInConditions) {
-      const shouldDeleteConditions = window.confirm(`The key "${oldKey}" is used in conditions. Do you want to proceed? This will delete all conditions related to this key`);
-
-      let action;
-      if (shouldDeleteConditions) {
-        action = 'remove';
-      } else {
-        return;
-      }
-
-      const updatedOptions = options.filter((_, i) => i !== index);
-      const newDefaultValues = defaultValues.filter(value => value !== oldKey);
-      editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, { options: updatedOptions, oldKey, newKey: '' }, action);
-    } else {
-      const updatedOptions = options.filter((_, i) => i !== index);
-      const newDefaultValues = defaultValues.filter(value => value !== oldKey);
-      editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, { options: updatedOptions });
-    }
-  };
-
-  const handleDefaultChange = key => {
-    const newDefaultValues = defaultValues.includes(key)
-      ? defaultValues.filter(value => value !== key)
-      : [...defaultValues, key];
-    editControl(placeholder, display, definition.hide, newDefaultValues, placeholder, definition.condition, {});
   };
 
   const option = o => (
@@ -89,7 +34,7 @@ function CheckboxControl(props) {
       isFirstRender.current = false;
     }
     prevEditMode.current = editMode;
-  }, [editMode, defaultValues, onChange, options]); // Added missing dependencies
+  }, [editMode, defaultValues, onChange, options]);
 
   if (editMode) {
     return (
@@ -102,38 +47,12 @@ function CheckboxControl(props) {
         editControl={editControl}
         placeholders={placeholders}
         deleteVariable={deleteVariable} // Pass deleteVariable function
-        showModels={['display', 'condition', 'placeholder']} // Specify which models to show
+        showModels={['display', 'condition', 'placeholder', 'options']} // Specify which models to show
         variables={variables} // Pass variables to DraggableVariable
         selectedVariable={selectedVariable} // Pass selectedVariable
         setSelectedVariable={setSelectedVariable} // Pass setSelectedVariable
         controlType="Checkbox" // Pass control type
       >
-        <FormGroup>
-          {options.map((o, i) => (
-            <Row key={i} onClick={() => handleDefaultChange(o.key)} style={{ cursor: 'pointer', backgroundColor: defaultValues.includes(o.key) ? 'lightblue' : 'inherit' }}>
-              <Col>
-                <FormControl
-                  type="text"
-                  value={o.key}
-                  onChange={(e) => handleOptionChange(i, 'key', e.target.value)}
-                  placeholder="Key"
-                />
-              </Col>
-              <Col>
-                <FormControl
-                  type="text"
-                  value={o.value}
-                  onChange={(e) => handleOptionChange(i, 'value', e.target.value)}
-                  placeholder="Value"
-                />
-              </Col>
-              <Col>
-                <Button variant="danger" onClick={() => handleRemoveOption(i)}>Remove</Button>
-              </Col>
-            </Row>
-          ))}
-          <Button variant="primary" onClick={handleAddOption}>Add Option</Button>
-        </FormGroup>
       </DraggableVariable>
     );
   }
